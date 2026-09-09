@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>구글 &quot;제3자 캐파 확대&quot; 발언 정밀 분석 — 포트폴리오 관측 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="mast"><a class="mast-name" href="../index.html">포트폴리오 관측 기록</a><span class="mast-meta">분석</span></header>
+
+<p class="doc-when">2026년 7월 23일</p>
+
+<h1 class="doc-title">구글 &quot;제3자 캐파 확대&quot; 발언 정밀 분석</h1>
+
+<div class="doc-lede">
+<p>2026-07-23-alphabet-gev-verdict.md의 심화. 구글 CFO의 &quot;Q3 제3자 캐파 확대&quot; 발언의 정확한 맥락, 구글의 기존 외부 인프라 활용 이력(선례), 수혜 경로 지도. 결론: <strong>새 정책이 아니라 이미 가동 중인 전략의 공식 인정 + 가속 선언</strong>이며, 수혜는 &quot;GPU 진영&quot;과 &quot;TPU 진영&quot;으로 갈라진다 — IREN은 GPU 진영의 직접 수혜 후보.</p>
+<p>용어 정리: 발언의 대상은 CPU가 아니라 <strong>AI 컴퓨트 캐파 전반(GPU/TPU 랙 + 데이터센터 전력·공간)</strong>.</p>
+</div>
+
+<nav class="toc" aria-labelledby="toc-h">
+<h2 class="toc-title" id="toc-h">이 문서의 구성</h2>
+<ol>
+<li><a href="#s1">① 발언의 정확한 내용과 맥락 (공식)</a></li>
+<li><a href="#s2">② 이것은 새 정책이 아니다 — 구글의 기존 플레이북 (선례 지도)</a></li>
+<li><a href="#s3">③ 수혜 지도 — GPU 진영 vs TPU 진영 (핵심 구조)</a></li>
+<li><a href="#s4">④ 리스크 각도 (반대편 점검)</a></li>
+<li><a href="#s5">판단 (참고용)</a></li>
+<li><a href="#s6">다음 체크포인트 (추가)</a></li>
+</ol>
+</nav>
+
+<h2 class="origin-title">원본 기록</h2>
+
+<article class="prose">
+<h2 id="s1">① 발언의 정확한 내용과 맥락 (공식)</h2>
+<p>CFO Anat Ashkenazi, Q2 실적 콜:</p>
+<blockquote>
+<p><strong>&quot;공급 제약 환경을 감안해, 자체 캐파를 증설하는 동안의 브리징 전략으로 Q3에 제3자 캐파 사용을 확대할 계획이다.&quot;</strong>
+&quot;이 전략은 고객 기반을 계속 키우고 전체 가치를 더 많이 확보하게 해준다. 다만 <strong>단기적으로 완만한 마진 압박</strong>을 만들 것이다.&quot;</p>
+</blockquote>
+<p>해석 포인트 3개:</p>
+<ol>
+<li><strong>수요 &gt; 공급의 공식 인정</strong>: &quot;3년간 캐파를 크게 늘렸는데도 수요가 투자를 앞지른다&quot; — 클라우드 백로그 $462B(분기 2배)가 이 발언의 배경</li>
+<li><strong>마진을 희생하고라도 수요를 잡겠다는 선언</strong>: 외부 임차는 자체 구축보다 비싸다. 그 비용을 감수한다 = <strong>지금 가격 결정력은 캐파 보유자에게 있다</strong>는 자백</li>
+<li>발언 직후 <a href="https://www.benzinga.com/trading-ideas/movers/26/07/60627122/alphabet-cfo-says-demand-still-outpaces-capacity-ai-infrastructure-stocks-rise">네오클라우드 주식이 상승</a> — 시장도 같은 독해</li>
+</ol>
+<h2 id="s2">② 이것은 새 정책이 아니다 — 구글의 기존 플레이북 (선례 지도)</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>시기</th>
+<th>행동</th>
+<th>규모</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2025~</td>
+<td><strong>Fluidstack 딜</strong>: TPU를 Fluidstack이 운영(TeraWulf NY DC 임차). 구글이 <strong>리스 백스톱 $3.2B + 지분 ~14%</strong> 취득</td>
+<td>Fluidstack 기업가치 $18B</td>
+</tr>
+<tr>
+<td>2026</td>
+<td>Fluidstack이 <strong>Anthropic TPUv7 40만개(~$10B 랙) 배치 운영</strong> — Broadcom이 Anthropic에 직판, Fluidstack이 설치·운영</td>
+<td>Anthropic 딜 총 $50B 보도</td>
+</tr>
+<tr>
+<td>2026</td>
+<td>구글, TPU를 네오클라우드에 직접 공급 타진 (Crusoe·CoreWeave 접촉 보도)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2026-05</td>
+<td><strong>구글+Blackstone 신규 네오클라우드 JV</strong> 보도 — BX $5B 에쿼티, 구글이 TPU·소프트웨어 공급, 2027년까지 500MW</td>
+<td>$5B+</td>
+</tr>
+<tr>
+<td>비교 선례</td>
+<td><strong>MSFT: 네오클라우드에 $60B+ 커밋</strong> (최대 딜 Nscale $23B, GB300 20만개) — 하이퍼스케일러의 외부 임차는 이미 업계 표준</td>
+<td>$60B+</td>
+</tr>
+</tbody></table></div>
+<p>→ 이번 발언은 &quot;이 플레이북을 Q3에 <strong>가속</strong>하겠다&quot;는 뜻. 하이퍼스케일러 4사 중 MSFT(IREN $9.7B 포함 $60B+)에 이어 구글이 외부 임차 확대를 공식화 — META·AMZN의 유사 발언 여부가 다음 실적 콜 관전 포인트.</p>
+<h2 id="s3">③ 수혜 지도 — GPU 진영 vs TPU 진영 (핵심 구조)</h2>
+<p>SemiAnalysis가 짚은 업계 구조: <strong>NVIDIA가 투자한 네오클라우드(CoreWeave, Nebius, Crusoe, Together, Lambda, Nscale 등)는 TPU·AMD 등 경쟁 실리콘을 호스팅하지 않을 유인</strong>이 있다. 그래서 시장이 둘로 갈라진다:</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>진영</th>
+<th>수요 원천</th>
+<th>플레이어</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>GPU 임차</strong> (구글이 GPU 캐파를 빌리는 경로)</td>
+<td>구글 클라우드의 NVIDIA GPU 고객 수요 + 자체 워크로드 브리징</td>
+<td>CoreWeave, Nebius, <strong>IREN</strong>, Nscale 등</td>
+</tr>
+<tr>
+<td><strong>TPU 호스팅</strong> (구글 실리콘을 남의 DC에서)</td>
+<td>구글 TPU 외판 + Anthropic류 대형 고객</td>
+<td><strong>Fluidstack</strong>(독점적 지위) + 채굴 전환 DC(TeraWulf, Cipher류)</td>
+</tr>
+</tbody></table></div>
+<h3>IREN 관점의 정밀 판독</h3>
+<ul>
+<li>IREN은 NVIDIA가 $2.1B을 약정하고 $3.4B 계약을 맺은 <strong>GPU 진영 핵심</strong> — 구글의 GPU 임차 수요가 커지면 직접 수혜 후보</li>
+<li>흥미로운 연결고리: <strong>IREN의 신규 고객 명단에 Fluidstack이 있다</strong> — TPU 진영의 핵심 운영사가 IREN의 캐파를 빌린다는 것. 하이퍼스케일러/프런티어 수요가 Fluidstack 같은 중개층을 거쳐 IREN에 도달하는 경로가 이미 열려 있음 (7/21 심층 문서에서 &quot;재하청 구조 주의&quot;로 봤던 것이 실은 <strong>수요 전달 파이프</strong>의 성격도 있다는 재해석)</li>
+<li>단, 구글 직계약의 현실성: 구글은 자체 DC 설계 기준이 까다로워 임차 시에도 백스톱+지분 방식(Fluidstack 모델)을 선호 — IREN이 구글과 직접 계약하려면 MSFT 때처럼 전용 캠퍼스 방식이 필요할 것. &quot;구글발 수혜&quot;는 직계약보다 <strong>섹터 전체 임차 단가·가동률 상승</strong> 경로가 현실적</li>
+</ul>
+<h2 id="s4">④ 리스크 각도 (반대편 점검)</h2>
+<ol>
+<li><strong>&quot;브리징&quot;의 시한성</strong>: CFO 스스로 &quot;자체 캐파 구축 전까지&quot;라 했다 — 구글 자체 DC가 2027<del>28년 대량 준공되면 외부 임차는 축소될 수 있는 <strong>경기순환적 수요</strong>. 네오클라우드의 장기 계약(4</del>5년)이 이 리스크의 헤지</li>
+<li><strong>구글+Blackstone JV의 이면</strong>: 구글이 외부 캐파를 &quot;빌리는&quot; 동시에 &quot;만들고&quot; 있다 — JV 500MW는 장기적으로 네오클라우드의 경쟁 공급이 됨</li>
+<li>마진 압박 발언은 하이퍼스케일러 주주에겐 부담 — &quot;beat도 팔리는&quot; 채점의 재료 (7/23 판정 문서와 동일 맥락)</li>
+</ol>
+<h2 id="s5">판단 (참고용)</h2>
+<p>이 발언의 포트폴리오 함의는 IREN 신호등의 <strong>배경 개선 누적</strong>이다: MSFT $60B+ 선례 → 구글 공식 가세 → (다음: META·AMZN 발언 확인). &quot;하이퍼스케일러가 네오클라우드의 고객이 된다&quot;는 구조 전환이 2개사째 공식화됐고, 이는 IREN의 $2.8B 계약·선수금 45% 같은 조건 개선(가격 결정력)의 거시적 원인. 단 🟢 상향 관문은 변함없이 <strong>Horizon 1 인도 증명</strong> — 수요 환경이 아무리 좋아도 실행 관문은 대체 불가.</p>
+<h2 id="s6">다음 체크포인트 (추가)</h2>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>META·AMZN 실적 콜(7월 말~8월 초)의 &quot;제3자 캐파&quot; 발언 여부</strong> — 3~4개사째 공식화 시 구조 전환 확정</li>
+<li><input disabled="" type="checkbox"> 구글 Q3 제3자 임차의 실제 계약처 공개 여부 (IREN 직접 수혜 검증)</li>
+<li><input disabled="" type="checkbox"> 구글+Blackstone JV 진행 — 2027년 500MW의 경쟁 공급 시간표</li>
+<li><input disabled="" type="checkbox"> Fluidstack 경유 수요의 IREN 계약 비중 (9/16 실적 콜 질문 예상)</li>
+</ul>
+<hr>
+<h3>출처</h3>
+<ul>
+<li><a href="https://www.cnbc.com/2026/07/22/google-earnings-q2-goog-live-updates.html">CNBC — Alphabet 실적 라이브(CFO 발언 원문)</a> / <a href="https://www.benzinga.com/trading-ideas/movers/26/07/60627122/alphabet-cfo-says-demand-still-outpaces-capacity-ai-infrastructure-stocks-rise">Benzinga — 발언에 AI 인프라주 상승</a></li>
+<li><a href="https://newsletter.semianalysis.com/p/tpuv7-google-takes-a-swing-at-the">SemiAnalysis — TPUv7 분석: NVIDIA 진영의 TPU 호스팅 공백과 Fluidstack</a> / <a href="https://www.datacenterdynamics.com/en/news/google-offers-its-tpus-to-ai-cloud-providers-report/">DCD — 구글, 네오클라우드에 TPU 공급 타진</a> / <a href="https://tech-insider.org/fluidstack-18-billion-valuation-anthropic-neocloud-2026/">Tech Insider — Fluidstack $18B 밸류·Anthropic $50B 딜</a></li>
+<li>커뮤니티(X): <a href="https://x.com/StockSavvyShay/status/2056534269594624004">구글+Blackstone $5B 네오클라우드 JV 보도</a> / <a href="https://x.com/wallstengine/status/1985753599595725228">MSFT 네오클라우드 $60B+ 커밋 (Bloomberg 인용)</a></li>
+<li><a href="https://app.dealroom.co/news/note/the-neocloud-boom-coreweave-nebius-and-iren-scorecard">Dealroom — CRWV/NBIS/IREN 스코어카드</a> / <a href="https://www.thediligencestack.com/p/neoclouds-and-the-three-business">Diligence Stack — 하이퍼스케일러가 네오클라우드를 쓰는 3가지 이유</a></li>
+</ul>
+
+</article>
+
+<nav class="pager"><a href="2026-07-23-alphabet-gev-verdict.html"><span class="pager-when">7월 23일</span><span class="pager-title">Alphabet·GEV 더블헤더 판정</span></a><a href="2026-07-24-kospi-oil-crash-starship13.html"><span class="pager-when">7월 24일</span><span class="pager-title">KOSPI 유가발 재급락 + Starship 13 성공 — 2026-07-24 (2보)</span></a></nav>
+</div>
+</body>
+</html>

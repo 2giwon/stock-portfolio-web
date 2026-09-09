@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IREN 베어 케이스 (레드팀) — 포트폴리오 관측 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="mast"><a class="mast-name" href="../index.html">포트폴리오 관측 기록</a><span class="mast-meta">분석</span></header>
+
+<p class="doc-when">2026년 7월 19일</p>
+
+<h1 class="doc-title">IREN 베어 케이스 (레드팀)</h1>
+
+<div class="doc-lede">
+<p>⚠️ <strong>의도적으로 한쪽(하락) 논리만 구축한 레드팀 문서.</strong> 보유 논지의 맹점을 드러내는 것이 목적이며 균형 잡힌 판단이 아니다. 불 케이스(7/16 촉매 문서, /stock 링 분석)와 반드시 함께 읽을 것.</p>
+<p>데이터 기준: 2026-07-17 종가 $34.17, 시총 ~$13.9B (stockanalysis.com / 웹 검색, 7/19 수집). 월간 -41%.</p>
+</div>
+
+<nav class="toc" aria-labelledby="toc-h">
+<h2 class="toc-title" id="toc-h">이 문서의 구성</h2>
+<ol>
+<li><a href="#s1">베어 명제 (3문장)</a></li>
+<li><a href="#s2">베어 케이스 강도 스코어</a></li>
+<li><a href="#s3">밸류에이션 — &quot;조정 후에도 싸지 않다&quot; (1.2/2)</a></li>
+<li><a href="#s4">펀더멘털 — &quot;매출보다 손실이 빨리 자란다&quot; (1.2/2)</a></li>
+<li><a href="#s5">회계·이익의 질 — &quot;조정 지표의 마법&quot; (1.0/2)</a></li>
+<li><a href="#s6">경쟁·구조적 위협 — 베어 케이스의 핵심 (1.5/2)</a></li>
+<li><a href="#s7">경영진·자본배분 — &quot;실행 증명 전에 보상부터&quot; (0.8/1)</a></li>
+<li><a href="#s8">하방 촉매 캘린더</a></li>
+<li><a href="#s9">하방 정량화</a></li>
+<li><a href="#s10">베어 논지 킬러 (필수 — 무엇이 베어를 무너뜨리나)</a></li>
+<li><a href="#s11">🔥 포트폴리오 히트 점검</a></li>
+<li><a href="#s12">판정 (참고용)</a></li>
+<li><a href="#s13">다음 체크포인트 (베어 검증용)</a></li>
+</ol>
+</nav>
+
+<h2 class="origin-title">원본 기록</h2>
+
+<article class="prose">
+<h2 id="s1">베어 명제 (3문장)</h2>
+<p>IREN은 <strong>단일 고객(Microsoft)의 계약서 한 장을 담보로 조 단위 부채를 쌓아 올린 실행 미검증 건설 프로젝트</strong>이며, 그 고객이 속한 하이퍼스케일러 진영은 이번 주(Kimi K3) 시장이 목격했듯 capex를 재고할 수 있는 위치에 있다. 경영진은 실행을 증명하기 전에 **$836M 자기 보상(RSU)**부터 승인했고, 회사의 순손실은 분기 $247.8M로 확대 중이며, 랙스케일 운영 능력의 제3자 인증(GB300 Exemplar)에서는 Nebius·Nscale에 이미 추월당했다. 금리 인상 사이클(9월 인상 확률 73%)에서 이런 자본 소모형 모델의 멀티플은 구조적으로 압축되며, Horizon 1이 9월 말까지 인도되지 못하면 -40% 조정은 바닥이 아니라 중간 기착지가 된다.</p>
+<h2 id="s2">베어 케이스 강도 스코어</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>기둥</th>
+<th>배점</th>
+<th>점수</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>밸류에이션 스트레치</td>
+<td>0–2</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>펀더멘털 악화</td>
+<td>0–2</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>회계·이익의 질 적신호</td>
+<td>0–2</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>경쟁·구조적 위협</td>
+<td>0–2</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>경영진·자본배분</td>
+<td>0–1</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>촉매 명확성·타이밍</td>
+<td>0–1</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td><strong>합계 (베어 강도)</strong></td>
+<td></td>
+<td><strong>6.5 / 10 — Strong</strong></td>
+</tr>
+</tbody></table></div>
+<p><em>6.1–8.0 = Strong: 독립적인 부정 요인 다수. (참고: 이 점수는 &quot;베어 논리가 얼마나 강한가&quot;이며, 표준 시그널 스케일로는 ~3.5/10 Moderately Bearish에 대응)</em></p>
+<hr>
+<h2 id="s3">1. 밸류에이션 — &quot;조정 후에도 싸지 않다&quot; (1.2/2)</h2>
+<ul>
+<li>TTM 매출 $757M에 시총 $13.9B = <strong>P/S ~18x</strong>, P/E 82.8x. -41% 조정을 겪고도 S&amp;P500 평균의 몇 배</li>
+<li>애널리스트 FY2026 매출 전망은 이미 <strong>$1.01B → $958M로 하향</strong> — 추정치가 내려가는 국면의 고멀티플은 이중 리스크</li>
+<li>현재가가 요구하는 것: 140k GPU 배치 완주 + $3.4B ARR 달성 + Horizon 1~4 무결점 인도 + Sweetwater 2GW 착공 — <strong>모든 것이 계획대로일 때의 가격</strong></li>
+<li>5월 컨버터블 전환가 $73.07, 캡드콜 상단 $110.30 — 두 달 전 자본시장이 프라이싱한 기대와 현재가($34)의 괴리 자체가 내러티브 붕괴의 크기</li>
+</ul>
+<h2 id="s4">2. 펀더멘털 — &quot;매출보다 손실이 빨리 자란다&quot; (1.2/2)</h2>
+<ul>
+<li>Q3 FY26 순손실 <strong>$247.8M로 확대</strong> (전년 대비 악화) — &quot;AI 매출 33배&quot; 헤드라인 뒤의 실제 손익</li>
+<li>그중 $140.4M은 <strong>채굴 하드웨어 조기 폐기 임페어먼트</strong> — 비트코인 채굴 → AI 전환의 청구서. 남은 채굴 자산에 추가 상각 여지</li>
+<li>캡드콜 미실현 손실 $23.7M — 자기 주가 하락이 손익계산서로 역류하는 구조</li>
+<li>현금 $2.6B(4/30) vs 컨버터블 $3.7B + 베어 진영이 주장하는 <strong>총 빌드아웃 자금 갭 ~$21B</strong> (140k GPU + Sweetwater 완주 기준) — 조달 환경(금리 인상기)이 닫히면 성장 계획 자체가 좌초</li>
+<li>GPU 자산의 감가상각 사이클: 5년 계약 기간 내 GPU 세대교체(루빈→후속) 시 잔존가치 리스크는 IREN이 부담</li>
+</ul>
+<h2 id="s5">3. 회계·이익의 질 — &quot;조정 지표의 마법&quot; (1.0/2)</h2>
+<ul>
+<li><strong>순환 파이낸싱</strong>: NVIDIA가 $2.1B을 IREN에 약정(5월 실적 발표와 동시) — GPU 판매자가 GPU 구매 고객에 자금을 대는 구조는 CoreWeave와 동일한 패턴. 수요의 유기성에 대한 의문</li>
+<li>선수금 의존: MSFT 선지급 $1.9B — 매출 인식 전 현금이 먼저 들어오는 구조는 &quot;펀딩 95% 확보&quot; 내러티브를 만들지만, 계약 이행 실패 시 부채로 돌변</li>
+<li>Chanos 지적: $836M RSU는 <strong>FY27~30 누적 예상 조정 순이익($4.7B)의 17%</strong> — &quot;조정&quot; 이익 목표 자체가 주식 보상을 제외한 숫자일 가능성. 임페어먼트를 &quot;일회성&quot;으로 반복 처리하는 패턴 주시</li>
+<li>명백한 부정 신호(감사인 교체, 재작성 등)는 <strong>없음</strong> — 이 기둥이 2점이 아닌 이유</li>
+</ul>
+<h2 id="s6">4. 경쟁·구조적 위협 — 베어 케이스의 핵심 (1.5/2)</h2>
+<ul>
+<li><strong>단일 고객 집중</strong>: $9.7B MSFT 계약이 성장 스토리의 사실상 전부. MSFT는 자체 DC도 짓는 회사 — 네오클라우드는 MSFT의 &quot;임시 캐파 벤더&quot;이며 계약 갱신 협상력은 구조적으로 IREN이 약자</li>
+<li><strong>고객이 경쟁자가 되는 산업</strong>: Meta Compute(잉여 컴퓨트 외판), SoftBank SB Neo($500B/10GW 구상) — 공급이 수요를 쫓아 몰려드는 국면. 2027년 GPU 공급 개선(Micron 전망) 시 스팟 가격 하락 → 후발 계약 조건 악화</li>
+<li><strong>기술 검증 열위</strong>: GB300 NVL72 Exemplar 인증을 Nebius(6월)·Nscale(7월)이 획득, IREN은 미획득. MS 계약 이행의 핵심인 액체냉각 랙스케일 운영 능력이 아직 제3자 검증 안 됨 — 7/17 루머 날짜도 무산</li>
+<li><strong>Kimi K3 시나리오</strong>: 중국발 효율 혁신이 &quot;GPU 시간당 가치&quot;를 떨어뜨리면, GPU 임대업의 단가·가동률 가정이 동시에 무너짐. 하이퍼스케일러 capex 가이던스 하향 한 번이면 섹터 전체 재평가</li>
+<li>비트코인 익스포저 잔존: BTC 하락 시 채굴 부문이 추가 임페어먼트·현금흐름 훼손의 2차 전선</li>
+</ul>
+<h2 id="s7">5. 경영진·자본배분 — &quot;실행 증명 전에 보상부터&quot; (0.8/1)</h2>
+<ul>
+<li>공동 CEO <strong>형제</strong>(Daniel·William Roberts)에게 RSU 1,800만주(~$836M, 발행주식의 ~4.4%) — 실행 검증 국면 한복판에서 승인. Chanos의 공개 공격, -12% 급락일 유발</li>
+<li>같은 시기 <strong>Golden State Warriors 스폰서십</strong> 체결 — $21B 자금 갭을 말하는 회사의 우선순위로서 부적절하다는 비판</li>
+<li>창업자 형제 지배 구조 + 호주 본사/미국 상장의 거버넌스 감시 공백</li>
+<li>의장의 방어 서한(&quot;2033년까지 리텐션&quot;)은 논리적이나, <strong>보상 시점 선택 자체가 주주와의 정보 비대칭을 시사</strong></li>
+</ul>
+<h2 id="s8">6. 하방 촉매 캘린더</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>시기</th>
+<th>촉매</th>
+<th>방아쇠</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7월 말</td>
+<td>먼슬리 업데이트</td>
+<td>H1 지연 시사 시 즉시 재급락 (7/16 문서의 🔴 시나리오)</td>
+</tr>
+<tr>
+<td>7/22</td>
+<td>GE Vernova 실적</td>
+<td>P/E 59배 — 미스 시 &quot;AI 인프라 트레이드&quot; 전체 언와인드, IREN 연쇄</td>
+</tr>
+<tr>
+<td>7월 말~8월 초</td>
+<td>MSFT/META/GOOG 실적 콜</td>
+<td>capex 가이던스 동결·하향 한 마디 = 섹터 디레이팅</td>
+</tr>
+<tr>
+<td>9/16</td>
+<td>FOMC (인상 확률 73%)</td>
+<td>인상 단행 시 자본 소모형 성장주 멀티플 압축</td>
+</tr>
+<tr>
+<td>9/16</td>
+<td>IREN 실적</td>
+<td>H1 미인도 확정 시 베어 케이스 완성</td>
+</tr>
+<tr>
+<td>~9/30</td>
+<td>Horizon 1 공식 시한</td>
+<td><strong>최대 단일 촉매</strong> — 실패 시 $9.7B 계약 신뢰 붕괴</td>
+</tr>
+</tbody></table></div>
+<h2 id="s9">7. 하방 정량화</h2>
+<ul>
+<li>발행주식 ~407M주 기준 (시총 $13.9B ÷ $34.17)</li>
+<li><strong>베이스-베어 (확률 ~35%)</strong>: H1 지연 + 섹터 디레이팅 지속 → FY26E 매출 $958M에 P/S 10<del>12x = 시총 $9.6</del>11.5B → <strong>주가 $24<del>28 (-18</del>-30%)</strong></li>
+<li><strong>시비어-베어 (확률 ~15%)</strong>: H1 실패 + 9월 인상 + BTC 약세 동반 → P/S 6<del>8x = **주가 $15</del>19 (-45~-56%)**</li>
+<li><strong>펀더멘털 바닥</strong>: 전력 자산(2.9GW+ 파이프라인, 490MW 스페인 포함) + 데이터센터 실물 + 현금 $2.6B — 자산 가치가 $15 이하에서는 인수 타깃 프리미엄으로 작동할 가능성 (가정치, 상세 감정 아님)</li>
+<li><strong>리스크/리워드</strong>: 현재가 대비 하방 -30<del>-55% vs 베어가 틀렸을 때 상방(H1 인도 + 인증 획득 시) +50</del>100% (Jefferies $79) — <strong>비대칭이 숏에 유리하지 않음</strong>. 이 베어 케이스의 결론은 &quot;숏 치라&quot;가 아니라 &quot;보유 논지의 하방 폭을 인지하라&quot;</li>
+</ul>
+<h2 id="s10">8. 베어 논지 킬러 (필수 — 무엇이 베어를 무너뜨리나)</h2>
+<ol>
+<li><strong>Horizon 1 정시 인도 + 매출 인식 개시</strong> (7월 말~9월) — 실행 논쟁 종결, 베어 케이스의 심장 제거</li>
+<li><strong>GB300 NVL72 Exemplar 인증 획득</strong> — 기술 열위 내러티브 소멸</li>
+<li><strong>제2의 앵커 고객 계약</strong> (MSFT 외 하이퍼스케일러) — 고객 집중 논리 붕괴</li>
+<li><strong>하이퍼스케일러 capex 가이던스 상향 유지</strong> (7월 말~8월 초 실적 콜) — Kimi K3 공포가 2025 DeepSeek처럼 제본스 역설로 귀결</li>
+<li><strong>9월 인상 무산</strong> (유가 안정 + CPI 둔화 지속) — 멀티플 압축 논리 약화</li>
+</ol>
+<p><strong>숏의 위험</strong>: 네오클라우드는 공매도 잔고가 높은 섹터 — H1 인도 뉴스 한 방이면 스퀴즈. NVIDIA $2.1B 약정 = 전략적 후원자 존재. 전력 자산은 인수 타깃 매력 — 테이크아웃 리스크. 캡드콜 구조상 발행사 헤지 수급도 존재.</p>
+<hr>
+<h2 id="s11">🔥 포트폴리오 히트 점검</h2>
+<p>이 베어 케이스의 기둥 중 <strong>2개(AI capex 피크아웃, 금리 인상)는 SK하이닉스와 완전히 공유</strong>된다 — IREN 베어 시나리오가 현실화되는 세계에서는 하이닉스도 무사하지 못하며, 포트폴리오 2/3가 동시 타격이다. RKLB만 국방예산(전쟁 수혜)으로 부분 격리. 즉 IREN의 진짜 리스크는 종목 리스크가 아니라 <strong>포트폴리오 구조 리스크</strong>로 읽어야 한다.</p>
+<h2 id="s12">판정 (참고용)</h2>
+<p>베어 강도 6.5/10 (Strong) — 표준 시그널로는 <strong>BEARISH / 3.5 / 10</strong>. 단 이것은 의도된 편향 문서다. 균형 관점의 결론: 장기 논지(전력자산·MSFT 계약·투자등급 조달)는 아직 유효하나, <strong>이 베어 케이스가 지목한 시한(9/30 Horizon 1)이 지나면 편향이 아니라 사실이 된다.</strong> 그때까지 신호등 🟡 유지 + 원칙대로 관망. 먼슬리 업데이트에서 지연 시사 시 이 문서를 다시 열 것.</p>
+<h2 id="s13">다음 체크포인트 (베어 검증용)</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 7월 말 먼슬리 업데이트 — H1 진행률 (베어/불 공통 분기점)</li>
+<li><input disabled="" type="checkbox"> 7월 말~8월 초 하이퍼스케일러 capex 가이던스 — 베어 킬러 #4 판정</li>
+<li><input disabled="" type="checkbox"> GB300 Exemplar 인증 뉴스 — 베어 킬러 #2</li>
+<li><input disabled="" type="checkbox"> 9/16 FOMC + IREN 실적 더블 이벤트</li>
+<li><input disabled="" type="checkbox"> RSU 관련 기관 투자자 반발 확산 여부 (위임장 자문사 코멘트)</li>
+</ul>
+<hr>
+<h3>출처</h3>
+<ul>
+<li><a href="https://stockanalysis.com/stocks/iren/statistics/">stockanalysis.com — IREN 밸류에이션 통계</a> / <a href="https://multiples.vc/public-comps/iren-valuation-multiples">Multiples.vc — P/S 24.9x(6월 기준)</a> / <a href="https://simplywall.st/stocks/us/software/nasdaq-iren/iren">Simply Wall St — FY26 매출 전망 하향</a></li>
+<li><a href="https://www.stocktitan.net/sec-filings/IREN/8-k-iren-ltd-reports-material-event-689f3b31460f.html">IREN 8-K — Q3 FY26 순손실 $247.8M·임페어먼트 $140.4M</a> / <a href="https://www.sec.gov/Archives/edgar/data/1878848/000114036126021285/ef20073507_ex99-1.htm">IREN — $3.0B 컨버터블 클로징(1%, 2033, 전환가 $73.07)</a> / <a href="https://www.stocktitan.net/news/IREN/iren-reports-q2-fy26-kw2ckij7k65o.html">StockTitan — $3.6B GPU 파이낸싱 + MSFT 선수금 95% 커버</a></li>
+<li><a href="https://247wallst.com/investing/2026/07/16/iren-just-collapsed-41-in-a-month-is-this-dead-money-or-an-abandoned-gem/">24/7 Wall St — &quot;한 달 -41%, 죽은 돈인가&quot;(7/16, $21B 자금 갭 주장 포함)</a> / <a href="https://finance.biggo.com/news/US_IREN_2026-05-13">BigGo — Q3 실적 콜: NVIDIA $2.1B 약정·순손실 확대</a></li>
+<li><a href="https://www.benzinga.com/markets/equities/26/07/60239339/iren-paradox-cutting-edge-ai-cloud-powerhouse-or-corporate-payout-machine-jim-chanos-sounds-the-alarm-on-new-executive-stock-grant">Benzinga — Chanos RSU 비판</a> / <a href="https://finance.yahoo.com/markets/stocks/articles/iren-nasdaqgs-iren-approves-800-231421785.html">Yahoo — $800M 파운더 보상 + Warriors 스폰서십</a> / <a href="https://blockspace.media/insight/iren-defends-executive-stock-grants-retention-2026/">Blockspace — 의장 방어 서한</a></li>
+<li><a href="https://www.nscale.com/blog/nscale-achieves-nvidia-exemplar-cloud-status-on-nvidia-gb300-nvl72">Nscale — GB300 Exemplar 획득</a> / <a href="https://nebius.com/blog/posts/nebius-achieves-nvidia-exemplar-cloud-on-nvidia-gb300-for-training">Nebius — GB300 Exemplar</a> / <a href="https://io-fund.com/ai-stocks/nvidia-coreweave-nebius-circular-financing-gpu-boom">io-fund — GPU 붐 순환 파이낸싱 구조</a> / <a href="https://www.techtimes.com/articles/319746/20260705/softbank-launches-sb-neo-coreweave-slides-48-energy-new-moat.htm">TechTimes — SoftBank SB Neo</a></li>
+</ul>
+
+</article>
+
+<nav class="pager"><a href="2026-07-16-ring-analysis.html"><span class="pager-when">7월 16일</span><span class="pager-title">에코시스템 링 분석 (1차)</span></a><a href="2026-07-19-war-peakout-shock.html"><span class="pager-when">7월 19일</span><span class="pager-title">전쟁·피크아웃 이중 쇼크</span></a></nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RKLB 베어 케이스 (레드팀) — 포트폴리오 관측 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="mast"><a class="mast-name" href="../index.html">포트폴리오 관측 기록</a><span class="mast-meta">분석</span></header>
+
+<p class="doc-when">2026년 8월 11일</p>
+
+<h1 class="doc-title">RKLB 베어 케이스 (레드팀)</h1>
+
+<div class="doc-lede">
+<p>⚠️ <strong>의도적으로 일방향인 하락 논리 문서다</strong> (bear-case 스킬 산출물). 보유 논지의 맹점을 드러내는 레드팀 목적이며, 균형 잡힌 판단이 아니다. 2026-08-11-rklb-q2-verdict-oil-rebound.md(불/중립 관점)와 반드시 짝으로 읽을 것. Q2 실적 직후 시점 기준. 데이터 출처: StockAnalysis·Robinhood·GuruFocus·Stockcircle·실적 콜 트랜스크립트 (2026-08-11 수집, 주가 $75.40).</p>
+</div>
+
+<nav class="toc" aria-labelledby="toc-h">
+<h2 class="toc-title" id="toc-h">이 문서의 구성</h2>
+<ol>
+<li><a href="#s1">베어 논지 3문장</a></li>
+<li><a href="#s2">베어 케이스 강도 스코어</a></li>
+<li><a href="#s3">상세 논거</a></li>
+<li><a href="#s4">논지 킬러 — 베어가 틀리는 조건 (필수)</a></li>
+<li><a href="#s5">포트폴리오 히트 점검</a></li>
+<li><a href="#s6">Thesis Invalidation</a></li>
+</ol>
+</nav>
+
+<h2 class="origin-title">원본 기록</h2>
+
+<article class="prose">
+<h2 id="s1">베어 논지 3문장</h2>
+<p>RKLB는 TTM 매출 $769M·순손실 -$165M인 회사에 시장이 **$50<del>56B(P/S 68배)**를 지불하고 있으며, 이 가격은 Neutron의 무결점 데뷔 + Iridium 인수 성공 + 국방 예산 지속을 <strong>전부 동시에</strong> 가정해야 정당화된다. 그런데 회사 스스로 연내 첫 발사 윈도우 협소화를 인정했고, 현금 소모는 분기 $84M으로 가속 중이며, CEO를 포함한 내부자들은 최근 90일간 <strong>$896M</strong>을 매도했다. 손익 전환은 빨라야 2028</del>29년(첫 발사 성공 후 18~24개월)인데, beat-and-sell 국면의 시장은 그 기다림에 더 이상 프리미엄을 주지 않기 시작했다.</p>
+<h2 id="s2">베어 케이스 강도 스코어</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>축</th>
+<th>배점</th>
+<th>점수</th>
+<th>근거 요약</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>밸류에이션 스트레치</td>
+<td>0–2</td>
+<td><strong>1.7</strong></td>
+<td>P/S 68배(TTM) — 성공 시나리오 전체가 이미 가격에</td>
+</tr>
+<tr>
+<td>펀더멘털 악화</td>
+<td>0–2</td>
+<td><strong>0.8</strong></td>
+<td>매출은 가속(+62%) — 단 마진·현금흐름은 &quot;의도된&quot; 악화 중</td>
+</tr>
+<tr>
+<td>회계·이익 품질</td>
+<td>0–2</td>
+<td><strong>0.6</strong></td>
+<td>사기 신호 없음. 단 adj EBITDA 의존·SBC·백로그 40%가 미비행 로켓 전제</td>
+</tr>
+<tr>
+<td>경쟁·구조적 위협</td>
+<td>0–2</td>
+<td><strong>1.0</strong></td>
+<td>SpaceX 가격 결정권 + Terran R 연말 데뷔 목표 + Stoke 패드 완공 임박</td>
+</tr>
+<tr>
+<td>경영·자본배분</td>
+<td>0–1</td>
+<td><strong>0.6</strong></td>
+<td>내부자 90일 $896M 매도(CEO 주도, 계획매도), ATM $1.08B 희석 기실행</td>
+</tr>
+<tr>
+<td>촉매 명확성</td>
+<td>0–1</td>
+<td><strong>0.8</strong></td>
+<td>Q4 패드 인도 실물·첫 발사 바이너리·SpaceX 락업 2차 — 시점 명확</td>
+</tr>
+<tr>
+<td><strong>합계</strong></td>
+<td>10</td>
+<td><strong>5.5 — Moderate</strong></td>
+<td>실재하는 적신호 다수, 사기·구조 붕괴급은 아님</td>
+</tr>
+</tbody></table></div>
+<h2 id="s3">상세 논거</h2>
+<h3>1. 밸류에이션 — &quot;이 가격은 이미 완벽을 가정한다&quot;</h3>
+<ul>
+<li>시총 $50<del>56B / TTM 매출 $769M = <strong>P/S 67.7배</strong>. FY26 매출이 가이드 상단(</del>$1B)이어도 50배대, <strong>Iridium 매출 $870M을 다 얹은 FY28 가정(~$2.2B)에도 25배</strong> — 방산 프라임(1~3배)·성숙 우주기업 대비 한 자릿수 배수가 아니라 <strong>십수 배</strong> 프리미엄.</li>
+<li>역산하면: 현 주가는 Neutron이 정시에 날고, 연 수십 회 재사용 체제로 스케일하고, Iridium이 무리 없이 붙고, Golden Dome 예산이 계획대로 집행되는 <strong>4중 성공의 교집합</strong>을 요구한다. 하나만 삐끗해도 멀티플이 방어선이 아니다.</li>
+<li>52주 레인지 $37.57~151.00 — 이 주식은 <strong>1년 안에 -75%와 +300%를 오간 자산</strong>이다. 멀티플 붕괴의 전례가 차트에 이미 있다.</li>
+</ul>
+<h3>2. 펀더멘털 — &quot;성장은 진짜다, 그러나 돈 버는 성장이 아니다&quot;</h3>
+<ul>
+<li>영업현금흐름 Q1 -$50.3M → Q2 <strong>-$84.1M</strong> — 소모 가속을 회사가 가이드로 공식화(Q3도 &quot;elevated&quot;).</li>
+<li>EPS 미스(-$0.08 vs -$0.06) + Q3 EBITDA 가이드 -$17~23M(컨센 -$12M 대비 약 2배 악화).</li>
+<li>마진 구조 역행: 고마진 발사(Electron) 비중 19%로 축소, 저마진 위성 플랫폼 믹스 확대 — &quot;성장할수록 마진이 내려가는&quot; 국면.</li>
+<li>손익 로드맵의 시계: EBITDA 흑자 = 첫 발사 성공 &quot;다음 분기&quot;, FCF 흑자 = 그로부터 18~24개월. <strong>첫 발사가 2027 초로 밀리면 FCF 흑자는 2029년</strong> — 2028 시한 자금에게는 논지 실현이 시한 밖으로 밀리는 그림.</li>
+</ul>
+<h3>3. 이익 품질 — &quot;숫자는 진짜지만, 읽는 법이 있다&quot;</h3>
+<ul>
+<li>사기·회계 조작 신호는 없다 (정직하게 명시). 다만:</li>
+<li>백로그 $2.36B 중 <strong>약 40%가 발사(Launch)</strong> — 상당분이 아직 한 번도 안 난 Neutron 전제. SB-AMTI $397M은 OTA 계약 — 마일스톤 기반, 프로그램 축소·취소가 정치 일정에 노출.</li>
+<li>adj EBITDA 비트(-$8.8M)는 SBC·조정항목 제외 후 숫자 — GAAP 순손실과의 괴리 확대 추세.</li>
+<li>ATM으로 $1.08B 조달(프로그램 종료했지만) — 희석은 이미 발생했고, 첫 발사 지연 시 재개 카드를 배제 못 함.</li>
+</ul>
+<h3>4. 경쟁·구조 — &quot;가격 우산은 SpaceX가 접으면 사라진다&quot;</h3>
+<ul>
+<li>Neutron ASP $50~55M의 경제성은 <strong>SpaceX가 F9을 $74M로 올려준 가격 우산</strong> 아래에서만 성립. Starship이 상업 궤도 서비스에 들어오면 SpaceX는 언제든 우산을 접을 수 있다 — 상대가 가격 결정권자.</li>
+<li><strong>Terran R(재사용 23.5t, Neutron보다 큼) 첫 비행 NET 2026 말</strong> — Neutron이 2027로 밀리면 &quot;유일한 중형 대안&quot; 프리미엄을 데뷔 전에 잃을 수 있다. Stoke Nova(완전 재사용) 패드도 완공 임박.</li>
+<li>Iridium 인수의 이면: 성장 정체된 레거시 콘스텔레이션(연 $870M)을 사서 매출을 &quot;구매&quot;하는 것 — 통합 실패 시 diworsification. 완료도 2027 중반, 주주 승인·규제 심사 두 관문이 남아 있다.</li>
+</ul>
+<h3>5. 경영·자본배분 — &quot;내부자는 지금 가격에 팔고 있다&quot;</h3>
+<ul>
+<li><strong>최근 90일 내부자 매도 약 $896M, 최대 매도자는 벡 CEO</strong> (10b5-1 계획매도가 대부분이라는 완충은 있으나, 규모가 크고 주가 -22% 구간과 겹침).</li>
+<li>창업자가 지배하는 이사회 구조에서 인수(Iridium)·신사업(GHOST) 확장 속도를 견제할 장치가 약하다.</li>
+</ul>
+<h3>6. 촉매와 타임라인 — &quot;무엇이, 언제 방아쇠가 되나&quot;</h3>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>시점</th>
+<th>촉매</th>
+<th>예상 방향/크기</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0~2개월</td>
+<td>SpaceX 락업 2차 트랜치(잔여 80% 순차 해제) — 섹터 수급</td>
+<td>우주 섹터 전반 압박, 1차는 스퀴즈로 소화됐으나 물량은 5배</td>
+</tr>
+<tr>
+<td>~Q4 2026</td>
+<td><strong>Neutron 패드 인도 실물</strong> — 미이행 시</td>
+<td>관문 실패 = 신뢰 이중 훼손, -20~30% 급 리스크</td>
+</tr>
+<tr>
+<td>Q4 2026~Q1 2027</td>
+<td><strong>첫 발사 바이너리</strong> — 실패 시</td>
+<td>폭파·실패 시 -30~50% 전례(중소 발사체 데뷔 실패 사례들)</td>
+</tr>
+<tr>
+<td>2027</td>
+<td>Iridium 주주 승인·규제 — 무산 시</td>
+<td>&quot;3단 수직계열화&quot; 내러티브 붕괴</td>
+</tr>
+<tr>
+<td>구조적</td>
+<td>고멀티플 성장주 디레이팅(beat-and-sell 지속)</td>
+<td>촉매 없이도 P/S 68→30배 수축만으로 반토막</td>
+</tr>
+</tbody></table></div>
+<h3>7. 하락 계량화</h3>
+<ul>
+<li><strong>베이스 베어</strong>: 첫 발사 2027 슬립 + 멀티플 P/S 20배 × FY27 매출 <del>$1.4B(Iridium 제외) = 시총 ~$28B → **주가 $37</del>42 (-45~50%)** — 공교롭게 52주 저점($37.57)과 일치.</li>
+<li><strong>시비어 베어</strong>: 첫 발사 실패 + 섹터 디레이팅 동시 = P/S 12배 × $1.2B = <del>$14B → **주가 ~$19</del>23 (-70%)**.</li>
+<li><strong>바닥 논거(정직한 베어의 의무)</strong>: 현금 $2.4B + 백로그 $2.36B + Electron 흑자 사업 + 국방 스택 — 완전 붕괴 시나리오에서도 자산가치가 $15<del>20B은 방어한다는 반론 존재. 확률 감각: 베이스 베어 30</del>35%, 시비어 10~15% (주관 추정, 참고용).</li>
+</ul>
+<h2 id="s4">논지 킬러 — 베어가 틀리는 조건 (필수)</h2>
+<ol>
+<li><strong>Q4 패드 인도가 실물 사진으로 확인</strong>되고 WDR 일정이 공표되면 — 슬립 리스크 논거 절반 소멸</li>
+<li><strong>첫 발사 성공</strong> — 바이너리가 우호적으로 해소되면 EBITDA 흑자 시계가 돌기 시작, 베어 케이스의 심장이 멎음</li>
+<li>Golden Dome/SB-AMTI <strong>마일스톤 매출 인식이 예정대로 개시</strong> — 백로그 품질 의심 해소</li>
+<li><strong>Terran R가 지연·실패</strong> — &quot;유일 중형 대안&quot; 프리미엄 연장</li>
+<li>SpaceX가 Starship 상업화를 늦추고 <strong>F9 가격 우산 유지</strong> — Neutron 경제성 방어</li>
+</ol>
+<p><strong>가장 강한 불 반론</strong>: &quot;P/S 68배는 TTM 착시 — 백로그 $2.36B가 6주에 $1B씩 붇는 회사의 forward 배수는 다르다.&quot; 베어의 재반박: 그 백로그의 40%가 아직 안 난 로켓 전제이며, 인식 시점은 전부 뒤로 몰려 있다.</p>
+<h2 id="s5">포트폴리오 히트 점검</h2>
+<ul>
+<li>표면적으로 RKLB는 정부예산 축, 하이닉스·IREN은 AI capex 축 — 상관 낮아 보인다.</li>
+<li><strong>그러나 공통 팩터가 하나 있다: &quot;고멀티플 성장주 디레이팅&quot;</strong> (= 지금 진행 중인 beat-and-sell 국면). P/S 68배 RKLB는 이 팩터에 3종목 중 가장 크게 노출. 하이닉스(수출 +155%에도 -16%)·SanDisk(블로우아웃에도 -13%)가 이미 맞은 매를 RKLB는 아직 덜 맞았다(실적 후 -10%로 그침).</li>
+<li><strong>디레이팅 심화 단일 시나리오에 포트폴리오 3종목 전부(100%)가 동시 타격</strong> — 방어 수단은 종목 분산이 아니라 시한 관리(2028)와 현금 성역(전세금 2억) 유지뿐.</li>
+</ul>
+<h2 id="s6">Thesis Invalidation</h2>
+<p><strong>이 베어 시그널이 깨지는 조건:</strong></p>
+<ul>
+<li>Q4 패드 인도 실물 확인 + WDR 일정 공표 (킬러 1)</li>
+<li>첫 발사 성공 (킬러 2)</li>
+<li>Q3 실적에서 EBITDA 가이드 상회 + 현금 소모 피크아웃 확인</li>
+</ul>
+<p><strong>재실행 시점:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Q3 실적 (11월 초 예상)</li>
+<li><input disabled="" type="checkbox"> 주가 ±15% ($64 하회 / $87 상회)</li>
+<li><input disabled="" type="checkbox"> Neutron 패드 인도·WDR·발사 등 실물 이벤트</li>
+<li><input disabled="" type="checkbox"> 60일 경과 (10월 중순)</li>
+</ul>
+<pre><code>╔══════════════════════════════════════════════╗
+║              INVESTMENT SIGNAL               ║
+╠══════════════════════════════════════════════╣
+║ Signal:      NEUTRAL (bear-leaning)          ║
+║ Confidence:  MEDIUM                          ║
+║ Horizon:     MEDIUM-TERM                     ║
+║ Score:       4.3 / 10 (표준 불리시 스케일)      ║
+╠══════════════════════════════════════════════╣
+║ Action:      HOLD (기존 보유 전제)              ║
+║ Conviction:  MODERATE                        ║
+╚══════════════════════════════════════════════╝
+</code></pre>
+<p>베어 강도 5.5/10 = Moderate: 실재하는 적신호(밸류에이션·내부자 매도·바이너리 촉매)가 다수이나, 사기·펀더멘털 붕괴급 논거는 없음. <strong>장기 보유자에게 이 문서의 용도는 매도 신호가 아니라 &quot;논지 파기 조건을 미리 정하는 것&quot;</strong> — 신호등 체계의 🔴 하향 조건(패드 인도 미이행·첫 발사 실패·Iridium 무산)이 이 레드팀으로 재확정됐다.</p>
+<hr>
+<h3>출처</h3>
+<ul>
+<li><a href="https://stockanalysis.com/stocks/rklb/statistics/">StockAnalysis — P/S 67.7배·TTM 매출 $769M·순손실 -$165M</a> / <a href="https://robinhood.com/us/en/stocks/RKLB/">Robinhood — 시총·주가</a> / <a href="https://companiesmarketcap.com/rocket-lab-usa/marketcap/">CompaniesMarketCap — 시총 $50B</a></li>
+<li><a href="https://stockcircle.com/insider-trades/rklb">Stockcircle — 내부자 90일 $896M 매도·벡 CEO 주도</a> / <a href="https://www.gurufocus.com/term/ShortInterest/RKLB">GuruFocus — 공매도 33.3M주</a></li>
+<li><a href="https://www.investing.com/news/transcripts/earnings-call-transcript-rocket-lab-q2-2026-revenue-tops-forecasts-shares-fall-93CH-4850558">실적 콜 트랜스크립트 — 현금 -$84.1M·EBITDA 로드맵·&quot;윈도우 협소&quot; 발언</a></li>
+<li><a href="https://www.nasaspaceflight.com/2026/07/progress-cape-new-pads-stoke-relativity/">NASASpaceflight — Stoke·Relativity 케이프 패드 진척</a> / <a href="https://en.wikipedia.org/wiki/Terran_R">Wikipedia — Terran R NET 2026 말·23.5t 재사용</a></li>
+<li><a href="https://satbase.com/articles/spacex-falcon-9-price-increase-2026">SatBase — F9 $74M 인상·라이드셰어 $7,000/kg</a> / <a href="https://purepowerpicks.com/spacex-lockup-schedule/">PurePowerPicks — SpaceX 락업 스케줄 2026-27</a> / <a href="https://www.fool.com/investing/2026/07/19/spacexs-ipo-lockup-starts-expiring-in-august-heres/">Motley Fool — 락업 2차가 진짜 시험</a></li>
+</ul>
+
+</article>
+
+<nav class="pager"><a href="2026-08-06-sandisk-blowout-lockup-day.html"><span class="pager-when">8월 6일</span><span class="pager-title">SanDisk 블로우아웃 + SpaceX 락업 D-Day</span></a><a href="2026-08-11-rklb-q2-verdict-oil-rebound.html"><span class="pager-when">8월 11일</span><span class="pager-title">RKLB Q2 판정 + 유가 재반등 — 트리거 반쪽 충족 점검</span></a></nav>
+</div>
+</body>
+</html>

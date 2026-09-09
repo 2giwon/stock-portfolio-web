@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 섹터 폭락의 해부 — 6겹의 원인 — 포트폴리오 관측 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="mast"><a class="mast-name" href="../index.html">포트폴리오 관측 기록</a><span class="mast-meta">분석</span></header>
+
+<p class="doc-when">2026년 7월 20일</p>
+
+<h1 class="doc-title">AI 섹터 폭락의 해부 — 6겹의 원인</h1>
+
+<div class="doc-lede">
+<p>사용자 요청: &quot;전쟁·한국시장 각도 말고 AI 섹터 전체의 폭락 원인을 다각도로&quot;. 2026-07-20-war-gap-down-v-recovery.md 보강. 결론: 이번 하락은 단일 원인이 아니라 **수요 내러티브 쇼크 + 실적 시즌 연쇄 실망 + 버블 경고 제도권 확산 + 크레딧 스트레스 + 포지셔닝 언와인드 + 매크로(전쟁·금리)**의 6겹 복합. 그리고 그 안에 하이닉스에 유리한 2차 시그널이 숨어 있음.</p>
+</div>
+
+<section class="brief" aria-labelledby="brief-h">
+<h2 class="brief-title" id="brief-h">요약</h2>
+<div class="brief-signals">
+<div class="brief-signal">
+  <span class="brief-signal-name">SK하이닉스</span>
+  <span class="flag flag-yellow">주의</span>
+  
+</div>
+<div class="brief-signal">
+  <span class="brief-signal-name">IREN</span>
+  <span class="flag flag-yellow">주의</span>
+  
+</div>
+<div class="brief-signal">
+  <span class="brief-signal-name">RKLB</span>
+  <span class="flag flag-yellow">주의</span>
+  
+</div>
+</div>
+<p class="brief-meta">본문 8분 · 미해결 체크포인트 6건 · 출처 25건</p>
+</section>
+
+<nav class="toc" aria-labelledby="toc-h">
+<h2 class="toc-title" id="toc-h">이 문서의 구성</h2>
+<ol>
+<li><a href="#s1">전체 그림 — 7월 AI 섹터 하락의 타임라인</a></li>
+<li><a href="#s2">① 수요 내러티브 쇼크 — Kimi K3 (7/17)</a></li>
+<li><a href="#s3">② 실적 시즌의 &quot;완벽 요구&quot; 연쇄 실패 — beat도 팔리는 시장</a></li>
+<li><a href="#s4">③ 버블 경고의 제도권 확산 — 노이즈에서 시그널로</a></li>
+<li><a href="#s5">④ 크레딧·자금조달 스트레스 — 조용히 켜진 경고등</a></li>
+<li><a href="#s6">⑤ 포지셔닝·수급 — 크라우디드 트레이드의 언와인드</a></li>
+<li><a href="#s7">⑥ 매크로 (기존 확인분) — 전쟁·금리</a></li>
+<li><a href="#s8">반박 증거 — 실물은 아직 꺾이지 않았다</a></li>
+<li><a href="#s9">📌 신호등 요약</a></li>
+<li><a href="#s10">다음 체크포인트</a></li>
+</ol>
+</nav>
+
+<h2 class="origin-title">원본 기록</h2>
+
+<article class="prose">
+<h2 id="s1">전체 그림 — 7월 AI 섹터 하락의 타임라인</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>이벤트</th>
+<th>낙폭</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7/1</td>
+<td>Meta Compute 발표 (잉여 컴퓨트 외판)</td>
+<td>네오클라우드 -15%</td>
+</tr>
+<tr>
+<td>7/7</td>
+<td>삼성전자 잠정실적 — 이익 19배인데 매출 미스</td>
+<td>삼성 -6.9%, 글로벌 칩 연쇄</td>
+</tr>
+<tr>
+<td>7/13</td>
+<td>전쟁 격화 — KOSPI 서킷브레이커</td>
+<td>하이닉스 -15.4%</td>
+</tr>
+<tr>
+<td>7/14</td>
+<td><strong>IBM 프리 어닝 워닝 — 사상 최대 -25%</strong></td>
+<td>$68.8B 증발</td>
+</tr>
+<tr>
+<td>7/16</td>
+<td>TSMC 실적 비트에도 H2 마진 가이던스 약세</td>
+<td>TSMC -7%</td>
+</tr>
+<tr>
+<td>7/17</td>
+<td><strong>Moonshot Kimi K3 공개</strong> + Netflix 미스</td>
+<td>SOX 베어마켓 진입</td>
+</tr>
+<tr>
+<td>7/20</td>
+<td>주말 전쟁 격화 (미군 전사자)</td>
+<td>KOSPI -4% 갭다운 → V자</td>
+</tr>
+</tbody></table></div>
+<h2 id="s2">① 수요 내러티브 쇼크 — Kimi K3 (7/17)</h2>
+<ul>
+<li>Moonshot의 <strong>2.8조 파라미터 오픈 모델</strong> — 사상 최대. GPT-5.6, Claude Fable 5와 코딩·장기 과제에서 대등하다 주장. <strong>이달 말 전체 가중치 공개 예정</strong> → 프런티어급 AI를 누구나 무료 셀프호스팅 가능해짐</li>
+<li>공포의 논리: &quot;유능한 AI가 공짜가 되면 하이퍼스케일러의 ~$700B 지출은 회수 불가&quot; — Apollo 수석 이코노미스트 Torsten Sloek은 경기침체 트리거 가능성까지 경고</li>
+<li>반론(불): 2025년 1월 DeepSeek 쇼크 때도 같은 공포 → 실제로는 제본스 역설로 capex 폭증. 월가는 지금 정확히 이 논쟁으로 양분됨</li>
+<li><strong>판정 이벤트가 코앞: Alphabet 실적 7/22</strong> — Kimi K3 이후 첫 하이퍼스케일러 capex 가이던스</li>
+</ul>
+<h2 id="s3">② 실적 시즌의 &quot;완벽 요구&quot; 연쇄 실패 — beat도 팔리는 시장</h2>
+<ul>
+<li><strong>삼성(7/7)</strong>: 영업이익 19배 급증에도 매출 컨센서스 미스 + 400조원 신규 반도체 허브 투자 부담 → -6.9%. &quot;블록버스터가 이미 주가에 다 반영된&quot; 상태의 전형</li>
+<li><strong>IBM(7/14)</strong>: 매출 3.7% 미스에 <strong>-25%, 1987년 블랙먼데이를 넘는 상장 후 최악의 날</strong>. 시장이 작은 미스에 극단적으로 반응하는 체제임을 증명</li>
+<li><strong>TSMC(7/16)</strong>: 분기 영업이익 +77%에도 H2 마진 가이던스 약세로 -7%</li>
+<li>공통 패턴: <strong>밸류에이션이 &quot;완벽&quot;을 프라이싱한 상태에서는 beat조차 하락 재료</strong> — 이것이 지금 AI 섹터의 구조적 취약점</li>
+</ul>
+<h3>🔍 IBM 폭락의 진짜 원인 — 하이닉스에 유리한 2차 시그널</h3>
+<p>IBM CEO Krishna의 설명: 고객들이 6월 마지막 몇 주에 <strong>소프트웨어·서비스 예산을 서버·스토리지·메모리 선구매로 돌렸다</strong> — 메모리 가격 인상이 예고된 상태라 공급 확보를 서두른 것. 즉 IBM의 -25%는 &quot;AI 수요 붕괴&quot;가 아니라 <strong>&quot;메모리가 기업 IT 예산을 빨아들이는 블랙홀이 됐다&quot;는 증거</strong>다. 이는 /stock 스킬이 정의한 IBM류 2차 시그널의 교과서 사례이며, 방향은 <strong>하이닉스에 호재</strong>(수요 풀포워드 + 가격 결정력 확인). 단, &quot;예산 전쟁&quot;이 심해지면 2027년 수요를 당겨쓰는 것이라는 반론도 병기해둔다.</p>
+<h2 id="s4">③ 버블 경고의 제도권 확산 — 노이즈에서 시그널로</h2>
+<ul>
+<li><strong>Ray Dalio</strong>: 자체 버블 지표가 &quot;2000년·1929년에 근접(도달은 아님)&quot; / <strong>Jamie Dimon</strong>도 경고 대열</li>
+<li><strong>미 재무부 내부 보고서</strong>(초안 유출): AI 시장을 닷컴 버블에 비유 — 행정부 공식 톤과 배치되는 내용이라 파장</li>
+<li>Johns Hopkins Steve Hanke의 <strong>&quot;이중 버블&quot;론</strong>: 밸류에이션 버블(P/E10 39.8 vs 역사 평균 17.7)보다 위험한 것은 <strong>어닝스 기대 자체의 버블</strong> — S&amp;P 장기 EPS 성장 기대 20.2%로 2000년 고점(18.6%) 초과</li>
+<li>반론 진영: Howard Marks·Larry Fink — &quot;고평가는 맞지만 닷컴과 달리 현재 AI 리더들은 실제 현금흐름을 가진 흑자 기업&quot; — 광기 단계는 아니라는 중간 지대</li>
+<li>함의: 버블론이 소수 의견에서 <strong>재무부·최대 은행·최대 헤지펀드의 공식 견해</strong>로 격상 — 랠리 재개에 필요한 심리적 문턱이 높아짐</li>
+</ul>
+<h2 id="s5">④ 크레딧·자금조달 스트레스 — 조용히 켜진 경고등</h2>
+<ul>
+<li>AI 관련 채권 발행 2026년 <strong>$570B 페이스</strong> (5월 말까지 $236B, 전년 동기 4배). 하이일드만 $31.9B</li>
+<li><strong>하이퍼스케일러 채권 청약배수: 2월 ~5배 → 7월 2배 미만</strong> — 수요 소화력이 눈에 띄게 약화</li>
+<li>저등급 하이퍼스케일러 <strong>CDS 스프레드 상승</strong> — 프로젝트 회수 불확실성 반영 시작</li>
+<li>프라이빗 크레딧이 향후 2년 <strong>$800B</strong> 추가 조달 전망 — 불투명·오프밸런스 구조 증가 (BIS도 별도 경고)</li>
+<li><strong>포트폴리오 직결</strong>: IREN 베어 케이스(7/19)의 자금 갭 논리와 정확히 같은 선상. 조달 환경 악화는 네오클라우드에 1차 타격</li>
+</ul>
+<h2 id="s6">⑤ 포지셔닝·수급 — 크라우디드 트레이드의 언와인드</h2>
+<ul>
+<li>Goldman Sachs 프라임 브로커리지: <strong>헤지펀드 4주 연속 미국 테크 순매도</strong> — 반도체·하드웨어가 중심. &quot;beat-and-raise 펀더멘털인데 주가는 분배 패턴 = 과밀 포지션 정리의 정의&quot;</li>
+<li>단, 지수·ETF 익스포저는 유지 — <strong>전면 이탈이 아니라 실적 시즌 앞 단일종목 리스크 축소</strong> (루틴한 리스크 관리 성격)</li>
+<li>자금 이동 방향이 흥미로움: <strong>&quot;GPU 레이어 아래의 메모리·스토리지·물리 인프라로&quot;</strong> — 하이닉스가 속한 메모리는 로테이션의 수혜 쪽</li>
+<li>NVIDIA: 5/14 고점 이후 -16%, <strong>시총 $1T 증발</strong>, 밸류에이션은 프리-AI붐 수준까지 압축(Bloomberg 7/8). 6월 초 며칠 새 AI·칩 전체 $1.3T 증발</li>
+<li>한국 로컬 수급: 신용 반대매매 + 외인·기관 3.9조 순매도 / 우주 섹터는 SpaceX IPO발 자금 이동 (별도 트랙)</li>
+</ul>
+<h2 id="s7">⑥ 매크로 (기존 확인분) — 전쟁·금리</h2>
+<ul>
+<li>미-이란 전면전 접근(미군 전사자 발생), 브렌트 $84<del>87, 9월 인상 확률 73% — 7/19</del>20 문서 참조</li>
+</ul>
+<hr>
+<h2 id="s8">반박 증거 — 실물은 아직 꺾이지 않았다</h2>
+<ul>
+<li>하이퍼스케일러 2026 합산 capex <strong>$725B (+77% YoY)</strong> 가이던스 유지 — 75%가 AI 인프라</li>
+<li>SemiAnalysis: &quot;2026 데이터센터 캐파 절반 취소설&quot;을 정면 반박 — 6개월간 셀프빌드 전망 변동 ~1%. MSFT의 1.5GW 동결도 2027년 이후 물량</li>
+<li>IBM 쇼크의 원인 자체가 &quot;기업들이 메모리를 사재기 중&quot;이라는 증거</li>
+<li>Micron 완판, TSMC capex 상단 유지, GEV 백로그 $163B (기존 확인분)</li>
+</ul>
+<p><strong>종합 해석 (참고용)</strong>: 이번 폭락은 &quot;AI 수요가 꺾였다&quot;는 증거 위에 서 있지 않다. <strong>비싼 밸류에이션 + 과밀 포지션 + 자금조달 피로</strong>가 쌓인 시장에, Kimi K3라는 내러티브 방아쇠와 전쟁·금리라는 매크로 압박이 동시에 당겨진 것. 다만 ③버블 제도권화와 ④크레딧 약화는 단기 반등과 무관하게 <strong>구조적으로 남는 변화</strong> — 이제부터 시장은 실적이 아니라 capex 가이던스를 실적으로 취급한다.</p>
+<h2 id="s9">📌 신호등 요약</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>종목</th>
+<th>신호등</th>
+<th>변화</th>
+<th>한 줄</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SK하이닉스</td>
+<td>🟡</td>
+<td>유지</td>
+<td>폭락 6겹 중 2겹(IBM 시그널, 로테이션 방향)은 오히려 호재 방향. 7/22 실적+Alphabet capex가 판정</td>
+</tr>
+<tr>
+<td>IREN</td>
+<td>🟡</td>
+<td>유지</td>
+<td>④크레딧 스트레스가 가장 아픈 곳 — 청약배수 급락·CDS 상승은 네오클라우드 조달 조건 악화 예고</td>
+</tr>
+<tr>
+<td>RKLB</td>
+<td>🟡</td>
+<td>유지</td>
+<td>AI 폭락과 별개 트랙(SpaceX IPO 수급). 전쟁 격화는 국방 수요 순풍</td>
+</tr>
+</tbody></table></div>
+<p><strong>🔥 포트폴리오 히트</strong>: 6겹 원인 중 ①(capex 내러티브)·③(버블론)·⑥(금리)은 하이닉스·IREN 공통 타격, ④(크레딧)는 IREN 집중 타격, ②(IBM 시그널)·⑤(메모리 로테이션)는 하이닉스에 순풍. <strong>포트폴리오 내에서 하이닉스와 IREN의 리스크 프로파일이 처음으로 갈라지기 시작</strong> — 같은 AI 사이클이지만 메모리(공급 부족·가격 결정력)와 네오클라우드(자본 소모·조달 의존)의 체질 차이가 드러나는 국면.</p>
+<h2 id="s10">다음 체크포인트</h2>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>7/22 트리플헤더: 하이닉스 실적 + GE Vernova 실적 + Alphabet 실적(Kimi K3 후 첫 capex 가이던스)</strong> — 이번 폭락의 1차 판정일</li>
+<li><input disabled="" type="checkbox"> Kimi K3 가중치 실제 공개(이달 말) + 독립 벤치마크 검증 — 주장 대비 실성능</li>
+<li><input disabled="" type="checkbox"> 하이퍼스케일러 채권 청약배수·CDS 추이 — ④크레딧 경고등의 악화/완화</li>
+<li><input disabled="" type="checkbox"> GS 프라임 헤지펀드 플로우 — 순매도 5주째 지속 여부</li>
+<li><input disabled="" type="checkbox"> 재무부 AI 버블 보고서 공식 발간 여부 + 행정부 반응</li>
+<li><input disabled="" type="checkbox"> 7/21 관세청 수출 잠정치 / 7월 말 FOMC / IREN 먼슬리 (이월)</li>
+</ul>
+<hr>
+<h3>출처</h3>
+<p><strong>① Kimi K3</strong></p>
+<ul>
+<li><a href="https://fortune.com/2026/07/17/china-moonshot-kimi-k3-markets-china-ai/">Fortune — 제2의 DeepSeek 쇼크</a> / <a href="https://thenextweb.com/news/kimi-k3-china-ai-tech-rout-selloff">TNW — &quot;셀오프는 이미 장전돼 있었다&quot;</a> / <a href="https://finance.biggo.com/news/d34e9c17-921e-41db-ad69-349d68a16842">BigGo — 월가 양분: 칩 사이클 종료 vs 확장</a> / <a href="https://en.sedaily.com/technology/2026/07/19/chinas-kimi-k3-shakes-us-chip-stocks-weighs-on-samsung-and">서울경제 — Kimi K3가 삼성·하이닉스 압박</a></li>
+</ul>
+<p><strong>② 실적 연쇄</strong></p>
+<ul>
+<li><a href="https://www.cnbc.com/2026/07/14/ibm-warns-second-quarter-earnings-fell-short-of-expectations.html">CNBC — IBM -25% 사상 최악의 날</a> / <a href="https://fortune.com/2026/07/15/why-did-ibm-stock-crash-earnings-bubble-ai-spending/">Fortune — IBM 폭락과 &quot;이중 버블&quot;</a> / <a href="https://www.thestreet.com/investing/ibm-historic-crash-exposes-ai-spending-trap">TheStreet — IBM이 노출한 AI 지출 함정</a></li>
+<li><a href="https://www.cnbc.com/2026/07/07/samsung-electronics-preliminary-second-quarter-profit-hits-fresh-high.html">CNBC — 삼성 잠정실적·capex 우려</a> / <a href="https://www.bloomberg.com/news/articles/2026-07-07/tech-weakness-resumes-after-samsung-misses-lofty-ai-expectations">Bloomberg — 삼성, AI 기대치 미달</a> / <a href="https://finance.yahoo.com/technology/article/samsung-and-ai-chip-stocks-fall-after-19-fold-rise-in-profit-fails-to-impress-investors-120636336.html">Yahoo — 이익 19배에도 하락</a></li>
+</ul>
+<p><strong>③ 버블 논쟁</strong></p>
+<ul>
+<li><a href="https://fortune.com/2026/06/08/ai-boom-tech-stocks-bubble-fears-earnings-growth-chipmakers-ipo/">Fortune — &quot;2026은 1999를 닮아간다&quot;</a> / <a href="https://www.notus.org/economy/treasury-internal-report-warning-dangers-ai-bubble">NOTUS — 재무부 내부 AI 버블 보고서</a> / <a href="https://www.pymnts.com/news/artificial-intelligence/2026/us-treasury-report-warns-ai-bubble-could-trigger-economic-shockwaves/">PYMNTS — 재무부 경고 상보</a> / <a href="https://thehill.com/opinion/finance/5925202-tech-bubble-ai-driven-growth/">The Hill — 밸류에이션 지속가능성</a></li>
+</ul>
+<p><strong>④ 크레딧</strong></p>
+<ul>
+<li><a href="https://www.forbes.com/sites/robertszczerba/2026/07/17/bond-investors-push-back-as-ai-debt-heads-toward-570-billion/">Forbes — AI 부채 $570B, 채권 투자자 반발</a> / <a href="https://finance.yahoo.com/technology/ai/articles/bond-issuance-backing-ai-investment-135635215.html">Yahoo — AI 채권 $250B 돌파, 수요 한계 시험</a> / <a href="https://www.bis.org/publ/qtrpdf/r_qt2603u.htm">BIS — AI 인프라 조달 구조 보고서</a> / <a href="https://www.bloomberg.com/news/articles/2026-07-01/ai-s-trillion-dollar-debt-binge-fuels-century-old-private-market">Bloomberg — 프라이빗 크레딧 AI 부채</a></li>
+</ul>
+<p><strong>⑤ 포지셔닝</strong></p>
+<ul>
+<li><a href="https://www.hedgeweek.com/hedge-funds-extend-selling-of-tech-hardware-stocks-ahead-of-earnings/">Hedgeweek — 헤지펀드 하드웨어 매도 연장</a> / <a href="https://thedarksideoftheboom.substack.com/p/goldman-sachs-prime-brokerage-deep">Dark Side of the Boom — GS 프라임 딥다이브</a> / <a href="https://www.bloomberg.com/news/articles/2026-07-08/nvidia-s-1-trillion-slide-sends-valuation-to-pre-ai-boom-levels">Bloomberg — NVIDIA $1T 증발·밸류에이션 압축</a> / <a href="https://247wallst.com/investing/2026/07/17/amd-falls-5-intel-drops-4-nvidia-slides-3-before-recovering-as-rotation-hits-semiconductor-stocks/">24/7 Wall St — 반도체 로테이션</a></li>
+</ul>
+<p><strong>반박 증거</strong></p>
+<ul>
+<li><a href="https://newsletter.semianalysis.com/p/stop-saying-half-of-2026-us-datacenter">SemiAnalysis — &quot;캐파 절반 취소설&quot; 반박</a> / <a href="https://newsletter.semianalysis.com/p/microsofts-datacenter-freeze">SemiAnalysis — MSFT 1.5GW 동결의 실제 의미</a> / <a href="https://know.creditsights.com/insights/tech-raising-hyperscaler-capex-2026-estimates/">CreditSights — 하이퍼스케일러 capex 상향</a></li>
+</ul>
+
+</article>
+
+<nav class="pager"><a href="2026-07-19-war-peakout-shock.html"><span class="pager-when">7월 19일</span><span class="pager-title">전쟁·피크아웃 이중 쇼크</span></a><a href="2026-07-20-kimi-k3-community-deep-dive.html"><span class="pager-when">7월 20일</span><span class="pager-title">Kimi K3 커뮤니티 심층 — X 반응 종합</span></a></nav>
+</div>
+</body>
+</html>

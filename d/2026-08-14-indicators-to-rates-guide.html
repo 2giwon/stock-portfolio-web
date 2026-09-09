@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[참고 가이드] CPI·PPI·소비심리 → 금리 전달 메커니즘 — 포트폴리오 관측 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="mast"><a class="mast-name" href="../index.html">포트폴리오 관측 기록</a><span class="mast-meta">매크로</span></header>
+
+<p class="doc-when">2026년 8월 14일</p>
+
+<h1 class="doc-title">[참고 가이드] CPI·PPI·소비심리 → 금리 전달 메커니즘</h1>
+
+<div class="doc-lede">
+<p><strong>일회성 분석이 아닌 상시 참조 가이드.</strong> 매월 지표 시즌(CPI 중순 → PPI 다음 날 → 미시간 예비치 중순 금요일 → PCE 월말 → FOMC)에 이 문서를 기준으로 판독한다. 예시는 2026년 8월 둘째 주 실제 데이터(CPI 3.4%·PPI 보합/전년 +4.7%·미시간 51.0, 9월 인상 확률 50%→30%)로 앵커링. 작성 시점 특수 맥락: 워시 Fed의 <strong>인상</strong> 논쟁 사이클(통상적 인하 사이클과 방향이 반대일 수 있음에 유의).</p>
+</div>
+
+<nav class="toc" aria-labelledby="toc-h">
+<h2 class="toc-title" id="toc-h">이 문서의 구성</h2>
+<ol>
+<li><a href="#s1">큰 그림: 금리는 &quot;데이터의 함수&quot;</a></li>
+<li><a href="#s2">CPI (소비자물가지수) — 최강 임팩트</a></li>
+<li><a href="#s3">PPI (생산자물가지수) — &quot;파이프라인&quot; 인플레</a></li>
+<li><a href="#s4">소비심리 (미시간지수) — 한 지표 안의 반대 방향 신호 2개</a></li>
+<li><a href="#s5">우선순위 요약표</a></li>
+<li><a href="#s6">실전 복기 — 2026년 8월 둘째 주 (교과서 사례)</a></li>
+<li><a href="#s7">포트폴리오 적용 치트시트</a></li>
+</ol>
+</nav>
+
+<h2 class="origin-title">원본 기록</h2>
+
+<article class="prose">
+<h2 id="s1">0. 큰 그림: 금리는 &quot;데이터의 함수&quot;</h2>
+<p>연준의 이중책무 = <strong>물가 안정</strong>(인플레 2% 목표) + <strong>최대 고용</strong>. 기준금리는 이 둘의 균형 도구이며, 연준은 지표를 보고 &quot;물가가 뜨거우면 올리고(수요 냉각), 경기가 식으면 내린다(수요 부양)&quot;는 <strong>반응함수</strong>로 움직인다. 지표 발표일에 시장이 출렁이는 이유: 지표 자체가 아니라 <strong>&quot;이 지표를 본 연준이 뭘 할까&quot;의 기대 변화</strong>가 가격을 움직인다.</p>
+<h3>전달 경로</h3>
+<pre><code>지표 발표 → Fed 선물시장의 인상/인하 확률 재산정 → 국채 금리(2년물이 가장 민감) 변동
+→ 성장주 밸류에이션(할인율) + 기업 조달 비용 → 주가
+</code></pre>
+<p>일일 브리핑에서 추적하는 &quot;9월 인상 확률 X%&quot;가 이 경로의 첫 관절이다.</p>
+<h2 id="s2">1. CPI (소비자물가지수) — 최강 임팩트</h2>
+<ul>
+<li><strong>무엇/언제</strong>: 소비자가 실제 지불하는 물가의 월간 변화. 매월 중순, 전월분 발표.</li>
+<li><strong>규칙 3가지</strong>:<ol>
+<li><strong>서프라이즈가 전부</strong> — 컨센서스는 이미 가격에 반영. 예상 부합이면 무반응~&quot;불확실성 해소&quot; 랠리(2026-08-12 실례: 3.4% 예상 부합 + 냉각 → S&amp;P 신기록). 예상 상회면 인상 확률 급등 + 급락.</li>
+<li><strong>코어(식품·에너지 제외) &gt; 헤드라인</strong> — 유가는 연준 통제 밖이라 기조 물가인 코어를 본다. &quot;헤드라인↑ + 코어 안정&quot; 조합은 관대하게 소화됨.</li>
+<li><strong>연준의 공식 타깃은 PCE</strong>(월말 발표) — 다만 CPI가 2주 먼저 나와 PCE를 예측하게 해주므로 시장 임팩트는 CPI가 최대.</li>
+</ol>
+</li>
+<li><strong>강도</strong>: ★★★★★ — CPI 쇼크 하나로 지수 하루 ±2~3%.</li>
+</ul>
+<h2 id="s3">2. PPI (생산자물가지수) — &quot;파이프라인&quot; 인플레</h2>
+<ul>
+<li><strong>무엇/언제</strong>: 기업의 출고 가격. CPI 발표 하루~이틀 뒤.</li>
+<li><strong>경로 2가지</strong>:<ol>
+<li><strong>CPI 선행지표</strong> — 생산자 가격은 수개월 시차로 소비자 가격에 전가. PPI가 뜨거우면 &quot;다음 CPI도 뜨겁다&quot; 선반영. (2026-08 실례: 전월 보합이나 <strong>전년 +4.7%</strong> — 전쟁·관세발 비용이 파이프라인에 누적, CPI 3.4%의 추가 하락이 어려울 수 있다는 경고)</li>
+<li><strong>PCE 직결 구성</strong> — PPI의 의료 서비스·항공료·포트폴리오 관리 수수료 등은 PCE 계산에 직접 투입. CPI+PPI가 나오면 그달 PCE를 거의 역산 가능.</li>
+</ol>
+</li>
+<li><strong>강도</strong>: ★★★ — 단독으론 중간, CPI와 동방향이면 증폭·역방향이면 상쇄.</li>
+</ul>
+<h2 id="s4">3. 소비심리 (미시간지수) — 한 지표 안의 반대 방향 신호 2개</h2>
+<ul>
+<li><strong>무엇/언제</strong>: 소비자 설문(경기 평가+전망). 미시간대 예비치 매월 중순 금요일, 확정치 월말.</li>
+<li><strong>신호 2가지 (서로 반대 방향!)</strong>:<ol>
+<li><strong>종합지수 급락 = 수요 냉각 → 인하(인상 포기) 방향.</strong> 소비는 미 GDP의 ~70% — 지갑 닫을 조짐은 &quot;더 조일 필요 없다&quot;는 뜻. (2026-08-14 실례: 51.0 + 소매판매 -0.6% → 인상 확률 50%→30%)</li>
+<li><strong>설문 내 기대인플레 항목 = 인상 방향.</strong> 연준이 진짜 보는 건 종합지수가 아니라 <strong>1년/5년 기대인플레</strong>. &quot;물가는 계속 오른다&quot;는 믿음이 고착(디앵커링)되면 임금 요구→가격 전가→자기실현 — 이러면 경기가 나빠도 금리를 못 내린다. (2026-08-14 실례: 4.2%→4.3% 상승 — 종합지수 급락과 동시 발생 = 스태그플레이션 조합)</li>
+</ol>
+</li>
+<li><strong>할인 요인</strong>: 당파적 응답 편향(정치 감정 유입), 2022~24년 &quot;심리 최악+소비 견조&quot; 괴리 전례로 예측력 저하.</li>
+<li><strong>강도</strong>: ★★ (평시) — 단 기대인플레가 움직이면 급상승(연준 의장이 회견에서 직접 인용하는 항목).</li>
+</ul>
+<h2 id="s5">4. 우선순위 요약표</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>지표</th>
+<th>금리 영향력</th>
+<th>연준이 보는 핵심</th>
+<th>방향 규칙</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPI (코어)</td>
+<td>★★★★★</td>
+<td>기조 인플레 vs 2%</td>
+<td>서프라이즈 상회 = 인상↑</td>
+</tr>
+<tr>
+<td>고용 (NFP·실업률)</td>
+<td>★★★★★</td>
+<td>이중책무 나머지 절반</td>
+<td>과열 = 인상↑, 냉각 = 인하↑</td>
+</tr>
+<tr>
+<td>PCE (공식 타깃)</td>
+<td>★★★★</td>
+<td>정책 판단 공식 근거</td>
+<td>CPI·PPI로 사전 역산됨</td>
+</tr>
+<tr>
+<td>PPI</td>
+<td>★★★</td>
+<td>파이프라인 압력 + PCE 구성</td>
+<td>CPI 동방향 시 증폭</td>
+</tr>
+<tr>
+<td>소비심리</td>
+<td>★★ (평시)</td>
+<td><strong>기대인플레 항목</strong></td>
+<td>심리↓=인하 방향, 기대인플레↑=인상 방향</td>
+</tr>
+</tbody></table></div>
+<h2 id="s6">5. 실전 복기 — 2026년 8월 둘째 주 (교과서 사례)</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>지표</th>
+<th>결과</th>
+<th>시장 반응</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8/12</td>
+<td>7월 CPI</td>
+<td>3.4% 예상 부합·냉각(코어 2.5%)</td>
+<td>인상파 명분 약화 → S&amp;P 신기록, CRWV +19.5% 랠리의 매크로 토대</td>
+</tr>
+<tr>
+<td>8/13</td>
+<td>7월 PPI</td>
+<td>전월 보합 (전년 +4.7%)</td>
+<td>같은 방향 확인 사살</td>
+</tr>
+<tr>
+<td>8/14</td>
+<td>미시간 51.0 + 소매판매 -0.6%</td>
+<td>수요 냉각 결정타</td>
+<td><strong>9월 인상 확률 50%→30%</strong></td>
+</tr>
+<tr>
+<td>잔존 반대 증거</td>
+<td>기대인플레 4.3%·PPI 전년 +4.7%</td>
+<td>&quot;인플레 사망&quot; 반증</td>
+<td>워시 Fed의 9월 선택이 분수령</td>
+</tr>
+</tbody></table></div>
+<h2 id="s7">6. 포트폴리오 적용 치트시트</h2>
+<ul>
+<li><strong>하이닉스·IREN = &quot;할인율 자산&quot;</strong> — 인상 확률 상승 시 미래 이익의 현재가치가 깎여 실적 무관하게 밸류에이션 압박(2026-08 초 beat-and-sell 국면의 정체). IREN은 컨버트 차환(0.25~1% 쿠폰)까지 걸려 금리 이중 민감.</li>
+<li><strong>RKLB</strong> — 정부예산 축이라 펀더멘털은 둔감하나, 고멀티플(P/S 수십 배)이라 할인율 경로로는 동일 노출.</li>
+<li><strong>매월 판독 순서</strong>: CPI(중순) → PPI(익일) → 미시간 예비치(중순 금, <strong>기대인플레 필수 확인</strong>) → PCE(월말) → FOMC. 이번 사이클 특수 상류 변수 = <strong>유가(호르무즈)</strong>: 헤드라인 CPI와 기대인플레를 동시에 흔든다.</li>
+<li><strong>주의</strong>: 이 가이드의 방향 예시는 2026년 인상 논쟁 사이클 기준. 인하 사이클에서는 &quot;나쁜 데이터 = 인하 기대 = 주식 상승&quot; 강도가 달라지므로 당시 반응함수를 재확인할 것.</li>
+</ul>
+<hr>
+<h3>출처 (앵커 데이터)</h3>
+<ul>
+<li><a href="https://www.bls.gov/news.release/archives/ppi_08132026.htm">BLS — 7월 PPI 공식 릴리스(8/13)</a> / <a href="https://www.sca.isr.umich.edu/">Michigan Surveys of Consumers</a> / <a href="https://seekingalpha.com/news/4633331-fed-rate-hike-odds-sink-further-as-retail-sales-consumer-sentiment-fall">Seeking Alpha — 인상 확률 50%→30%</a> / <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-12-2026">TheStreet — 7월 CPI 3.4%</a></li>
+<li>연계 문서: <a href="2026-08-14-us-consumer-sentiment-crack.html">2026-08-14 미국 소비 이중 균열</a></li>
+</ul>
+
+</article>
+
+<nav class="pager"><a href="2026-08-14-evening-sweep-temasek.html"><span class="pager-when">8월 14일</span><span class="pager-title">저녁 스윕 — 테마섹 직접투자 확인, IREN 차익실현 되돌림</span></a><a href="2026-08-14-iren-horizon1-delivered-green.html"><span class="pager-when">8월 14일</span><span class="pager-title">IREN Horizon 1 인도 공식 확인 — 🟡→🟢 상향</span></a></nav>
+</div>
+</body>
+</html>

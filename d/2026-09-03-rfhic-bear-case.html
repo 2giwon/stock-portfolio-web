@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFHIC 베어 케이스 (편입 전 레드팀) — 포트폴리오 관측 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="mast"><a class="mast-name" href="../index.html">포트폴리오 관측 기록</a><span class="mast-meta">분석</span></header>
+
+<p class="doc-when">2026년 9월 3일</p>
+
+<h1 class="doc-title">RFHIC 베어 케이스 (편입 전 레드팀)</h1>
+
+<div class="doc-lede">
+<p>⚠️ <strong>의도적으로 일방향인 하락 논리 문서</strong> (bear-case 스킬). 신규 편입 후보 검증용 — 같은 날 작성한 1차 검토(2026-09-03-rfhic-candidate-review.md, 중립<del>긍정 관점)와 짝으로 읽을 것. 데이터: 알파스퀘어·한경마켓·이데일리·하나/신한 리포트 원문 (9/2</del>3 수집). 현재가 47,500원, 시총 1.24조, 4월 신고가 대비 -60%. 2025 실적: 매출 1,858억·영업익 309억·순익 355억 → <strong>trailing PER ~35배</strong>.</p>
+</div>
+
+<nav class="toc" aria-labelledby="toc-h">
+<h2 class="toc-title" id="toc-h">이 문서의 구성</h2>
+<ol>
+<li><a href="#s1">베어 논지 3문장</a></li>
+<li><a href="#s2">베어 케이스 강도 스코어</a></li>
+<li><a href="#s3">핵심 논거 상세</a></li>
+<li><a href="#s4">하방 계량화 (참고용)</a></li>
+<li><a href="#s5">Thesis-Killers — 베어가 틀리는 조건</a></li>
+<li><a href="#s6">포트폴리오 히트 점검 (편입 관점의 핵심)</a></li>
+<li><a href="#s7">Thesis Invalidation</a></li>
+</ol>
+</nav>
+
+<h2 class="origin-title">원본 기록</h2>
+
+<article class="prose">
+<h2 id="s1">베어 논지 3문장</h2>
+<p>RFHIC의 성장 스토리는 절반(방산)만 실측이고 나머지 절반(통신 회복·TR 쇼티지)은 <strong>이 회사가 과거 두 번 배신당한 바로 그 사이클에 대한 전망</strong>이다 — 화웨이 중단과 5G 침체로 2020년 적자, 2021~24년 4년 부진을 만든 통신 의존 구조는 고객 이름만 (화웨이→삼성·에릭슨으로) 바뀌었을 뿐 그대로다. 글로벌 RF GaN 시장은 Sumitomo·Qorvo·Wolfspeed·NXP가 과점한 시장으로 &quot;국내 유일&quot;이 &quot;글로벌 해자&quot;가 아니며, 2Q에 이미 &quot;레이시온 물량 한 달 이연&quot;만으로 컨센을 미스할 만큼 분기 실적이 수출 타이밍에 취약하다. 여기에 -60% 폭락에도 trailing PER 35배가 남아 있고, 목표주가 15만원은 2027년 추정 이익 대비 약 70배를 요구하는 숫자다.</p>
+<h2 id="s2">베어 케이스 강도 스코어</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>축</th>
+<th>배점</th>
+<th>점수</th>
+<th>근거</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>밸류에이션 스트레치</td>
+<td>0–2</td>
+<td><strong>1.3</strong></td>
+<td>trailing PER 35배(순익 355억), TP 15만 = 2027E 순익 ~70배 요구. 단 -60% 조정이 스트레치 상당분 기해소</td>
+</tr>
+<tr>
+<td>펀더멘털 악화</td>
+<td>0–2</td>
+<td><strong>0.7</strong></td>
+<td>실적은 개선 중(베어 약함) — 단 2Q 컨센 미스 실증: 분기 매출이 수출 물량 타이밍에 좌우되는 구조</td>
+</tr>
+<tr>
+<td>이익 품질</td>
+<td>0–2</td>
+<td><strong>0.8</strong></td>
+<td>2025 순익(355억) &gt; 영업익(309억) — 영업외 이익 의존 흔적(내역 미확인). 수주잔고→매출 인식 타이밍 변동성 실증</td>
+</tr>
+<tr>
+<td>경쟁·구조 위협</td>
+<td>0–2</td>
+<td><strong>1.5</strong></td>
+<td><strong>글로벌 RF GaN은 Sumitomo·Qorvo·Wolfspeed·NXP 과점</strong> — &quot;국내 유일&quot;≠글로벌 해자. 통신 사이클 의존 흑역사(2020 적자·4년 부진). 중국 GaN 로컬 굴기</td>
+</tr>
+<tr>
+<td>경영·자본배분</td>
+<td>0–1</td>
+<td><strong>0.5</strong></td>
+<td>스몰캡 오너 구조·정보 비대칭(일반론). 특기 악재는 미발견</td>
+</tr>
+<tr>
+<td>촉매 명확성</td>
+<td>0–1</td>
+<td><strong>0.7</strong></td>
+<td>3Q 실적(11월, 하나 추정 매출 690억이 시험대), 에릭슨·삼성 수주 공시 지연 여부, KOSDAQ 수급 취약성(8월 매도 사이드카 전례)</td>
+</tr>
+<tr>
+<td><strong>합계</strong></td>
+<td>10</td>
+<td><strong>5.5 — Moderate</strong></td>
+<td>기존 보유 종목들(IREN 5.5·RKLB 5.5)과 동급의 리스크 체급</td>
+</tr>
+</tbody></table></div>
+<h2 id="s3">핵심 논거 상세</h2>
+<h3>1. &quot;통신 회복&quot; 전망의 신뢰 문제 — 이 회사의 아킬레스건</h3>
+<ul>
+<li>하나증권 TP 15만원의 뼈대는 <strong>2027년 통신 투자 본격화 + TR 쇼티지</strong>다. 그런데 이 회사 주주들은 같은 종류의 약속(5G 슈퍼사이클)을 2019<del>20년에 들었고, 결과는 화웨이 거래 중단 + 투자 침체 → 2020년 적자 전환, 2021</del>24년 &quot;기나긴 터널&quot;이었다.</li>
+<li>통신 부문의 구조적 특징: 고객(삼성·에릭슨)의 <strong>투자 결정에 종속</strong> — RFHIC이 통제할 수 없는 변수. 쇼티지 논거도 아직 제3자 실측(TrendForce류 데이터) 없이 증권사 전망 단계.</li>
+<li>방산은 실측(수주잔고 1,000억+)이나, <strong>2025 매출 1,858억 중 방산만으로 TP 15만(시총 3.9조)을 정당화할 수 없다</strong> — 결국 이 주식의 상단은 통신 사이클에 볼모.</li>
+</ul>
+<h3>2. &quot;국내 유일&quot;의 착시 — 글로벌에선 니치 플레이어</h3>
+<ul>
+<li>RF GaN 글로벌 시장은 Sumitomo Electric·Qorvo·Wolfspeed·NXP·MACOM·Infineon 등 <strong>대형 IDM 과점</strong> 구도. RFHIC의 &quot;국내 유일 대량생산&quot;은 한국 시장 프리미엄이지 글로벌 진입장벽이 아니다.</li>
+<li>중국이 수출규제 대응으로 로컬 GaN 생태계를 급성장시키는 중 — 장기적으로 가격 경쟁 압력.</li>
+<li>&quot;AI 전력반도체 수혜&quot; 프레임: RFHIC 주력은 전력변환(PSU)용이 아니라 RF용 — 데이터센터 GaN 붐(채택률 17%→30%)의 직접 수혜주가 아님. 이 프레임으로 유입된 수급은 실적으로 검증되는 순간 이탈 위험.</li>
+</ul>
+<h3>3. 분기 실적의 구조적 변동성 — 이미 실증됨</h3>
+<ul>
+<li>2Q26 영업익 컨센 소폭 미스 — 원인이 &quot;레이시온향 증폭기 수출 물량의 6월→7월 이연&quot;. <strong>한 달 치 선적 타이밍으로 분기가 미스나는 매출 구조</strong> = 매 분기가 코인 플립성 헤드라인 리스크.</li>
+<li>4~9월 -60%의 절반은 시장(코스닥 조정) 탓이지만, 나머지 절반은 이 미스와 밸류 부담 논쟁 — &quot;실적 상향 중인데 주가만 빠졌다&quot;(신한)는 말은 뒤집으면 <strong>이 주식의 가격이 실적이 아니라 수급·내러티브에 지배된다</strong>는 뜻.</li>
+</ul>
+<h3>4. 이익 품질 각주</h3>
+<ul>
+<li>2025년 순이익(355억)이 영업이익(309억)보다 큼 — 영업외 이익(환차익·금융수익 추정, 내역 미확인)이 순익을 부풀린 구조일 수 있음. 편입 실사 시 사업보고서에서 확인 필요 항목.</li>
+</ul>
+<h2 id="s4">하방 계량화 (참고용)</h2>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th>시나리오</th>
+<th>조건</th>
+<th>목표</th>
+<th>낙폭</th>
+<th>주관 확률</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>베이스 베어</td>
+<td>3Q 미스(이연 반복) or 통신 수주 공시 지연</td>
+<td>PER 25배 × 2026E 순익 <del>400억 = 시총 ~1조 → **</del>38,000원**</td>
+<td>-20%</td>
+<td>30~35%</td>
+</tr>
+<tr>
+<td>시비어 베어</td>
+<td>통신 투자 재연기(2020 재판) + KOSDAQ 조정</td>
+<td>PER 15<del>20배 × 순익 350억 = 5</del>7천억 → <strong>20,000~27,000원</strong></td>
+<td>-45~55%</td>
+<td>10~15%</td>
+</tr>
+<tr>
+<td>플로어 논거</td>
+<td>방산 수주잔고 1,000억+와 흑자 본업</td>
+<td>완전 붕괴 방어선 존재 — 단 2020년에 실제로 적자까지 간 전례</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>비대칭성 평가</strong>: 상방(TP 15만, +216%)과 하방(-20~55%)이 모두 큰 <strong>고분산 베팅</strong> — &quot;싸게 잡는 가치주&quot;가 아니라 &quot;폭락한 고베타 성장주&quot;.</li>
+</ul>
+<h2 id="s5">Thesis-Killers — 베어가 틀리는 조건</h2>
+<ol>
+<li><strong>3Q 실적(11월)이 하나 추정(매출 690억, QoQ +34%) 부합</strong> — 이연 물량 회복 + 성장 궤도 증명</li>
+<li><strong>에릭슨 또는 삼성전자 대형 수주 공시</strong> — 통신 회복이 전망에서 실측으로</li>
+<li>TR 쇼티지의 제3자 확인 (TrendForce·경쟁사 실적 콜에서 리드타임 연장 언급)</li>
+<li>방산 수주잔고의 분기 연속 증가 — 통신 없이도 성장하는 구조 증명</li>
+<li>다이아몬드 웨이퍼·6G 등 신기술의 상업 계약 전환</li>
+</ol>
+<h2 id="s6">포트폴리오 히트 점검 (편입 관점의 핵심)</h2>
+<ul>
+<li><strong>팩터 중복 재확인</strong>: 방산예산(RKLB와), AI·반도체 사이클(하이닉스와), 고멀티플·고베타(전 종목과), 한국 수급(하이닉스와). RFHIC 추가는 <strong>분산이 아니라 기존 베팅의 스몰캡 레버리지</strong> — &quot;AI 수요 급감 + 방산예산 삭감&quot; 복합 시나리오에서 4종목 100% 동시 타격.</li>
+<li>유일한 신규 팩터는 &quot;한국 통신장비 사이클&quot; — 그런데 이것이 바로 이 종목의 최대 리스크 축이라는 역설.</li>
+<li><strong>편입 판단 재료(참고용)</strong>: 베어 강도 5.5 = IREN·RKLB와 동급 리스크. &quot;기존 종목보다 안전한 추가&quot;가 아니라 &quot;같은 체급의 네 번째 변동성 자산&quot;. 편입한다면 근거는 분산이 아니라 &quot;이 종목 고유의 알파(GaN 방산 수주 사이클)&quot;여야 하며, 관문(3Q 실적·통신 수주 공시)을 정의하고 통과를 확인한 후가 체계에 부합.</li>
+</ul>
+<h2 id="s7">Thesis Invalidation</h2>
+<p><strong>베어 시그널이 깨지는 조건</strong>: 킬러 1<del>2 중 하나 발생(11월 실적 부합 또는 대형 통신 수주 공시), 또는 주가가 PER 20배 이하(</del>28,000원)로 하락해 베어 시나리오를 기가격화.</p>
+<p><strong>재실행 시점:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> 3Q 실적 발표 (11월)</li>
+<li><input disabled="" type="checkbox"> 주가 ±20% (38,000 하회 / 57,000 상회)</li>
+<li><input disabled="" type="checkbox"> 에릭슨·삼성 수주 공시 등 중대 이벤트</li>
+<li><input disabled="" type="checkbox"> 60일 경과</li>
+</ul>
+<pre><code>╔══════════════════════════════════════════════╗
+║              INVESTMENT SIGNAL               ║
+╠══════════════════════════════════════════════╣
+║ Signal:      NEUTRAL (bear-leaning)          ║
+║ Confidence:  MEDIUM                          ║
+║ Horizon:     MEDIUM-TERM                     ║
+║ Score:       4.4 / 10 (표준 불리시 스케일)      ║
+╠══════════════════════════════════════════════╣
+║ Action:      편입 보류 → 관문 확인 후 재검토      ║
+║ Conviction:  MODERATE                        ║
+╚══════════════════════════════════════════════╝
+</code></pre>
+<p>베어 강도 5.5/10 = Moderate: 실재하는 적신호(통신 의존 흑역사·글로벌 과점 속 니치·분기 변동성 실증) 다수이나, 방산 실측과 턴어라운드도 실재. <strong>편입 후보로서의 결론(참고용): &quot;지금 편입&quot;보다 &quot;11월 3Q 실적 관문 통과 확인 후 재검토&quot;가 체계 정합적</strong> — 기존 3종목 전부가 관문 통과를 확인하며 유지해온 것과 같은 기준.</p>
+<hr>
+<h3>출처</h3>
+<ul>
+<li><a href="https://www.edaily.co.kr/News/Read?newsId=02564966645576184">이데일리 — 하나증권 9/2: 매수·TP 15만</a> / <a href="https://rfhic.com/wp-content/uploads/2026/04/250915-%EC%8B%A0%ED%95%9C%ED%88%AC%EC%9E%90%EC%A6%9D%EA%B6%8C-%EB%A6%AC%ED%8F%AC%ED%8A%B8-RFHIC.pdf">신한투자 리포트 — 고점 -60%·컨센 상향 괴리, 2Q 레이시온 이연</a> / <a href="https://markets.hankyung.com/stock/218410/financial-summary">한경마켓 — 재무요약(2025 매출 1,858억·영업익 309억·순익 355억)</a></li>
+<li><a href="https://www.marketsandmarkets.com/ResearchInsight/rf-gallium-nitride-market.asp">MarketsandMarkets — RF GaN 과점 구도(Sumitomo·Qorvo·Wolfspeed·NXP)</a> / <a href="https://www.globenewswire.com/news-release/2026/05/20/3298194/0/en/global-rf-gan-market-2026-2036-profiles-of-15-device-manufacturers-6-defence-aerospace-specialists-9-specialty-emerging-players-7-substrate-epiwafer-suppliers-6-system-integrators-.html">GlobeNewswire — RF GaN 시장 2026-36</a></li>
+<li><a href="https://m.thebell.co.kr/m/newsview.asp?svccode=&newskey=202407020536300800106535">더벨 — 2020 적자·부진 복기</a> / <a href="https://alphasquare.co.kr/home/stock-summary?code=218410">알파스퀘어 — 시세·시총</a></li>
+<li>연계: <a href="2026-09-03-rfhic-candidate-review.html">1차 검토 문서</a></li>
+</ul>
+
+</article>
+
+<nav class="pager"><a href="2026-09-02-war-reignition-export-209.html"><span class="pager-when">9월 2일</span><span class="pager-title">전쟁 재점화 vs 수출 +209% — 유가 $96.5, $100 트리거 임박</span></a><a href="2026-09-03-rfhic-candidate-review.html"><span class="pager-when">9월 3일</span><span class="pager-title">RFHIC(218410) 신규 편입 후보 검토 — 하나증권 리포트 검증 + 1차 분석</span></a></nav>
+</div>
+</body>
+</html>
