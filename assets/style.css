@@ -14,6 +14,9 @@
   --good-bg:   #e4f2e8;
   --warn-bg:   #f8eed7;
   --bad-bg:    #f8e4e2;
+  --vc1:       #2a78d6;
+  --vc2:       #eb6834;
+  --vc3:       #1baf7a;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -32,6 +35,9 @@
     --good-bg:   #172c1f;
     --warn-bg:   #2e2513;
     --bad-bg:    #2f1a1a;
+    --vc1:       #3987e5;
+    --vc2:       #d95926;
+    --vc3:       #199e70;
   }
 }
 :root[data-theme="dark"] {
@@ -50,6 +56,9 @@
   --good-bg:   #172c1f;
   --warn-bg:   #2e2513;
   --bad-bg:    #2f1a1a;
+  --vc1:       #3987e5;
+  --vc2:       #d95926;
+  --vc3:       #199e70;
 }
 
 * { box-sizing: border-box; }
@@ -314,6 +323,149 @@ a:focus-visible, button:focus-visible {
   font-size: 0.82rem;
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
+}
+
+/* ── 시각자료 층 ──
+   색은 dataviz 검증기를 통과한 팔레트의 앞 세 슬롯만 쓴다. */
+.visuals { margin: 0 0 2.75rem; }
+.visuals-title {
+  margin: 0 0 1.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 1.05rem;
+  font-weight: 600;
+  position: relative;
+}
+.visuals-title::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: 0;
+  width: 3px; height: 11px;
+  background: var(--brass);
+}
+
+.vfig { margin: 0 0 2rem; }
+.vfig-title {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.vfig-note {
+  margin: 0.6rem 0 0;
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+/* 막대 */
+.vbars { display: flex; flex-direction: column; gap: 0.5rem; }
+.vbar-row { display: grid; grid-template-columns: 7rem 1fr auto; align-items: center; gap: 0.7rem; }
+.vbar-label { font-size: 0.85rem; color: var(--ink-2); line-height: 1.4; }
+.vbar-track { background: var(--rule-soft); border-radius: 1px; height: 14px; }
+.vbar-fill {
+  display: block;
+  height: 100%;
+  background: var(--vc1);
+  border-radius: 0 3px 3px 0;
+  min-width: 2px;
+}
+.vbar-fill.is-emphasis { background: var(--brass); }
+.vbar-value { font-size: 0.85rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* 누적 막대 */
+.vshare-track { display: flex; gap: 2px; height: 22px; }
+.vshare-seg { border-radius: 1px; min-width: 3px; }
+.vshare-c1 { background: var(--vc1); }
+.vshare-c2 { background: var(--vc2); }
+.vshare-c3 { background: var(--vc3); }
+.vshare-keys {
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+.vshare-keys li { display: flex; align-items: center; gap: 0.4rem; }
+.vshare-keys b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.vshare-dot { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+
+/* 표 */
+.vtable { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
+.vtable th, .vtable td {
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top;
+}
+.vtable th {
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.vtable th:first-child, .vtable td:first-child { padding-left: 0; }
+.vtable td { font-variant-numeric: tabular-nums; }
+
+/* 흐름 그림 */
+.vflow { list-style: none; margin: 0; padding: 0; }
+.vflow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.7rem 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+.vflow-step:last-child { margin-bottom: 0; }
+.vflow-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 1.55rem;
+  bottom: -0.95rem;
+  width: 2px;
+  height: 0.7rem;
+  background: var(--brass);
+}
+.vflow-has-pass { border-color: var(--good); }
+.vflow-has-fail { border-color: var(--bad); }
+.vflow-n {
+  flex: 0 0 1.4rem;
+  height: 1.4rem;
+  border-radius: 2px;
+  background: var(--rule-soft);
+  color: var(--ink-2);
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vflow-body { flex: 1; min-width: 0; }
+.vflow-label { display: block; font-size: 0.92rem; font-weight: 600; line-height: 1.45; }
+.vflow-detail { display: block; font-size: 0.82rem; color: var(--ink-2); line-height: 1.5; margin-top: 0.15rem; }
+.vflow-state {
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.1rem 0.4rem 0.14rem;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.vflow-pass { background: var(--good-bg); color: var(--good); }
+.vflow-pending { background: var(--warn-bg); color: var(--warn); }
+.vflow-fail { background: var(--bad-bg); color: var(--bad); }
+
+@media (max-width: 26rem) {
+  .vbar-row { grid-template-columns: 5.5rem 1fr auto; gap: 0.5rem; }
+  .vbar-label { font-size: 0.8rem; }
 }
 
 /* ── 목차 ── */
