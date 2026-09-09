@@ -249,6 +249,7 @@ a:focus-visible, button:focus-visible {
 .brief-signals { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
 .brief-signal { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
 .brief-signal-name { font-weight: 600; min-width: 6.5rem; }
+.brief-signal-note { flex: 1 1 100%; font-size: 0.85rem; color: var(--ink-2); line-height: 1.6; }
 .brief-change { font-size: 0.85rem; color: var(--brass); font-weight: 600; }
 .brief-points { margin: 0 0 1rem; padding-left: 1.2rem; font-size: 0.95rem; }
 .brief-points li { margin-bottom: 0.45rem; line-height: 1.65; }
@@ -545,67 +546,151 @@ a:focus-visible, button:focus-visible {
   * { transition: none !important; animation: none !important; }
 }
 
-/* ── 테마: watchlog (당직 기록) ── */
+/* ── 테마: chokepoint (관문) ── */
 :root {
-  color-scheme: light;
-  --font-body: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
-  --ground:    #eef1f4;
-  --surface:   #ffffff;
-  --ink:       #141a24;
-  --ink-2:     #4d5866;
-  --ink-3:     #7b8698;
-  --rule:      #d5dbe3;
-  --rule-soft: #e6eaef;
-  --brass:     #96702a;
-  --good:      #0f7a34;
-  --warn:      #9a6a06;
-  --bad:       #b8342f;
-  --good-bg:   #e4f2e8;
-  --warn-bg:   #f8eed7;
-  --bad-bg:    #f8e4e2;
-  --vc1:       #2a78d6;
-  --vc2:       #eb6834;
-  --vc3:       #1baf7a;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --ground:    #10141a;
-    --surface:   #171d25;
-    --ink:       #e7ecf2;
-    --ink-2:     #a7b2c0;
-    --ink-3:     #78838f;
-    --rule:      #2b333d;
-    --rule-soft: #222933;
-    --brass:     #d2a95c;
-    --good:      #56c976;
-    --warn:      #e0ab3c;
-    --bad:       #ef6f6a;
-    --good-bg:   #172c1f;
-    --warn-bg:   #2e2513;
-    --bad-bg:    #2f1a1a;
-    --vc1:       #3987e5;
-    --vc2:       #d95926;
-    --vc3:       #199e70;
-  }
-}
-:root[data-theme="dark"] {
   color-scheme: dark;
-  --ground:    #10141a;
-  --surface:   #171d25;
-  --ink:       #e7ecf2;
-  --ink-2:     #a7b2c0;
-  --ink-3:     #78838f;
-  --rule:      #2b333d;
-  --rule-soft: #222933;
-  --brass:     #d2a95c;
+  --font-body: 'Gothic A1', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  --ground:    #17110c;
+  --surface:   #211913;
+  --ink:       #f2e9df;
+  --ink-2:     #c3b3a2;
+  --ink-3:     #8e7f70;
+  --rule:      #3d2f22;
+  --rule-soft: #2b2118;
+  --brass:     #ef7a2a;
   --good:      #56c976;
   --warn:      #e0ab3c;
   --bad:       #ef6f6a;
-  --good-bg:   #172c1f;
-  --warn-bg:   #2e2513;
-  --bad-bg:    #2f1a1a;
-  --vc1:       #3987e5;
-  --vc2:       #d95926;
-  --vc3:       #199e70;
+  --good-bg:   #1b2c1f;
+  --warn-bg:   #2f2513;
+  --bad-bg:    #331c1a;
+  --vc1:       #63b8e8;
+  --vc2:       #a98cf0;
+  --vc3:       #45c194;
+}
+/* 이 테마는 원유색 지면을 전제로 설계했다 — 밝은 모드로 반전하지 않는다.
+   두 스코프 모두 같은 값을 유지해 사용자 토글에도 의도가 지켜진다. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { color-scheme: dark; }
+}
+:root[data-theme="dark"] { color-scheme: dark; }
+
+/* ── 지면을 좁히고 조인다 ── */
+body { line-height: 1.6; font-weight: 400; }
+.wrap { max-width: 42rem; padding-top: 1.5rem; }
+
+/* ── 압력계 히어로 — 그날의 주인공을 최상단에 크게 ── */
+.cp-hero {
+  margin: 1.5rem 0 2rem;
+  padding: 1.1rem 1.2rem 0.9rem;
+  background: var(--surface);
+  border-left: 4px solid var(--brass);
+  border-radius: 0;
+}
+.cp-hero .brief-meters { margin: 0; }
+.cp-hero .meter { padding: 0.35rem 0 1.1rem; }
+.cp-hero .meter:last-child { padding-bottom: 0.2rem; }
+.cp-hero .meter-label { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; }
+.cp-hero .meter-value { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em; }
+.cp-hero .meter-track { height: 14px; border-radius: 0; }
+.cp-hero .meter-fill { border-radius: 0; background: var(--ink-2); }
+.cp-hero .meter-mark { width: 3px; top: -6px; bottom: -6px; }
+.cp-hero .meter-foot { font-size: 0.85rem; }
+
+/* ── 제목은 히어로 다음으로 물러난다 ── */
+.cp-head { margin-bottom: 1.75rem; }
+.doc-when { margin: 0 0 0.3rem; font-size: 0.82rem; letter-spacing: 0.01em; }
+.doc-title {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.doc-lede {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--rule);
+  background: var(--rule-soft);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ── 신호등 스트립 — 가로로 펼쳐 한눈에 ── */
+.cp-strip {
+  margin: 0 0 2.25rem;
+  border-top: 2px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+  padding: 0.9rem 0;
+}
+.cp-strip .brief-signals { flex-direction: column; gap: 0.85rem; margin: 0; }
+.cp-strip .brief-signal-name { min-width: 5.5rem; font-weight: 700; }
+.cp-strip .brief-signal-note { font-size: 0.83rem; }
+
+/* ── 도형이 글보다 먼저 온다 ── */
+.visuals-title, .origin-title, .toc-title, .station > h2 {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.visuals-title::before, .origin-title::before, .station > h2::before {
+  width: 4px;
+  height: 100%;
+  top: 0;
+  left: -0.85rem;
+}
+.visuals-title, .origin-title, .station > h2 {
+  border-top: 2px solid var(--rule);
+  padding-top: 1rem;
+  position: relative;
+}
+.vfig { margin-bottom: 1.6rem; }
+.vfig-title { font-weight: 700; }
+.vbar-track, .vbar-fill, .vshare-seg, .vshare-dot, .meter-track, .meter-fill { border-radius: 0; }
+.vflow-step { border-radius: 0; border-width: 2px; }
+.vflow-n { border-radius: 0; font-weight: 700; }
+.vflow-state { border-radius: 0; font-weight: 700; }
+.flag { border-radius: 0; font-weight: 700; }
+
+/* ── 핵심 글은 도형 뒤에서 받아준다 ── */
+.cp-points {
+  margin: 0 0 2.25rem;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border-left: 4px solid var(--rule);
+}
+.cp-points-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--brass);
+}
+.cp-points .brief-points { margin: 0; padding-left: 1.1rem; font-size: 0.93rem; }
+.cp-points .brief-points li { margin-bottom: 0.6rem; }
+
+/* ── 목차는 촘촘한 목록으로 ── */
+.toc { margin-bottom: 2.25rem; }
+.toc a { padding: 0.4rem 0 0.4rem 1.9rem; font-size: 0.9rem; }
+.toc li { border-bottom: 1px solid var(--rule-soft); }
+
+/* ── 본문도 조인다 ── */
+.prose { font-size: 0.97rem; }
+.prose p { margin-bottom: 1rem; line-height: 1.68; }
+.prose h2 { border-top: 2px solid var(--rule); font-weight: 800; }
+.prose h3 { font-weight: 700; }
+.prose blockquote { border-left-width: 3px; background: var(--rule-soft); padding: 0.7rem 1rem; }
+.prose code, .prose pre { border-radius: 0; }
+.prose th { font-weight: 700; }
+
+.brief-meta {
+  margin: 2.5rem 0 0;
+  padding: 0.8rem 0 0;
+  border-top: 2px solid var(--rule);
+}
+.pager { margin-top: 1rem; border-top: 0; padding-top: 0; }
+
+@media (min-width: 40rem) {
+  .doc-title { font-size: 1.9rem; }
+  .cp-hero .meter-value { font-size: 2.1rem; }
+  .cp-strip .brief-signals { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
+  .cp-strip .brief-signal { flex: 1 1 40%; }
 }
