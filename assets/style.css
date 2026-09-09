@@ -1,66 +1,3 @@
-:root {
-  color-scheme: light;
-  --ground:    #eef1f4;
-  --surface:   #ffffff;
-  --ink:       #141a24;
-  --ink-2:     #4d5866;
-  --ink-3:     #7b8698;
-  --rule:      #d5dbe3;
-  --rule-soft: #e6eaef;
-  --brass:     #96702a;
-  --good:      #0f7a34;
-  --warn:      #9a6a06;
-  --bad:       #b8342f;
-  --good-bg:   #e4f2e8;
-  --warn-bg:   #f8eed7;
-  --bad-bg:    #f8e4e2;
-  --vc1:       #2a78d6;
-  --vc2:       #eb6834;
-  --vc3:       #1baf7a;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --ground:    #10141a;
-    --surface:   #171d25;
-    --ink:       #e7ecf2;
-    --ink-2:     #a7b2c0;
-    --ink-3:     #78838f;
-    --rule:      #2b333d;
-    --rule-soft: #222933;
-    --brass:     #d2a95c;
-    --good:      #56c976;
-    --warn:      #e0ab3c;
-    --bad:       #ef6f6a;
-    --good-bg:   #172c1f;
-    --warn-bg:   #2e2513;
-    --bad-bg:    #2f1a1a;
-    --vc1:       #3987e5;
-    --vc2:       #d95926;
-    --vc3:       #199e70;
-  }
-}
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --ground:    #10141a;
-  --surface:   #171d25;
-  --ink:       #e7ecf2;
-  --ink-2:     #a7b2c0;
-  --ink-3:     #78838f;
-  --rule:      #2b333d;
-  --rule-soft: #222933;
-  --brass:     #d2a95c;
-  --good:      #56c976;
-  --warn:      #e0ab3c;
-  --bad:       #ef6f6a;
-  --good-bg:   #172c1f;
-  --warn-bg:   #2e2513;
-  --bad-bg:    #2f1a1a;
-  --vc1:       #3987e5;
-  --vc2:       #d95926;
-  --vc3:       #199e70;
-}
-
 * { box-sizing: border-box; }
 
 html { -webkit-text-size-adjust: 100%; }
@@ -69,7 +6,8 @@ body {
   margin: 0;
   background: var(--ground);
   color: var(--ink);
-  font-family: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  /* 테마가 --font-body를 정의한다. 정의가 없어도 읽히도록 폴백을 둔다. */
+  font-family: var(--font-body, 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif);
   font-size: 16.5px;
   font-weight: 400;
   line-height: 1.75;
@@ -605,4 +543,69 @@ a:focus-visible, button:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
+}
+
+/* ── 테마: watchlog (당직 기록) ── */
+:root {
+  color-scheme: light;
+  --font-body: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  --ground:    #eef1f4;
+  --surface:   #ffffff;
+  --ink:       #141a24;
+  --ink-2:     #4d5866;
+  --ink-3:     #7b8698;
+  --rule:      #d5dbe3;
+  --rule-soft: #e6eaef;
+  --brass:     #96702a;
+  --good:      #0f7a34;
+  --warn:      #9a6a06;
+  --bad:       #b8342f;
+  --good-bg:   #e4f2e8;
+  --warn-bg:   #f8eed7;
+  --bad-bg:    #f8e4e2;
+  --vc1:       #2a78d6;
+  --vc2:       #eb6834;
+  --vc3:       #1baf7a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground:    #10141a;
+    --surface:   #171d25;
+    --ink:       #e7ecf2;
+    --ink-2:     #a7b2c0;
+    --ink-3:     #78838f;
+    --rule:      #2b333d;
+    --rule-soft: #222933;
+    --brass:     #d2a95c;
+    --good:      #56c976;
+    --warn:      #e0ab3c;
+    --bad:       #ef6f6a;
+    --good-bg:   #172c1f;
+    --warn-bg:   #2e2513;
+    --bad-bg:    #2f1a1a;
+    --vc1:       #3987e5;
+    --vc2:       #d95926;
+    --vc3:       #199e70;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground:    #10141a;
+  --surface:   #171d25;
+  --ink:       #e7ecf2;
+  --ink-2:     #a7b2c0;
+  --ink-3:     #78838f;
+  --rule:      #2b333d;
+  --rule-soft: #222933;
+  --brass:     #d2a95c;
+  --good:      #56c976;
+  --warn:      #e0ab3c;
+  --bad:       #ef6f6a;
+  --good-bg:   #172c1f;
+  --warn-bg:   #2e2513;
+  --bad-bg:    #2f1a1a;
+  --vc1:       #3987e5;
+  --vc2:       #d95926;
+  --vc3:       #199e70;
 }
