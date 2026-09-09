@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="포트폴리오 관측 기록">
+  <rect width="32" height="32" rx="7" fill="#141a24"/>
+  <rect x="5.5" y="8" width="10" height="6" rx="3" fill="#3987e5"/>
+  <rect x="5.5" y="18" width="14" height="6" rx="3" fill="#56c976"/>
+  <rect x="23" y="4" width="4" height="24" rx="2" fill="#d2a95c"/>
+</svg>
