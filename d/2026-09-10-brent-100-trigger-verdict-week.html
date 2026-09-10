@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>임계선이 울렸다 — 2026년 9월 10일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-09-10 · 이 문서만을 위해 지은 페이지
+   개념: "임계선이 울렸다" — 브렌트 $100 이라는 우리 최대 트리거가
+   실제로 발동한 날이고, 다음 주에 판정이 셋 줄지어 있다.
+   그래서 지면을 계기판으로 지었다. 히어로는 큰 숫자가 아니라
+   그어 둔 선과 그 위에 올라앉은 값 — 사건 자체가 그림이다.
+   왼쪽 상태 막대의 색이 그 블록의 상태를 나른다(장식이 아니다).
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+  --ground: #e6e7e4;      /* 계기 패널의 아연빛 */
+  --panel:  #f6f6f4;
+  --ink:    #1a1d1a;
+  --body:   #33383a;
+  --muted:  #6d7375;
+  --line:   #c9ccc7;
+  --fired:  #b4560a;      /* 발동 — 이 지면에서 유일하게 큰 소리 */
+  --hold:   #10474f;      /* 유지 */
+  --watch:  #8a6a12;      /* 관망 */
+  --sans: 'IBM Plex Sans KR', system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ground: #14181a;
+    --panel:  #1c2124;
+    --ink:    #eef0ec;
+    --body:   #ccd2d1;
+    --muted:  #8d9695;
+    --line:   #2e3538;
+    --fired:  #f0862f;
+    --hold:   #5fc0ba;
+    --watch:  #ddb03f;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--body);
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
+}
+.sheet { max-width: 41rem; margin: 0 auto; padding: 0 1.1rem 5rem; }
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: .18em; }
+a:hover { text-decoration-color: var(--fired); }
+:focus-visible { outline: 2px solid var(--fired); outline-offset: 3px; }
+
+/* ── 머리 ── */
+.top { padding: 2.6rem 0 1.4rem; }
+.when { font-family: var(--mono); font-size: .8rem; color: var(--muted); letter-spacing: .02em; }
+.home { float: right; font-size: .8rem; color: var(--muted); }
+h1.doc-title {
+  margin: .5rem 0 0;
+  font-size: clamp(1.65rem, 5.6vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -.021em;
+  color: var(--ink);
+}
+.lede {
+  margin: 1rem 0 0;
+  font-size: 1.02rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--body);
+  border-left: 3px solid var(--fired);
+  padding-left: .95rem;
+}
+
+/* ── 히어로: 임계선 ── */
+.gauge {
+  margin: 2rem 0 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 1.15rem 1.15rem 1rem;
+}
+.gauge-name { font-size: .84rem; color: var(--muted); }
+.gauge-plot { position: relative; height: 8.2rem; margin: .45rem 0 0; }
+.gauge-rule {
+  position: absolute; left: 0; right: 0; bottom: 3.1rem; height: 0;
+  border-top: 2px solid var(--fired);
+  transform-origin: left center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .gauge-rule { animation: draw .7s cubic-bezier(.2,.7,.3,1) both; }
+  @keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+.gauge-rule::after {
+  content: '임계선 $100';
+  position: absolute; right: 0; top: .3rem;
+  font-size: .74rem; color: var(--fired);
+}
+.gauge-now {
+  position: absolute; left: 0; bottom: 4.1rem;
+  display: flex; align-items: baseline; gap: .5rem;
+}
+.gauge-now b {
+  font-family: var(--mono); font-size: clamp(2.1rem, 8vw, 2.9rem);
+  font-weight: 600; font-variant-numeric: tabular-nums;
+  color: var(--fired); line-height: 1;
+}
+.gauge-now span { font-size: .86rem; color: var(--muted); }
+.gauge-stem {
+  position: absolute; left: .55rem; bottom: 3.1rem; width: 2px; height: 1rem;
+  background: var(--fired);
+}
+.gauge-floor {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  border-top: 1px dashed var(--line); padding-top: .35rem;
+  font-size: .76rem; color: var(--muted);
+}
+.gauge-note { margin: .2rem 0 0; font-size: .82rem; color: var(--muted); }
+
+/* ── 판정 레일 (실제로 순서가 있는 것이라 번호를 붙인다) ── */
+.rail { margin: 1.9rem 0 0; }
+.rail-head { font-size: .84rem; color: var(--muted); margin-bottom: .6rem; }
+.rail-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; }
+.stop {
+  background: var(--panel); border-top: 3px solid var(--hold);
+  padding: .65rem .7rem .75rem;
+}
+.stop:nth-child(1) { border-top-color: var(--fired); }
+.stop-n { font-family: var(--mono); font-size: .72rem; color: var(--muted); }
+.stop-when { font-family: var(--mono); font-weight: 600; font-size: 1.02rem; color: var(--ink); display: block; margin-top: .1rem; }
+.stop-what { font-size: .82rem; line-height: 1.55; margin-top: .2rem; }
+@media (max-width: 34rem) { .rail-track { grid-template-columns: 1fr; } }
+
+/* ── 요약 항목 ── */
+ul.points { margin: 1.9rem 0 0; padding: 0; list-style: none; }
+ul.points li {
+  border-left: 3px solid var(--line);
+  padding: .1rem 0 .1rem .95rem;
+  margin-bottom: .7rem;
+  font-size: .96rem;
+}
+ul.points li:first-child { border-left-color: var(--fired); }
+
+/* ── 섹션 ── */
+h2.sec {
+  margin: 2.9rem 0 .1rem;
+  font-size: 1.24rem; font-weight: 700; letter-spacing: -.012em;
+  color: var(--ink);
+  padding-bottom: .4rem; border-bottom: 2px solid var(--ink);
+}
+h3.sub { margin: 1.7rem 0 .3rem; font-size: 1.02rem; font-weight: 600; color: var(--ink); }
+h4.subsub { margin: 1.3rem 0 .25rem; font-size: .95rem; font-weight: 600; color: var(--body); }
+p { margin: .7rem 0; }
+strong { font-weight: 600; color: var(--ink); }
+
+/* ── 표 ── */
+.scroll { overflow-x: auto; margin: .85rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { padding: .5rem .6rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 600; color: var(--ink); background: var(--panel); white-space: nowrap; }
+td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ── 신호등 ──
+   표로 쓴다. 뽑아낸 md 사본에서 신호등이 **표**여야 판정이 남는다.
+   상태 색은 첫 칸의 왼쪽 막대가 나른다 — 카드로 감싸지 않는다. */
+table.lights td { background: var(--panel); }
+table.lights .light-name { font-weight: 600; color: var(--ink); white-space: nowrap; border-left: 3px solid var(--line); }
+table.lights tr.g .light-name { border-left-color: var(--hold); }
+table.lights tr.y .light-name { border-left-color: var(--watch); }
+table.lights .light-mark { font-size: 1.05rem; text-align: center; }
+table.lights .light-chg { font-family: var(--mono); font-size: .76rem; color: var(--muted); white-space: nowrap; }
+table.lights td[data-note] { min-width: 17rem; line-height: 1.6; }
+
+/* ── 체크리스트 ── */
+ul.docket { margin: .9rem 0 0; padding: 0; list-style: none; }
+ul.docket li {
+  display: flex; gap: .6rem; align-items: flex-start;
+  padding: .45rem 0; border-bottom: 1px solid var(--line);
+  font-size: .92rem; line-height: 1.6;
+}
+ul.docket input { margin: .38rem 0 0; accent-color: var(--fired); flex: none; }
+
+/* ── 계약 스택 ── */
+.stack { margin: .9rem 0 0; }
+.stack-bar { display: flex; align-items: center; gap: .6rem; margin-bottom: .45rem; font-size: .88rem; }
+.stack-fill { height: .95rem; background: var(--hold); flex: none; }
+.stack-fill.dim { background: var(--line); }
+.stack-val { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--ink); }
+
+blockquote {
+  margin: 1rem 0; padding: .7rem 0 .7rem 1rem;
+  border-left: 3px solid var(--watch);
+  background: var(--panel); font-size: .93rem;
+}
+blockquote p { margin: .35rem 0; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2.4rem 0; }
+.src li { font-size: .86rem; line-height: 1.55; margin-bottom: .35rem; }
+.src ul { padding-left: 1.1rem; }
+.pager { margin-top: 2.6rem; font-size: .88rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>대시보드</a>
+  <div class="when" data-omit>2026년 9월 10일 관측 기록</div>
+  <h1 class="doc-title">임계선이 울렸다 — 브렌트 $100 돌파와 판정 3연속 주간</h1>
+  <blockquote data-summary>우리가 걸어 둔 가장 큰 트리거가 발동했다. 브렌트가 7월 이후 처음 $100을 넘었고, 그 다음 주에 CPI·FOMC·일본은행 판정이 사흘 간격으로 줄지어 있다. 직전 기록은 <a href="2026-09-09-iren-ercot-gateway-kospi-7000.html">9월 9일 관문 통과 기록부</a>다.</blockquote>
+</header>
+
+<section class="gauge">
+  <div class="gauge-name">브렌트유 종가 · 2026년 9월 9일</div>
+  <div class="gauge-plot">
+    <div class="gauge-now">
+      <b data-trigger="brent" data-threshold="100">101.09</b>
+      <span>달러 (+3.2%)</span>
+    </div>
+    <div class="gauge-stem"></div>
+    <div class="gauge-rule"></div>
+    <div class="gauge-floor">7월 이후 첫 $100 돌파. 직전 기록에서는 장중 $99.46까지만 닿고 미발동이었다.</div>
+  </div>
+</section>
+<p class="gauge-note">소스에 따라 $101.09(+3.2%)와 $101.21(+3.4%)로 갈린다. 돌파 사실은 두 소스가 일치하므로 채택하고, 소수점은 유보한다.</p>
+
+<section class="rail">
+  <div class="rail-head">다음 주, 사흘 간격으로 판정이 셋</div>
+  <div class="rail-track">
+    <div class="stop">
+      <span class="stop-n">첫째</span>
+      <span class="stop-when">9/11</span>
+      <span class="stop-what">8월 CPI. 유가가 밀어올린 물가가 숫자로 확인되는 자리</span>
+    </div>
+    <div class="stop">
+      <span class="stop-n">둘째</span>
+      <span class="stop-when">9/16</span>
+      <span class="stop-what">FOMC. 인상 확률 <span data-trigger="hike_odds">60.2</span>%</span>
+    </div>
+    <div class="stop">
+      <span class="stop-n">셋째</span>
+      <span class="stop-when">9/18</span>
+      <span class="stop-what">일본은행. 1.00 → 1.25%가 약 80% 반영</span>
+    </div>
+  </div>
+</section>
+
+<ul class="points">
+  <li data-summary-point>브렌트 $100 트리거 발동 — 미·이란 전쟁 격화로 7월 이후 첫 돌파. 미 휘발유는 1년 전보다 32% 오른 갤런당 $4.22</li>
+  <li data-summary-point>9월 9일 뉴욕장은 유가·금리 동반 상승에 밀려 3대 지수 모두 하락. 다우 -0.77%, S&amp;P -0.48%, 나스닥 -0.64%</li>
+  <li data-summary-point>메모리 부족이 완제품 가격으로 전이됐다 — 애플·마이크로소프트·HP·델·닌텐도가 줄줄이 인상. 하이닉스 수요 논지를 밖에서 확인해 준 증거</li>
+  <li data-summary-point>일본은행 9/18 인상이 새 체크포인트로 올라왔다. 엔 강세는 원화에도 영향을 준다</li>
+</ul>
+
+<h2 class="sec">매크로 — 할인율이 다시 세졌다</h2>
+
+<p>9월 9일 뉴욕장은 <strong>유가와 장기금리가 함께 오르면서</strong> 위험자산이 밀렸다. 지수 자체보다 중요한 것은 구도다. 직전 기록에서 우리는 3종목의 공통 익스포저가 <strong>&ldquo;할인율&rdquo; 한 축으로 수렴한다</strong>고 적었는데, 그 축이 이번 주에 실제로 움직였다.</p>
+
+<div class="scroll"><table>
+<thead><tr><th>항목</th><th>값</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>브렌트</td><td class="num">$101.09</td><td>+3.2%, 7월 이후 첫 $100 돌파</td></tr>
+<tr><td>WTI</td><td class="num">$96.05</td><td>5월 이후 최고</td></tr>
+<tr><td>다우</td><td class="num">52,381.02</td><td>-0.77%</td></tr>
+<tr><td>S&amp;P 500</td><td class="num">7,636.46</td><td>-0.48%, 연초 대비 +12%</td></tr>
+<tr><td>나스닥</td><td class="num">26,253.34</td><td>-0.64%</td></tr>
+<tr><td>VIX</td><td class="num">16.44</td><td>+4.58%. 아직 공포 구간은 아니다</td></tr>
+<tr><td>미 휘발유</td><td class="num">$4.22</td><td>갤런당, 1년 전 대비 +32%</td></tr>
+</tbody>
+</table></div>
+
+<h3 class="sub">9/11 CPI — 유가가 숫자로 나타나는 첫 자리</h3>
+
+<p>시장 예상은 헤드라인 <strong>전월 대비 +0.4%</strong>(7월 +0.1%), 전년 대비 <strong>3.3%</strong>(7월 3.4%)다. 근원은 +0.2%, 전년 대비 2.4%로 본다. 즉 <strong>헤드라인은 유가에 튀지만 근원은 내려앉는</strong> 그림을 시장이 깔아 두었다. 이 조합이 맞으면 연준은 &ldquo;일시적 에너지 충격&rdquo;이라고 말할 여지가 생기고, 근원까지 위로 튀면 그 여지가 사라진다.</p>
+
+<h3 class="sub">9/16 FOMC — 유가가 비둘기의 논거를 갉아먹는다</h3>
+
+<p>인상 확률은 <strong>60.2%</strong>다. 직전 기록에서 48~66%로 갈렸던 것이 위쪽으로 좁혀졌다. 8월 고용이 예상보다 좋게 나온 데 유가까지 얹혔다. <strong>유가가 $100 위에 머무는 주가 길어질수록 동결을 주장하기 어려워진다</strong>는 것이 현재 채권시장의 해석이다.</p>
+
+<blockquote>
+<p><strong>점도표는 확인이 필요하다.</strong> 직전 기록에 &ldquo;9/16 점도표(SEP)&rdquo;라고 적어 두었는데, 이번 검색에서 워시 의장이 <strong>포워드 가이던스와 점도표를 놓았다</strong>는 보도와, 6월 회의에서 본인만 점을 안 찍고 다른 위원 18명 중 9명이 인상을 찍었다는 보도가 함께 나온다. 둘이 정면으로 어긋나지는 않지만 <strong>&ldquo;9월에 점도표가 나오는가&rdquo;는 확정하지 못했다.</strong> 사실로 승격하지 않고 체크포인트로 남긴다.</p>
+</blockquote>
+
+<h3 class="sub">9/18 일본은행 — 새로 올라온 판정</h3>
+
+<p>정책금리 <strong>1.00% → 1.25%</strong> 인상이 약 80% 반영됐다. 다카타 위원은 &ldquo;민첩하게&rdquo; 올려야 한다고 했고, 우에다 총재도 문을 열어 두었다. 엔은 달러 대비 한 달 최고치까지 올랐다.</p>
+
+<h4 class="subsub">📰 블로거 분석(메르) — 일본 근원CPI가 낮은 것은 정책 때문이다</h4>
+
+<p>메르는 일본의 낮은 근원CPI(2% 이내)가 <strong>정부가 인위적으로 누른 결과</strong>라고 정리했다. 휘발유 잠정세 폐지(리터당 53.8엔 → 28.7엔), 전기·가스요금 분기 7천엔 보조, 초등학교 무상급식 세 가지가 근원CPI를 각각 <strong>약 0.7%p·0.4%p</strong>가량 끌어내렸다는 것이다. 일본의 근원CPI는 미국과 달리 <strong>신선식품만 제외</strong>하므로 에너지·급식비가 그대로 들어간다. 일본은행이 내부적으로 보는 기조적 물가는 이미 2%를 넘었고, 그래서 9/18 인상 → 내년 1월 1.5% 경로가 거론된다.</p>
+
+<p>우리 판독과 <strong>일치</strong>한다. 다만 이 글은 발견 채널이고 신호등 판정 근거로는 쓰지 않는다.</p>
+
+<h2 class="sec">🇰🇷 SK하이닉스 — 부족이 완제품 가격으로 새어 나왔다</h2>
+
+<div class="scroll"><table>
+<thead><tr><th>항목</th><th>값</th></tr></thead>
+<tbody>
+<tr><td>종가 (9/9 한국 종가)</td><td class="num"><b data-price="hynix" data-currency="KRW" data-delta="3.51">1,856,000</b>원</td></tr>
+<tr><td>3분기 DRAM 계약가</td><td class="num">+13~18% QoQ</td></tr>
+<tr><td>2026년 공급부족률 (골드만)</td><td class="num">DRAM 4.9% · NAND 4.2% · HBM 5.1%</td></tr>
+</tbody>
+</table></div>
+
+<p>9월 10일 한국 시장은 아직 열리지 않았으므로 <strong>9월 9일 종가가 마지막 확인치</strong>다.</p>
+
+<h3 class="sub">링 검색 발견사항</h3>
+
+<h4 class="subsub">Ring 2 (타업종 2차 시그널) — 메모리 부족이 소비자 가격표에 찍혔다</h4>
+
+<p>이번 스윕에서 가장 값진 발견이다. 메모리 부족이 더 이상 반도체 업계 안의 이야기가 아니다.</p>
+
+<div class="stack">
+  <div class="stack-bar"><span class="stack-fill" style="width:32%"></span><span class="stack-val">15~25%</span><span>애플 맥·아이패드 인상</span></div>
+  <div class="stack-bar"><span class="stack-fill" style="width:24%"></span><span class="stack-val">$100~150</span><span>마이크로소프트 엑스박스 인상</span></div>
+  <div class="stack-bar"><span class="stack-fill dim" style="width:16%"></span><span class="stack-val">인상</span><span>HP · 델 · 닌텐도</span></div>
+</div>
+
+<p><strong>완제품 회사가 자기 마진을 깎는 대신 가격을 올렸다는 것은, 메모리를 못 구해서 대안이 없다는 뜻이다.</strong> 이건 메모리 회사의 주장이 아니라 <strong>고객 쪽에서 나온 증거</strong>라 훨씬 무겁다. 테슬라는 1월 실적 콜에서 이미 &ldquo;메모리가 로직보다 더 큰 AI 병목이 될 수 있다&rdquo;고 경고한 바 있다.</p>
+
+<h4 class="subsub">Ring 3 (마이크론 = 선행지표) — HBM은 2027년까지 완판</h4>
+
+<p>마이크론은 <strong>HBM3E와 HBM4를 2027년까지 완판</strong>했고 수요는 2028년까지 걸쳐 있다. 직전 분기 매출 $415억·총이익률 84.9%, 다음 분기 가이던스는 매출 <strong>$500억</strong>·총이익률 약 86%다. HBM4는 HBM3E보다 두 배 빠르게 올라오고 있고 이미 <strong>$10억 이상</strong> 매출이 찍혔다. <strong>9월 30일</strong> 실적이 하이닉스 3분기의 선행 채점표다.</p>
+
+<h4 class="subsub">Ring 4 (섹터 데이터) — 상승은 계속되지만 기울기는 꺾였다</h4>
+
+<p>3분기 계약가 상승률이 <strong>13~18% QoQ로 둔화</strong>됐다. 소비자 수요 약세와 높아진 기저 때문이다. 상승 자체가 끝난 것은 아니지만 <strong>&ldquo;분기마다 폭등&rdquo; 국면의 첫 감속 신호</strong>로 기록해 둔다. 신규 팹이 2027년 말~2028년 전에는 양산에 못 들어오므로 부족 구조 자체는 유지된다.</p>
+
+<h3 class="sub">리스크</h3>
+
+<p>계약가 상승률 둔화가 두 분기 이어지면 &ldquo;공급부족 프리미엄&rdquo;의 근거가 약해진다. 그리고 유가발 금리 상승은 하이닉스에도 밸류에이션 압력이다 — 다만 3종목 중에서는 <strong>수요 증거가 가장 두꺼워 방어력이 높다</strong>.</p>
+
+<h3 class="sub">판단 (참고용)</h3>
+
+<p>수요 측 증거가 이번 주에 오히려 <strong>더 두꺼워졌다</strong>. 완제품 가격 인상은 우리가 기다리던 종류의 외부 확인이다. 계약가 둔화는 지켜볼 항목으로 올리되, 논지를 바꿀 만한 것은 아니다.</p>
+
+<h2 class="sec">🇺🇸 IREN — 관문은 통과했고, 이제 자금 조달이 문제다</h2>
+
+<p>직전 기록의 ERCOT 관문 통과가 주가에 반영되는 중이다. 5거래일간 <strong>약 23%</strong> 올라 $44 부근이다. 다만 소스마다 종가가 갈려 이번 문서에서는 <strong>정확한 종가를 확정하지 않는다</strong>.</p>
+
+<h3 class="sub">링 검색 발견사항</h3>
+
+<h4 class="subsub">Ring 0 — 계약 스택이 셋으로 늘었다</h4>
+
+<div class="stack">
+  <div class="stack-bar"><span class="stack-fill" style="width:60%"></span><span class="stack-val">$97억</span><span>마이크로소프트 · 다년</span></div>
+  <div class="stack-bar"><span class="stack-fill" style="width:21%"></span><span class="stack-val">$34억</span><span>엔비디아 AI 클라우드 · 5년 (+ 최대 $21억 지분투자)</span></div>
+  <div class="stack-bar"><span class="stack-fill dim" style="width:14%"></span><span class="stack-val">미공개</span><span>frontier lab · 로이터 보도, 고객 미확인</span></div>
+</div>
+
+<p>세 번째 칸이 이번 분기의 핵심이다. 로이터가 <strong>계약 체결 자체는 보도</strong>했으나 고객명은 공개되지 않았다. 시장은 여전히 앤스로픽을 유력하게 본다 — 앤스로픽이 호주 사업자들(CDC·에어트렁크·넥스트DC·IREN·스택)에 <strong>2027년 말까지 1GW 이상</strong> 규모의 제안요청서를 돌렸고, <strong>4~5곳에 나눠 줄 수 있다</strong>는 보도가 근거다. 다만 이건 여전히 <strong>커뮤니티·언론 추정</strong>이고, 우리 판정 기준은 그대로다: <strong>8-K 또는 호주 텐더 결과</strong>로만 실명을 승격한다.</p>
+
+<h4 class="subsub">Ring 1 — 수요 쪽 숫자는 계속 커진다</h4>
+
+<p>하이퍼스케일러 4사의 2026년 capex는 <strong>$7,250억</strong>(전년 대비 +77%)이고, 2027년은 4사 합산 <strong>$9,345억</strong>(구글 $2,848억 · 아마존 $2,565억 · MS $2,076억 · 메타 $1,856억), 6사 기준으로는 <strong>$1.3조</strong>가 거론된다. 골드만은 2027년 $1.01조를 본다.</p>
+
+<h4 class="subsub">🔴 Ring 2 (신용시장) — 여기가 이번 스윕의 새 경고등이다</h4>
+
+<p>네오클라우드 자금 조달 비용이 눈에 띄게 나빠졌다.</p>
+
+<div class="scroll"><table>
+<thead><tr><th>조달</th><th>비용</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>코어위브 5년 무담보채</td><td class="num">약 10%</td><td>—</td></tr>
+<tr><td>메타가 받쳐 준 DDTL 4.0 고정 트랜치</td><td class="num">5.9%</td><td>같은 회사, 뒷배가 있을 때</td></tr>
+<tr><td>$26억 DDTL 5.5</td><td class="num">YTM 10.44%</td><td>SOFR +425~450bp, 99센트 발행</td></tr>
+</tbody>
+</table></div>
+
+<p>같은 회사가 <strong>뒷배 유무에 따라 5.9%와 10%를 오간다.</strong> 스프레드가 125bp 벌어진 뒤 대주단이 커버넌트를 요구하기 시작했고, 골드만은 코어위브 임차 데이터센터 담보 정크본드 <strong>$11.5억</strong>을 9월 시장에 타진 중이다.</p>
+
+<p><strong>왜 IREN에 중요한가:</strong> IREN의 논지는 &ldquo;계약을 따고 → 돈을 빌려 → 데이터센터를 짓는다&rdquo;는 3단 구조다. 관문(ERCOT)과 계약은 좋아졌는데 <strong>가운데 단계의 비용이 오르고 있다</strong>. 유가발 금리 상승은 이 지점을 정확히 때린다.</p>
+
+<h3 class="sub">리스크</h3>
+
+<p>ERCOT Batch Zero는 <strong>조건부</strong>다. 감사 완료 목표가 12월이고, 뒤집히면 이번 상승 근거가 사라진다. 여기에 자금 조달 비용 상승이 겹치면 &ldquo;계약은 있는데 못 짓는다&rdquo;가 현실적 시나리오가 된다.</p>
+
+<h3 class="sub">판단 (참고용)</h3>
+
+<p>관문·계약 두 축은 좋아졌고 자금 축이 나빠졌다. <strong>순증이지만 예전만큼 깨끗한 순증은 아니다.</strong> 신호등은 유지하되, 이번 스윕부터 <strong>신용시장을 상시 감시 항목</strong>으로 올린다.</p>
+
+<h2 class="sec">🚀 RKLB — 숫자는 사상 최대인데 주가는 금리에 눌린다</h2>
+
+<div class="scroll"><table>
+<thead><tr><th>항목</th><th>값</th></tr></thead>
+<tbody>
+<tr><td>2분기 매출</td><td class="num">$2.34억</td></tr>
+<tr><td>전년 대비</td><td class="num">+62%</td></tr>
+<tr><td>백로그</td><td class="num">90+ 발사</td></tr>
+<tr><td>신규 발사계약</td><td class="num">$4.37억+</td></tr>
+</tbody>
+</table></div>
+
+<h3 class="sub">링 검색 발견사항</h3>
+
+<h4 class="subsub">Ring 1 (정부 발주) — 골든돔 물량이 실제로 떨어지고 있다</h4>
+
+<p>8월 4일, 우주개발청(SDA)이 골든돔 미사일 추적위성 <strong>36기·$17.5억</strong>을 발주했고 <strong>록랩이 수주 3사 중 하나</strong>다(나머지 한 곳은 보안상 비공개). 여기에 기존 <strong>$8.16억</strong> Tranche 3 위성 18기 프라임 계약, 7월의 <strong>$2.66억</strong> 준궤도 12회 계약이 쌓여 있다. 레이시온과는 우주기반요격체(SBI) 실증에 함께 선정됐다.</p>
+
+<p>즉 <strong>&ldquo;발사 회사&rdquo;에서 &ldquo;위성 제조 프라임&rdquo;으로 무게가 옮겨가고 있다.</strong> 이건 발사 일정 지연에 덜 민감한 매출이라 논지상 긍정적이다.</p>
+
+<h4 class="subsub">Ring 0 — 뉴트론은 여전히 &ldquo;패드까지&rdquo;다</h4>
+
+<p>1단 탱크 생산이 <strong>4분기 패드 인도</strong> 목표에 정렬돼 있다. 다만 회사는 <strong>발사 날짜를 못 박지 않았고</strong>, 올해 초 탱크 압력시험 실패로 이미 한 번 밀린 전력이 있다. <strong>2027년으로 더 밀릴 가능성</strong>이 공개적으로 거론된다.</p>
+
+<h3 class="sub">리스크</h3>
+
+<p>3종목 중 <strong>금리에 가장 취약</strong>하다. 현금흐름이 가장 먼 곳에 있어서 할인율이 오르면 밸류에이션이 먼저 깎인다. 이번 주 구도(유가↑ → 금리↑)가 정확히 불리하다.</p>
+
+<h3 class="sub">판단 (참고용)</h3>
+
+<p>사업은 좋아지는데 매크로가 누른다. <strong>상향 트리거는 여전히 뉴트론 패드 인도 확인</strong> 하나다. 그 전에는 유지다.</p>
+
+<h2 class="sec">신호등 요약</h2>
+
+<div class="scroll"><table class="lights">
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix" class="g">
+  <td class="light-name">SK하이닉스</td>
+  <td class="light-mark" data-light>🟢</td>
+  <td class="light-chg" data-change>유지</td>
+  <td data-note>메모리 부족이 <strong>완제품 가격 인상</strong>으로 전이 — 고객 쪽에서 나온 수요 확인. 계약가 상승률 둔화(13~18%)는 감시 항목으로 신규 등록</td>
+</tr>
+<tr data-signal="iren" class="g">
+  <td class="light-name">IREN</td>
+  <td class="light-mark" data-light>🟢</td>
+  <td class="light-chg" data-change>유지</td>
+  <td data-note>관문·계약은 순증(frontier lab 체결 보도)이나 <strong>네오클라우드 조달 비용 상승</strong>이 새 경고등. 순증이지만 예전만큼 깨끗하지 않다</td>
+</tr>
+<tr data-signal="rklb" class="y">
+  <td class="light-name">RKLB</td>
+  <td class="light-mark" data-light>🟡</td>
+  <td class="light-chg" data-change>유지</td>
+  <td data-note>매출·백로그 사상 최대에 골든돔 물량까지 실렸는데 <strong>뉴트론은 여전히 패드까지</strong>. 금리 상승에 3종목 중 가장 취약</td>
+</tr>
+</tbody>
+</table></div>
+
+<p><strong>포트폴리오 히트</strong>: 이번 주는 <strong>할인율 축이 실제로 움직인 주</strong>다. 유가 $100 돌파 → CPI → FOMC로 이어지는 한 줄이 3종목을 동시에 누른다. 다만 타격 깊이는 다르다 — <strong>RKLB가 가장 깊고, IREN은 조달 비용이라는 별도 경로로 한 번 더 맞고, 하이닉스는 수요 증거가 두꺼워 가장 얕다.</strong> 반대편에서 수요 측 증거(완제품 가격 인상, 마이크론 완판, 2027 capex $1조 전망)는 이번 주에도 두꺼워졌다. <strong>&ldquo;수요는 공인, 할인율은 상향&rdquo;</strong> 구도가 직전 기록보다 한 칸 더 극단화됐다.</p>
+
+<h2 class="sec">📰 메르 신규 글 브리핑 (9/10, 2편)</h2>
+
+<ul class="docket">
+  <li><span>🔗 <strong>근원CPI가 1.8%인데도 일본은행 금리인상이 예상되는 비밀</strong> — 일본의 낮은 근원CPI는 유류세 폐지·전기가스 보조·무상급식이 만든 것이고(각각 0.7%p·0.4%p), 일본은행이 보는 기조적 물가는 이미 2% 초과. 9/18 인상 후 내년 1월 1.5% 경로. <strong>우리 판독과 일치</strong> — 위 매크로 절에 반영</span></li>
+  <li><span><strong>트럼프, 캐나다에 관세가 아니라 수입금지를 선언한 속사정</strong> — 캐나다 50% 보복관세 발효 하루 만에 1930년 관세법 338조로 수입금지 서명, 발효는 9/29로 3주 유예. 유예 이유는 협상과 소송 방어. 차별 요건·상쇄 범위·ITC 절차 셋 다 미충족이라는 통상 전문가 시각. 포트폴리오 직접 연결은 약하나 <strong>무역 긴장이 물가 쪽으로 번지는 경로</strong>로 지켜본다</span></li>
+</ul>
+
+<h2 class="sec">다음 체크포인트</h2>
+
+<ul class="docket">
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>브렌트 $100</strong> — <strong>발동됨</strong>. 9/9 종가 $101.09(+3.2%). 7월 이후 첫 돌파. 이제 관전 포인트는 &ldquo;얼마나 오래 위에 머무는가&rdquo;로 바뀐다</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/11(금) 8월 CPI</strong> — 예상 헤드라인 +0.4%(전년 3.3%), 근원 +0.2%(전년 2.4%). <strong>근원까지 튀는지</strong>가 갈림길</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/16 FOMC</strong> — 인상 확률 60.2%. <strong>점도표 발표 여부는 미확정</strong>(워시 의장이 점도표·포워드 가이던스를 놓았다는 보도와 6월에 다른 위원들은 점을 찍었다는 보도가 함께 있다) — 회의 전에 확인할 것</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/18 일본은행</strong> — 1.00 → 1.25% 약 80% 반영. 엔 강세가 원화에 미치는 영향 확인 <strong>(신규, 메르 발견)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>네오클라우드 조달 비용</strong> — 코어위브 정크본드 $11.5억의 실제 발행 조건. 10% 위로 더 벌어지면 IREN 건설 일정에 직결 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>DRAM 계약가 4분기 전망</strong> — 3분기 13~18%에서 더 둔화되는지. 두 분기 연속 둔화면 프리미엄 근거 재검토 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/16 IREN 먼슬리 업데이트</strong> — Horizon 2~4 인도 진척, 480MW gross 목표 확인 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/18 대미투자 패키지 1호 MOU</strong> — 텍사스 엔시날 6.3GW. 최종 수요자 확정 여부 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/29 캐나다 수입금지 발효</strong> — 3주 유예 중. 협상 타결 또는 소송 여부 <strong>(신규, 메르 발견)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/30 마이크론 실적</strong> — 가이던스 매출 $500억·총이익률 약 86%. 하이닉스 3분기의 선행 채점표 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>12월 IREN ERCOT 영구 지정 전환</strong> — 조건부에서 뒤집히면 상승 근거 소멸 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>하이닉스: 반도체 관세 <strong>2단계 세부 문안</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>IREN: frontier lab <strong>실명 채널</strong> — 8-K 또는 호주 텐더 결과로만 판정 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>RKLB: <strong>뉴트론 4분기 패드 인도</strong> 확인 — 상향 트리거 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>RFHIC 워치: 11월 3분기 관문 (이월)</span></li>
+</ul>
+
+<hr>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+
+<h4 class="subsub">유가와 시장</h4>
+<ul>
+<li><a href="https://www.washingtontimes.com/news/2026/sep/9/stocks-drop-wall-street-oil-prices-jump-back-100-barrel-iran-war/">Stocks fall on Wall Street as oil prices jump back above $100 a barrel after Iran war escalates — Washington Times (9/9)</a></li>
+<li><a href="https://vistapglobal.com/stock-market-today-sept-9-2026-sp-500-dow-and-nasdaq-fall-as-oil-rallies-rates-rise-and-risk-appetite-fades-dell-ser-soc-uso-vix-rise/">Stock Market Today (Sept. 9, 2026): S&amp;P 500, Dow and Nasdaq Fall as Oil Rallies — Vistap Global</a></li>
+<li><a href="https://www.benzinga.com/markets/commodities/26/09/61688731/oil-100-barrel-trump-taco-trade-fed-rate-hike-september-2026">Oil Hits $100: Will Trump &lsquo;TACO&rsquo; Before The Fed Meets? — Benzinga</a></li>
+<li><a href="https://qz.com/brent-crude-oil-prices-houthi-saudi-aramco-iran-090826">Brent crude nears $100 as Houthi strikes hit Saudi oil sites — Quartz</a></li>
+</ul>
+
+<h4 class="subsub">CPI와 연준</h4>
+<ul>
+<li><a href="https://www.kiplinger.com/investing/economy/cpi-report-august-2026-what-to-expect">August CPI Report: What the Inflation Data Is Expected to Show — Kiplinger</a></li>
+<li><a href="https://www.morningstar.com/economy/august-cpi-seen-cooling-will-it-prevent-fed-rate-hike">August CPI Seen Cooling, but Will It Prevent a Fed Rate Hike? — Morningstar</a></li>
+<li><a href="https://www.cnbc.com/2026/09/05/trump-warsh-fed-september-rate-hike.html">Trump turns up the heat on Warsh as Fed rate hike looms — CNBC</a></li>
+<li><a href="https://thecorner.eu/news-the-world/kevin-warsh-abandons-forward-guidance-and-dot-plot-takes-on-more-restrictive-tone/126311/">Kevin Warsh abandons forward guidance and dot plot — The Corner</a></li>
+<li><a href="https://finance.yahoo.com/economy/policy/articles/warsh-hawkish-shock-9-fed-180221394.html">Warsh Hawkish Shock: 9 Fed Officials Signal 2026 Rate Hike — Yahoo Finance</a></li>
+</ul>
+
+<h4 class="subsub">일본은행</h4>
+<ul>
+<li><a href="https://www.cnbc.com/2026/09/03/yen-japan-intervention-boj.html">Yen jumps to one-month intraday high as traders weigh chance of further intervention — CNBC</a></li>
+<li><a href="https://www.japantimes.co.jp/business/2026/08/25/economy/boj-rate-hike-ex-official/">Groundwork is set for BOJ rate hike next month, ex-official says — Japan Times</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224405997070">근원CPI가 1.8%인데도, 일본은행의 금리인상이 예상되는 비밀 — 블로거 분석(메르)</a></li>
+</ul>
+
+<h4 class="subsub">메모리</h4>
+<ul>
+<li><a href="https://www.trendforce.com/presscenter/news/20260703-13134.html">AI Server Demand Continues to Support Memory Prices in 3Q26, but Gains Moderate — TrendForce</a></li>
+<li><a href="https://www.trendforce.com/presscenter/news/20260825-13198.html">Memory Prices Soar; DRAM and NAND Flash to Account for 68% of Major CSP CapEx in 2027 — TrendForce</a></li>
+<li><a href="https://finance.biggo.com/news/853cb658-c593-48a9-a743-ffaa215f23e9">Memory Market Faces Worst Shortage in 15 Years; Micron Earnings to Gauge Super Cycle — BigGo</a></li>
+<li><a href="https://www.avnet.com/integrated/resources/article/2026-memory-shortage-ai-supercycle/">Riding the AI Supercycle: Navigating the 2026 Memory &amp; Storage Market — Avnet</a></li>
+<li><a href="https://seekingalpha.com/article/4881338-micron-technology-hbm-sold-out-for-2026-wall-street-is-still-underpricing">Micron Technology: HBM Sold Out For 2026 — Seeking Alpha</a></li>
+</ul>
+
+<h4 class="subsub">IREN과 AI 인프라</h4>
+<ul>
+<li><a href="https://www.globenewswire.com/news-release/2026/09/08/3357498/0/en/iren-s-2gw-sweetwater-hub-included-as-base-load-in-ercot-batch-zero.html">IREN&rsquo;s 2GW Sweetwater Hub Included as Base Load in ERCOT Batch Zero — GlobeNewswire (9/8)</a></li>
+<li><a href="https://bebeez.eu/2026/09/02/iren-secures-contract-from-leading-frontier-lab-on-track-to-exit-crypto-business-by-end-of-year/">Iren secures contract from &ldquo;leading frontier lab&rdquo; — BeBeez International</a></li>
+<li><a href="https://www.tikr.com/blog/iren-stock-jumped-13-in-a-day-on-an-anthropic-australia-report-heres-where-the-stock-could-go-in-2026">IREN Stock Jumped 13% on an Anthropic Australia Report — TIKR</a></li>
+<li><a href="https://www.techtimes.com/articles/322772/20260803/ai-loan-investors-demand-covenants-after-coreweave-spread-blows-out-125-points.htm">AI Loan Investors Demand Covenants After CoreWeave Spread Blows Out 125 Points — TechTimes</a></li>
+<li><a href="https://capacityglobal.com/news/coreweaves-debt-hits-35bn/">CoreWeave&rsquo;s debt hits $35bn: What it means for the neocloud refinancing wall — Capacity</a></li>
+<li><a href="https://www.bloomberg.com/news/articles/2026-08-19/goldman-sounds-out-investors-for-coreweave-tied-data-center-bond">Goldman Sachs Gauges Demand for $1.15 Billion CoreWeave Data Center Bond — Bloomberg</a></li>
+<li><a href="https://finance.yahoo.com/technology/ai/articles/6-hyperscalers-driving-ai-revolution-104200428.html">6 Hyperscalers Projected to Spend $1.3 Trillion on Capex in 2027 — Yahoo Finance</a></li>
+</ul>
+
+<h4 class="subsub">RKLB</h4>
+<ul>
+<li><a href="https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-announces-second-quarter-2026-financial-results-posts">Rocket Lab Announces Second Quarter 2026 Financial Results — Rocket Lab (8/10)</a></li>
+<li><a href="https://www.airandspaceforces.com/sda-awards-contracts-for-36-golden-dome-missile-tracking-satellites/">SDA Awards Contracts for 36 Golden Dome Missile Tracking Satellites — Air &amp; Space Forces (8/4)</a></li>
+<li><a href="https://rocketlabcorp.com/updates/rocket-lab-awarded-816m-prime-contract-to-build-missile-defense-satellite-constellation-for-u-s-space-force/">Rocket Lab Awarded $816M Prime Contract — Rocket Lab</a></li>
+<li><a href="https://spacewatch.global/2026/07/rocket-lab-awarded-record-266m-missile-defense-contract-with-u-s-space-force-for-suborbital-launches/">Rocket Lab Awarded Record $266M Missile Defense Contract — SpaceWatch.GLOBAL</a></li>
+<li><a href="https://www.gurufocus.com/news/9072376/rocket-lab-stock-climbs-yet-neutron-launch-date-remains-out-of-reach">Rocket Lab Stock Climbs. Yet Neutron Launch Date Remains Out of Reach — GuruFocus</a></li>
+</ul>
+
+<h4 class="subsub">무역</h4>
+<ul>
+<li><a href="https://m.blog.naver.com/ranto28/224406702287">트럼프, 캐나다에 관세가 아니라 수입금지를 선언한 속사정 — 블로거 분석(메르)</a></li>
+</ul>
+</section>
+
+<p class="pager">직전 기록: <a href="2026-09-09-iren-ercot-gateway-kospi-7000.html">9월 9일 — 관문 통과 기록부</a></p>
+
+</div>
+</body>
+</html>
