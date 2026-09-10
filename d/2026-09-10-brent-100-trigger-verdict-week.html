@@ -18,38 +18,37 @@
    그어 둔 선과 그 위에 올라앉은 값 — 사건 자체가 그림이다.
    왼쪽 상태 막대의 색이 그 블록의 상태를 나른다(장식이 아니다).
    ══════════════════════════════════════════════════════════════ */
+/* 🔴 이 지면은 어둡다 — 밝은 모드에서도 그렇다.
+   앞선 스윕들의 배경이 전부 밝기 90~98%의 흰색이라 폰에서 전부 같은 페이지로
+   보였다(2026-09-10 사용자 신고). 배경을 벌리는 것이 가장 확실한 구분이고,
+   경보가 울린 계기판이라는 이 문서의 성격에도 어두운 판이 맞는다.
+   기존 팔레트와의 거리는 test/palette.test.mjs 가 수치로 강제한다. */
 :root {
-  color-scheme: light;
-  --ground: #e6e7e4;      /* 계기 패널의 아연빛 */
-  --panel:  #f6f6f4;
-  --ink:    #1a1d1a;
-  --body:   #33383a;
-  --muted:  #6d7375;
-  --line:   #c9ccc7;
-  --fired:  #b4560a;      /* 발동 — 이 지면에서 유일하게 큰 소리 */
-  --hold:   #10474f;      /* 유지 */
-  --watch:  #8a6a12;      /* 관망 */
+  color-scheme: dark;
+  --page-bg: #16292e;     /* 짙은 석판 청록 — 야간 계기판 */
+  --panel:  #1e373d;
+  --ink:    #f0f5f4;
+  --body:   #cfdcda;
+  --muted:  #8ba3a3;
+  --line:   #2c4a51;
+  --fired:  #ff9d3d;      /* 발동 — 이 지면에서 유일하게 큰 소리 */
+  --hold:   #5fd0c5;      /* 유지 */
+  --watch:  #e8c04d;      /* 관망 */
   --sans: 'IBM Plex Sans KR', system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif;
   --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
 }
+/* 기기가 어두운 모드면 한 단 더 내린다 (OLED 에서 눈이 덜 부시다) */
 @media (prefers-color-scheme: dark) {
   :root {
-    color-scheme: dark;
-    --ground: #14181a;
-    --panel:  #1c2124;
-    --ink:    #eef0ec;
-    --body:   #ccd2d1;
-    --muted:  #8d9695;
-    --line:   #2e3538;
-    --fired:  #f0862f;
-    --hold:   #5fc0ba;
-    --watch:  #ddb03f;
+    --page-bg: #0e1f23;
+    --panel:  #162c31;
+    --line:   #26424a;
   }
 }
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  background: var(--ground);
+  background: var(--page-bg);
   color: var(--body);
   font-family: var(--sans);
   font-size: 16px;
