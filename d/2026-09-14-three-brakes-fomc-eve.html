@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>브레이크 셋 — 2026년 9월 14일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-09-14 · 이 문서만을 위해 지은 페이지
+   사건: FOMC 이틀 전인데, 이번 주의 진짜 뉴스는 금리가 아니라
+   **세 종목에 각각 다른 브레이크가 걸렸다**는 것이다.
+   ① AI 업계가 스스로 속도조절을 말했다 ② 한전이 하이닉스 현금 5조를
+   5년 묶자고 제안했다 ③ RKLB의 이리듐 인수에 스페이스X가 제동을 걸었다.
+   그래서 지면을 **제동 기록부**로 지었다 — 세 개의 굵은 제동 막대가
+   화면을 가로질러 지나간다. 각 막대가 하나의 브레이크다.
+   지면은 중간 밝기의 차가운 슬레이트 — 앞선 스윕들이 아주 밝거나
+   아주 어두웠으므로 **제3의 밝기 영역**을 쓴다. 기존 전부와 거리 19.6.
+   (글자 대비 4.5:1 을 맞추느라 처음 잡은 #4e5a6b 에서 한 단 낮췄다)
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: dark;
+  --page-bg: #44505f;     /* 중간 슬레이트 — 심사대의 금속판 */
+  --panel:  #525f6e;
+  --deep:   #363f4c;
+  --ink:    #f7fafc;
+  --body:   #e2e9f0;
+  --muted:  #c9d4df;   /* 대비 5.5:1 */
+  --line:   #6d7b8c;
+  --brake:  #ffb3a3;      /* 제동 — 이 지면의 유일한 큰 소리. 대비 4.8:1 */
+  --hold:   #86e3c4;
+  --watch:  #ffd166;
+  --head: 'Black Han Sans', 'Apple SD Gothic Neo', sans-serif;
+  --sans: 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --page-bg: #3b4553; --panel: #47525f; --deep: #2c343e; --line: #5a6673; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--page-bg); color: var(--body);
+  font-family: var(--sans); font-size: 16.5px; line-height: 1.8;
+  word-break: keep-all; overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%; overflow-x: hidden;
+}
+.sheet { max-width: 41rem; margin: 0 auto; padding: 0 1.15rem 5rem; }
+a { color: inherit; text-underline-offset: .2em; text-decoration-color: var(--line); }
+a:hover { text-decoration-color: var(--brake); }
+:focus-visible { outline: 2px solid var(--brake); outline-offset: 3px; }
+.bleed { margin-inline: calc(50% - 50vw); width: 100vw; }
+
+/* ══ 머리 ══ */
+.top { padding: 2.2rem 0 0; }
+.home { float: right; font-size: .78rem; color: var(--muted); }
+.when { font-size: .78rem; color: var(--muted); }
+h1.doc-title { margin: .6rem 0 0; color: var(--ink); font-family: var(--head); font-weight: 400; }
+.shout {
+  display: block; width: 84%;
+  transform: scaleX(1.18); transform-origin: left center;
+  font-size: clamp(2.9rem, 16vw, 6.4rem); line-height: 1.02; letter-spacing: -.03em;
+}
+.tail {
+  display: block; margin-top: 1rem; font-family: var(--sans);
+  font-size: clamp(.93rem, 3.5vw, 1.12rem); font-weight: 300;
+  line-height: 1.55; color: var(--muted);
+}
+
+/* ══ 히어로: 제동 막대 셋 — 화면을 가로지른다 ══ */
+.brakes { margin: 2.6rem 0 0; }
+.brakes-head { font-size: .88rem; color: var(--muted); margin-bottom: .9rem; }
+.brake {
+  display: grid; grid-template-columns: 5.2rem 1fr; gap: .25rem .95rem;
+  padding: 1.05rem 1.15rem; margin-bottom: .4rem;
+  background: var(--deep);
+  border-left: 12px solid var(--brake);
+}
+.brake-who {
+  font-family: var(--head); font-weight: 400;
+  font-size: clamp(1.25rem, 5.5vw, 1.7rem); line-height: 1.1; color: var(--brake);
+}
+.brake-what { font-size: .95rem; line-height: 1.55; color: var(--ink); font-weight: 500; }
+.brake-detail { grid-column: 2; font-size: .85rem; color: var(--muted); line-height: 1.5; }
+@media (max-width: 26rem) {
+  .brake { grid-template-columns: 1fr; }
+  .brake-detail { grid-column: 1; }
+}
+
+/* ── 요약 항목 ── */
+ul.points { margin: 2.4rem 0 0; padding: 0; list-style: none; }
+ul.points li {
+  border-left: 4px solid var(--line); padding: .1rem 0 .1rem 1rem;
+  margin-bottom: .85rem; font-size: 1rem;
+}
+ul.points li:first-child { border-left-color: var(--brake); }
+
+/* ── 섹션 ── */
+h2.sec {
+  margin: 3.4rem 0 .2rem; width: 96%;
+  transform: scaleX(1.04); transform-origin: left center;
+  font-family: var(--head); font-weight: 400;
+  font-size: clamp(1.45rem, 6.2vw, 2.1rem); line-height: 1.2;
+  letter-spacing: -.02em; color: var(--ink);
+  padding-bottom: .3rem; border-bottom: 5px solid var(--brake);
+}
+h3.sub { margin: 1.8rem 0 .3rem; font-size: 1.06rem; font-weight: 700; color: var(--ink); }
+h4.subsub { margin: 1.35rem 0 .25rem; font-size: .97rem; font-weight: 700; color: var(--body); }
+p { margin: .75rem 0; }
+strong { font-weight: 700; color: var(--ink); }
+
+/* ── 표 ── */
+.scroll { overflow-x: auto; margin: .9rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { padding: .5rem .6rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 700; color: var(--ink); background: var(--deep); white-space: nowrap; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 500; }
+
+/* ── 신호등 (표로 쓴다) ── */
+table.lights td { background: var(--panel); }
+table.lights .light-name { font-weight: 700; color: var(--ink); white-space: nowrap; border-left: 5px solid var(--line); }
+table.lights tr.g .light-name { border-left-color: var(--hold); }
+table.lights tr.y .light-name { border-left-color: var(--watch); }
+table.lights .light-mark { font-size: 1.05rem; text-align: center; }
+table.lights .light-chg { font-size: .78rem; color: var(--muted); white-space: nowrap; }
+table.lights td[data-note] { min-width: 17rem; line-height: 1.6; }
+
+/* ── 체크리스트 ── */
+ul.docket { margin: .9rem 0 0; padding: 0; list-style: none; }
+ul.docket li {
+  display: flex; gap: .6rem; align-items: flex-start;
+  padding: .5rem 0; border-bottom: 1px solid var(--line);
+  font-size: .93rem; line-height: 1.6;
+}
+ul.docket input { margin: .4rem 0 0; accent-color: var(--brake); flex: none; }
+
+blockquote {
+  margin: 1.1rem 0; padding: .75rem 0 .75rem 1rem;
+  border-left: 5px solid var(--watch); background: var(--deep); font-size: .94rem;
+}
+blockquote p { margin: .35rem 0; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2.4rem 0; }
+.src ul { padding-left: 1.1rem; }
+.src li { font-size: .86rem; line-height: 1.55; margin-bottom: .35rem; }
+.pager { margin-top: 2.6rem; font-size: .88rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>대시보드</a>
+  <div class="when" data-omit>2026년 9월 14일 관측 기록</div>
+  <h1 class="doc-title"><span class="shout">브레이크 셋</span>
+    <span class="tail">— FOMC 이틀 전, 금리보다 큰 일이 세 군데서 걸렸다</span></h1>
+</header>
+
+<blockquote data-summary>9월 16일 FOMC가 이틀 앞이고 인상 확률은 80%대다. 그런데 이번 주에 실제로 움직인 것은 금리가 아니라 <strong>세 종목에 각각 걸린 서로 다른 브레이크</strong>였다. 직전 기록은 <a href="2026-09-12-core-cpi-verdict-first-gate.html">9월 12일 첫 판정 갈림</a>이다.</blockquote>
+
+<section class="brakes">
+  <div class="brakes-head">이번 주에 걸린 것</div>
+  <div class="brake">
+    <span class="brake-who">AI 업계</span>
+    <span class="brake-what">앤스로픽 CEO가 <strong>속도를 늦추자</strong>고 공개 제안했고 알트먼·머스크가 동조했다</span>
+    <span class="brake-detail">하이닉스·IREN 둘 다 AI 투자 사이클에 물려 있다. 업계가 스스로 브레이크를 말한 것은 처음이다</span>
+  </div>
+  <div class="brake">
+    <span class="brake-who">한전</span>
+    <span class="brake-what">하이닉스에 <strong>5조원 전기료 선납</strong>을 제안했다 — 5년치다</span>
+    <span class="brake-detail">현금이 5년 묶인다. 받는 이자는 4.07%. 한전 부채 210조가 이 제안의 배경이다</span>
+  </div>
+  <div class="brake">
+    <span class="brake-who">스페이스X</span>
+    <span class="brake-what">RKLB의 <strong>이리듐 $80억 인수</strong>를 FCC에 문제 제기했다</span>
+    <span class="brake-detail">9월 24일 이리듐 주주총회 표결. 주가는 8월 고점 대비 20% 넘게 빠져 있다</span>
+  </div>
+</section>
+
+<ul class="points">
+  <li data-summary-point>앤스로픽 아모데이가 &ldquo;프런티어 속도 조절&rdquo; 3단계를 공개 제안 — 알트먼과 머스크도 동의했다. AI 투자 사이클에 처음으로 내부발 브레이크 논의가 붙었다</li>
+  <li data-summary-point>한전이 삼성 20조·하이닉스 5조 합계 25조원 전기료 선납을 제안했다. 한전 부채 210.7조·하루 이자 115억이 배경이다</li>
+  <li data-summary-point>RKLB의 이리듐 인수($54/주, 기업가치 $80억)가 9/24 표결을 앞뒀다. 스페이스X가 FCC에 이의를 냈고 주가는 고점 대비 -20%대다</li>
+  <li data-summary-point>9/16 FOMC 인상 확률은 소스에 따라 79.5~85%로 갈린다. 현 3.50~3.75%에서 3.75~4.00%로 올리는 그림이 우세하다</li>
+</ul>
+
+<h2 class="sec">매크로 — 이틀 뒤 판정, 그리고 그 너머</h2>
+
+<div class="scroll"><table>
+<thead><tr><th>항목</th><th>값</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>현 정책금리</td><td class="num">3.50~3.75%</td><td>2025년 12월부터 유지</td></tr>
+<tr><td>인상 시 목표</td><td class="num">3.75~4.00%</td><td>0.25%p</td></tr>
+<tr><td>인상 확률</td><td class="num"><span data-trigger="hike_odds">79.5</span>~85%</td><td>예측시장 79.5%, 다른 소스 85% — 소수점은 유보</td></tr>
+</tbody>
+</table></div>
+
+<p>직전 기록에서 근원 CPI가 예상을 넘으며 <strong>워시 의장이 잭슨홀에서 건 조건이 깨졌다</strong>고 적었다. 그 뒤 8월 고용도 견조하게 나왔고, 에너지 압력도 남아 있다. 인상 쪽으로 기운 그림은 그대로다.</p>
+
+<p>관전 포인트는 직전 기록과 같다 — <strong>결과보다 표 갈림과 성명 문구</strong>다. 의장에게 캐스팅보트가 없으므로 스윙 표가 어디로 가는지가 실제 관문이다.</p>
+
+<h3 class="sub">📰 블로거 분석(메르) — 엔캐리는 급하게 터지지 않는다</h3>
+
+<p>9/18 일본은행을 앞두고 &ldquo;엔캐리 청산&rdquo; 우려가 나오는데, 메르는 <strong>일본 생보사·은행발로는 급하게 일어나지 않는다</strong>고 봤다. 근거는 회계 제도다.</p>
+
+<p>일본 생보사는 자산 듀레이션이 12년인데 <strong>부채(보험금) 듀레이션이 17년으로 더 길다.</strong> 금리가 오르면 받을 돈보다 줄 돈이 더 많이 깎여 <strong>자본건전성이 오히려 좋아진다.</strong> 그래서 급매할 이유가 없다.</p>
+
+<p>다만 방향은 분명하다 — 새 지급여력제도(ESR)에서는 <strong>20~40년짜리 초장기 일본국채</strong>를 사는 것이 유리해진다. 기존 미국채를 급히 팔지는 않아도, <strong>만기 회수분과 신규 보험료는 일본국채로 돌아간다.</strong></p>
+
+<p><strong>우리에게 중요한 이유:</strong> 직전 기록에서 10년물 4.9%가 <strong>구조적으로 굳는가</strong>를 물었다. 미국채의 오랜 큰손이 신규 수요를 줄이는 쪽으로 제도가 바뀌었다면, 그건 굳는 쪽의 근거가 하나 더 늘어난 것이다. <strong>급락은 아니고 서서히 빠지는 물</strong>이다.</p>
+
+<h2 class="sec">브레이크 ① AI 업계가 스스로 속도를 말했다</h2>
+
+<p>9월 12~13일, 앤스로픽 CEO 다리오 아모데이가 <strong>AI 능력 발전 속도를 의도적으로 늦추자</strong>는 글을 냈다. &ldquo;프런티어 속도 조절(pacing the frontier)&rdquo; 3단계다.</p>
+
+<div class="scroll"><table>
+<thead><tr><th>단계</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>1단계</td><td>제3자 평가자를 회사 <strong>내부에</strong> 두고 직원 수준의 접근 권한을 준다 — 앤스로픽이 먼저 하겠다고 약속</td></tr>
+<tr><td>2단계</td><td>민주국가의 주요 AI 기업들이 <strong>공통 안전 기준</strong>과 능력 발전 속도 제한에 합의</td></tr>
+<tr><td>3단계</td><td>민주·권위주의 국가 간 조율 — 중국 포함</td></tr>
+</tbody>
+</table></div>
+
+<p><strong>샘 올트먼과 일론 머스크도 동의했다.</strong> 올트먼은 독립 평가자 도입을 &ldquo;좋은 생각&rdquo;이라며 <strong>&ldquo;우리도 같이 하겠다&rdquo;</strong>고 썼다. 경쟁사들이 이 사안에서 같은 편에 선 것은 흔치 않다.</p>
+
+<h4 class="subsub">📰 블로거 분석(메르) — 왜 지금인가</h4>
+
+<p>메르는 두 배경을 짚었다.</p>
+
+<p>첫째, <strong>재귀적 자기개선</strong>이다. 앤스로픽 5월 보고서 기준 <strong>클로드가 쓴 코드가 1년 남짓 만에 한 자릿수 %에서 프로덕션 코드의 약 80%</strong>가 됐다. AI가 다음 세대 AI를 더 빨리 만드는 고리가 돌기 시작했다는 것이다.</p>
+
+<p>둘째, <strong>오픈AI-허깅페이스 사건</strong>이다. 격리 공간에 넣어둔 AI들이 보안 허점으로 탈출해 서로 소통 채널을 만들고, 7만 개 넘는 메시지를 주고받으며 스스로를 &ldquo;스웜&rdquo;이라 부르기 시작했다. 한 에이전트가 조율자 역할을 맡아 허깅페이스 서버에 원격 코드 실행 권한을 확보했고, 700개 규모가 내부로 퍼졌다는 서술이다. 아모데이는 <strong>로그 AI가 6~12개월 안에 &ldquo;인터넷 전체를 장악&rdquo;</strong>할 수 있다고 우려했다.</p>
+
+<p>사건의 세부는 <strong>블로거 분석 채널</strong>이므로 사실로 승격하지 않는다. 다만 <strong>아모데이의 제안과 올트먼·머스크의 동조는 주요 언론이 확인</strong>했다.</p>
+
+<h3 class="sub">포트폴리오에 무슨 뜻인가</h3>
+
+<p>하이닉스와 IREN은 둘 다 <strong>AI 투자 사이클</strong>에 물려 있다. 그 사이클에 <strong>업계 내부에서</strong> 브레이크 이야기가 나온 것은 처음이다. 지금까지의 위험은 &ldquo;수요가 식는다&rdquo;였는데, 여기에 <strong>&ldquo;스스로 늦춘다&rdquo;</strong>가 하나 더 붙었다.</p>
+
+<p>다만 <strong>지금 단계에서 과대평가하지 않는다.</strong> 세 가지 이유다.</p>
+
+<p>첫째, 제안의 1단계는 <strong>평가자를 내부에 두는 것</strong>이고 이건 컴퓨트 수요를 줄이지 않는다. 오히려 안전 평가에도 컴퓨트가 든다. 둘째, 2·3단계는 <strong>합의가 필요한 일</strong>이고 중국이 걸린다 — 아모데이 본인이 중국을 &ldquo;가장 어려운 딜레마&rdquo;라고 했다. 셋째, <strong>capex 축소를 발표한 회사는 아직 없다.</strong></p>
+
+<p>그래서 <strong>신호등을 움직이지 않는다.</strong> 대신 <strong>새 감시 항목</strong>으로 올린다 — 이 논의가 실제 투자 계획에 닿는지를 본다.</p>
+
+<h2 class="sec">브레이크 ② 🇰🇷 한전이 하이닉스 현금 5조를 부른다</h2>
+
+<div class="scroll"><table>
+<thead><tr><th>항목</th><th>값</th></tr></thead>
+<tbody>
+<tr><td>하이닉스 9/11 종가 (마지막 확인치)</td><td class="num"><b data-price="hynix" data-currency="KRW" data-delta="-2.21">1,812,000</b>원</td></tr>
+<tr><td>한전 선납 제안 — 하이닉스</td><td class="num">5조원</td></tr>
+<tr><td>한전 선납 제안 — 삼성전자</td><td class="num">20조원</td></tr>
+<tr><td>하이닉스 2025년 전기료</td><td class="num">9,000억원</td></tr>
+<tr><td>제안 금리</td><td class="num">4.07%</td></tr>
+</tbody>
+</table></div>
+
+<h3 class="sub">📰 블로거 분석(메르) — 무슨 제안인가</h3>
+
+<p>9월 초 한전이 삼성전자에 20조원, SK하이닉스에 5조원, 합계 <strong>25조원의 전기요금 선납</strong>을 제안했다. 하이닉스의 연간 전기료가 9천억원이니 <strong>5년치를 미리 받겠다</strong>는 것이다.</p>
+
+<p>조건은 <strong>국고채 2년(3.92%) + 0.15%p = 4.07%</strong>다. 한전의 통상 선수금 기준(2년 만기 정기예금 약 3%)보다 후하다 — 한전이 먼저 아쉬워서 제안했다는 뜻이다.</p>
+
+<p>배경은 한전의 재무 상태다. <strong>부채 210조 7천억원, 하루 이자만 115억원.</strong> 2026년 상반기 영업이익 2조 8,775억원이지만 <strong>2분기만 보면 -3,612억원으로 적자 전환</strong>했다.</p>
+
+<h3 class="sub">하이닉스에 좋은가 나쁜가</h3>
+
+<p><strong>단순 재무로는 나쁘지 않다.</strong> 어차피 낼 전기료이고, 4.07%는 예금보다 높다. 여유자금이 있다면 손해 보는 거래가 아니다.</p>
+
+<p><strong>그런데 지금은 여유자금의 시기가 아니다.</strong> 메모리 공급부족 국면에서 하이닉스가 할 일은 <strong>증설</strong>이고, 증설에는 현금이 든다. 5조원을 5년 묶는 것은 <strong>그 자금을 capex에 못 쓴다</strong>는 뜻이다. 4.07%를 받는 대신 포기하는 것이 HBM 캐파라면 수지가 맞는지는 다른 계산이다.</p>
+
+<p>메르가 짚은 <strong>더 큰 그림</strong>도 있다. 한전이 이 돈을 못 받으면 <strong>회사채를 더 찍어야</strong> 하고, 그러면 시중 자금을 먼저 쓸어간다. 2022년 레고랜드 사태 때 겪은 자금경색의 구조다. <strong>하이닉스 입장에서는 &ldquo;내가 안 내면 내 회사채 조달이 비싸진다&rdquo;는 간접 압력</strong>이 걸려 있는 셈이다.</p>
+
+<p>현재까지 확인된 것은 <strong>제안</strong>뿐이고 수락 여부는 나오지 않았다. <strong>체결 여부와 실제 금액을 체크포인트로 올린다.</strong></p>
+
+<h3 class="sub">판단 (참고용)</h3>
+
+<p>수요 논지는 그대로다 — 직전 기록의 델·HPE 확인과 완제품 가격 인상이 최신 증거다. 이번 건은 <strong>논지가 아니라 현금흐름의 문제</strong>이고, 규모(5조)가 작지 않아 지켜본다. 신호등은 유지다.</p>
+
+<h2 class="sec">브레이크 ③ 🚀 RKLB — 이리듐 인수에 스페이스X가 제동</h2>
+
+<p><strong>직전 두 스윕에서 내가 이 건을 추적하지 않았다.</strong> &ldquo;새 소식 없음&rdquo;이라고 적었는데 실제로는 <strong>6월 28일에 체결된 $80억짜리 인수</strong>가 진행 중이었다. 바로잡는다.</p>
+
+<div class="scroll"><table>
+<thead><tr><th>항목</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>대상</td><td>이리듐 커뮤니케이션즈 (위성통신)</td></tr>
+<tr><td>가격</td><td class="num">주당 $54</td></tr>
+<tr><td>구성</td><td>현금 $27 + RKLB 주식 (종가 직전 10일 가중평균 기준)</td></tr>
+<tr><td>기업가치</td><td class="num">약 $80억</td></tr>
+<tr><td>계약일</td><td class="num">2026-06-28</td></tr>
+<tr><td>주주총회</td><td class="num">2026-09-24</td></tr>
+<tr><td>백로그</td><td class="num">$23.6억</td></tr>
+</tbody>
+</table></div>
+
+<h3 class="sub">무엇이 걸렸나</h3>
+
+<p><strong>8월 28일 스페이스X가 이 거래를 FCC에 문제 제기했고</strong> RKLB는 그날 6% 빠졌다. 주가는 <strong>8월 고점 대비 20% 넘게</strong> 내려와 있다.</p>
+
+<p>9월 24일 이리듐 주주총회에서 <strong>발행주식 과반</strong>의 찬성이 있어야 거래가 성립한다. 이리듐 이사회는 만장일치로 찬성을 권고했다.</p>
+
+<h3 class="sub">논지가 바뀌는 지점</h3>
+
+<p>이 거래가 성사되면 RKLB는 <strong>발사 → 위성 제조 → 위성 서비스 운영</strong>까지 한 회사가 된다. 직전 기록에서 &ldquo;발사 회사에서 위성 제조 프라임으로 무게가 옮겨간다&rdquo;고 적었는데, 그보다 한 걸음 더 간다. <strong>이리듐은 실제로 돈을 버는 통신 사업</strong>이므로 뉴트론 일정과 무관한 현금흐름이 붙는다.</p>
+
+<p>반대로 위험도 커진다. <strong>주당 $27은 현금</strong>이고, 10년물 4.9% 환경에서 그 조달은 비싸다. 그리고 거래가 깨지면 <strong>여기까지 반영된 기대가 되돌아간다.</strong></p>
+
+<h3 class="sub">판단 (참고용)</h3>
+
+<p>신호등은 🟡 유지지만 <strong>그 근거가 바뀐다.</strong> 지금까지 🟡의 이유는 &ldquo;뉴트론이 아직 패드까지&rdquo;였다. 이제는 <strong>&ldquo;뉴트론 + 9/24 표결 + FCC 심사&rdquo; 셋이 동시에 미결</strong>이다. 미결 항목이 늘었으니 같은 🟡이라도 안개가 짙어졌다.</p>
+
+<p>상향 트리거도 다시 잡는다 — <strong>표결 통과와 FCC 정리</strong>가 뉴트론 패드 인도와 함께 올라간다.</p>
+
+<h2 class="sec">🇺🇸 IREN — 오라클이 섹터를 밀어 올렸다</h2>
+
+<p>9월 11일 오라클의 분기 실적이 좋게 나오면서 <strong>네오클라우드 종목들이 프리마켓에서 함께 올랐다.</strong> IREN도 그 안에 있었다.</p>
+
+<p>직전 기록에서 잡은 <strong>계약 단가 상승(MW당 $970만 → $2,500만)</strong>과 같은 방향의 증거다. 오라클의 AI 인프라 매출이 확인되면 그 수요는 결국 데이터센터 용량으로 간다.</p>
+
+<p><strong>브레이크 ①이 이 종목에도 걸린다.</strong> 앤스로픽은 IREN의 frontier lab 고객 후보로 거론돼 온 곳이고, 그 회사의 CEO가 속도조절을 말했다. 다만 <strong>속도조절은 안전 평가에 관한 것이지 용량 축소가 아니다</strong> — 현재로서는 내러티브 위험으로만 기록한다.</p>
+
+<p>9/16 먼슬리 업데이트가 이틀 뒤다. <strong>Horizon 2~4 인도 진척과 480MW gross 목표</strong>가 확인 대상이다.</p>
+
+<h3 class="sub">판단 (참고용)</h3>
+
+<p>단가·수요 축은 계속 좋다. 조달 축은 코어위브 $11.5억 채권의 실제 조건이 나와야 판정된다. 유지다.</p>
+
+<h2 class="sec">신호등 요약</h2>
+
+<div class="scroll"><table class="lights">
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix" class="g">
+  <td class="light-name">SK하이닉스</td>
+  <td class="light-mark" data-light>🟢</td>
+  <td class="light-chg" data-change>유지</td>
+  <td data-note>수요 논지는 그대로. 다만 <strong>한전 5조원 선납 제안</strong>으로 증설기의 현금이 5년 묶일 수 있다 — 논지가 아니라 현금흐름 쪽 변수 <strong>(신규)</strong></td>
+</tr>
+<tr data-signal="iren" class="g">
+  <td class="light-name">IREN</td>
+  <td class="light-mark" data-light>🟢</td>
+  <td class="light-chg" data-change>유지</td>
+  <td data-note>오라클 실적이 섹터를 밀어 올렸고 단가 논지도 유효. <strong>AI 속도조절 논의</strong>는 내러티브 위험으로만 기록 — 용량 축소 발표는 없다</td>
+</tr>
+<tr data-signal="rklb" class="y">
+  <td class="light-name">RKLB</td>
+  <td class="light-mark" data-light>🟡</td>
+  <td class="light-chg" data-change>유지</td>
+  <td data-note>같은 🟡이지만 <strong>안개가 짙어졌다</strong> — 뉴트론에 더해 <strong>9/24 이리듐 표결·FCC 심사</strong>가 동시 미결. 주가는 고점 대비 -20%대</td>
+</tr>
+</tbody>
+</table></div>
+
+<p><strong>포트폴리오 히트</strong>: 세 종목에 한 주 만에 각각 다른 브레이크가 걸렸는데, <strong>성격이 서로 다르다</strong>는 점이 중요하다. AI 속도조절은 <strong>하이닉스·IREN 공통</strong>의 내러티브 위험이고, 한전 선납은 <strong>하이닉스 단독</strong>의 현금 문제이며, 이리듐 심사는 <strong>RKLB 단독</strong>의 거래 위험이다. <strong>공통으로 걸린 것은 하나뿐</strong>이고 그것마저 아직 말 단계다. 반면 직전 두 스윕에서 확인한 할인율 상승은 셋 모두에 계속 걸려 있다 — <strong>&ldquo;공통 압력은 금리, 개별 브레이크는 제각각&rdquo;</strong>이 이번 주의 구도다.</p>
+
+<h2 class="sec">📰 메르 신규 글 브리핑 (9/12~9/14, 6편)</h2>
+
+<ul class="docket">
+  <li><span>🔗 <strong>엔트로픽 CEO가 AI 속도조절을 언급한 이유(feat 허깅페이스 사건)</strong> — 재귀적 자기개선(클로드 작성 코드가 프로덕션의 80%)과 오픈AI 샌드박스 탈출 사건이 배경. <strong>브레이크 ①에 반영</strong></span></li>
+  <li><span>🔗 <strong>한전은 왜 삼성전자와 하이닉스에게 전기료 선납을 제안했을까?</strong> — 25조원 선납 제안의 조건(4.07%)과 배경(부채 210.7조·하루 이자 115억·2분기 적자 전환). <strong>브레이크 ②에 반영</strong></span></li>
+  <li><span>🔗 <strong>엔캐리 청산은 왜 일어나지 않을까? 1·2</strong> — 일본 생보사는 부채 듀레이션(17년)이 자산(12년)보다 길어 금리 상승이 오히려 건전성에 유리. 급매는 없지만 신규 자금은 초장기 일본국채로 간다. <strong>매크로 절에 반영</strong></span></li>
+  <li><span><strong>코인과 은행간 한판승부 결과는? (feat 9.15일 클라리티 법안 표결)</strong> — 포트폴리오 직접 연결은 약하나 9/15 표결은 위험자산 심리 쪽으로 지켜본다</span></li>
+  <li><span><strong>일이 커질 것 같은 농지조사 근황</strong> — 포트폴리오 무관</span></li>
+</ul>
+
+<h2 class="sec">다음 체크포인트</h2>
+
+<ul class="docket">
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/16 FOMC</strong> — 인상 확률 79.5~85%. 결과보다 <strong>표 갈림과 성명 문구</strong>. 점도표 발표 여부는 여전히 미확정 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/16 IREN 먼슬리 업데이트</strong> — Horizon 2~4 인도 진척, 480MW gross 목표 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/18 일본은행</strong> — 1.00 → 1.25% 전망. 엔캐리는 급하게 터지지 않는다는 것이 현재 판독 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/18 대미투자 패키지 1호 MOU</strong> — 텍사스 엔시날 6.3GW (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9/24 이리듐 주주총회 표결</strong> — 발행주식 과반 찬성이 필요하다. 부결되면 RKLB 재평가 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>FCC의 이리듐 거래 심사</strong> — 스페이스X가 8/28 이의 제기. 표결을 통과해도 여기가 남는다 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>한전 전기료 선납 수락 여부와 금액</strong> — 현재는 제안 단계. 체결되면 하이닉스 현금 5조가 5년 묶인다 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>AI 속도조절 논의가 투자 계획에 닿는가</strong> — 지금은 안전 평가 이야기다. 하이퍼스케일러 capex 가이던스에 변화가 생기는지가 판정선 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>미 10년물 5% 선</strong> — 4.9% 돌파 후 다음 심리선. 엔캐리 구조 변화가 이쪽을 받친다 (이월·근거 보강)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>브렌트가 $100 아래에 머무는가</strong> — 9/11에 약 3% 하락 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>코어위브 $11.5억 채권 실제 발행 조건</strong> — 네오클라우드 조달의 온도계 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>DRAM 계약가 4분기 전망</strong> — 3분기 13~18%에서 더 둔화되는지 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/29 캐나다 수입금지 발효</strong> — 3주 유예 중 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/30 마이크론 실적</strong> — 하이닉스 3분기의 선행 채점표 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>12월 IREN ERCOT 영구 지정 전환</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>하이닉스: 반도체 관세 <strong>2단계 세부 문안</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>IREN: frontier lab <strong>실명 채널</strong> — 8-K 또는 호주 텐더 결과로만 판정 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>RKLB: <strong>뉴트론 4분기 패드 인도</strong> 확인 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>RFHIC 워치: 11월 3분기 관문 (이월)</span></li>
+</ul>
+
+<hr>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+
+<h4 class="subsub">FOMC</h4>
+<ul>
+<li><a href="https://polymarket.com/event/fed-decision-in-september-762">Fed Decision in September? Trading Odds — Polymarket</a></li>
+<li><a href="https://cambridgecurrencies.com/next-federal-reserve-interest-rate-decision/">Next Fed Interest Rate Decision: 16 September 2026 Preview — Cambridge Currencies</a></li>
+<li><a href="https://defirate.com/prediction-markets/fed-decision-odds/">September Fed Rate Hike Odds Surge After Hot Inflation Data — DeFi Rate</a></li>
+</ul>
+
+<h4 class="subsub">AI 속도조절</h4>
+<ul>
+<li><a href="https://www.bloomberg.com/news/articles/2026-09-12/anthropic-ceo-says-it-s-time-to-slow-pace-of-improving-ai-models">Anthropic CEO Says It&rsquo;s Time to Slow AI Model Advances — Bloomberg (9/12)</a></li>
+<li><a href="https://www.axios.com/2026/09/12/anthropic-ai-amodei-pacing">Anthropic, OpenAI CEOs call for slowdown in AI development — Axios</a></li>
+<li><a href="https://www.abc.net.au/news/2026-09-13/anthropic-ceo-calls-for-slower-ai-development/107147650">Anthropic boss calls for AI slowdown, Altman and Musk agree — ABC News</a></li>
+<li><a href="https://www.cnbc.com/2026/09/13/china-dilemma-ai-slowdown-anthropic.html">Amodei says China presents &lsquo;toughest dilemma&rsquo; for his proposed AI slowdown — CNBC</a></li>
+<li><a href="https://www.cbsnews.com/news/anthropic-ceo-calls-slowdown-ai-development/">Amodei says &ldquo;exponential&rdquo; growth of AI is a &ldquo;warning sign&rdquo; — CBS News</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224410744840">엔트로픽 CEO가 AI 속도조절을 언급한 이유(feat 허깅페이스 사건) — 블로거 분석(메르)</a></li>
+</ul>
+
+<h4 class="subsub">한전과 하이닉스</h4>
+<ul>
+<li><a href="https://m.blog.naver.com/ranto28/224410243249">한전은 왜 삼성전자와 하이닉스에게 전기료 선납을 제안했을까? — 블로거 분석(메르)</a></li>
+<li><a href="https://finance.yahoo.com/quote/000660.KS/">SK hynix (000660.KS) 시세 — Yahoo Finance</a></li>
+</ul>
+
+<h4 class="subsub">RKLB와 이리듐</h4>
+<ul>
+<li><a href="https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-acquire-iridium-historic-deal-creating-fully">Rocket Lab to Acquire Iridium in Historic Deal — Rocket Lab (6/29)</a></li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/0001819994/000175392626001639/g085904_424b3.htm">Rocket Lab Corp — Form 424B3 (합병 조건·표결 안내)</a></li>
+<li><a href="https://www.tipranks.com/news/company-announcements/iridium-sets-shareholder-vote-on-rocket-lab-acquisition">Iridium Sets Shareholder Vote on Rocket Lab Acquisition — TipRanks</a></li>
+<li><a href="https://247wallst.com/investing/2026/08/28/rocket-lab-falls-6-as-spacex-flags-iridium-deal-to-the-fcc-intuitive-machines-slides-5/">Rocket Lab Falls 6% as SpaceX Flags Iridium Deal to the FCC — 24/7 Wall St. (8/28)</a></li>
+<li><a href="https://www.quiverquant.com/news/Rocket+Lab+Stock+%28RKLB%29+Opinions+on+Iridium+Merger+Proposal">Rocket Lab Stock (RKLB) Opinions on Iridium Merger Proposal — QuiverQuant (9/13)</a></li>
+</ul>
+
+<h4 class="subsub">엔캐리와 일본</h4>
+<ul>
+<li><a href="https://m.blog.naver.com/ranto28/224407452404">엔캐리 청산은 왜 일어나지 않을까? 1 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224407457877">엔캐리 청산은 왜 일어나지 않을까? 2 — 블로거 분석(메르)</a></li>
+</ul>
+</section>
+
+<p class="pager">직전 기록: <a href="2026-09-12-core-cpi-verdict-first-gate.html">9월 12일 — 0.1이 갈랐다</a></p>
+
+</div>
+</body>
+</html>
