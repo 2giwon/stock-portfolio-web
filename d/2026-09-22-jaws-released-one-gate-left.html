@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>턱이 풀렸다 — 2026년 9월 22일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nanum+Gothic:wght@400;700;800&family=Song+Myung&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-09-22 · 이 문서만을 위해 지은 페이지
+
+   사건: 일주일 전 지면은 **위아래에서 마주 누르는 두 턱**이었다.
+   금리가 위에서, AI 수요 의문이 아래에서 눌렀다.
+   일주일 만에 **둘 다 물러났다** — 10년물 5.01 → 4.96, 브렌트는
+   $100 선까지 되내려왔고, 나스닥은 사상 최고를 찍었다.
+
+   그런데 연준의 손은 반대로 갔다. 만장일치 인상에 점도표는
+   2027년까지 내려오지 않는다. 그리고 **9월 30일 하루에 문 네 개**가
+   겹친다 — 마이크론 실적 · PCE 산정 개정 · 대미투자 송금 · 배당 기준일.
+
+   그래서 이 지면은 **벌어지는 턱**으로 열고, 화면을 가로지르는
+   **거대한 09.30** 하나로 닫는다. 압박이 풀린 자리에 남은 것은
+   좁은 문 하나라는 말을, 배치로 한다.
+
+   지면은 연한 광물성 녹색 — 숨이 트인 색이되 축하는 아니다.
+   기존 팔레트 전부와 거리 16.5 (다크 13.5).
+   글자 대비 최저 4.53:1.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+  --page-bg: #b8ccc6;
+  --deep:   #a8bfb8;
+  --panel:  #cfdedb;
+  --card:   #dce8e5;
+  --ink:    #12211c;
+  --body:   #23332d;
+  --muted:  #3d4d46;
+  --line:   #93aca4;
+  --rule:   #7f9a92;
+  --hold:   #0f4f3c;   /* 🟢 */
+  --watch:  #654409;   /* 🟡 */
+  --hot:    #8a2417;   /* 🔴 — 이 지면의 큰 소리는 색이 아니라 크기다 */
+  --cool:   #1d3a63;
+  --serif: 'Song Myung', 'Apple SD Gothic Neo', serif;
+  --sans: 'Nanum Gothic', system-ui, -apple-system, sans-serif;
+  --shout: 'Bebas Neue', 'Nanum Gothic', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page-bg: #1e3b31;
+    --deep:   #162d26;
+    --panel:  #26473c;
+    --card:   #2d5348;
+    --ink:    #e9f3ef;
+    --body:   #d3e2dc;
+    --muted:  #a3b8b0;
+    --line:   #3f6557;
+    --rule:   #4d7365;
+    --hold:   #6fe0b8;
+    --watch:  #ffcf5c;
+    --hot:    #ff9d8e;
+    --cool:   #9dc2f2;
+  }
+}
+* { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body {
+  margin: 0; background: var(--page-bg); color: var(--body);
+  font-family: var(--sans); font-size: 16.5px; line-height: 1.85;
+  word-break: keep-all; overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+.sheet { max-width: 860px; margin: 0 auto; padding: 0 16px 90px; }
+a { color: var(--cool); }
+strong { font-weight: 800; color: var(--ink); }
+h2, h3, h4 { color: var(--ink); line-height: 1.35; }
+
+/* ── 머리글 ───────────────────────────────────────────── */
+.top { padding: 30px 0 6px; }
+.home {
+  font-size: 12px; letter-spacing: .14em; text-decoration: none;
+  color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 2px;
+}
+.when {
+  margin-top: 26px; font-family: var(--shout); font-size: 15px;
+  letter-spacing: .3em; color: var(--muted);
+}
+.doc-title { margin: 6px 0 0; font-family: var(--serif); font-weight: 400; }
+.doc-title .shout {
+  display: block; font-size: clamp(46px, 13.5vw, 108px); line-height: .95;
+  color: var(--ink); letter-spacing: -.02em;
+}
+.doc-title .tail {
+  display: block; margin-top: 16px; font-family: var(--sans);
+  font-size: clamp(15px, 3.6vw, 20px); font-weight: 400; color: var(--muted);
+  line-height: 1.6; max-width: 34em;
+}
+blockquote[data-summary] {
+  margin: 26px 0 0; padding: 20px 22px;
+  background: var(--panel); border-left: 5px solid var(--rule);
+  font-size: 16px; line-height: 1.85;
+}
+
+/* ── 히어로: 벌어지는 턱 ──────────────────────────────── */
+.jaws { margin: 46px 0 8px; }
+.jaw {
+  background: var(--card); border: 1px solid var(--line);
+  padding: 20px 22px;
+}
+.jaw-role {
+  font-size: 12.5px; letter-spacing: .12em; color: var(--muted);
+  text-transform: uppercase;
+}
+.jaw-line { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+.jaw-num {
+  font-family: var(--shout); font-size: clamp(52px, 15vw, 104px);
+  line-height: .9; color: var(--ink); letter-spacing: .01em;
+}
+.jaw-unit { font-size: 14px; color: var(--muted); letter-spacing: .08em; }
+.jaw-was {
+  font-family: var(--shout); font-size: clamp(22px, 6vw, 38px);
+  color: var(--muted); text-decoration: line-through; text-decoration-thickness: 2px;
+}
+.jaw-note { margin: 8px 0 0; font-size: 14.5px; color: var(--muted); line-height: 1.7; }
+.gap {
+  padding: 26px 22px; text-align: center;
+  border-left: 1px dashed var(--rule); border-right: 1px dashed var(--rule);
+  background: linear-gradient(var(--page-bg), var(--page-bg));
+}
+.gap .arrows {
+  font-family: var(--shout); font-size: 24px; letter-spacing: .45em; color: var(--rule);
+}
+.gap p { margin: 8px 0 0; font-size: 15px; color: var(--body); }
+
+/* ── 요약 항목 ────────────────────────────────────────── */
+.points { margin: 40px 0; padding: 0; list-style: none; }
+.points li {
+  position: relative; padding: 12px 0 12px 30px;
+  border-bottom: 1px solid var(--line); font-size: 16px;
+}
+.points li::before {
+  content: '—'; position: absolute; left: 0; top: 12px;
+  font-family: var(--shout); color: var(--rule);
+}
+
+/* ── 공통 절 ──────────────────────────────────────────── */
+.sec {
+  margin: 58px 0 4px; font-family: var(--serif); font-weight: 400;
+  font-size: clamp(26px, 6.5vw, 40px); letter-spacing: -.01em;
+}
+.sec-note { margin: 0 0 22px; font-size: 14.5px; color: var(--muted); }
+.sub {
+  margin: 34px 0 10px; font-size: 19px; font-weight: 800;
+  padding-bottom: 6px; border-bottom: 2px solid var(--rule);
+}
+.subsub { margin: 22px 0 8px; font-size: 15px; font-weight: 800; color: var(--muted); }
+p { margin: 14px 0; }
+
+/* ── 표 ───────────────────────────────────────────────── */
+.wrap { overflow-x: auto; margin: 18px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; background: var(--panel); }
+th, td { padding: 11px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: var(--deep); color: var(--ink); font-weight: 800;
+  font-size: 12.5px; letter-spacing: .06em; white-space: nowrap;
+}
+td.num { font-family: var(--shout); font-size: 20px; color: var(--ink); white-space: nowrap; }
+tr.g td:first-child, tr.y td:first-child { font-weight: 800; color: var(--ink); }
+.flip { color: var(--hot); font-weight: 800; }
+
+/* ── 🔴 이 지면의 큰 소리: 화면을 가로지르는 09.30 ────── */
+/* .sheet 바깥(body 직계)에 두었으므로 별도 full-bleed 장치가 필요 없다 —
+   화면 폭을 그대로 쓰고, 넘치는 글자는 여기서 잘라 가로 스크롤을 막는다 */
+.gate {
+  margin: 66px 0 0; padding: 40px 0 0;
+  background: var(--deep); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
+  overflow: hidden;
+}
+.gate-date {
+  font-family: var(--shout); color: var(--ink);
+  font-size: clamp(64px, 21vw, 190px); line-height: .82;
+  text-align: center; letter-spacing: -.01em;
+  transform: scaleX(1.85); transform-origin: center;
+  white-space: nowrap;
+}
+.gate-inner { max-width: 860px; margin: 0 auto; padding: 24px 16px 40px; }
+.gate-kicker {
+  font-size: 12.5px; letter-spacing: .3em; color: var(--muted);
+  text-align: center; text-transform: uppercase;
+}
+.gate h2 {
+  margin: 18px 0 6px; font-family: var(--serif); font-weight: 400;
+  font-size: clamp(24px, 6vw, 36px); text-align: center;
+}
+.gate .lede { text-align: center; color: var(--body); margin: 0 auto 26px; max-width: 30em; }
+.doors { display: grid; gap: 12px; }
+@media (min-width: 720px) { .doors { grid-template-columns: repeat(4, 1fr); } }
+.door {
+  background: var(--page-bg); border: 1px solid var(--line); padding: 16px 16px 18px;
+}
+.door .no { font-family: var(--shout); font-size: 32px; color: var(--rule); line-height: 1; }
+.door h4 { margin: 4px 0 6px; font-size: 15.5px; }
+.door p { margin: 0; font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+/* ── 종목 ─────────────────────────────────────────────── */
+.holding { margin: 44px 0; padding: 22px; background: var(--panel); border-top: 4px solid var(--rule); }
+.holding.g { border-top-color: var(--hold); }
+.holding.y { border-top-color: var(--watch); }
+.holding h3 { margin: 0 0 4px; font-size: 22px; }
+.holding .tick { font-family: var(--shout); font-size: 14px; letter-spacing: .2em; color: var(--muted); }
+.px { display: flex; align-items: baseline; gap: 10px; margin: 12px 0 2px; flex-wrap: wrap; }
+.px-num { font-family: var(--shout); font-size: 44px; line-height: 1; color: var(--ink); }
+.px-cur { font-size: 13px; color: var(--muted); letter-spacing: .1em; }
+.px-delta { font-size: 15px; font-weight: 800; color: var(--hold); }
+
+/* ── 체크포인트 ───────────────────────────────────────── */
+.cps { margin: 18px 0; padding: 0; list-style: none; }
+.cps li {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px;
+}
+.cps input { margin-top: 6px; flex: none; accent-color: var(--hold); }
+
+/* ── 출처·꼬리 ────────────────────────────────────────── */
+.src { margin-top: 52px; font-size: 14px; }
+.src ul { padding-left: 18px; margin: 6px 0 16px; }
+.src li { margin: 5px 0; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 44px 0; }
+footer { margin-top: 56px; font-size: 13px; color: var(--muted); text-align: center; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>대시보드</a>
+  <div class="when" data-omit>2026 · 09 · 22 관측 기록</div>
+  <h1 class="doc-title"><span class="shout">턱이 풀렸다</span>
+    <span class="tail">— 10년물도 유가도 물러났는데, 점도표는 2027년까지 올라가 있다</span></h1>
+</header>
+
+<blockquote data-summary>일주일 전 이 자리에 <strong>위아래로 마주 누르는 두 턱</strong>을 그렸다. 일주일 만에 <strong>둘 다 물러났다</strong> — 10년물은 5.01%에서 4.96%로, 브렌트는 4거래일 연속 내려 $100 선에 닿았고, 나스닥은 사상 최고를 찍었다. 그런데 연준의 손은 반대로 갔다. <strong>만장일치 인상에 점도표는 2027년까지 내려오지 않는다.</strong> 그리고 <strong>9월 30일 하루에 문 네 개</strong>가 겹친다. 직전 기록은 <a href="2026-09-15-five-percent-and-ai-brake-priced.html">9월 15일 위아래로 눌렸다</a>이다.</blockquote>
+
+<section class="jaws">
+  <div class="jaw">
+    <div class="jaw-role">위쪽 턱 — 할인율이 물러났다</div>
+    <div class="jaw-line">
+      <span class="jaw-num" data-trigger="treasury10y" data-threshold="5.0">4.96</span>
+      <span class="jaw-unit">% · 미 10년물 (9/21)</span>
+      <span class="jaw-was">5.01</span>
+    </div>
+    <p class="jaw-note">9/15에 2007년 이후 처음 5%를 찍었던 자리다. <strong>연준이 금리를 올린 주에 장기금리가 내렸다.</strong> 시장이 이 인상 사이클을 <strong>인플레를 잡는 데 성공할 조치</strong>로 읽었거나, 성장 둔화를 먼저 가격에 넣었다는 뜻이다.</p>
+  </div>
+
+  <div class="gap">
+    <div class="arrows">▲ &nbsp; ▼</div>
+    <p>3종목이 끼어 있던 자리가 <strong>벌어졌다</strong> — 나스닥 27,125.09 <strong>사상 최고</strong>(+2.26%)</p>
+  </div>
+
+  <div class="jaw">
+    <div class="jaw-role">아래쪽 턱 — 에너지 프리미엄이 빠졌다</div>
+    <div class="jaw-line">
+      <span class="jaw-num" data-trigger="brent" data-threshold="100">100.06</span>
+      <span class="jaw-unit">$ · 브렌트 (9/21, −3.67%)</span>
+    </div>
+    <p class="jaw-note">4거래일 연속 하락이다. 트럼프가 <strong>예멘 폭격을 일단 접고</strong> 이란과의 외교 가능성을 열었다 — UN 총회에서 페제시키안 대통령을 만날 수 있다고 했다. 다만 <strong>호르무즈는 여전히 닫혀 있다</strong>(폐쇄 205일차, 9/13 통항 8척 · 평시 약 85척). <strong>구조가 풀린 게 아니라 확전 프리미엄이 빠진 것이다.</strong></p>
+  </div>
+</section>
+
+<ul class="points">
+  <li data-summary-point><strong>FOMC가 만장일치 12-0으로 25bp 올렸다</strong>(3.75~4.00%). 2023년 7월 이후 첫 인상이고, 월러를 포함해 반대표가 하나도 없었다</li>
+  <li data-summary-point><strong>점도표가 나왔고, 2027년에도 내려오지 않는다.</strong> 18명 중 16명이 추가 인상을 찍었고 인하는 2028년부터다 — <strong>higher for longer</strong></li>
+  <li data-summary-point><strong>하이닉스 perp 펀딩이 부호를 뒤집었다</strong> — 연 +58.1% → +47.4% → <strong>−28.6%</strong>. 가격은 올랐는데 이제 숏이 비용을 낸다. 삼성은 −218%까지 갔다</li>
+  <li data-summary-point>일본은행이 1.25%로 올렸는데 <strong>엔은 오히려 157을 넘어 약해졌다.</strong> 다카이치가 지명한 리플레이션파 비둘기 2명이 반대표를 던진 것을 시장이 읽었다</li>
+  <li data-summary-point><strong>9월 30일 하루에 문이 넷</strong>이다 — 마이크론 실적 · 미 PCE 산정 개정 · 대미투자 1호 송금 · 삼성 특별배당 기준일</li>
+</ul>
+
+<h2 class="sec">직전 체크포인트 판정</h2>
+<p class="sec-note">9/15 기록에서 걸어 둔 항목들을 일주일 만에 되받는다. 한 주에 네 개가 한꺼번에 판정났다.</p>
+
+<div class="wrap">
+<table>
+<thead><tr><th>걸어 둔 것</th><th>판정</th><th>그래서</th></tr></thead>
+<tbody>
+<tr><td>미 10년물 5% 선에서 <strong>굳는가</strong></td><td><strong>굳지 않았다</strong></td><td>4.96%로 되내려왔다. 인상한 주에 장기금리가 내린 것이 핵심</td></tr>
+<tr><td>9/16 FOMC — 표 갈림과 문구</td><td><strong>만장일치 12-0</strong></td><td>월러가 돌아섰다. 표 갈림은 없었고, 대신 <strong>점도표가 갈림을 대신 보여줬다</strong></td></tr>
+<tr><td>9/16 IREN 먼슬리 — 인도 일정</td><td><strong>공시 자체가 없었다</strong></td><td>9월 공시는 9/8 스위트워터 1건뿐. 내가 9/16에 본 Horizon 1 인수는 <strong>8/13 발표분이었다</strong>(정정)</td></tr>
+<tr><td>9/18 일본은행</td><td><strong>1.25%로 인상, 7-2</strong></td><td>인상은 예상대로. <strong>분열의 성격이 바뀐 것</strong>이 새 정보다</td></tr>
+<tr><td>9/18 대미투자 1호 MOU</td><td><strong>연기</strong></td><td>국회 보고가 밀려 서명도 순연. 9/22 국회 보고, 이르면 9/23 서명 가능성</td></tr>
+<tr><td>브렌트 $100 트리거</td><td><strong>위에서 내려와 닿았다</strong></td><td>9/10에 걸었을 땐 아래에서 올라오는 선이었다. 방향이 반대가 됐다</td></tr>
+<tr><td>하이닉스 perp 펀딩이 식는가</td><td><strong>식다 못해 뒤집혔다</strong></td><td>+58.1% → −28.6%. 롱 과밀이 완전히 해소됐다</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">연준은 반대로 갔다</h2>
+<p class="sec-note">시장이 편해진 주에 연준은 더 단단해졌다. 이 어긋남이 이번 주의 전부다.</p>
+
+<h3 class="sub">만장일치, 그리고 점도표</h3>
+<p>연준은 기준금리를 <strong>3.75~4.00%</strong>로 25bp 올렸다. 2023년 7월 이후 첫 인상이다. 이유는 <strong>&ldquo;예상보다 강한 인플레이션에 대응하기 위해서&rdquo;</strong>라고 밝혔고, <strong>12명 전원 찬성</strong>이었다. 직전 기록에서 &ldquo;월러가 돌아섰는지&rdquo;를 체크포인트로 걸어 뒀는데 — <strong>돌아섰다.</strong> 그의 동결 주장은 &ldquo;근원 0.2% 이하&rdquo; 조건부였고 실제로는 0.3%가 나왔다.</p>
+
+<p>3주째 발표 여부가 불확실했던 <strong>점도표도 나왔다.</strong> 읽어야 할 것은 세 가지다.</p>
+
+<div class="wrap">
+<table>
+<thead><tr><th>점도표가 말하는 것</th><th>숫자</th><th>뜻</th></tr></thead>
+<tbody>
+<tr><td>올해 남은 인상</td><td class="num">16 / 18</td><td>10월·12월 둘 다 올리자는 초매파 4명, 한 번 더 4명대, 올해는 여기까지 하자는 비둘기 2명. <strong>18명 중 16명이 매파가 됐다</strong></td></tr>
+<tr><td>2027년 점</td><td class="num">안 내려옴</td><td>2026년보다 낮아지지 않았다. 인하는 <strong>2028년부터</strong>다 — 교과서적인 <strong>higher for longer</strong></td></tr>
+<tr><td>중립금리와의 거리</td><td class="num">4.1~4.4%</td><td>longer run(중립금리)보다 <strong>한참 위</strong>에 2년을 두겠다는 그림이다</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>기자회견에서 워시는 &ldquo;7주 정도 지켜보니 <strong>미국 경제는 강해지고 있다</strong>, 인플레이션만 잘 잡으면 될 것 같다&rdquo;고 했고, 그동안 바뀐 것으로 <strong>지정학적 이슈</strong>를 꼽았다. 중립금리를 목표로 하느냐는 질문엔 &ldquo;학문적으로는 유용하지만 통화정책에는 큰 도움이 되지 않는 것 같다&rdquo;고 답했다. 인상 이유를 다시 물었을 때의 답이 가장 직접적이다 — <strong>&ldquo;집도 없고 금융자산도 없고 월급만으로 사는 사람이 미국 인구의 절반이다. 인플레이션을 잡아야 그들의 실질소득이 는다.&rdquo;</strong></p>
+
+<p>트럼프는 결정 직후 트루스소셜에 <strong>&ldquo;미국 금리는 1% 또는 그 이하여야 한다&rdquo;</strong>고 올렸다. 그 글의 뒷부분이 우리에게 더 중요하다 — <strong>&ldquo;우리가 적자를 보는 모든 나라와 교역을 끊으면 최소 연 1.5조 달러를 벌 것&rdquo;</strong>이라는 대목이다. 한국의 2025년 대미 경상수지 흑자는 <strong>1,114억 달러</strong>였다.</p>
+
+<h3 class="sub">일본은행 — 인상했는데 엔이 약해진 이유</h3>
+<p>9/18 일본은행이 <strong>1.00 → 1.25%</strong>로 올렸다. 1995년 이후 31년 만의 최고 수준이고, 인상 간격도 6개월에서 <strong>3개월</strong>로 좁혀졌다. 그런데 <strong>엔은 157을 넘어 약해졌고</strong> 니케이는 +1.5%로 올랐다.</p>
+<p>인상 자체는 90%대 확률로 예상돼 있어 영향이 없었다. 시장이 반응한 것은 <strong>표 갈림의 성격</strong>이다. 결과는 <strong>7 대 2</strong>였는데, 반대한 2명이 다카이치 총리가 2월에 지명한 <strong>리플레이션파(통화완화와 재정확장을 동시에 미는 계열) 비둘기</strong> 아사다 도이치로·사토 아야노였다. 지금까지 일본은행에 순수 비둘기는 없었다. 가장 강경한 매파 2명의 임기가 2027년 7월에 끝나므로, 다카이치 정권이 이어지면 <strong>비둘기 4 대 매파 3</strong>의 구도가 될 수 있다.</p>
+<p class="jaw-note">우리 쪽 연결선: <strong>엔 약세는 원화에도 약세 압력</strong>이고, 이는 하이닉스 수출 단가에 나쁘지 않다. 반대로 엔캐리(싼 엔을 빌려 고금리 자산에 넣는 거래)의 매력이 줄고 있다는 지표도 함께 나왔다 — 미일 금리차가 3.8%p에서 2.7%p로 좁혀지고 환변동성은 커져, 캐리 투 리스크 비율이 0.4에서 0.27~0.3으로 내려왔다. <strong>대규모 청산이 시작된 것은 아니지만, 위험자산에 걸리는 경로이므로 기록해 둔다.</strong>(블로거 분석 — 메르)</p>
+
+<h3 class="sub">대미투자 1호 — 밀린 이유가 구체적이다</h3>
+<p>9/17 국회 보고 → 9/18 MOU 체결 일정이었으나 협상이 끝나지 않아 <strong>보고 자체가 연기</strong>됐다. 9/22 국회 보고가 이뤄지고, 미국이 &lsquo;상업적 합리성&rsquo; 요구를 일부 수용하면서 <strong>이르면 9/23 서명</strong> 가능성이 커졌다. 쟁점은 넷이다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>쟁점</th><th>한국</th><th>미국</th></tr></thead>
+<tbody>
+<tr><td>알래스카 LNG (670억$)</td><td>&ldquo;투자 가능성을 모색&rdquo; 수준으로</td><td>실질적 투자 확약 요구</td></tr>
+<tr><td>웨스팅하우스 지분</td><td>15% 이상 + 이사회 진입</td><td>자본은 환영하나 <strong>이사회는 거부</strong></td></tr>
+<tr><td>엔시날 가스발전 (200억$+)</td><td>전력판매 계약을 미국이 주선·보증</td><td>미확정</td></tr>
+<tr><td>올해 송금액</td><td><strong>22억 달러</strong>(9/29~30)</td><td>연 한도 200억의 <strong>절반은 올해</strong></td></tr>
+</tbody>
+</table>
+</div>
+<p>일본은 2월 360억 달러, 3월 730억 달러를 확정하고 3차를 논의 중이라 <strong>&ldquo;한국이 일본보다 느리다&rdquo;</strong>는 압박이 실재한다. 미국이 요구하는 대로 올해 100억 달러를 갑자기 송금하면 <strong>환율에 영향을 줄 규모</strong>가 된다.(블로거 분석 — 메르)</p>
+
+</div><!-- /sheet -->
+
+<section class="gate">
+  <div class="gate-date" data-omit>09.30</div>
+  <div class="gate-inner">
+    <div class="gate-kicker">여덟 밤 뒤 · 하나로 좁혀지는 자리</div>
+    <h2>9월 30일, 하루에 문이 넷이다</h2>
+    <p class="lede">이번 주는 피할 자리가 많았다. <strong>다음 주는 하루에 몰려 있다.</strong> 그중 하나가 하이닉스 신호등의 판정선이다.</p>
+    <div class="doors">
+      <div class="door">
+        <div class="no">01</div>
+        <h4>마이크론 FY4Q 실적</h4>
+        <p>가이던스 매출 500억$±10억, non-GAAP EPS 31.00$±1.00. <strong>하이닉스 판정선</strong></p>
+      </div>
+      <div class="door">
+        <div class="no">02</div>
+        <h4>미 PCE 산정 개정</h4>
+        <p>자산운용 수수료 산정 방식 변경 등으로 <strong>근원PCE가 0.2%p 낮아진다.</strong> 2021년까지 소급</p>
+      </div>
+      <div class="door">
+        <div class="no">03</div>
+        <h4>대미투자 1호 송금</h4>
+        <p>9/29~30 <strong>22억 달러</strong> 송금 예정. 미국은 더 큰 금액을 요구 중</p>
+      </div>
+      <div class="door">
+        <div class="no">04</div>
+        <h4>삼성 특별배당 기준일</h4>
+        <p>3분기 현금배당 30조 중 <strong>27.5조가 특별배당</strong> 추정. 국내 수급이 이 날에 묶인다</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sheet">
+
+<h2 class="sec">PCE 개정 — 숫자가 아니라 자를 바꾼다</h2>
+<p class="sec-note">이 항목은 판정 근거가 아니라 <strong>다음 판정의 전제</strong>라서 따로 떼어 둔다. 블로거 분석(메르)이며 공식 발표가 아니다.</p>
+<p>9월 30일에 미국 PCE 산정 방식이 바뀐다. 핵심은 <strong>자산운용 수수료</strong>다. 지금까지는 &ldquo;맡긴 돈의 몇 %&rdquo;로 매겨지는 수수료를 그대로 물가로 계산했다 — <strong>증시가 오르면 물가도 오르는 구조</strong>였다. 개정 후에는 이를 <strong>자산운용사 직원들의 실제 근무시간</strong>으로 대체한다. 1억 달러를 굴리든 2억 달러를 굴리든 애널리스트가 하는 일의 양은 비슷하다는 논리다.</p>
+<p>여기에 소프트웨어 가격군 확대(−0.1%p)와 법률서비스(+0.05%p)를 더하면 순 <strong>근원PCE 약 0.25%p 하락</strong>이 된다. 골드만삭스가 5월 수치로 돌려 보니 <strong>3.4% → 3.2%</strong>가 나왔다.</p>
+<p>메르가 덧붙인 것은 여기서 한 걸음 더 간다. 워시는 인사청문회에서 근원PCE가 아니라 <strong>절사평균</strong>(그 달 유난히 튄 항목을 양 끝에서 잘라내고 평균 내는 방식)을 보는 게 맞다고 밝힌 적이 있다. 2026년 7월 기준 PCE는 3.7%, 근원 3.3%인데 <strong>절사평균으로 계산하면 2.2%</strong>다. 개정분 0.2%p를 더 빼면 연준 목표 2.0%에 닿는다. 그린스펀이 CPI를 PCE로 바꿀 때도 표결이나 의회 승인 없이 <strong>보고서 각주 하나</strong>로 처리했었다.</p>
+<p><strong>우리가 취할 자세:</strong> 음모론 라벨이 붙은 추정이므로 판정에 쓰지 않는다. 다만 <strong>&ldquo;9/30 이후 인플레 숫자가 낮게 나오면 그것이 물가가 잡힌 것인지 자를 바꾼 것인지 구분해야 한다&rdquo;</strong>는 것은 실용적인 경계다. 밸류에이션 할인율에 바로 걸리는 문제다.</p>
+
+<h2 class="sec">무기한 선물 — 부호가 뒤집혔다</h2>
+<p class="sec-note">하이퍼리퀴드 공개 API 직접 조회(9/22). 펀딩은 시간당 값을 연 환산했다. <strong>판정 근거가 아니라 포지셔닝 관찰용</strong>이다 — 7월 오라클 사고 전례가 있다.</p>
+
+<div class="wrap">
+<table>
+<thead><tr><th>심볼</th><th>9/15 펀딩</th><th>9/16 펀딩</th><th>9/22 펀딩</th><th>9/22 OI</th><th>9/22 가격</th></tr></thead>
+<tbody>
+<tr><td>xyz:SKHX (하이닉스)</td><td>+58.1%</td><td>+47.4%</td><td class="flip">−28.6%</td><td>219,757</td><td>1,355.60 (−0.36%)</td></tr>
+<tr><td>xyz:SMSN (삼성)</td><td>+5.5%</td><td>+95.7%</td><td class="flip">−218.0%</td><td>233,914</td><td>203.03 (+1.59%)</td></tr>
+<tr><td>xyz:RKLB</td><td>+9.4%</td><td>+12.9%</td><td>+5.5%</td><td>163,744</td><td>71.36 (<strong>+9.39%</strong>)</td></tr>
+<tr><td>xyz:MU (마이크론)</td><td>+19.8%</td><td>+12.5%</td><td>+15.3%</td><td>170,283</td><td>1,035.10 (+0.46%)</td></tr>
+<tr><td>xyz:IREN <strong>(신규 포착)</strong></td><td>—</td><td>—</td><td>+29.0%</td><td>68,524</td><td>46.95 (−2.57%)</td></tr>
+<tr><td>xyz:NVDA (참고)</td><td>—</td><td>—</td><td>+5.5%</td><td>657,514</td><td>227.11 (+1.29%)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 class="sub">읽은 것</h3>
+<p><strong>하이닉스는 위쪽이 가벼워졌다.</strong> 9/15에 &ldquo;연 58%는 롱 과밀&rdquo;이라 적고 &ldquo;FOMC가 매파면 이 자리가 먼저 흔들린다&rdquo;고 걸어 뒀는데 — 흔들린 게 아니라 <strong>가격이 오르는 동안 조용히 빠져나갔다.</strong> 미결제약정이 29.5만에서 22.0만으로 25% 줄었고 펀딩은 부호까지 뒤집혔다. 이제 비용을 내는 쪽은 숏이다.</p>
+<p><strong>삼성의 −218%는 극단이다.</strong> 이 정도 음수는 &ldquo;숏이 많다&rdquo;로는 설명이 부족하다. 우리 추정으로는 두 가지가 겹쳤다 — ① <strong>자사주 매입</strong>이 현물을 매일 사 올리고 있고(삼성 15조·하루 5,000억대, 하이닉스 40조·하루 1.1조), ② <strong>9/30 특별배당 기준일</strong>을 앞두고 현물을 사서 배당을 받고 무기한 선물로 위험을 덮는 거래가 늘면 펀딩이 음수로 끌린다. <strong>확인된 것이 아니라 정황에 따른 추정</strong>이고, 이 자리에 이름을 달아 기록해 둔다.</p>
+<p><strong>IREN이 perp에 새로 올라왔다.</strong> 펀딩 +29%로 롱이 비용을 내는 자리이고 미결제약정은 아직 68,524로 작다 — 새 시장의 초기 수치라 추세로 읽기엔 이르다. 다음 스윕부터 기준선으로 쓴다.</p>
+
+<h2 class="sec">종목</h2>
+
+<div class="holding g">
+  <h3>SK하이닉스 <span class="tick">000660 · SKHY</span></h3>
+  <div class="px">
+    <span class="px-num" data-price="hynix" data-currency="KRW" data-delta="3.21">1,928,000</span>
+    <span class="px-cur">원 · 9/22 장중</span>
+    <span class="px-delta">+3.21%</span>
+  </div>
+  <p class="jaw-note">전 종가 1,868,000원. 시가총액 약 1,408조, 외국인소진율 50.17%</p>
+
+  <h4 class="subsub">판정선은 그대로 9/30인데, 함정이 하나 보인다</h4>
+  <p>마이크론 FY4Q 가이던스는 매출 <strong>500억 달러±10억</strong>, non-GAAP EPS <strong>31.00달러±1.00</strong>이다. 숫자만 보면 압도적이다. 그런데 <strong>이번 분기는 14주이고 직전 분기는 13주다.</strong> 주당으로 환산하면 매출 증가는 약 <strong>12%</strong>가 되는데, 이는 트렌드포스가 이번 분기 범용 D램 계약가 상승으로 본 <strong>13~18%보다 낮다.</strong></p>
+  <p><strong>그래서 9/30에 볼 것은 총액이 아니라 &ldquo;주당&rdquo;과 &ldquo;가이던스 문구&rdquo;다.</strong> 완판·공급부족 표현이 유지되는지, 그리고 다음 분기 가이던스가 계약가 상승률을 따라가는지를 본다. 총액 헤드라인만 보면 잘못 판정할 수 있다.</p>
+  <p>수요 쪽 서사 자체는 흔들리지 않았다. 엔비디아는 메모리 가격을 &ldquo;극단적이고 여전히 오르는 중&rdquo;이라 표현했고, 하이닉스 자신도 <strong>2030년까지 수급 균형이 오지 않는다</strong>고 본다. 골드만삭스는 2026년 D램 수요가 공급을 <strong>5%</strong> 초과하고 2027년에는 <strong>5.9%</strong>로 벌어진다고 본다. 의미 있는 신규 공급은 2028년에야 램프업된다.</p>
+
+  <h4 class="subsub">새 수급 변수 — 자사주 매입이 10월 중순에 끝난다</h4>
+  <p>하이닉스는 8/20부터 <strong>40조 원</strong> 규모 자사주를 매입 중이고, 하루 매입액은 약 <strong>1.1조 원</strong>이다. 삼성(15조, 하루 5,000~5,200억)과 합치면 <strong>매일 1.6조 원</strong>이 시장에 들어오고 있다. 메르 추정으로 9/22 기준 삼성 82%·하이닉스 <strong>64%</strong>가 소화됐고, 이 속도면 <strong>삼성 10월 1일 · 하이닉스 10월 16일</strong>에 끝난다 — 당초 공시(11월 중순)보다 한 달 빠르다.</p>
+  <p><strong>10월 중순부터는 이 매수 주체가 사라진다.</strong> 블로거 추정이므로 판정 근거로 쓰지 않되, <strong>&ldquo;10월 중순 이후 국내 대형주 수급이 달라진다&rdquo;</strong>는 것은 장기 보유자가 미리 알아 둘 일이다. 체크포인트로 건다.</p>
+  <p><strong>판단(참고용):</strong> 두 턱이 풀렸고 현물은 192만 원대까지 올라왔으며 롱 과밀도 해소됐다. <strong>논지·수급·가격이 모처럼 같은 방향</strong>이다. 그래도 신호등은 9/30 결과로 판정한다 — 좋아 보일 때 규율을 푸는 것이 가장 비싼 실수다.</p>
+</div>
+
+<div class="holding g">
+  <h3>IREN <span class="tick">NASDAQ · AI 데이터센터</span></h3>
+  <p class="jaw-note">이 종목만 이번 주에 <strong>새 정보가 거의 없다.</strong> 그 공백 자체를 기록한다.</p>
+
+  <h4 class="subsub">9월 공시는 1건뿐이었다</h4>
+  <p>회사 뉴스룸을 확인한 결과 9월 공시는 <strong>9/8 스위트워터 2GW 허브가 ERCOT Batch Zero에 베이스로드로 포함</strong> 한 건이다. 9/15에 &ldquo;9/16 먼슬리에서 인도 일정을 본다&rdquo;고 걸어 뒀는데 — <strong>먼슬리 자체가 없었다.</strong></p>
+  <p><strong>정정한다.</strong> 9/16 저녁에 수집해 인계 메모에 남겼던 &ldquo;Horizon 1 마이크로소프트 정식 인수&rdquo;는 <strong>8월 13일 발표분</strong>이었다. 그때 발표 일자를 확정하지 못한 채 &ldquo;오늘자 먼슬리일 수 있다&rdquo;고 적었는데, 오늘 확인해 보니 아니었다. <strong>인수 사실 자체는 유효하지만 시점이 다르다.</strong></p>
+
+  <h4 class="subsub">그래서 지금 확인되는 사실만</h4>
+  <p>Horizon 1은 8/13에 마이크로소프트가 정식 인수했고, 이로써 <strong>월 단위 청구가 시작</strong>됐다 — 건설 중 자산이 인식 매출로 넘어가는 지점이다. 5년 <strong>97억 달러</strong> 클라우드 서비스 계약의 첫 조각이다. 같은 발표에서 <strong>NVIDIA GB300 NVL72 기준 Exemplar Cloud 지위</strong>도 받았다. Horizon 2는 <strong>커미셔닝 진행 중</strong>, Horizon 3~4는 토목 착수, 현장 인력 1,200명 이상이다.</p>
+  <p>계약 기반은 7월에 크게 올라섰다 — 신규 <strong>28억 달러</strong> 계약으로 2026년 말 연환산 매출 목표를 37억에서 <strong>40억 달러 이상</strong>으로 올렸고, 목표의 약 85%가 계약으로 확보돼 있다. 계약 단가는 MW당 <strong>2,500만 달러</strong>로, 작년 11월 970만 달러에서 크게 올랐다.</p>
+  <p><strong>판단(참고용):</strong> 무소식이 악재는 아니다. 인도는 계약대로 가고 있고 8월 인수로 청구도 시작됐다. 다만 <strong>먼슬리 공백이 3주째</strong>이고, 9/15에 적은 <strong>수익성 악화</strong> 관찰이 아직 반증되지 않았다. 미스터리 고객(&ldquo;새로운 선도 AI 개발사&rdquo;)도 여전히 무명이다. <strong>다음 공시가 이 종목의 다음 판정</strong>이다.</p>
+</div>
+
+<div class="holding y">
+  <h3>Rocket Lab <span class="tick">RKLB · 발사·위성</span></h3>
+  <p class="jaw-note">이번 주 가장 크게 움직인 종목이다 — 무기한 선물 <strong>+9.39%</strong>. 그런데 개선과 악화가 같이 왔다.</p>
+
+  <h4 class="subsub">좋아진 것 — 희석 부담이 걷혔다</h4>
+  <p><strong>19.4억 달러 규모 ATM(시장가 발행) 유상증자가 완료</strong>됐다. 81억 달러 이리듐 인수 자금의 <strong>마지막 조각</strong>이다. 금요일에 희석 우려로 급락했던 자리가 월요일에 <strong>+7.7~8.2%</strong>로 되돌아왔다 — <strong>&ldquo;얼마나 찍을지 모르는&rdquo; 상태가 &ldquo;다 찍었다&rdquo;로 바뀐 것</strong>이 반등의 이유다.</p>
+  <p>운영도 좋다. 9/19 <strong>일렉트론 96호기</strong>가 신스펙티브 SAR 위성을 올렸고, <strong>25일 안에 4회</strong> 발사가 예정돼 있다. 2026년 누적 17회다. 2분기 <strong>발사당 평균 매출이 910만 달러</strong>로 전년 790만에서 올랐고 발사당 원가는 내렸다. 백로그는 <strong>23.6억 달러</strong>로 최고치다. 칸터 피츠제럴드는 목표가 <strong>122달러</strong>를 재확인했다.</p>
+
+  <h4 class="subsub">나빠진 것 — 뉴트론이 2027년으로 밀렸다</h4>
+  <p>직전 기록의 체크포인트는 &ldquo;<strong>뉴트론 4분기 패드 인도</strong>&rdquo;였다. 패드 도달은 4분기 전망이 유지되지만, <strong>2026년 내 발사는 더 이상 확정이 아니다.</strong> 8월에 벡 CEO가 &ldquo;연내 발사 창이 좁아지고 있다&rdquo;고 말했고, 현재 초도 비행은 <strong>NET 2027</strong>로 보는 자료가 늘었다. 재사용 페어링(&ldquo;Hungry Hippo&rdquo;) 사전 시험과 버지니아 10m 2단 시험대 설치는 끝났고, 앞으로 추력모듈 시험 → 전체 기체 시험 → WDR → 1단 정적연소가 남았다.</p>
+  <p>수요 쪽은 반대로 두껍다 — <strong>비공개 고객이 2029년까지 뉴트론 5회</strong>를 예약했고, Kepler가 NET 2028 전용 발사를 잡았으며, <strong>3.97억 달러 우주군 계약</strong> 위성도 뉴트론이 나른다.</p>
+
+  <h4 class="subsub">이틀 뒤 — 9/24 이리듐 주주총회</h4>
+  <p>조건은 <strong>이리듐 발행주식 과반</strong> 찬성이다. 주주는 주당 <strong>현금 27달러 + 록랩 주식</strong>(10일 VWAP 연동 교환비)을 받고, 거래 종결 목표는 <strong>2027년 중반</strong>이다. FCC는 면허 이전 신청을 접수했고 <strong>공람 기간이 11월 9일까지</strong> 열려 있다 — 스페이스X가 이의를 낸 그 절차다. 공시 미비를 주장하는 <strong>주주소송 3건</strong>과 요구서한이 있고, 회사는 근거 없다면서도 지연을 피하려 위임장을 보충하기로 했다.</p>
+  <p><strong>판단(참고용):</strong> 자금 불확실성이 걷힌 것은 실질적인 개선이다. 그러나 <strong>뉴트론 슬립은 논지의 핵심 축</strong>이 밀린 것이고, 표결과 FCC는 아직 미결이다. <strong>개선과 악화가 같은 주에 왔으므로 신호등은 움직이지 않는다.</strong> 이틀 뒤 표결 결과가 다음 판정이다.</p>
+</div>
+
+<h2 class="sec">신호등 요약</h2>
+
+<div class="wrap">
+<table>
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix" class="g">
+  <td data-name>SK하이닉스</td>
+  <td data-light>🟢</td>
+  <td data-change>유지</td>
+  <td data-note>두 턱이 풀렸고 현물은 <strong>192.8만 원(+3.21%)</strong>, perp 롱 과밀도 <strong>−28.6%로 뒤집혀</strong> 해소됐다. 판정선은 여전히 <strong>9/30 마이크론</strong>인데, 이번 가이던스는 <strong>14주 분기</strong>라 총액이 부풀어 보인다 — 주당으로 봐야 한다</td>
+</tr>
+<tr data-signal="iren" class="g">
+  <td data-name>IREN</td>
+  <td data-light>🟢</td>
+  <td data-change>유지</td>
+  <td data-note>9월 공시는 <strong>9/8 스위트워터 1건뿐</strong>이고 먼슬리는 없었다. 9/16에 본 Horizon 1 인수는 <strong>8/13 발표분이었다</strong>(정정). 인도는 계약대로지만 <strong>공백이 3주째</strong>다</td>
+</tr>
+<tr data-signal="rklb" class="y">
+  <td data-name>RKLB</td>
+  <td data-light>🟡</td>
+  <td data-change>유지</td>
+  <td data-note><strong>19.4억$ ATM 완료로 희석 부담이 걷혔다</strong>(perp +9.39%). 그러나 <strong>뉴트론 초도 비행이 NET 2027로 밀렸고</strong> 9/24 표결·FCC 11/9 공람이 미결이다. 개선과 악화가 같이 와서 움직이지 않는다</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>포트폴리오 히트</strong>: 일주일 전 &ldquo;<strong>공통 압력이 둘로 늘었다</strong>&rdquo;고 적었다 — 금리와 AI 수요 의문. <strong>일주일 만에 둘 다 물러났다.</strong> 10년물은 5%를 내줬고 AI는 나스닥 사상 최고로 돌아왔다. 세 종목이 동시에 눌리던 구도가 풀린 것이다. 그런데 <strong>풀린 것이지 해결된 것이 아니다</strong> — 점도표는 2027년까지 올라가 있고, 호르무즈는 205일째 닫혀 있고, 유가가 내린 이유는 구조가 아니라 <strong>트럼프가 폭격을 미룬 것</strong>이다. 세 가지 모두 <strong>되돌아올 수 있는 종류</strong>다. 그리고 <strong>9/30 하루에 문 넷</strong>이 겹친다 — 이번 주는 피할 자리가 많았지만 다음 주는 그렇지 않다. <strong>압박이 사라진 게 아니라 한 점으로 모였다.</strong></p>
+
+<h2 class="sec">다음 체크포인트</h2>
+<ul class="cps">
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>9/16 FOMC</strong> — <strong>완료.</strong> 3.75~4.00%로 25bp 인상, <strong>만장일치 12-0</strong>, 점도표 18명 중 16명 매파, 2027년에도 안 내려옴</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>미 10년물 5%에서 굳는가</strong> — <strong>굳지 않았다.</strong> 4.96%로 되내려왔다. 관전 포인트는 <strong>여기서 더 내려오는가</strong>로 바뀐다</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>9/18 일본은행</strong> — <strong>완료.</strong> 1.25%로 인상, 7-2 분열, 엔은 157 돌파 약세</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>하이닉스 perp 펀딩이 식는가</strong> — <strong>뒤집혔다.</strong> +58.1% → −28.6%, OI 25% 감소</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>9/16 IREN 먼슬리</strong> — <strong>공시 자체가 없었다.</strong> 9월은 9/8 스위트워터 1건뿐</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9/24 이리듐 주주총회 표결</strong> — 발행주식 과반. <strong>이틀 뒤, RKLB의 다음 판정</strong> (이월·격상)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9/30 마이크론 실적</strong> — <strong>하이닉스 판정선.</strong> 총액이 아니라 <strong>주당 매출</strong>과 다음 분기 가이던스 문구를 본다(14주 분기) <strong>(격상·조건 추가)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9/30 미 PCE 산정 개정</strong> — 근원PCE가 약 0.2%p 낮아진다. 이후 인플레 숫자가 <strong>물가가 잡힌 것인지 자를 바꾼 것인지</strong> 구분한다 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>대미투자 1호 MOU 서명</strong> — 이르면 9/23. 알래스카 LNG 확약 수위·웨스팅하우스 이사회·올해 송금액이 쟁점. 9/29~30 22억$ 송금 예정 (이월·구체화)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 중순 자사주 매입 종료</strong> — 하이닉스 40조가 10/16경, 삼성 15조가 10/1경 완료 추정. <strong>하루 1.6조의 매수 주체가 사라진다</strong> (블로거 추정) <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>뉴트론 초도 비행 시점</strong> — 2026년 내 발사가 확정에서 <strong>NET 2027</strong>로 후퇴했다. 추력모듈 시험 → 전기체 시험 → WDR → 1단 정적연소 순서를 추적한다 <strong>(이월·악화)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>FCC 이리듐 면허 이전 심사</strong> — 공람 기간이 <strong>11월 9일까지</strong>다. 스페이스X 이의 (이월·기한 확정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 다음 공시</strong> — 먼슬리 공백이 3주째다. Horizon 2 인수 시점과 수익성 지표를 본다 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>호르무즈 재개통</strong> — 205일째 폐쇄다. 유가가 내린 것은 구조 해소가 아니라 확전 프리미엄이 빠진 것 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월·12월 FOMC</strong> — 점도표대로면 최소 한 번 더 올린다. 초매파 4명은 <strong>두 번 다</strong>를 찍었다 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>엔캐리 청산 조짐</strong> — 캐리 투 리스크 비율이 0.4에서 0.27~0.3으로 내려왔다. 대규모 청산은 아직 없다 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>사우디 펌프장 복구 진척</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>한전 전기료 선납 수락 여부와 금액</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>AI 속도조절이 실제 capex 가이던스에 닿는가</strong> — 하이퍼스케일러 발표가 판정선 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>코어위브 11.5억$ 채권 실제 발행 조건</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>DRAM 계약가 4분기 전망</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/29 캐나다 수입금지 발효</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>12월 IREN ERCOT 영구 지정 전환</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>하이닉스: 반도체 관세 <strong>2단계 세부 문안</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>IREN: frontier lab <strong>실명 채널</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>RFHIC 워치: 11월 3분기 관문 (이월)</span></li>
+</ul>
+
+<h2 class="sec">메르 신규 글 브리핑</h2>
+<p class="sec-note">직전 판독(9/15) 이후 15편이 올라왔다. 포트폴리오에 걸리는 8편에 🔗 를 붙인다. <strong>블로거 분석이며 판정 근거로 쓰지 않는다.</strong></p>
+
+<h4 class="subsub">포트폴리오에 걸리는 것</h4>
+<ul>
+<li>🔗 <strong>추석 전후, 삼성전자와 SK하이닉스 체크포인트</strong> — 자사주 매입 진행률을 역산했다. 하이닉스 40조의 <strong>64%</strong>, 삼성 15조의 82%가 소화됐고 이 속도면 <strong>하이닉스 10/16 · 삼성 10/1</strong>에 끝난다(공시 예정보다 한 달 빠름). 하루 1.6조의 매수가 사라진다는 뜻이다. 삼성 특별배당 기준일은 9/30, 마지막 매수일은 9/28(임시공휴일 지정 시 9/23로 당겨짐). <strong>하이닉스 절과 체크포인트에 반영</strong></li>
+<li>🔗 <strong>미국 연준이 기준금리를 인상했다. 그런데 이게 끝이 아니다</strong> — 점도표를 칸 단위로 읽었다. 초매파 4명은 10월·12월 <strong>둘 다</strong>, 비둘기 2명은 올해는 여기까지. <strong>2027년 점이 2026년보다 내려오지 않는다</strong>는 것이 핵심 메시지. 기자회견 문답 전문. <strong>매크로 절 전체에 반영</strong></li>
+<li>🔗 <strong>연준 금리인하 떡밥은 완전히 소멸했을까?</strong> — 9/30 PCE 산정 개정으로 근원PCE가 0.2%p 낮아지고, 워시가 선호한다는 <strong>절사평균</strong>까지 적용하면 2.2%가 나와 목표 2.0%에 닿는다는 추정. <strong>별도 절로 떼어 반영</strong></li>
+<li>🔗 <strong>일본은행이 금리를 올렸는데 엔화가 약한 이유</strong> — 7-2 분열의 성격이 과거와 반대다. 다카이치가 지명한 <strong>리플레이션파 비둘기 2명</strong>이 반대했다. 2027년 7월 강경 매파 2명 임기 만료 후 구도 전망. <strong>매크로 절에 반영</strong></li>
+<li>🔗 <strong>엔캐리 트레이드 청산 가능성이 높아지나?</strong> — 캐리 투 리스크 비율(금리차 ÷ 환변동성)이 0.4 → <strong>0.27~0.3</strong>. 미일 금리차 3.8%p → 2.7%p, 변동성 9.5% → 10%. 청산 시점을 알려주는 지표는 아니라고 스스로 못 박았다. <strong>체크포인트로 신규 등록</strong></li>
+<li>🔗 <strong>한국 대미투자 MOU가 미뤄진 비밀</strong> — 알래스카 LNG(670억$) 확약 수위, 웨스팅하우스 지분 15%+이사회 요구, 엔시날 전력판매 보증, 올해 송금액 22억 vs 100억. 트럼프의 &ldquo;적자국과 교역 중단&rdquo; 발언과 관세법 338조 배경. <strong>매크로 절에 반영</strong></li>
+<li>🔗 <strong>사우디군의 전투력은 왜 이렇게 엉망일까?</strong> — 왕가 충성 우선 편제로 정규군 역량이 낮고, 사드 포대 가동에 8년이 걸렸다. <strong>후티 대응이 장기화되는 구조적 이유</strong>이므로 유가 프리미엄이 쉽게 사라지지 않는다는 뜻으로 읽었다</li>
+<li>🔗 <strong>중국 AI기업들이 사고를 쳤다 — 엔트로픽 증류사건</strong> — 알리바바가 3,500개 이상 가짜 계정으로 5~7월 <strong>1억 5,100만 건</strong> 증류. 반전은 Kimi·딥시크가 사용자 요청을 클로드로 넘기는 바람에 중국 군·공안 자료가 미국 서버로 넘어간 것. <strong>미중 AI 규제 리스크의 새 축</strong>으로 기록만 해 둔다</li>
+</ul>
+
+<h4 class="subsub">그 외</h4>
+<ul>
+<li>2026년 9월 17일 새벽 3시, FOMC와 워시 기자회견 관전포인트 — 위 인상 분석의 선행 글</li>
+<li>클라리티 법안 표결 결과가 나왔다 · 나이키 몰락의 비밀 · 네이버, 쿠팡 새벽배송에 도전하나? · 부산북항친수공원 상어 출몰 · 서울 소공동 3대 맛집 · 네이버 블로그 이웃 40만명의 비밀</li>
+</ul>
+
+<hr>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+
+<h4 class="subsub">FOMC·금리</h4>
+<ul>
+<li><a href="https://m.blog.naver.com/ranto28/224414401619">미국 연준이 기준금리를 인상했다. 그런데, 이게 끝이 아니다 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224413592982">2026년 9월 17일, 새벽 3시, FOMC와 워시 기자회견 관전포인트 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224417669671">연준 금리인하 떡밥은 완전히 소멸했을까? — 블로거 분석(메르)</a></li>
+<li><a href="https://tradingeconomics.com/united-states/government-bond-yield">US 10 Year Treasury Note Yield — Trading Economics</a></li>
+<li><a href="https://drduru.com/onetwentytwo/2026/09/21/fed-rate-hike-punishes-market-breadth-while-ai-stocks-rebound/">Fed Rate Hike Punishes Market Breadth While AI Stocks Rebound — ONE-TWENTY TWO</a></li>
+</ul>
+
+<h4 class="subsub">시장·유가</h4>
+<ul>
+<li><a href="https://www.crowninternationalholdings.com/2026/09/21/ai-and-chip-stocks-drive-wall-street-rally-as-oil-prices-fall-and-treasury-yields-retreat/">AI and Chip Stocks Drive Wall Street Rally as Oil Prices Fall and Treasury Yields Retreat</a></li>
+<li><a href="https://stockmarketwatch.com/digest/2026-09-21">Market Digest — Monday, September 21, 2026</a></li>
+<li><a href="https://tradingeconomics.com/commodity/brent-crude-oil">Brent oil — Price, Chart, Historical Data — Trading Economics</a></li>
+<li><a href="https://www.aljazeera.com/news/liveblog/2026/9/7/iran-war-live-tehran-to-announce-new-hormuz-shipping-route-in-coming-days">Iran war updates: Hormuz traffic falls as US insists waterway fully open — Al Jazeera</a></li>
+<li><a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_campaign">2026 Strait of Hormuz campaign — Wikipedia</a></li>
+</ul>
+
+<h4 class="subsub">일본은행·엔</h4>
+<ul>
+<li><a href="https://m.blog.naver.com/ranto28/224416028201">일본은행이 금리를 올렸는데 엔화가 약한 이유 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224416673104">엔캐리 트레이드 청산 가능성이 높아지나? 주요 지표가 변했다 — 블로거 분석(메르)</a></li>
+</ul>
+
+<h4 class="subsub">대미투자</h4>
+<ul>
+<li><a href="https://m.blog.naver.com/ranto28/224415552295">한국 대미투자 MOU가 미뤄진 비밀 — 블로거 분석(메르)</a></li>
+<li><a href="https://www.seoul.co.kr/news/politics/2026/09/21/20260921001007">상업적 합리성 챙긴 대미투자 1호 협상… 정부, 내일 국회 보고 — 서울신문</a></li>
+<li><a href="https://www.hankookilbo.com/news/article/A2026092109510004036">대미투자 1호 서명 9월 넘기나… 이 대통령, 美 속도전 요구에 제동 — 한국일보</a></li>
+</ul>
+
+<h4 class="subsub">SK하이닉스·메모리</h4>
+<ul>
+<li><a href="https://www.joongangenews.com/news/articleView.html?idxno=549950">SK하이닉스 주가, 9월 22일 장중 1,928,000원 3.21% 상승 — 중앙이코노미뉴스</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224419329394">추석전후, 삼성전자와 SK하이닉스 체크포인트 — 블로거 분석(메르)</a></li>
+<li><a href="https://financefeeds.com/micron-earnings-date-september-30-extra-week-50bn-guide/">Micron Earnings Date Sept 30: The Extra Week in the $50bn Guide — FinanceFeeds</a></li>
+<li><a href="https://finance.biggo.com/news/89711ae7-5af8-41ae-a4ac-1d02ff82f7f4">Memory Shortage to Linger Until 2030, Setting Stage for Micron's Earnings — BigGo</a></li>
+<li><a href="https://www.fool.com/investing/2026/09/21/should-you-buy-micron-before-september-30/">Should You Buy Micron Before Sept. 30? — Motley Fool</a></li>
+</ul>
+
+<h4 class="subsub">IREN</h4>
+<ul>
+<li><a href="https://iren.com/investors/news">IREN Investor News — 공시 목록</a></li>
+<li><a href="https://iren.gcs-web.com/static-files/49325cad-f6fe-42ba-acd6-b286ede0fb4a">IREN Delivers Horizon 1 to Microsoft and Achieves NVIDIA Exemplar Cloud Status (8/13)</a></li>
+<li><a href="https://247wallst.com/investing/2026/08/13/iren-rallies-6-as-microsoft-signs-off-on-horizon-1-nvidia-grants-exemplar-cloud-status/">IREN Rallies 6% as Microsoft Signs Off on Horizon 1 — 24/7 Wall St.</a></li>
+<li><a href="https://www.datacenterdynamics.com/en/news/neocloud-iren-signs-28bn-in-customer-contracts-raises-2026-annual-run-rate-to-4bn/">Neocloud Iren signs $2.8bn in customer contracts, raises 2026 run rate to $4bn+ — DCD</a></li>
+<li><a href="https://247wallst.com/investing/2026/09/07/irens-ai-pricing-is-exploding-why-the-neoclouds-2-6-billion-contract-base-could-scale-dramatically/">IREN's AI Pricing Is Exploding — 24/7 Wall St.</a></li>
+</ul>
+
+<h4 class="subsub">Rocket Lab·이리듐</h4>
+<ul>
+<li><a href="https://www.fool.com/investing/breakfast-news/2026/09/21/breakfast-news-rocket-lab-blasts-past-doubters/">Breakfast News: Rocket Lab Blasts Past Doubters — Motley Fool</a></li>
+<li><a href="https://247wallst.com/investing/2026/09/21/rocket-lab-climbs-7-as-cantor-reiterates-122-target-on-launch-record-intuitive-machines-jumps-10-ast-spacemobile-rises-6/">Rocket Lab Climbs 7% as Cantor Reiterates $122 Target on Launch Record — 24/7 Wall St.</a></li>
+<li><a href="https://www.tradingview.com/news/tradingview:65f3fe372c2c9:0-iridium-communications-files-definitive-proxy-for-rocket-lab-merger-schedules-sept-24-shareholder-vote/">Iridium files definitive proxy, schedules Sept. 24 shareholder vote — TradingView News</a></li>
+<li><a href="https://spaceflightnow.com/2026/08/10/window-for-2026-launch-debut-of-rocket-labs-neutron-rocket-is-narrowing-as-development-continues/">Window for 2026 launch debut of Rocket Lab's Neutron rocket is narrowing — Spaceflight Now</a></li>
+<li><a href="https://rocketlabcorp.com/updates/rocket-labs-biggest-launch-deal-yet-confidential-customer-books-multiple-neutron-and-electron-launches/">Rocket Lab's Biggest Launch Deal Yet: Confidential Customer Books Multiple Neutron and Electron Launches</a></li>
+</ul>
+
+<h4 class="subsub">무기한 선물</h4>
+<ul>
+<li><a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding">Funding — Hyperliquid Docs (펀딩 계산 방식)</a></li>
+<li><a href="https://hyperdash.com/asset/skhx-hyperliquid">SK Hynix (SKHX) Perpetual Futures — Hyperdash</a></li>
+<li><a href="https://hyperliquidguide.com/markets/xyz/rklb">Rocket Lab (RKLB) on Hyperliquid — Hyperliquid Guide</a></li>
+</ul>
+
+<h4 class="subsub">그 외 메르 판독</h4>
+<ul>
+<li><a href="https://m.blog.naver.com/ranto28/224415028844">사우디군의 전투력은 왜 이렇게 엉망일까? — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224416965441">중국 AI기업들이 사고를 쳤다. 엔트로픽 증류사건 — 블로거 분석(메르)</a></li>
+</ul>
+</section>
+
+<footer data-omit>
+  장기 투자 관측 기록 · 모든 판단은 참고용이며 매매 권유가 아니다 ·
+  <a href="../index.html">대시보드로</a>
+</footer>
+
+</div><!-- /sheet -->
+</body>
+</html>
