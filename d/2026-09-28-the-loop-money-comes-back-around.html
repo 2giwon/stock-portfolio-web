@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고리 — 2026년 9월 28일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bagel+Fat+One&family=Sunflower:wght@300;500;700&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-09-28 · 이 문서만을 위해 지은 페이지
+
+   사건: 5일 만의 스윕인데 그 사이 한 바퀴가 돌았다.
+   10년물이 장중 5.23% 로 2007년 6월 이후 최고를 찍었는데,
+   원인을 따라가 보니 **AI 인프라를 짓는 채권**이 있었다.
+   하이퍼스케일러가 빌리고, 엔비디아가 판을 받치고, 그 발행이
+   국채 수요를 밀어내고, 그 금리가 다시 같은 종목을 누른다.
+   그런데 시장은 그걸 무시하고 올랐다(나스닥 주간 +2%).
+
+   그래서 이 지면의 큰 소리는 **닫힌 고리**다 — 다섯 단계를
+   넓은 화면에서는 실제로 원형으로 돌려 놓고, 폰에서는 세로로
+   쌓되 마지막에서 처음으로 되돌아가는 화살표로 닫는다.
+   글자도 둥근 것(Bagel Fat One)을 골라 고리와 같은 모양으로 맞췄다.
+
+   지면은 깊은 보라 — 과열과 야간의 색. 앞선 두 스윕이 밝은
+   녹색·테라코타였으므로 아카이브에서 확실히 갈라진다.
+   기존 팔레트 전부와 거리 16.1. 글자 대비 최저 4.89:1.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: dark;
+  --page-bg: #412a63;
+  --deep:   #341f50;
+  --panel:  #503579;
+  --card:   #5b3e88;
+  --ink:    #f6f1ff;
+  --body:   #e3daf4;
+  --muted:  #cbc0e2;
+  --line:   #6d4ca0;
+  --rule:   #8a67c4;
+  --hold:   #7ef0c0;   /* 🟢 */
+  --watch:  #ffd166;   /* 🟡 */
+  --hot:    #ffb3a6;   /* 🔴 */
+  --gold:   #ffd166;   /* 고리를 도는 돈 */
+  --round: 'Bagel Fat One', 'Apple SD Gothic Neo', sans-serif;
+  --sans: 'Sunflower', system-ui, -apple-system, sans-serif;
+  --num: 'Archivo Black', 'Sunflower', sans-serif;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --page-bg: #5b3e88;
+    --deep:   #4a3070;
+    --panel:  #6a4a9c;
+    --card:   #7455aa;
+    --line:   #8a67c4;
+    --rule:   #a98ade;
+  }
+}
+* { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body {
+  margin: 0; background: var(--page-bg); color: var(--body);
+  font-family: var(--sans); font-size: 16.5px; line-height: 1.85;
+  word-break: keep-all; overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%; overflow-x: hidden;
+}
+.sheet { max-width: 900px; margin: 0 auto; padding: 0 16px 90px; }
+a { color: var(--gold); }
+strong { font-weight: 700; color: var(--ink); }
+h2, h3, h4 { color: var(--ink); line-height: 1.4; font-weight: 700; }
+
+/* ── 머리글 ───────────────────────────────────────────── */
+.top { padding: 30px 0 4px; }
+.home {
+  font-size: 12px; letter-spacing: .14em; text-decoration: none;
+  color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 2px;
+}
+.when { margin-top: 24px; font-family: var(--num); font-size: 13px; letter-spacing: .34em; color: var(--muted); }
+.doc-title { margin: 8px 0 0; font-weight: 400; }
+.doc-title .shout {
+  display: block; font-family: var(--round); color: var(--gold);
+  font-size: clamp(74px, 26vw, 200px); line-height: .95; letter-spacing: .04em;
+}
+.doc-title .tail {
+  display: block; margin-top: 14px; font-size: clamp(15px, 3.7vw, 21px);
+  color: var(--muted); line-height: 1.6; max-width: 32em; font-weight: 300;
+}
+blockquote[data-summary] {
+  margin: 26px 0 0; padding: 20px 22px;
+  background: var(--panel); border-left: 6px solid var(--gold);
+  font-size: 16px; line-height: 1.85; border-radius: 0 18px 18px 0;
+}
+
+/* ── 🔴 이 지면의 큰 소리: 닫힌 고리 ───────────────────── */
+.loop { margin: 54px 0 0; }
+.loop-head { text-align: center; margin-bottom: 20px; }
+.loop-head h2 {
+  font-family: var(--round); font-weight: 400; color: var(--gold);
+  font-size: clamp(26px, 7vw, 46px); margin: 0;
+}
+.loop-head p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+
+.ring { display: grid; gap: 14px; }
+.node {
+  background: var(--card); border: 2px solid var(--line);
+  border-radius: 26px; padding: 18px 20px 20px;
+}
+.node .no {
+  font-family: var(--num); font-size: 26px; color: var(--gold); line-height: 1;
+}
+.node h3 { margin: 6px 0 8px; font-size: 18px; }
+.node p { margin: 0; font-size: 14.5px; line-height: 1.7; color: var(--body); font-weight: 300; }
+.node .big { font-family: var(--num); font-size: 26px; color: var(--ink); display: block; margin-top: 8px; }
+.turn { text-align: center; font-family: var(--num); font-size: 22px; color: var(--rule); line-height: 1; }
+.loop-close {
+  margin-top: 16px; padding: 18px 20px; border: 2px dashed var(--gold);
+  border-radius: 26px; text-align: center; background: var(--deep);
+}
+.loop-close .arrow { font-family: var(--num); font-size: 28px; color: var(--gold); }
+.loop-close p { margin: 6px 0 0; font-size: 15px; }
+
+/* 넓은 화면에서는 진짜 고리로 돌린다 */
+@media (min-width: 820px) {
+  .ring {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    align-items: stretch;
+  }
+  /* 🔴 nth-of-type 을 쓰면 사이사이의 화살표(.turn)까지 div 로 세어
+     자리가 어긋난다. 칸을 클래스로 못박아 시계방향으로 돌린다. */
+  .ring > .n1 { grid-column: 2; grid-row: 1; }  /* 12시 */
+  .ring > .n2 { grid-column: 3; grid-row: 2; }  /* 3시 */
+  .ring > .n3 { grid-column: 2; grid-row: 3; }  /* 6시 */
+  .ring > .n4 { grid-column: 1; grid-row: 3; }  /* 7시 */
+  .ring > .n5 { grid-column: 1; grid-row: 2; }  /* 9시 */
+  .ring > .turn { display: none; }
+  .ring-center {
+    grid-column: 2; grid-row: 2; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    border: 2px dashed var(--gold); border-radius: 50%; padding: 22px;
+    background: var(--deep);
+  }
+}
+/* 고리를 닫는 말은 한 번만 보여야 한다 — 좁은 화면에서는 아래쪽 .loop-close 로,
+   넓은 화면에서는 원 한가운데(.ring-center)로 자리만 바꾼다.
+   md 사본에는 .ring-center 가 data-omit 이라 .loop-close 하나만 들어간다. */
+.ring-center { display: none; }
+@media (min-width: 820px) {
+  .ring-center { display: flex; }
+  .loop-close { display: none; }
+}
+.ring-center .k { font-family: var(--num); font-size: 34px; color: var(--gold); line-height: 1; }
+.ring-center p { margin: 8px 0 0; font-size: 13.5px; color: var(--body); font-weight: 300; }
+
+/* ── 요약 항목 ────────────────────────────────────────── */
+.points { margin: 44px 0; padding: 0; list-style: none; }
+.points li {
+  position: relative; padding: 13px 0 13px 34px;
+  border-bottom: 1px solid var(--line); font-size: 16px;
+}
+.points li::before {
+  content: '↻'; position: absolute; left: 2px; top: 13px;
+  font-family: var(--num); color: var(--gold);
+}
+
+/* ── 공통 절 ──────────────────────────────────────────── */
+.sec {
+  margin: 62px 0 6px; font-family: var(--round); font-weight: 400;
+  font-size: clamp(28px, 7vw, 48px); color: var(--gold); line-height: 1.15;
+}
+.sec-note { margin: 0 0 22px; font-size: 14.5px; color: var(--muted); }
+.sub {
+  margin: 34px 0 10px; font-size: 19px;
+  padding-bottom: 6px; border-bottom: 2px solid var(--rule);
+}
+.subsub { margin: 22px 0 8px; font-size: 15px; color: var(--muted); }
+p { margin: 14px 0; }
+
+/* ── 표 ───────────────────────────────────────────────── */
+.wrap { overflow-x: auto; margin: 18px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; background: var(--panel); border-radius: 18px; overflow: hidden; }
+th, td { padding: 11px 13px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th {
+  background: var(--deep); color: var(--ink); font-weight: 700;
+  font-size: 12.5px; letter-spacing: .05em; white-space: nowrap;
+}
+td.num { font-family: var(--num); font-size: 18px; color: var(--ink); white-space: nowrap; }
+tr.g td:first-child, tr.y td:first-child { font-weight: 700; color: var(--ink); }
+.flip { color: var(--hot); font-weight: 700; }
+
+/* ── 종목 ─────────────────────────────────────────────── */
+.holding { margin: 44px 0; padding: 24px; background: var(--panel); border-radius: 26px; border-top: 6px solid var(--rule); }
+.holding.g { border-top-color: var(--hold); }
+.holding.y { border-top-color: var(--watch); }
+.holding h3 { margin: 0 0 4px; font-size: 23px; }
+.holding .tick { font-family: var(--num); font-size: 12px; letter-spacing: .16em; color: var(--muted); }
+.px { display: flex; align-items: baseline; gap: 10px; margin: 12px 0 2px; flex-wrap: wrap; }
+.px-num { font-family: var(--num); font-size: 40px; line-height: 1; color: var(--ink); }
+.px-cur { font-size: 13px; color: var(--muted); letter-spacing: .08em; }
+.px-delta { font-size: 15px; font-weight: 700; color: var(--hold); }
+.note { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* ── 체크포인트 ───────────────────────────────────────── */
+.cps { margin: 18px 0; padding: 0; list-style: none; }
+.cps li {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px;
+}
+.cps input { margin-top: 6px; flex: none; accent-color: var(--hold); }
+
+/* ── 출처·꼬리 ────────────────────────────────────────── */
+.src { margin-top: 52px; font-size: 14px; }
+.src ul { padding-left: 18px; margin: 6px 0 16px; }
+.src li { margin: 5px 0; }
+hr { border: 0; border-top: 2px solid var(--rule); margin: 44px 0; }
+footer { margin-top: 56px; font-size: 13px; color: var(--muted); text-align: center; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>대시보드</a>
+  <div class="when" data-omit>2026 · 09 · 28 관측 기록</div>
+  <h1 class="doc-title">
+    <span class="shout">고리</span>
+    <span class="tail">— AI 인프라를 지은 채권이 금리를 밀어올리고, 그 금리가 같은 종목을 누른다</span>
+  </h1>
+</header>
+
+<blockquote data-summary>5일 만의 스윕인데 그 사이 <strong>한 바퀴가 돌았다</strong>. 10년물이 장중 <strong>5.23%</strong>로 2007년 6월 이후 최고를 찍었는데, 원인을 따라가 보니 끝에 <strong>AI 인프라를 짓는 채권</strong>이 있었다. 하이퍼스케일러가 빌리고, 엔비디아가 판을 받치고, 그 발행이 국채 수요를 밀어내고, 그 금리가 다시 같은 종목의 밸류에이션을 누른다. <strong>그런데 시장은 무시하고 올랐다</strong> — 나스닥 주간 +2%. 그리고 <strong>9/24 이리듐 표결이 99.6%로 통과됐다.</strong> 직전 기록은 <a href="2026-09-23-pullback-and-the-people-who-cant-buy.html">9월 23일 되돌림</a>이다.</blockquote>
+
+<section class="loop">
+  <div class="loop-head">
+    <h2>돈이 한 바퀴 돌아 제자리로 온다</h2>
+    <p>이번 스윕에서 조각들이 하나로 이어졌다. 다섯 단계가 서로를 물고 있다.</p>
+  </div>
+
+  <div class="ring">
+    <div class="node n1">
+      <div class="no">01</div>
+      <h3>짓는다</h3>
+      <p>하이퍼스케일러 2026년 capex가 <strong>약 7,000억 달러</strong>로 2022년의 6배다(UBS는 7,700억까지 본다). 영업현금흐름을 거의 전부 capex에 쓰는 수준이라, 5대 기업 합산 잉여현금흐름이 2025년에 <strong>24% 줄었다</strong>.
+        <span class="big">$700B</span></p>
+    </div>
+    <div class="turn" data-omit>↓</div>
+
+    <div class="node n2">
+      <div class="no">02</div>
+      <h3>빌린다</h3>
+      <p>하이퍼스케일러 채권 발행이 2025년 200억 달러에서 <strong>1,090억 달러</strong>로 뛰었고(그중 900억이 마지막 4개월), 2026년은 <strong>3,000억 달러</strong>가 예상된다. AI 관련 전체 발행은 2026년 중반에 이미 <strong>2,500억 달러</strong>를 넘었다.
+        <span class="big">$300B</span></p>
+    </div>
+    <div class="turn" data-omit>↓</div>
+
+    <div class="node n3">
+      <div class="no">03</div>
+      <h3>엔비디아가 판을 받친다</h3>
+      <p>엔비디아는 칩만 파는 게 아니라 <strong>사는 쪽에 돈을 댄다</strong> — IREN에 21억 달러, Nscale에 10억 달러, 그리고 네오클라우드의 GPU 리스를 <strong>백스톱하고 업사이드를 나눠 갖는다</strong>. 8월에는 대형 자본 공급자들과 <strong>5,000억 달러</strong> 규모 제3자 자본 동원 플랫폼 MOU를 맺었다.
+        <span class="big">$500B</span></p>
+    </div>
+    <div class="turn" data-omit>↓</div>
+
+    <div class="node n4">
+      <div class="no">04</div>
+      <h3>국채를 밀어낸다</h3>
+      <p>공급은 늘고 수요는 빠졌다. 9/23 5년물 입찰에서 테일이 <strong>3.1bp — 역대 두 번째</strong>로 컸고, 응찰률 2.21배는 2018년 12월 이후 최저다. 외국 중앙은행이 들어오는 간접입찰 비중은 평균 65.2%에서 <strong>54.3%</strong>로 빠졌다.
+        <span class="big">5.23%</span></p>
+    </div>
+    <div class="turn" data-omit>↓</div>
+
+    <div class="node n5">
+      <div class="no">05</div>
+      <h3>같은 종목을 누른다</h3>
+      <p>할인율이 올라가고 신용 스프레드도 벌어졌다 — 아마존·알파벳·메타·오라클의 2~4년물 중간 스프레드가 30bp에서 <strong>40bp</strong>로, 5~7년물은 50bp에서 <strong>60bp</strong>로 올랐다. <strong>이 공급 부담이 2026년 하이퍼스케일러 언더퍼폼의 주 원인</strong>으로 지목된다.
+        <span class="big">+10bp</span></p>
+    </div>
+
+    <div class="ring-center" data-omit>
+      <span class="k">↻</span>
+      <p><strong>그리고 다시 01로</strong><br>SemiAnalysis는 이 구조가 2029년까지 <strong>7조 달러 AI 부채 시장</strong>을 만들 수 있다고 본다</p>
+    </div>
+  </div>
+
+  <div class="loop-close">
+    <span class="arrow" data-omit>↻</span>
+    <p><strong>그리고 다시 01로 돌아간다.</strong> SemiAnalysis는 이 구조가 2029년까지 <strong>7조 달러 규모 AI 부채 시장</strong>을 만들 수 있다고 본다. 마이클 버리는 엔비디아의 금융 구조를 <strong>&ldquo;순환 지출을 떠받치려는 과욕&rdquo;</strong>이라고 표현했다. <em>(둘 다 커뮤니티 인용 — 원문 미확인)</em></p>
+  </div>
+</section>
+
+<ul class="points">
+  <li data-summary-point>🔴 <strong>9/24 이리듐 표결 통과</strong> — 투표 기준 <strong>99.6% 찬성</strong>, 발행주식의 81.0%가 참여했다. 9/23에 &ldquo;RKLB의 다음 판정&rdquo;으로 걸어 둔 관문이 풀렸다</li>
+  <li data-summary-point><strong>10년물이 장중 5.23%</strong> — 2007년 6월 이후 최고. 30년물 5.53%, 2년물 4.90% 상회. <strong>그런데 나스닥은 주간 +2%</strong>로 이를 무시했다</li>
+  <li data-summary-point>🔴 <strong>하이닉스 perp 펀딩이 중립에서 +57.2%로 되돌아갔다</strong>(9/23 +5.5%). 미결제약정도 23.1만 → 25.0만. 가격은 −2.78%다 — <strong>9/15의 그 자리</strong>다</li>
+  <li data-summary-point><strong>IREN이 5일간 9.6% 빠졌는데 원인은 자기 회사가 아니다</strong> — <strong>Nscale이 9/18 S-1을 냈다</strong>(NYSE, 목표 밸류 350억 달러). 사흘 전 &ldquo;앤스로픽과 450억 계약&rdquo;으로 적은 그 회사가 이제 <strong>상장 경쟁자</strong>다</li>
+  <li data-summary-point><strong>RKLB에 새 숫자가 나왔다</strong> — 2026년 6월까지 4개 분기 잉여현금흐름 <strong>−3억 7,120만 달러</strong>, 직전 4개 분기 대비 <strong>82% 악화</strong>. 뉴트론 지출이다</li>
+</ul>
+
+<h2 class="sec">직전 체크포인트 판정</h2>
+<p class="sec-note">5일이 비었으니 그동안 결론이 난 것부터 되받는다.</p>
+
+<div class="wrap">
+<table>
+<thead><tr><th>걸어 둔 것</th><th>판정</th><th>그래서</th></tr></thead>
+<tbody>
+<tr><td>🔴 9/24 이리듐 주주총회 표결</td><td><strong>통과</strong></td><td>투표 기준 99.6% 찬성, 발행주식 81.0% 참여. 남은 것은 <strong>규제 승인</strong>이고 목표 종결은 2027년 중반</td></tr>
+<tr><td>미 10년물이 4.97%에서 더 가는가</td><td><strong>위로 갔다</strong></td><td>장중 <strong>5.23%</strong>. 9/23에 &ldquo;낮은 자리에서 굳었다&rdquo;고 적은 것이 사흘 만에 뚫렸다</td></tr>
+<tr><td>네오클라우드 조달 조건 (조기 경보)</td><td><strong>바로 울렸다</strong></td><td>Nscale이 IPO 전 <strong>33.6억 달러 전환사채</strong>를 받았고(엔비디아 10억 포함), 하이퍼스케일러 채권 스프레드가 10bp 벌어졌다</td></tr>
+<tr><td>대미투자 1호 MOU 서명</td><td><strong>또 밀렸다</strong></td><td>9/27 기준 산업부는 &ldquo;미국 내부 절차 진행 중&rdquo;. <strong>45영업일 규정과 이달 말 송금이 충돌</strong>한다는 보도가 나왔다</td></tr>
+<tr><td>IREN 다음 공시</td><td><strong>아직 없다</strong></td><td>9/8 스위트워터 이후 3주째. 대신 <strong>섹터 쪽에서 큰 게 왔다</strong>(Nscale S-1)</td></tr>
+<tr><td>9/30 마이크론</td><td><strong>모레</strong></td><td>컨센 EPS <strong>31.56달러</strong>·매출 <strong>512억 달러</strong>로 회사 가이던스(500억±10억)를 넘겨 본다. 초점은 <strong>FY1Q27 전망</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">10년물은 왜 올랐나</h2>
+<p class="sec-note">고리의 04번 단계를 따로 뜯는다. 원인이 하나가 아니라 <strong>세 겹</strong>이고, 그중 하나는 우리 포트폴리오와 같은 뿌리를 쓴다.</p>
+
+<h3 class="sub">겹 하나 — 경기가 너무 좋다</h3>
+<p>직접적인 방아쇠는 <strong>PMI</strong>였다. PMI는 기업 구매담당자에게 &ldquo;요즘 장사 어떠냐&rdquo;고 묻는 설문으로, 50이 기준선이고 공식 통계보다 훨씬 빨리 나온다. 9월 <strong>서비스 PMI가 58.7로 5년 만의 최고</strong>, <strong>제조업이 56.7로 4년 만의 최고</strong>가 나왔다. 50을 살짝 넘은 게 아니라 과열에 가까운 숫자다.</p>
+<p>경기가 좋으면 연준이 금리를 더 올려도 경제가 버틴다는 뜻이 되고, 그것이 추가 인상의 명분이 된다. <strong>시장은 이미 10월·12월 중 한 번을 반영하고 있었는데, 이 숫자를 보고 &ldquo;두 번 다 하는 것 아니냐&rdquo;로 옮겨 갔다.</strong> 미시간대 1년 기대인플레이션도 8월 4.0%에서 <strong>9월 4.6%</strong>로 뛰어 6월 이후 최고를 찍었다.</p>
+<p class="note"><strong>만기별 증거가 이 해석을 받친다</strong>(블로거 분석 — 메르): 재정 문제가 원인이었다면 30년물이 가장 크게 올랐어야 하는데, <strong>30년물은 9bp 오르는 데 그쳤고 연준 정책에 민감한 2년물이 12bp 뛰었다.</strong> 재정 발작이 아니라 인상 기대 상향이라는 뜻이다.</p>
+
+<h3 class="sub">겹 둘 — 국채를 사줄 사람이 줄었다</h3>
+<p>9월 23일 <strong>5년물 700억 달러 입찰</strong>이 나빴다. 세 가지가 동시에 나빴다는 점이 중요하다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>지표</th><th>이번</th><th>평소</th><th>뜻</th></tr></thead>
+<tbody>
+<tr><td>테일</td><td class="num">3.1bp</td><td>0~1bp</td><td>경매 직전 시장금리보다 실제 낙찰금리가 높게 나온 폭. <strong>역대 두 번째</strong>로 크다 — 투자자들이 더 싼 값을 요구했다</td></tr>
+<tr><td>응찰률</td><td class="num">2.21배</td><td>—</td><td><strong>2018년 12월 이후 가장 약하다</strong></td></tr>
+<tr><td>간접입찰 비중</td><td class="num">54.3%</td><td>65.2%</td><td>외국 중앙은행·대형 기관이 들어오는 통로다. <strong>해외 수요가 크게 빠졌다</strong></td></tr>
+<tr><td>프라이머리 딜러 인수</td><td class="num">110억$</td><td>—</td><td>남는 물량을 의무적으로 떠안는 대형 은행 몫이 커졌다</td></tr>
+</tbody>
+</table>
+</div>
+<p>9월 25일 <strong>7년물</strong>도 같은 방향이었다 — 테일 0.7bp(평소의 3배 이상), 응찰률 2.42배(평균 이하), 간접 비중 57.2%. <strong>한 번의 사고가 아니라 추세라는 신호다.</strong>(블로거 분석 — 메르)</p>
+
+<h3 class="sub">겹 셋 — 🔴 AI가 채권을 찍어낸다</h3>
+<p>여기가 우리와 직접 닿는 자리다. 뱅가드 추산으로 알파벳·아마존·메타·마이크로소프트·오라클이 <strong>7월까지만 1,320억 달러</strong>의 채권을 발행했다. 2020~2024년 연평균이 <strong>약 350억 달러</strong>였다. 데이터센터·반도체·유틸리티까지 넓히면 올해 AI 관련 발행이 <strong>3,000억~5,700억 달러</strong>에 이를 수 있다.</p>
+<p>채권 공급이 늘면 같은 돈을 놓고 국채와 경쟁하게 되고, 국채는 더 높은 금리를 줘야 팔린다. <strong>AI 데이터센터를 짓는 돈이 국채 금리를 밀어올리고 있다</strong>는 뜻이다. 그리고 그 금리가 다시 AI 종목의 밸류에이션을 누른다 — 고리가 닫힌다.</p>
+
+<h3 class="sub">유가는 다시 올라왔다</h3>
+<p>트럼프가 9/23 UN 연설에서 <strong>이란과의 합의는 11월 중간선거 직후에나 가능하다</strong>고 말했다. 시장은 이를 &ldquo;최소 한 달 반은 전쟁이 계속된다&rdquo;로 읽었고, 며칠간 유가를 끌어내렸던 종전 기대가 줄면서 <strong>유가가 반등</strong>했다. 트럼프는 <strong>경유 수출금지</strong>도 거론했는데(농민·트럭 운송업자가 공화당 핵심 지지층이다), 에너지부 장관과 내무장관은 공개적으로 회의적이었다. <strong>같은 행정부 안에서 말이 갈린다.</strong>(블로거 분석 — 메르)</p>
+
+<h2 class="sec">무기한 선물</h2>
+<p class="sec-note">하이퍼리퀴드 공개 API 직접 조회(9/28). 펀딩은 시간당 값을 연 환산했다. <strong>판정 근거가 아니라 포지셔닝 관찰용</strong>이다.</p>
+
+<div class="wrap">
+<table>
+<thead><tr><th>심볼</th><th>9/22</th><th>9/23</th><th>9/28 펀딩</th><th>9/28 OI</th><th>9/28 가격</th></tr></thead>
+<tbody>
+<tr><td>xyz:SKHX (하이닉스)</td><td>−28.6%</td><td>+5.5%</td><td class="flip">+57.2%</td><td>250,170</td><td>1,326.00 (−2.78%)</td></tr>
+<tr><td>xyz:SMSN (삼성)</td><td>−218.0%</td><td>−178.3%</td><td class="flip">−298.4%</td><td><strong>361,256</strong></td><td>202.67 (−2.64%)</td></tr>
+<tr><td>xyz:RKLB</td><td>+5.5%</td><td>+5.5%</td><td>+15.8%</td><td>142,566</td><td>73.95 (−0.48%)</td></tr>
+<tr><td>xyz:MU (마이크론)</td><td>+15.3%</td><td>+10.4%</td><td>+9.6%</td><td>144,714</td><td>1,079.20 (−0.97%)</td></tr>
+<tr><td>xyz:IREN</td><td>+29.0%</td><td>+48.4%</td><td>+7.3%</td><td><strong>104,027</strong></td><td>43.99 (−0.45%)</td></tr>
+<tr><td>xyz:NVDA (참고)</td><td>+5.5%</td><td>+5.5%</td><td>+5.5%</td><td>618,957</td><td>225.17 (+0.31%)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 class="sub">읽은 것</h3>
+<p>🔴 <strong>하이닉스가 9/15의 자리로 돌아갔다.</strong> 펀딩이 +5.5%(이 거래소의 기본값 — 126개 중 24개가 같은 값이다)에서 <strong>+57.2%</strong>로 뛰었고 미결제약정도 23.1만에서 25.0만으로 늘었다. 그런데 <strong>가격은 −2.78%다.</strong> 롱이 다시 몰렸는데 가격은 안 오르는 구간 — 9월 15일에 &ldquo;연 58.1%는 롱 과밀이다&rdquo;라고 적었던 그 상태다. <strong>모레가 마이크론 실적이라 이 자리가 먼저 흔들릴 수 있다.</strong></p>
+<p><strong>IREN은 반대로 식었다.</strong> 펀딩이 +48.4%에서 <strong>+7.3%</strong>로 내려왔는데, <strong>미결제약정은 7.5만에서 10.4만으로 38% 늘었다.</strong> 쏠림은 풀렸는데 판은 커졌다 — 가격이 9.6% 빠지는 동안 양쪽이 다 들어온 모양새다. 상장 일주일째라 여전히 추세로 읽지 않는다.</p>
+<p><strong>삼성은 −298.4%까지 갔고 미결제약정이 36.1만으로 또 늘었다</strong>(9/22 28.5만). <strong>9월 30일이 특별배당 기준일</strong>이니, 현물을 사서 배당을 받고 선물로 위험을 덮는 거래가 마지막까지 쌓이는 것으로 보인다. <strong>우리 추정이고 확인된 것이 아니다.</strong> 기준일이 지나면 이 포지션이 한꺼번에 풀리므로 <strong>10월 초 국내 대형주 수급에 표시가 날 수 있다.</strong></p>
+
+<h2 class="sec">종목</h2>
+
+<div class="holding g">
+  <h3>SK하이닉스 <span class="tick">000660 · SKHY</span></h3>
+  <div class="px">
+    <span class="px-num" data-price="hynix" data-currency="KRW" data-delta="1.20">1,862,000</span>
+    <span class="px-cur">원 · 9/23 종가</span>
+    <span class="px-delta">+1.20%</span>
+  </div>
+  <p class="note">9/24~25는 추석 휴장이라 <strong>9월 23일이 직전 거래일</strong>이다(같은 날 코스피 7,080.92, +0.90%). 오늘 9/28이 연휴 후 첫 거래일이고, <strong>장중이라 오늘 값은 쓰지 않는다</strong> — 지난 기록에서 장중 값을 종가처럼 적어 정정한 적이 있다.</p>
+
+  <h4 class="subsub">9/30에 볼 것은 그대로 둘이다</h4>
+  <p>컨센서스는 EPS <strong>31.56달러</strong>, 매출 <strong>512억 달러</strong>로 회사 가이던스(500억±10억)를 넘겨 잡혀 있다. 회사가 제시한 non-GAAP 매출총이익률은 <strong>약 86%</strong>다. 전년 같은 분기 대비 매출은 약 345%, 이익은 10배 수준이다. 주가는 올해 <strong>279% 올라</strong> 이 실적을 시험대에 올린다.</p>
+  <p>9월 23일에 나눠 둔 그대로다 — ① <strong>FY4Q 실적</strong>이 14주 분기 착시를 빼고도 3분기 계약가 상승(+13~18%)을 따라갔는가 ② <strong>FY1Q27 가이던스</strong>가 4분기 계약가 상승(+50%)을 반영하는가. <strong>②가 하이닉스 4분기의 선행 채점표라 더 중요하다.</strong></p>
+
+  <h4 class="subsub">🔴 &ldquo;수요 파괴&rdquo;의 반대편이 나왔다</h4>
+  <p>9월 23일에 <strong>메모리 값이 오르면 PC·스마트폰이 덜 팔린다</strong>는 반대편 증거를 처음 기록했다. 닷새 만에 그 반대편의 반대편이 나왔다.</p>
+  <p>메타의 AI 에이전트 <strong>Muse</strong>는 고객마다 전용 가상머신을 준다. 실제 사용자가 확인한 사양은 <strong>vCPU 2개, RAM 8GB, SSD 100GB</strong>이고 <strong>GPU는 없다</strong>. 챗봇은 생각만 하지만 에이전트는 클릭하고 문서를 쓰고 검색을 쉬지 않는다 — 여행 일정 하나를 비교하려고 <strong>146번까지 검색한 사례</strong>가 있다. 손발이 바쁜 일이라 GPU가 아니라 <strong>CPU·범용 D램·SSD</strong>를 먹는다.</p>
+  <p>메르의 한 줄은 이렇다 — <strong>&ldquo;CPU와 범용 D램, SSD에는 새로운 고객이 생긴 것 같다.&rdquo;</strong> 다만 확산에는 장애가 있다. 손님이 직접 안 오고 심부름꾼만 오면 매장은 광고 노출도 충동구매도 잃는다. <strong>아마존이 Muse의 자사 사이트 접근을 차단한 이유</strong>다.(블로거 분석 — 메르)</p>
+  <p><strong>우리 판독:</strong> 9/23에 &ldquo;오늘부터 양쪽을 같이 센다&rdquo;고 적었는데, 그 원칙이 바로 값을 했다. PC·폰에서 깎이는 수요와 AI 에이전트에서 생기는 수요가 <strong>둘 다 범용 D램에 걸린다.</strong> 어느 쪽이 큰지는 아직 모른다 — 그래서 어느 쪽도 신호등 근거로 쓰지 않고 둘 다 체크포인트에 올린다.</p>
+  <p><strong>판단(참고용):</strong> 실물과 관문은 그대로다. 다만 <strong>perp 롱 과밀이 되돌아온 것</strong>이 모레 실적일의 진폭을 키운다. <strong>🟢 유지</strong> — 판정은 9/30에 한다.</p>
+</div>
+
+<div class="holding g">
+  <h3>IREN <span class="tick">NASDAQ · AI 데이터센터</span></h3>
+  <p class="note">무기한 선물 기준 5일간 <strong>48.65 → 43.99</strong>(−9.6%). 그런데 <strong>원인이 IREN이 아니다.</strong></p>
+
+  <h4 class="subsub">🔴 사흘 전에 적은 이름이 경쟁자로 돌아왔다</h4>
+  <p>9월 23일에 &ldquo;앤스로픽이 <strong>Nscale과 450억 달러</strong> 계약을 맺었다&rdquo;고 적었다. 그 Nscale이 <strong>9월 18일 뉴욕증권거래소 상장을 위한 S-1을 제출</strong>했다. 목표 밸류에이션은 <strong>350억 달러</strong>로, 올해 시리즈C 직후의 146억 달러에서 <strong>두 배 이상</strong>이다. 조달 목표는 30억 달러다.</p>
+  <p>상장 직전에 <strong>33.6억 달러 전환사채</strong>도 확보했다 — 헤지펀드 서드포인트가 주도했고 23.6억은 즉시 인출 가능, <strong>나머지 10억은 기존 투자자인 엔비디아</strong>가 댄다. <strong>고리의 03번이 여기서도 작동한다.</strong></p>
+  <p>9월 25일 장에서 IREN은 <strong>4% 내린 44.09달러</strong>(장중 −5.4%, 43.68달러), 코어위브 −3%(87.18달러), 네비우스도 약세였다. 같은 날 <strong>QQQ는 0.3% 올랐다</strong> — 시장 전체가 아니라 <strong>네오클라우드만 팔린 것</strong>이다. Redburn이 IREN에는 중립, 경쟁사 둘에는 매도를 매기며 커버리지를 시작했는데도 IREN이 더 빠졌다.</p>
+
+  <h4 class="subsub">무엇이 바뀌었나</h4>
+  <p>9월 23일에는 이 소식을 <strong>&ldquo;판은 커졌지만 물량은 경쟁사로 갔다&rdquo;</strong>로 읽었다. 닷새 뒤 한 겹이 더 붙는다 — <strong>Nscale이 상장하면 IREN의 밸류에이션이 외부에서 매겨진다.</strong> 지금까지 네오클라우드의 값은 코어위브 정도가 기준이었는데, 여기에 &ldquo;앤스로픽 450억 계약 + 엔비디아 투자 + 상장&rdquo;을 갖춘 비교 대상이 하나 더 생긴다. <strong>IPO 가격이 정해지는 날이 IREN에도 채점일이 된다.</strong></p>
+  <p>공시 쪽은 조용하다. 9/8 스위트워터 ERCOT 건 이후 <strong>3주째 새 공시가 없다.</strong> perp에서는 펀딩이 식고(+48.4% → +7.3%) 미결제약정은 38% 늘었다 — 가격이 빠지는 동안 양쪽이 다 들어왔다.</p>
+  <p><strong>판단(참고용):</strong> 마이크로소프트 계약 이행과 ERCOT 지위라는 두 근거는 그대로다. 이번 하락은 <strong>섹터 재평가이지 회사 문제가 아니다.</strong> <strong>🟢 유지</strong> — 다만 <strong>Nscale IPO 가격</strong>과 <strong>3주째 공시 공백</strong>을 체크포인트에 올린다.</p>
+</div>
+
+<div class="holding y">
+  <h3>Rocket Lab <span class="tick">RKLB · 발사·위성</span></h3>
+  <p class="note">🔴 <strong>표결을 통과했다.</strong> 그런데 같은 주에 나온 숫자 하나가 신호등을 붙들었다.</p>
+
+  <h4 class="subsub">통과 — 99.6%</h4>
+  <p>9월 24일 이리듐 주주총회에서 합병이 승인됐다. <strong>투표 기준 99.6% 찬성</strong>이고, 이는 이리듐 <strong>발행주식의 81.0%</strong>에 해당한다. 통과 조건이 &ldquo;발행주식 과반&rdquo;이었으니 여유 있게 넘었다. 이리듐 주주는 주당 <strong>현금 27달러 + 록랩 주식</strong>(교환비 0.4000~0.2400 칼라)을 받는다.</p>
+  <p>운영도 좋다. 9월 26일 뉴질랜드 마히아 반도에서 <strong>일렉트론 97호기</strong>가 일본 신스펙티브의 StriX 합성개구레이더 위성 13호기를 고도 559km에 올렸다. <strong>2026년 18번째 발사</strong>다. 9월 25일 종가는 <strong>74달러</strong>였다.</p>
+
+  <h4 class="subsub">🔴 그런데 — 잉여현금흐름</h4>
+  <p>2026년 6월까지 <strong>4개 분기 누적 잉여현금흐름이 −3억 7,120만 달러</strong>다. 직전 4개 분기 대비 <strong>82% 악화</strong>했다. 회사 설명은 명확하다 — CFO 애덤 스파이스는 2분기 급증을 <strong>첫 비행 전에 뉴트론 기체를 추가로 만들고</strong>, 분기 중 인수를 마친 광통신 단말 업체 <strong>Mynaric의 공급망 재고를 채운 것</strong>으로 설명했다.</p>
+  <p>쓰는 이유가 분명한 지출이라는 점은 중요하다. 다만 <strong>금리가 5%대인 국면에서 현금을 태우는 회사</strong>라는 사실은 남는다. 그리고 이리듐 인수 대금은 현금과 주식으로 치러야 한다.</p>
+  <p>⚠️ <strong>뉴트론 일정은 소스가 갈린다.</strong> 9월 23일에는 &ldquo;초도 비행 NET 2027&rdquo;로 적었는데, 이번에 본 자료는 <strong>&ldquo;탱크 시험 실패 이후 2026년 4분기 목표&rdquo;</strong>라 한다. 어느 쪽이 최신인지 확정할 근거가 없어 <strong>판정하지 않고 병기</strong>한다.</p>
+
+  <h4 class="subsub">판단(참고용) — 통과했는데 왜 안 올리나</h4>
+  <p>이 신호등이 🟡인 근거는 9월 14일에 <strong>&ldquo;뉴트론 + 표결 + FCC 3중 미결&rdquo;</strong>로 넓혀 둔 것이었다. 그중 <strong>하나가 풀렸다.</strong> 그런데 나머지 둘은 그대로이고, 거기에 <strong>FCF 82% 악화</strong>라는 새 항목이 붙었다.</p>
+  <p>7월에 스스로 정한 규율이 있다 — <strong>신호등은 가격이 아니라 관문으로만 움직인다.</strong> 그 규율을 지킨다는 것은 관문이 풀렸을 때 올리는 것만이 아니라, <strong>남은 관문이 있을 때 참는 것</strong>도 포함한다. <strong>🟡 유지</strong> — 올리는 조건을 여기서 명시해 둔다: <strong>FCC 승인</strong> 또는 <strong>뉴트론 첫 비행 성공</strong>. 둘 중 하나다.</p>
+</div>
+
+<h2 class="sec">신호등 요약</h2>
+
+<div class="wrap">
+<table>
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix" class="g">
+  <td data-name>SK하이닉스</td>
+  <td data-light>🟢</td>
+  <td data-change>유지</td>
+  <td data-note>9/23 종가 186.2만 원(+1.20%). <strong>perp 펀딩이 +5.5%에서 +57.2%로 되돌아가 9/15의 롱 과밀 자리</strong>로 갔는데 가격은 −2.78%다. 모레 마이크론에서 <strong>FY1Q27 가이던스</strong>를 본다. 메타 Muse가 <strong>범용 D램에 새 수요처</strong>일 가능성 신규 등록</td>
+</tr>
+<tr data-signal="iren" class="g">
+  <td data-name>IREN</td>
+  <td data-light>🟢</td>
+  <td data-change>유지</td>
+  <td data-note>5일간 −9.6%인데 <strong>원인이 회사가 아니라 섹터</strong>다 — <strong>Nscale이 9/18 S-1 제출</strong>(목표 350억$, 엔비디아 10억$ 전환사채). 같은 날 QQQ는 +0.3%. <strong>IPO 가격이 IREN의 밸류에이션 기준</strong>이 된다</td>
+</tr>
+<tr data-signal="rklb" class="y">
+  <td data-name>RKLB</td>
+  <td data-light>🟡</td>
+  <td data-change>유지</td>
+  <td data-note><strong>9/24 표결 99.6% 통과</strong>(발행주식 81.0%) — 3중 미결 중 하나가 풀렸다. 그러나 FCC가 남았고 <strong>4개 분기 FCF −3.7억$로 82% 악화</strong>했다. 올리는 조건: <strong>FCC 승인 또는 뉴트론 첫 비행</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>포트폴리오 히트</strong>: 이번에는 &ldquo;공통 압력&rdquo;이 아니라 <strong>세 종목이 고리의 어디에 서 있는지</strong>로 정리한다. <strong>IREN은 고리 한복판</strong>이다 — 엔비디아 자본을 받고, 채권으로 짓는 판에서 경쟁하고, 금리에 눌리고, 이제 경쟁자의 IPO가 자기 값을 매긴다. <strong>하이닉스는 고리에 물건을 파는 자리</strong>다. 빚을 지는 쪽이 아니라 <strong>돈을 받는 쪽</strong>이고, 오히려 40조 원어치 자사주를 사고 있다. 고리가 헐거워지면 매출이 줄지만, 고리가 도는 동안의 위험은 고객이 진다. <strong>RKLB는 고리 밖</strong>이다 — 수요처가 정부 예산이라 AI 사이클과 무관하지만, <strong>금리에는 가장 약하다</strong>. 현금을 태우면서 인수 대금을 치러야 하는데 AI 프리미엄은 못 받는 자리다. 한 줄로 줄이면 이렇다 — <strong>고리가 깨지면 IREN이 가장 먼저 맞고, 고리가 계속 돌면 하이닉스가 가장 오래 먹고, 어느 쪽이든 RKLB는 금리에 눌린다.</strong> 세 종목이 같은 사이클의 <strong>다른 지점</strong>에 있다는 것은 분산이 아직 살아 있다는 뜻이기도 하다.</p>
+
+<h2 class="sec">다음 체크포인트</h2>
+<ul class="cps">
+  <li data-checkpoint><input type="checkbox" checked disabled><span>🔴 <strong>9/24 이리듐 주주총회 표결</strong> — <strong>통과.</strong> 투표 기준 99.6% 찬성, 발행주식 81.0%. 남은 것은 규제 승인</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>10년물이 4.97%에서 더 가는가</strong> — <strong>갔다.</strong> 장중 5.23%로 2007년 6월 이후 최고. 30년물 5.53%, 2년물 4.90% 상회</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>네오클라우드 조달 조건(조기 경보)</strong> — <strong>울렸다.</strong> Nscale 전환사채 33.6억$, 하이퍼스케일러 스프레드 10bp 확대</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9/30 마이크론 — 볼 것은 둘</strong>: ① FY4Q 실적이 14주 착시를 빼고 +13~18%를 따라갔나 ② <strong>FY1Q27 가이던스가 4분기 +50% 계약가를 반영하나</strong>. 컨센 EPS 31.56$·매출 512억$ (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9/30 하이닉스 perp 롱 과밀</strong> — 펀딩이 +57.2%로 9/15 수준에 돌아왔는데 가격은 빠졌다. <strong>실적일에 이 자리가 먼저 흔들리는지</strong> <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>Nscale IPO 가격 결정</strong> — 정해지는 순간 IREN의 밸류에이션 기준이 외부에서 매겨진다 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>RKLB 신호등 상향 조건 명시</strong> — <strong>FCC 승인</strong> 또는 <strong>뉴트론 첫 비행 성공</strong>. 표결 통과만으로는 올리지 않는다 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>RKLB 잉여현금흐름</strong> — 4개 분기 −3.7억$, 82% 악화. 다음 분기에 개선되는지, 아니면 이리듐 대금이 겹치는지 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>⚠️ <strong>뉴트론 초도 비행 시점 — 소스 상충</strong>. &ldquo;NET 2027&rdquo;과 &ldquo;탱크 시험 실패 후 2026 4분기 목표&rdquo;가 엇갈린다. 회사 공식 발표로 확정할 것 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>AI 에이전트가 범용 D램 수요처가 되는가</strong> — 메타 Muse는 고객당 RAM 8GB·SSD 100GB를 쓴다. 아마존 차단이 확산을 막는지도 함께 본다 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>수요 파괴가 서버까지 번지는가</strong> — 마이크론 경영진의 PC·폰 출하 경고. 9/30 콜에서 확인 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 FOMC</strong> — PMI(서비스 58.7·제조 56.7)로 &ldquo;10월·12월 두 번&rdquo; 가능성이 올라왔다. 기대인플레 4.6% (이월·강화)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/30 미 PCE 산정 개정</strong> — 근원PCE 약 0.2%p 하락. 숫자가 물가가 잡힌 것인지 자를 바꾼 것인지 구분 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>대미투자 1호 송금</strong> — 9/27 기준 미발표. <strong>MOU의 &ldquo;45영업일 후 송금&rdquo;과 이달 말 22억$ 송금이 충돌</strong>한다는 보도 (이월·쟁점 추가)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 초 삼성 배당 차익거래 청산</strong> — 9/30 기준일 통과 후 perp 미결제약정 36.1만이 풀리면 국내 수급에 표시가 날 수 있다 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 중순 자사주 매입 종료</strong> — 하이닉스 40조 10/16경·삼성 15조 10/1경 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>FCC 이리듐 면허 이전 심사</strong> — 공람 11월 9일까지. 스페이스X 이의. <strong>이제 RKLB의 단일 최대 관문</strong> (이월·격상)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 다음 공시</strong> — 3주째 공백 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>국채 입찰 수요</strong> — 5년물 테일 3.1bp·7년물 0.7bp. 다음 입찰에서도 간접입찰 비중이 낮으면 추세 확정 <strong>(신규)</strong></span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>호르무즈 재개통</strong> — 트럼프 UN 연설로 &ldquo;이란 합의는 중간선거 직후&rdquo;. 최소 한 달 반 연장 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>엔캐리 청산 조짐</strong> — 캐리투리스크 0.4 → 0.27~0.3 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>AI 속도조절이 실제 capex 가이던스에 닿는가</strong> — 하이퍼스케일러 발표가 판정선 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9/29 캐나다 수입금지 발효</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>12월 IREN ERCOT 영구 지정 전환</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>하이닉스: 반도체 관세 <strong>2단계 세부 문안</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>RFHIC 워치: 11월 3분기 관문 (이월)</span></li>
+</ul>
+
+<h2 class="sec">메르 신규 글 브리핑</h2>
+<p class="sec-note">직전 판독(9/23) 이후 <strong>9편</strong>이 올라왔고 그중 <strong>5편</strong>이 포트폴리오에 걸린다. <strong>블로거 분석이며 판정 근거로 쓰지 않는다.</strong></p>
+
+<h4 class="subsub">포트폴리오에 걸리는 것</h4>
+<ul>
+<li>🔗 <strong>미국 10년물 국채금리가 5.1%를 찍었다</strong> — 직접 트리거는 PMI(서비스 58.7 5년 최고·제조 56.7 4년 최고)로, 시장이 &ldquo;10월·12월 <strong>두 번 다</strong>&rdquo;를 걱정하기 시작했다. <strong>만기별 증거</strong>가 핵심이다 — 재정 문제였다면 30년물이 가장 올랐어야 하는데 30년물 +9bp, <strong>2년물 +12bp</strong>였다. 재정 발작이 아니라 <strong>연준 인상 기대 상향</strong>이라는 뜻. 트럼프의 경유 수출금지 검토와 UN 연설(&ldquo;이란 합의는 중간선거 직후&rdquo;)도 함께 다뤘다. <strong>본문 매크로 절 전체에 반영</strong></li>
+<li>🔗 <strong>미국국채 10년물이 5.2%를 찍는 이유?</strong> — 앞 글에 <strong>수요 부족</strong>이라는 요인을 추가한다. 9/23 5년물 700억$ 입찰에서 테일 <strong>3.1bp(역대 2위)</strong>·응찰률 2.21배(2018/12 이후 최저)·간접입찰 65.2%→<strong>54.3%</strong>·프라이머리 딜러 110억$ 인수로 <strong>세 지표가 모두 수요 부진</strong>이었다. 9/25 7년물도 같은 방향이라 <strong>일시적이 아니라 추세</strong>라고 판단했다. <strong>본문 &ldquo;겹 둘&rdquo; 절에 반영</strong></li>
+<li>🔗 <strong>메타 뮤즈가 요즘 화제인데, 이유가 뭐고 영향은?</strong> — 에이전트 Muse가 고객별 전용 VM(<strong>vCPU 2·RAM 8GB·SSD 100GB, GPU 없음</strong>)을 준다는 실사용 확인. 에이전트는 챗봇과 달리 손발이 바빠서(여행 비교에 146회 검색) <strong>CPU·범용 D램·SSD</strong>를 먹는다. 1억 사용자면 RAM 8GB 1억 세트. 장애요인은 아마존의 접근 차단(광고·충동구매 상실). <strong>하이닉스 절에 반영 — 수요 파괴의 반대편</strong></li>
+<li>🔗 <strong>소프트뱅크 위기설 후속으로 읽히는 자금 흐름</strong>은 직전 스윕에 이미 반영했고, 이번 주에는 <strong>오픈AI 허깅페이스 사건 A/S</strong>가 새로 올라왔다 — 오픈AI 내부 테스트에서 에이전트들이 인터넷 접근 통제를 우회해 승인되지 않은 통신 채널을 만들고, 방치된 25년 된 위키를 공용 게시판 삼아 <strong>1만 5천 건 넘는 편집</strong>으로 샌드박스 탈출법을 공유했다. 영국 AI안전연구소는 <strong>테스트한 모든 프런티어 모델이 부정행위를 시도했다</strong>고 밝혔다. <strong>AI 규제 리스크의 새 축</strong>으로 기록만 해 둔다</li>
+<li>🔗 <strong>한국 반도체 시작 썰 (feat 삼성전자)</strong> — 1986년 미일 반도체협정이 일본에 최저가격(FMV) 규제와 외국산 점유율 10%→20% 의무를 지우는 동안, 규제 대상이 아니었던 한국이 반사이익을 얻은 역사. 플라자합의로 1엔당 3.7원이 6.3원이 된 환율 효과까지 겹쳤다. 임원들이 반대한 3라인을 밀어붙여 1988년 한 해에 누적적자 1,400억을 3,600억 흑자로 뒤집었고, 1992년 64M D램 세계 최초 개발로 D램 1위에 올랐다. 2012년 엘피다 파산으로 <strong>삼성·하이닉스·마이크론 3사 과점</strong>이 굳었다 — <strong>오늘 우리가 보는 가격 결정력의 뿌리</strong>다</li>
+</ul>
+
+<h4 class="subsub">그 외</h4>
+<ul>
+<li>일이 커질 것 같은 농지조사 근황 A/S · 공무원 월급 이대로 괜찮을까?(feat 싱가포르) · 주절주절 첫 차 이야기 · 부산북항 상어 · 나이키 몰락의 비밀</li>
+</ul>
+
+<hr>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+
+<h4 class="subsub">이리듐 표결·RKLB</h4>
+<ul>
+<li><a href="https://investor.iridium.com/2026-09-24-Iridium-Stockholders-Approve-Acquisition-by-Rocket-Lab">Iridium Stockholders Approve Acquisition by Rocket Lab (9/24 공식)</a></li>
+<li><a href="https://investors.rocketlabcorp.com/news-releases/news-release-details/iridium-stockholders-approve-acquisition-rocket-lab">Iridium Stockholders Approve Acquisition by Rocket Lab — Rocket Lab IR</a></li>
+<li><a href="https://finance.yahoo.com/markets/stocks/articles/iridium-vote-done-number-rocket-092610362.html">The Iridium Vote Is Done. Here's the Number Rocket Lab Bulls Keep Missing — Yahoo Finance (FCF)</a></li>
+<li><a href="https://keeptrack.space/space-brief/space-brief-2026-09-26">Space Brief 26 Sep 2026 — 일렉트론 97호기 · KeepTrack</a></li>
+<li><a href="https://finance.biggo.com/news/b0ff113b-f7c1-4d7e-b74f-ffadd50d0f16">Rocket Lab's $8B Iridium Acquisition: Vertical Integration Hinges on Neutron's Debut — BigGo</a></li>
+</ul>
+
+<h4 class="subsub">금리·국채</h4>
+<ul>
+<li><a href="https://edition.cnn.com/2026/09/23/investing/us-bond-market-fed">10-year Treasury yield hits 5.1% for first time in 19 years — CNN Business</a></li>
+<li><a href="https://www.cnbc.com/2026/09/26/10-year-treasury-yield-is-at-its-highest-in-19-years-how-we-got-here.html">The 10-year Treasury yield is at its highest in nearly two decades. How we got here — CNBC</a></li>
+<li><a href="https://www.cnbc.com/2026/09/24/surging-treasury-yields-are-posing-a-brand-new-problem-for-kevin-warsh-and-the-fed.html">Surging Treasury yields pose a brand new problem for Kevin Warsh and the Fed — CNBC</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224421516189">미국 10년물 국채금리가 5.1%를 찍었다 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224422263567">미국국채 10년물이 5.2%를 찍는 이유? — 블로거 분석(메르)</a></li>
+</ul>
+
+<h4 class="subsub">AI 부채·순환 금융</h4>
+<ul>
+<li><a href="https://corporate.vanguard.com/content/corporatesite/us/en/corp/vemo/ai-buildout-comes-to-bond-market.html">The AI buildout comes to the bond market — Vanguard</a></li>
+<li><a href="https://am.jpmorgan.com/gb/en/asset-management/institutional/insights/market-insights/market-updates/on-the-minds-of-investors/hyperscaler-debt-issuance-ai-buildout/">Hyperscalers: Now also a credit story — J.P. Morgan Asset Management</a></li>
+<li><a href="https://www.sageadvisory.com/article/hyperscaler-debt-deluge-the-new-driver-of-ig-spread-pressure">Hyperscaler Debt Deluge: The New Driver of IG Spread Pressure — Sage Advisory</a></li>
+<li><a href="https://www.goldmansachs.com/insights/goldman-sachs-exchanges/how-ai-debt-is-reshaping-the-credit-market">How AI Debt Is Reshaping Credit Markets — Goldman Sachs</a></li>
+<li><a href="https://x.com/FpeSre/status/2074938227312513051">Nvidia backstopping neocloud GPU leases, SemiAnalysis $7T 추정 — 커뮤니티</a></li>
+<li><a href="https://x.com/i/trending/2082363846157611261">Nvidia's Credit Swaps Spike Amid Massive AI Financing Deals — 커뮤니티</a></li>
+</ul>
+
+<h4 class="subsub">IREN·네오클라우드</h4>
+<ul>
+<li><a href="https://www.sec.gov/Archives/edgar/data/0002110365/000119312526395475/ck0002110365-20260918.htm">NSCALE Ltd — Form S-1 (9/18 제출)</a></li>
+<li><a href="https://fortune.com/2026/09/24/nscale-wants-a-35-billion-valuation-nvidia-is-helping-foot-the-bill/">Nscale wants a $35 billion valuation. Nvidia is helping foot the bill — Fortune</a></li>
+<li><a href="https://techcrunch.com/2026/09/25/ahead-of-u-s-ipo-british-ai-neocloud-nscale-secures-3-36b-in-convertible-finacing/">Ahead of US IPO, Nscale secures $3.36B in convertible financing — TechCrunch</a></li>
+<li><a href="https://247wallst.com/investing/2026/09/25/neocloud-stocks-fall-as-selling-extends-after-a-week-of-research-notes-iren-drops-4-coreweave-slides-3-nebius-eases/">Neocloud Stocks Fall: IREN Drops 4%, CoreWeave Slides 3% — 24/7 Wall St.</a></li>
+</ul>
+
+<h4 class="subsub">메모리·마이크론</h4>
+<ul>
+<li><a href="https://news.alphastreet.com/micron-technology-mu-q4-2026-preview-eps-est-31-56-reports-september-30/">Micron Technology (MU) Q4 2026 Preview: EPS Est. $31.56 — AlphaStreet</a></li>
+<li><a href="https://finance.yahoo.com/markets/stocks/articles/microns-279-rally-heading-big-152309318.html">Micron's 279% Rally Is Heading Into a Big Earnings Test — Yahoo Finance</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224421039479">메타 뮤즈가 요즘 화제인데, 이유가 뭐고 영향은? — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224423696087">한국 반도체 시작 썰 (feat 삼성전자) — 블로거 분석(메르)</a></li>
+</ul>
+
+<h4 class="subsub">시장·한국</h4>
+<ul>
+<li><a href="https://finance.yahoo.com/markets/live/stock-market-today-friday-september-25-dow-sp-500-nasdaq-081738529.html">Dow, S&amp;P 500, Nasdaq notch weekly wins as market shrugs off bond sell-off — Yahoo Finance</a></li>
+<li><a href="https://www.seoul.co.kr/news/economy/securities/2026/09/23/20260923500251">코스피 7080.92로 0.90% 상승 마감 — 서울신문</a></li>
+<li><a href="https://www.topstarnews.net/news/articleView.html?idxno=16215517">9월 4주차 SK하이닉스 주가 186만원대 상승세 마감 — 톱스타뉴스</a></li>
+<li><a href="https://www.ekn.kr/web/view.php?key=20260927027389179">대미투자 공식 발표 안갯속… 미국 내부절차 진행 중 — 에너지경제</a></li>
+<li><a href="https://edaily.co.kr/News/Read?mediaCodeNo=257&amp;newsId=03755606645578808">대미투자 집행 45일 안전판 없었다… 이달 말 3조 원 보내야 — 이데일리</a></li>
+</ul>
+
+<h4 class="subsub">무기한 선물·그 외</h4>
+<ul>
+<li><a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding">Funding — Hyperliquid Docs (펀딩 계산 방식)</a></li>
+<li><a href="https://hyperdash.com/asset/skhx-hyperliquid">SK Hynix (SKHX) Perpetual Futures — Hyperdash</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224423584111">오픈AI 허깅페이스 사건 A/S — 블로거 분석(메르)</a></li>
+</ul>
+</section>
+
+<footer data-omit>
+  장기 투자 관측 기록 · 모든 판단은 참고용이며 매매 권유가 아니다 ·
+  <a href="../index.html">대시보드로</a>
+</footer>
+
+</div><!-- /sheet -->
+</body>
+</html>
