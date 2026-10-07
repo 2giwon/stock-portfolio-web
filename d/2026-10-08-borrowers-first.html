@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>빚진 쪽부터 — 2026년 10월 8일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-10-08 · 이 문서만을 위해 지은 페이지
+
+   사건: 미 10년물이 장중 5.365%로 2002년 4월 이후 최고를 찍었다.
+   그날 시장은 금리에 가장 약한 쪽부터 팔았다 — 아직 돈을 빌려
+   짓고 있는 데이터센터 건설사들(IREN −7%, TeraWulf·Core Scientific
+   −5%). 9/28의 "고리"에서 금리가 빌리는 쪽을 누른다고 적은 그대로다.
+
+   그래서 이 지면은 **강철 파랑**이다 — 차가운 금속판 위에 금리 숫자
+   하나를 크게 새기고, 그 아래 "누가 먼저 맞았나"를 순위표로 놓는다.
+   기존 팔레트 전부와 거리 27.1. 글자 대비 최저 4.72:1.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+  --page-bg: #8fb0d8;
+  --panel:  #bcd0ea;
+  --ink:    #0b1830;
+  --body:   #1d2d4a;
+  --muted:  #2f3f5c;
+  --line:   #6f8fb8;
+  --hot:    #6b1010;
+  --hold:   #0b4a35;
+  --link:   #0b1830;
+  --disp: 'Black Han Sans', 'Apple SD Gothic Neo', sans-serif;
+  --sans: 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body { margin: 0; background: var(--page-bg); color: var(--body); font-family: var(--sans); font-size: 16px; line-height: 1.85; word-break: keep-all; overflow-wrap: break-word; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+.sheet { max-width: 860px; margin: 0 auto; padding: 0 16px 90px; }
+a { color: var(--link); }
+strong { font-weight: 900; color: var(--ink); }
+h2, h3 { color: var(--ink); line-height: 1.4; }
+.top { padding: 26px 0 0; }
+.home { font-size: 12px; letter-spacing: .14em; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+.when { margin-top: 18px; font-family: var(--mono); font-size: 13px; letter-spacing: .25em; color: var(--muted); }
+.doc-title { margin: 4px 0 0; font-weight: 400; }
+.doc-title .shout { display: block; font-family: var(--disp); color: var(--ink); font-size: clamp(48px, 14vw, 150px); line-height: 1; } /* 다섯 글자 제목 — 17vw 면 390px 폰에서 본문 폭(358px)에 거의 붙는다. 14vw 로 약 290px */
+.doc-title .tail { display: block; margin-top: 10px; font-size: clamp(15px, 3.8vw, 20px); color: var(--muted); }
+blockquote[data-summary] { margin: 22px 0 0; padding: 18px 20px; background: var(--panel); border-left: 8px solid var(--ink); }
+
+/* 🔴 이 지면의 큰 소리: 새겨진 금리 숫자 */
+.engrave { margin: 40px 0 0; padding: 26px 16px; background: var(--ink); color: var(--panel); text-align: center; }
+.engrave .k { font-family: var(--mono); font-size: 12px; letter-spacing: .3em; color: var(--panel); }
+.engrave .v { font-family: var(--mono); font-weight: 700; font-size: clamp(54px, 16vw, 132px); line-height: 1; color: #f2f6fc; margin: 8px 0; }
+.engrave .s { font-size: 14px; color: var(--panel); }
+
+.points { margin: 34px 0; padding: 0; list-style: none; }
+.points li { position: relative; padding: 11px 0 11px 26px; border-bottom: 1px solid var(--line); }
+.points li::before { content: '■'; position: absolute; left: 2px; top: 11px; font-size: 11px; color: var(--ink); }
+.sec { margin: 52px 0 6px; font-family: var(--disp); font-weight: 400; font-size: clamp(26px, 6.6vw, 40px); }
+.sec-note { margin: 0 0 18px; font-size: 14px; color: var(--muted); }
+p { margin: 14px 0; }
+.wrap { overflow-x: auto; margin: 16px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; background: var(--panel); }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: var(--ink); color: var(--panel); font-size: 12px; letter-spacing: .05em; white-space: nowrap; }
+td.num { font-family: var(--mono); font-weight: 700; color: var(--ink); white-space: nowrap; }
+tr.g td:first-child, tr.y td:first-child { font-weight: 900; color: var(--ink); }
+.flip { color: var(--hot); font-weight: 900; }
+.holding { margin: 32px 0; padding: 20px; background: var(--panel); border-top: 6px solid var(--line); }
+.holding.g { border-top-color: var(--hold); }
+.holding.y { border-top-color: var(--ink); }
+.holding h3 { margin: 0 0 4px; font-family: var(--disp); font-weight: 400; font-size: 24px; }
+.px { display: flex; align-items: baseline; gap: 10px; margin: 8px 0 2px; flex-wrap: wrap; }
+.px-num { font-family: var(--mono); font-weight: 700; font-size: 30px; color: var(--ink); }
+.px-cur { font-size: 12.5px; color: var(--muted); }
+.px-delta { font-weight: 900; color: var(--hot); }
+.note { font-size: 13.5px; color: var(--muted); }
+.cps { margin: 16px 0; padding: 0; list-style: none; }
+.cps li { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+.cps input { margin-top: 6px; flex: none; }
+.src { margin-top: 46px; font-size: 13.5px; }
+.src ul { padding-left: 18px; margin: 6px 0 14px; }
+hr { border: 0; border-top: 3px solid var(--ink); margin: 40px 0; }
+footer { margin-top: 50px; font-size: 12.5px; color: var(--muted); text-align: center; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>대시보드</a>
+  <div class="when" data-omit>2026 · 10 · 08 관측 기록</div>
+  <h1 class="doc-title">
+    <span class="shout">빚진 쪽부터</span>
+    <span class="tail">— 10년물이 24년 만의 최고를 찍자, 시장은 돈을 빌려 짓는 쪽부터 팔았다</span>
+  </h1>
+</header>
+
+<blockquote data-summary>미 10년물이 장중 <strong>5.365%</strong>로 2002년 4월 이후 최고를 찍었다. 그날 시장이 가장 먼저 판 것은 <strong>아직 돈을 빌려 데이터센터를 짓고 있는 회사들</strong>이었다 — IREN −7%, TeraWulf·Core Scientific −5%. 9월 28일 "고리"에서 <strong>금리가 빌리는 쪽을 누른다</strong>고 적은 그대로다. 한국에서는 하이닉스가 이틀째 약 3% 빠졌고, 메모리 쪽에는 <strong>NAND 가격 첫 주간 하락</strong>이라는 반대편 실물이 처음 나왔다. 다만 같은 날 밤 10년물 입찰은 <strong>강한 수요</strong>로 끝났다. 직전 기록은 <a href="2026-10-07-shaken-out.html">10월 7일 털림</a>이다.</blockquote>
+
+<section class="engrave">
+  <div class="k" data-omit>US 10Y · INTRADAY HIGH · 10/7</div>
+  <div class="v" data-trigger="treasury10y" data-threshold="5.0">5.365</div>
+  <div class="s">% — 2002년 4월 이후 최고. 30년물 5.66%, 6%에 다가서는 중</div>
+</section>
+
+<ul class="points">
+  <li data-summary-point><strong>10년물 장중 5.365%</strong> — 2002년 4월 이후 최고. 미국 지수는 사상 최고 다음 날 −0.22%로 숨 고르기</li>
+  <li data-summary-point><strong>금리는 빌리는 쪽부터 쳤다</strong> — IREN −7%, TeraWulf·Core Scientific −5%. "매출보다 먼저 자금을 조달해야 하는 건설사"가 콕 집혀 팔렸다</li>
+  <li data-summary-point><strong>하이닉스 10/7 약 −3%</strong>(약 171만 5천원), 코스피 −1.98%. 메모리에는 <strong>NAND 웨이퍼 가격 −2.9%</strong>(첫 주간 하락)·마이크론 대만 공장 파업 투표 승인·도시바 증설이 겹쳤다</li>
+  <li data-summary-point>그런데 <strong>10년물 입찰은 강했다</strong> — 낙찰 5.300%, 응찰 2.77배, 해외 수요(간접) 80% 넘음. 9월 23일 5년물 부진과 반대다</li>
+</ul>
+
+<h2 class="sec">누가 먼저 맞았나</h2>
+<p class="sec-note">10/7 하루 등락. 금리에 약한 순서대로 줄을 세우면 그대로 순위가 된다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>자리 (9/28 고리 기준)</th><th>종목</th><th>10/7</th><th>왜</th></tr></thead>
+<tbody>
+<tr><td>빌려서 짓는 쪽</td><td>IREN</td><td class="num flip">−7%</td><td>자금 조달이 매출보다 먼저인 건설사 — 차입 비용 상승에 가장 노출</td></tr>
+<tr><td>빌려서 짓는 쪽</td><td>TeraWulf · Core Scientific</td><td class="num flip">−5%</td><td>같은 이유</td></tr>
+<tr><td>파는 쪽 (한국)</td><td>SK하이닉스</td><td class="num flip">약 −3%</td><td>원화 강세·성과급 우려 이틀째 + NAND 가격 약세</td></tr>
+<tr><td>지수</td><td>S&amp;P 500 · 나스닥</td><td class="num">−0.22%</td><td>사상 최고 다음 날 숨 고르기</td></tr>
+</tbody>
+</table>
+</div>
+<p>9월 28일에 <strong>"고리가 흔들리면 IREN이 먼저 맞고, 하이닉스는 고리에 물건을 파는 자리"</strong>라고 적었다. 이번 주는 그 문장이 하루 단위로 확인되고 있다. 다만 하이닉스도 이틀 연속 빠졌다 — 이유는 금리가 아니라 <strong>원화·성과급이라는 한국 요인</strong>과 <strong>메모리 가격 쪽 첫 반대편 신호</strong>다.</p>
+
+<h2 class="sec">메모리 — 반대편 실물이 처음 나왔다</h2>
+<div class="wrap">
+<table>
+<thead><tr><th>신호</th><th>내용</th><th>무게</th></tr></thead>
+<tbody>
+<tr><td>NAND 웨이퍼 가격</td><td><strong>−2.9%</strong>, 수개월 만의 첫 의미 있는 주간 하락</td><td>NAND는 하이닉스 논지의 중심(HBM·서버 D램)이 아님. 그러나 <strong>가격 쪽 첫 반대 실물</strong></td></tr>
+<tr><td>마이크론 대만 파업</td><td>타오위안 공장 노조가 조정 결렬 후 <strong>파업 투표 승인</strong></td><td>공급 차질이면 오히려 경쟁사(하이닉스)에 유리할 수 있는 양면 신호</td></tr>
+<tr><td>도시바 증설</td><td>하드디스크 생산능력을 2027회계연도까지 <strong>약 두 배</strong>(약 600억 엔)</td><td>HDD라 직접 경쟁은 아님. "공급이 늘어난다"는 심리에 영향</td></tr>
+</tbody>
+</table>
+</div>
+<p>9월 23일부터 <strong>양쪽을 같이 센다</strong>고 정했다. 지금까지 반대편은 경영진 경고·버리 숏 같은 <strong>말</strong>이었고, 이번이 처음으로 <strong>가격 숫자</strong>다. 한 주의 NAND 하락으로 판정하지는 않지만, 체크포인트에 정식으로 올린다 — <strong>D램·HBM 계약가로 번지는지</strong>가 다음 관찰점이다.</p>
+
+<h2 class="sec">국채 — 금리는 높은데 수요는 살아 있다</h2>
+<div class="wrap">
+<table>
+<thead><tr><th>입찰</th><th>낙찰 금리</th><th>응찰 배율</th><th>해외 수요(간접)</th><th>판독</th></tr></thead>
+<tbody>
+<tr><td>9/23 5년물</td><td class="num">5.033%</td><td class="num">2.21배</td><td class="num">54.3%</td><td>부진 — 2018년 12월 이후 최약</td></tr>
+<tr><td>10/7 10년물</td><td class="num">5.300%</td><td class="num">2.77배</td><td class="num">80%+</td><td><strong>강함</strong> — 프라이머리 딜러 몫 2.54%뿐</td></tr>
+</tbody>
+</table>
+</div>
+<p>9월 28일에 "국채 수요 부진이 추세"라고 적었는데, <strong>이번 10년물 입찰은 그 반대였다.</strong> 5.3%라는 금리 자체가 매력적으로 보였고, 프랑스 재정 불안 속에 "그래도 미국이 낫다"는 수요가 붙었다는 해석이다(블로거 분석 — 메르). <strong>추세 판단을 한 단계 낮춰 정정한다</strong> — 수요가 무너진 게 아니라, 높은 금리를 받아야 산다.</p>
+<p>함께 볼 것: <strong>30년물이 6%에 다가서고 있다.</strong> 그 부근에서는 국채 선물의 헤지 비율이 바뀌어 헤지펀드의 레버리지 차익거래(베이시스 트레이드)가 흔들릴 수 있어 시장이 민감하게 본다(블로거 분석 — 메르).</p>
+
+<h2 class="sec">무기한 선물</h2>
+<p class="sec-note">하이퍼리퀴드 공개 API(10/8). 연 환산 펀딩. +5.5%는 기본값(132개 중 31개). <strong>판정 근거가 아니다.</strong></p>
+<div class="wrap">
+<table>
+<thead><tr><th>심볼</th><th>10/7 펀딩</th><th>10/8 펀딩</th><th>10/8 OI</th><th>10/8 가격</th></tr></thead>
+<tbody>
+<tr><td>xyz:SKHX (하이닉스)</td><td>+40.9%</td><td class="flip">+236.4%</td><td>237,166</td><td>1,295.20 (−0.62%)</td></tr>
+<tr><td>xyz:SMSN (삼성)</td><td>−15.4%</td><td class="flip">+222.1%</td><td>196,893</td><td>202.29 (+0.34%)</td></tr>
+<tr><td>xyz:RKLB</td><td>+13.9%</td><td>+26.6%</td><td>210,018</td><td>72.14 (−4.06%)</td></tr>
+<tr><td>xyz:MU</td><td>+10.2%</td><td>+5.5%</td><td>121,062</td><td>1,094.50 (+4.74%)</td></tr>
+<tr><td>xyz:IREN</td><td>+54.4%</td><td>+37.6%</td><td>99,611</td><td>39.18 (−5.31%)</td></tr>
+</tbody>
+</table>
+</div>
+<p>⚠️ <strong>하이닉스와 삼성 펀딩이 같은 시점에 함께 +220~236%로 튀었다.</strong> 미결제약정은 오히려 줄었다(24.9만 → 23.7만). 두 한국 종목이 동시에 같은 폭으로 움직인 것은 <strong>롱이 몰렸다기보다, 한국 장이 닫힌 시간대의 기준가 산정 방식</strong> 때문일 가능성이 있다. 7월 오라클 사고 전례도 있어 <strong>이번 수치는 판독을 보류</strong>한다.</p>
+
+<h2 class="sec">종목</h2>
+<div class="holding g">
+  <h3>SK하이닉스</h3>
+  <div class="px">
+    <span class="px-num" data-price="hynix" data-currency="KRW" data-delta="-3.87">1,715,000</span>
+    <span class="px-cur">원 · 10/7 종가</span>
+    <span class="px-delta">−3.87%</span>
+  </div>
+  <p class="note">⚠️ 소스 상충 — 1,715,000원(−3.87%)과 1,723,000원(−2.82%) 두 숫자가 있다. 전날 기록(178만 5천원)과 맞는 쪽을 적었다. 코스피 6,803.90(−1.98%).</p>
+  <p>이틀 합쳐 약 −7%다. 원화 강세·성과급 우려에 이번엔 <strong>NAND 가격 약세</strong>가 더해졌다. 논지의 중심인 HBM·서버 D램 쪽에는 아직 반대 숫자가 없다. 마이크론 대만 공장 파업은 공급 차질로 이어지면 오히려 하이닉스에 유리할 수 있다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지.</strong> 다만 NAND 하락이 D램 계약가로 번지는지를 새로 지켜본다. 다음 판정은 10월 하순 3분기 실적이다.</p>
+</div>
+<div class="holding g">
+  <h3>IREN</h3>
+  <p>10/7 <strong>−7%</strong>. perp 39.18달러로 40달러 아래. 이유는 회사 소식이 아니라 <strong>"자금 조달이 매출보다 먼저인 건설사"를 금리 상승이 벌한 것</strong>이다. 9/28 고리 진단의 한복판이고, 10/6에 기록한 설비투자 250억~300억 달러 조달 우려와 같은 줄기다.</p>
+  <p><strong>판단(참고용):</strong> 실패한 관문은 없다. <strong>🟢 유지</strong>, 그리고 하향 조건(11월 초 1분기 콜에서 인도·조달 미확인 시 🟡)을 그대로 둔다. 가격이 계속 빠져도 신호등은 관문으로만 움직인다.</p>
+</div>
+<div class="holding y">
+  <h3>Rocket Lab</h3>
+  <p>perp 72.14달러(−4.1%). 금리가 높을 때 성장주가 함께 눌린 흐름으로 본다. 새 회사 소식은 없다. <strong>🟡 유지</strong> — 상향 조건(FCC 승인·뉴트론 첫 비행)은 그대로다.</p>
+</div>
+
+<h2 class="sec">신호등 요약</h2>
+<div class="wrap">
+<table>
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix" class="g"><td data-name>SK하이닉스</td><td data-light>🟢</td><td data-change>유지</td><td data-note>이틀 합쳐 약 −7%. 원화·성과급에 <strong>NAND 가격 −2.9%</strong>(첫 반대편 실물)가 더해짐. HBM·서버 D램엔 아직 반대 숫자 없음. 다음 판정은 3분기 실적</td></tr>
+<tr data-signal="iren" class="g"><td data-name>IREN</td><td data-light>🟢</td><td data-change>유지</td><td data-note><strong>−7%</strong> — 10년물 5.365%가 "빌려서 짓는" 건설사를 먼저 쳤다. 관문 실패 없음. <strong>11월 초 콜이 하향 판정선</strong></td></tr>
+<tr data-signal="rklb" class="y"><td data-name>RKLB</td><td data-light>🟡</td><td data-change>유지</td><td data-note>고금리 속 성장주 동반 약세(−4%). 새 소식 없음. 상향 조건(FCC·뉴트론) 그대로</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>포트폴리오 히트</strong>: 9/28 고리 진단이 이번 주 하루 단위로 확인되고 있다 — 금리가 오르자 <strong>빌려서 짓는 IREN이 가장 크게</strong> 맞았다. 하이닉스는 금리 때문이 아니라 한국 요인과 NAND 약세로 빠졌다. 반대로 <strong>국채 수요는 살아 있었다</strong>는 점은 "금리가 끝없이 오른다"는 걱정을 한 단계 누그러뜨린다.</p>
+
+<h2 class="sec">다음 체크포인트</h2>
+<ul class="cps">
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>하이닉스 3분기 실적 (10월 하순)</strong> — 다음 판정선. 성과급 비용·이익률 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>NAND 약세가 D램·HBM 계약가로 번지는가</strong> — 첫 반대편 가격 실물 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>마이크론 대만 타오위안 파업 실제 돌입 여부</strong> — 공급 차질이면 경쟁사에 반사이익 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>미 30년물 6%</strong> — 베이시스 트레이드 흔들림 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>국채 수요</strong> — 5년물 부진(9/23) vs 10년물 강함(10/7). 다음 입찰로 방향 확인 (이월·정정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>하이닉스 perp 펀딩 +236%</strong> — 기준가 산정 문제인지 다음 스윕에서 재확인 (신규·판독 보류)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>원/달러 환율</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 16일경 하이닉스 자사주 매입 종료</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>IREN FY27 1분기 콜 (11월 초)</strong> — 인도·조달 확인 못 하면 🟡 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>Nscale IPO 가격</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 FOMC (하순)</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>RKLB 상향 조건</strong> — FCC 승인(공람 11/9) 또는 뉴트론 첫 비행 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>11월 2일~ SK㈜ 블록딜</strong> (이월)</span></li>
+</ul>
+
+<h2 class="sec">메르 신규 글 브리핑</h2>
+<p class="sec-note">직전 판독(10/7) 이후 3편, 모두 금리 관련. <strong>블로거 분석이며 판정 근거로 쓰지 않는다.</strong></p>
+<ul>
+<li>🔗 <strong>오늘 새벽 진행된 미국국채 10년물 입찰결과를 뜯어보자</strong> — 낙찰 5.300%(2000년 이후 26년 만의 최고 수준), 응찰 2.77배, 간접입찰 80% 초과, 프라이머리 딜러 2.54%. <strong>세 지표 모두 강한 수요.</strong> 8월에 4.625%로 산 투자자는 이미 약 5% 평가손. 9/28에 우리가 적은 "수요 부진 추세"를 정정하게 만든 글</li>
+<li>🔗 <strong>미국국채 30년물의 6% 도달을 시장이 주목하는 비밀</strong> — 헤지펀드가 미국채의 약 7%를 들고 있고 그 핵심이 현물·선물 가격차를 먹는 베이시스 트레이드다. 30년물 6% 부근에서 선물의 인도 대상 채권과 금리 민감도가 바뀌어 <strong>레버리지 포지션의 헤지 비율이 흔들릴 수 있다</strong>는 것이 6%가 무서운 이유</li>
+<li>🔗 <strong>세계를 방황하고 있는 일본자금 근황</strong> — 환헤지 비용(약 2.9%)을 빼면 미국채 10년물(5.3%)이 일본국채(3.1%)보다 못하다. 대안이던 프랑스 국채가 흔들리자 일본 자금이 일부는 독일로, 나머지는 일본 단기국채로 <strong>천천히 귀환</strong> 중. 엔캐리 흐름과 같은 줄기</li>
+</ul>
+
+<hr>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+<ul>
+<li><a href="https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-7-dow-sp-500-nasdaq-080241833.html">Dow falls, S&amp;P 500 and Nasdaq retreat from records amid bond market jitters — Yahoo Finance</a></li>
+<li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-07-2026">Stock Market Today (Oct. 7, 2026) — TheStreet</a></li>
+<li><a href="https://247wallst.com/investing/2026/10/07/iren-falls-7-as-financing-heavy-data-center-names-sell-off-apart-from-their-sector-fund-terawulf-and-core-scientific-drop-5/">IREN Falls 7% as Financing-Heavy Data Center Names Sell Off — 24/7 Wall St.</a></li>
+<li><a href="https://www.benzinga.com/trading-ideas/movers/26/10/62217329/why-is-iren-stock-falling-wednesday">Why Is IREN Stock Falling Wednesday? — Benzinga</a></li>
+<li><a href="https://www.techtimes.com/articles/328715/20261007/memory-stocks-slip-micron-strike-risk-softer-nand-prices-toshiba-capacity-bet.htm">Memory Stocks Slip: Micron Strike Risk, Softer NAND Prices, Toshiba Capacity Bet — Tech Times</a></li>
+<li><a href="https://www.tradingkey.com/news/market-movers/262204359-market-movers-mu-20261007">Micron Moved Up by 3.37% on Oct 7 — TradingKey</a></li>
+<li><a href="https://www.topstarnews.net/news/articleView.html?idxno=16240301">SK하이닉스 주가, 10월 7일 장중 — 톱스타뉴스</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224434786803">미국국채 10년물 입찰결과를 뜯어보자 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224433750784">미국국채 30년물의 6% 도달을 시장이 주목하는 비밀 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224433577964">세계를 방황하고 있는 일본자금 근황 — 블로거 분석(메르)</a></li>
+<li><a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding">Funding — Hyperliquid Docs</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 · 모든 판단은 참고용이며 매매 권유가 아니다 · <a href="../index.html">대시보드로</a></footer>
+</div>
+</body>
+</html>
