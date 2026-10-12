@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>성적표 — 2026년 10월 12일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@400;700;900&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-10-12 · 이 문서만을 위해 지은 페이지
+
+   사건: 이번 주는 우리가 아니라 **남들이 채점한** 한 주였다.
+   SemiAnalysis 가 IREN 의 캐나다 구사이트를 "업계 최악"이라 적었고,
+   오픈AI 연환산 매출 500억 달러 보도가 AI 인프라주를 흔들었고,
+   삼성전자는 분기 영업이익 107.4조원이라는 점수표를 냈다.
+
+   그래서 이 지면은 **채점지**다 — 빨간 펜 색 지면 위에 누런 답안지를
+   얹고, 바깥의 채점 결과를 표 한 장에 모은 뒤 우리가 다시 읽는다.
+   큰 소리는 세로로 늘인 제목 "성적표" 하나뿐이고, 나머지는 조용하다.
+   기존 팔레트 전부와 거리 51 이상.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+  --page-bg: #9e1b32;
+  --on-red:  #fff3e4;
+  --on-red-2:#f6d9cf;
+  --paper:   #f6ecd8;
+  --paper-2: #efe1c4;
+  --ink:     #1e1511;
+  --body:    #2b211b;
+  --muted:   #54443a;
+  --pen:     #a3122a;
+  --ok:      #1f5a33;
+  --rule:    #d8c6a2;
+  --disp: 'Black Han Sans', 'Apple SD Gothic Neo', sans-serif;
+  --serif: 'Noto Serif KR', 'AppleMyungjo', serif;
+  --hand: 'Nanum Pen Script', cursive;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page-bg: #3d0a14; --on-red: #fbe9dc; --on-red-2: #e9c6bb;
+    --paper: #221915; --paper-2: #2c211c; --ink: #f4e8d6; --body: #e6d8c4; --muted: #c4b19d;
+    --pen: #ff8d9b; --ok: #8fd6a6; --rule: #4a3a30;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #3d0a14; --on-red: #fbe9dc; --on-red-2: #e9c6bb;
+  --paper: #221915; --paper-2: #2c211c; --ink: #f4e8d6; --body: #e6d8c4; --muted: #c4b19d;
+  --pen: #ff8d9b; --ok: #8fd6a6; --rule: #4a3a30;
+}
+* { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body { margin: 0; background: var(--page-bg); color: var(--body); font-family: var(--serif); font-size: 16px; line-height: 1.85; word-break: keep-all; overflow-wrap: break-word; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+.sheet { max-width: 880px; margin: 0 auto; padding: 0 16px 90px; }
+a { color: inherit; }
+strong { font-weight: 900; color: var(--ink); }
+
+/* 머리 — 빨간 지면 위 */
+.top { padding: 24px 0 8px; color: var(--on-red); }
+.top a { color: var(--on-red); }
+.home { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-decoration: none; border-bottom: 1px solid var(--on-red-2); }
+.when { margin-top: 16px; font-family: var(--mono); font-size: 13px; letter-spacing: .25em; color: var(--on-red-2); }
+.doc-title { margin: 6px 0 0; font-weight: 400; color: var(--on-red); }
+/* 🔴 이 지면의 큰 소리 — 세로로 늘인 세 글자. 세로로만 늘리므로 폭은 안 넓어진다 (26vw × 3자 ≈ 본문 폭의 85%) */
+.doc-title .shout { display: block; font-family: var(--disp); font-size: clamp(84px, 26vw, 236px); line-height: .9; letter-spacing: -.02em; transform: scaleY(1.55); transform-origin: top left; margin-bottom: .52em; }
+.doc-title .tail { display: block; font-size: clamp(16px, 4vw, 22px); font-weight: 700; color: var(--on-red-2); }
+
+/* 답안지 */
+.paper { background: var(--paper); color: var(--body); padding: 22px 20px; margin-top: 26px; }
+.paper + .paper { margin-top: 14px; }
+blockquote[data-summary] { margin: 22px 0 0; padding: 20px; background: var(--paper); color: var(--body); font-size: 17px; border-left: 10px solid var(--ink); }
+h2.sec { font-family: var(--disp); font-weight: 400; font-size: clamp(26px, 6.4vw, 40px); line-height: 1.2; margin: 44px 0 0; color: var(--on-red); }
+.sec-note { color: var(--on-red-2); margin: 6px 0 0; font-size: 15px; }
+.paper h3 { font-family: var(--disp); font-weight: 400; font-size: 24px; margin: 0 0 6px; color: var(--ink); }
+.paper p { margin: 10px 0 0; }
+.paper p:first-of-type { margin-top: 4px; }
+.pen { font-family: var(--hand); color: var(--pen); font-size: 1.5em; line-height: 1; }
+
+/* 표 — 채점표 */
+.wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 14px; background: var(--paper); }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.6; color: var(--body); }
+th { text-align: left; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--muted); padding: 12px 10px 8px; border-bottom: 2px solid var(--ink); white-space: nowrap; }
+td { padding: 11px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+td.mark { font-family: var(--hand); color: var(--pen); font-size: 34px; line-height: 1; text-align: center; width: 44px; }
+tr.g td[data-light], tr.y td[data-light] { font-size: 20px; }
+
+/* 시세 */
+.px { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.px-num { font-family: var(--mono); font-weight: 700; font-size: clamp(28px, 8vw, 40px); color: var(--ink); }
+.px-cur { color: var(--muted); font-size: 14px; }
+.px-delta { font-family: var(--mono); font-weight: 700; color: var(--pen); }
+.note { font-size: 14px; color: var(--muted); }
+
+/* 정정 — 빨간 펜 */
+.fix { border: 3px solid var(--pen); background: var(--paper); padding: 18px 20px; margin-top: 26px; }
+.fix h2 { margin: 0; font-family: var(--hand); font-weight: 400; color: var(--pen); font-size: 40px; line-height: 1; }
+.fix ul { margin: 8px 0 0; padding-left: 20px; }
+
+ul.cps { list-style: none; padding: 18px 20px; margin: 14px 0 0; background: var(--paper); }
+ul.cps li { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; border-bottom: 1px solid var(--rule); }
+ul.cps li:last-child { border-bottom: 0; }
+ul.cps input { margin-top: 7px; accent-color: var(--pen); }
+.heat { margin-top: 14px; background: var(--paper); padding: 16px 20px; }
+.mer, .src { background: var(--paper); padding: 6px 20px 16px; margin-top: 14px; }
+.mer ul, .src ul { padding-left: 18px; margin: 10px 0 0; }
+.src li { font-size: 14px; margin: 4px 0; }
+.src h2.sec { color: var(--ink); margin-top: 14px; }
+footer { margin-top: 40px; color: var(--on-red-2); font-size: 13px; }
+footer a { color: var(--on-red); }
+@media (max-width: 560px) {
+  .paper, .fix, ul.cps, .heat, .mer, .src { padding-left: 14px; padding-right: 14px; }
+  table { font-size: 13.5px; }
+  td, th { padding-left: 7px; padding-right: 7px; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>← 대시보드</a>
+  <div class="when" data-omit>2026 · 10 · 12 · MON</div>
+  <h1 class="doc-title">
+    <span class="shout">성적표</span>
+    <span class="tail">— 남이 매긴 점수를 우리가 다시 읽기</span>
+  </h1>
+</header>
+
+<blockquote data-summary>이번 주는 남들이 점수를 매긴 한 주였다. <strong>SemiAnalysis는 IREN의 캐나다 구사이트를 "업계 최악"</strong>이라 적었고, <strong>오픈AI 연환산 매출 약 500억 달러</strong> 보도가 AI 인프라주를 흔들었으며, <strong>삼성전자는 분기 영업이익 107.4조원</strong>을 냈다. 그 점수들을 하나씩 다시 읽으면 신호등은 셋 다 그대로다. 대신 IREN의 11월 5일 판정선에 답해야 할 질문이 하나 늘었다. 직전 문서 <a href="2026-10-08-borrowers-first.html">2026-10-08-borrowers-first.md</a>의 후속이다.</blockquote>
+
+<h2 class="sec">이번 주 채점표</h2>
+<p class="sec-note">바깥에서 매긴 점수와 우리의 다시 읽기. 왼쪽 빨간 표시는 장식이다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th data-omit></th><th>채점자</th><th>대상</th><th>매긴 점수</th><th>우리가 다시 읽으면</th></tr></thead>
+<tbody>
+<tr><td class="mark" data-omit>✗</td><td>SemiAnalysis (업계 분석사)</td><td>IREN 캐나다 BC 구사이트</td><td>"업계 최악", 클러스터 평가 <strong>비추천 등급</strong></td><td>지적은 구사이트에 집중. 마이크로소프트 계약지인 <strong>텍사스는 "훨씬 낫다"</strong>고 적었다. 논지의 중심은 아니지만 11/5 콜에서 답해야 할 질문</td></tr>
+<tr><td class="mark" data-omit>△</td><td>FT 등 보도</td><td>오픈AI 연환산 매출</td><td>약 <strong>500억 달러</strong> (투자자 예상 약 700억 달러)</td><td>차이의 상당 부분은 <strong>회계 방식(순액 vs 총액)</strong>이라는 해석이 있다(블로거 분석·메르). 그래도 코어위브 −7.77%</td></tr>
+<tr><td class="mark" data-omit>○</td><td>삼성전자 잠정실적</td><td>메모리 사이클</td><td>영업이익 <strong>107.4조원</strong> (전년 대비 +782%)</td><td>메모리 호황 확인. 그러나 코스피는 외국인 5거래일째 순매도</td></tr>
+<tr><td class="mark" data-omit>○</td><td>관세청</td><td>한국 수출 10/1~10</td><td>반도체 <strong>121.98억 달러, +170.9%</strong></td><td>수요 실물은 그대로. 비중 46.7%</td></tr>
+<tr><td class="mark" data-omit>○</td><td>미 재무부 입찰</td><td>국채 30년물</td><td>낙찰 <strong>5.618%</strong>, 응찰 2.54배</td><td>금리는 2001년 이후 최고 수준이지만 <strong>수요는 평균 이상</strong>. 10년물에 이어 두 번째</td></tr>
+<tr><td class="mark" data-omit>?</td><td>마이크론 대만 노조</td><td>타오위안 공장</td><td>파업 찬성 <strong>99%</strong></td><td>날짜 미정. 실제 공급 차질로 이어지면 경쟁사에 반사이익</td></tr>
+</tbody>
+</table>
+</div>
+
+<section class="fix">
+<h2>정정 두 가지</h2>
+<ul>
+<li><strong>10/7 IREN −7%의 이유</strong> — 직전 문서에서 "회사 소식이 아니라 금리 상승"이라 적었다. 그런데 바로 그날 <strong>SemiAnalysis의 IREN 비판 글이 나왔고, 보도들은 이를 하락의 직접 계기로 꼽는다.</strong> 금리 압력도 있었지만 "회사 소식이 아니다"는 틀렸다.</li>
+<li><strong>하이닉스 10/7 종가</strong> — 직전 문서는 1,715,000원을 적었다. 10/8 마감 기사 네 곳이 모두 <strong>1,723,000원</strong>을 전일 종가로 썼다. 1,723,000원으로 바로잡는다.</li>
+</ul>
+</section>
+
+<h2 class="sec">매크로</h2>
+<div class="paper">
+<p><strong>미국</strong> — 10/9(금) S&amp;P 500 <strong>7,811.54(+0.59%)</strong>, 나스닥 27,366.17(+0.64%), 다우 51,654.95(+0.83%). 유가가 진정되며 주간 상승으로 마쳤고, 다음 주부터 실적 시즌이 시작된다.</p>
+<p><strong>국채</strong> — 30년물 입찰 낙찰 5.618%로 2001년 이후 최고 수준. 그러나 응찰 2.54배(기준 약 2.4배), 간접입찰 72.3%(최근 평균 약 66%), 프라이머리 딜러 6.8%(평소 약 11%)로 <strong>세 지표 모두 평균보다 좋았다</strong>. 10년물에 이어 "금리는 높아도 사는 사람은 있다"가 두 번 확인됐다. 지난 문서의 국채 수요 체크포인트를 닫는다.</p>
+<p><strong>프랑스</strong> — 블로거 분석(메르)에 따르면 프랑스-독일 10년물 금리차가 9/9 약 90bp에서 10/2 154bp까지 벌어지며 <strong>헤지펀드의 프랑스 국채 캐리 거래가 청산</strong>되고 있다. 빠져나온 돈 일부가 독일·미국 국채로 가는 모습이 30년물 입찰의 해외 수요와 맞물린다.</p>
+<p><strong>9월 CPI</strong>는 10/14(수) 발표로 알려져 있다(단일 출처, 공식 일정 미확인).</p>
+<p><strong>한국</strong> — 10/8 코스피 <strong>6,625.93(−2.62%)</strong>. 10/9는 한글날 휴장. 10/12(월) 장중(오전 11시 42분) 6,475.88(−2.26%)로 6,500선을 내줬고 외국인이 5거래일째 순매도 중이다. 장중 수치라 종가와 다를 수 있다. 원/달러는 10/8 1,338.5원으로 5거래일 연속 하락(원화 강세).</p>
+</div>
+
+<h2 class="sec">무기한 선물 포지셔닝</h2>
+<p class="sec-note">하이퍼리퀴드 trade.xyz, 10/12 13시 KST(미국 주말). <strong>참고 채널이며 판정 근거로 쓰지 않는다.</strong></p>
+<div class="wrap">
+<table>
+<thead><tr><th>심볼</th><th>가격</th><th>24시간</th><th>펀딩(연환산)</th><th>미결제약정</th></tr></thead>
+<tbody>
+<tr><td>SKHX</td><td>1,214.8</td><td>−0.79%</td><td>+45.0%</td><td>약 2억 5,810만 달러</td></tr>
+<tr><td>SMSN</td><td>189.96</td><td>−1.43%</td><td>+11.2%</td><td>약 3,340만 달러</td></tr>
+<tr><td>IREN</td><td>38.22</td><td>+8.55%</td><td>+71.6%</td><td>약 590만 달러</td></tr>
+<tr><td>RKLB</td><td>68.77</td><td>+0.81%</td><td>+5.5%</td><td>약 1,310만 달러</td></tr>
+</tbody>
+</table>
+</div>
+<div class="paper">
+<p><strong>하이닉스 펀딩 +236% → +45%</strong> — 직전에 판독을 보류했던 급등이 한 주 만에 내려왔다. 롱이 한꺼번에 몰렸다기보다 한국 장이 닫힌 시간의 기준가 문제였을 가능성이 커졌다. 보류 항목을 닫는다.</p>
+<p><strong>IREN 주말 +8.55%</strong> — 금요일 종가 35.19달러 대비 38.22달러. 그러나 미결제약정이 약 590만 달러로 얇고, 주말에 회사 소식은 찾지 못했다. <strong>판독 보류</strong> — 월요일 개장 가격으로 확인한다.</p>
+</div>
+
+<h2 class="sec">종목별 답안지</h2>
+<div class="paper">
+  <h3>SK하이닉스 🇰🇷</h3>
+  <div class="px">
+    <span class="px-num" data-price="hynix" data-currency="KRW" data-delta="-2.15">1,686,000</span>
+    <span class="px-cur">원 · 10/8 종가</span>
+    <span class="px-delta">−2.15%</span>
+  </div>
+  <p class="note">⚠️ 소스 상충 — 1,686,000원(−2.15%, 네이버페이 증권 기준 보도 두 곳)과 1,681,000원(−2.44%, 재경일보) 두 숫자가 있다. 둘 다 전일 1,723,000원 기준이다. 더 많은 곳이 쓴 쪽을 적었다. 10/12 장중 −3.03%.</p>
+  <p><strong>경쟁사의 성적표가 우리 논지를 채점했다.</strong> 삼성전자 3분기 잠정 영업이익 <strong>107.4조원</strong>(매출 195조원)으로 국내 기업 첫 분기 100조원이다. 이익 대부분이 메모리에서 나왔다는 분석이다. 시장 예상(105~111조원)과 비교하면 서프라이즈와 미스가 동시에 성립한다는 평도 있다. 관세청 10/1~10 반도체 수출 <strong>+170.9%</strong>까지 더하면 메모리 수요 실물에는 반대 숫자가 없다.</p>
+  <p>그런데 주가는 반대로 갔다. 실적 발표 날 코스피 −2.62%, 외국인 5거래일 연속 매도다. 오픈AI 매출 보도가 AI 인프라 전반의 심리를 누른 것과 같은 날이다. 마이크론 대만 노조는 99% 찬성으로 파업권을 얻었지만 날짜는 정하지 않았다(10/19 집회, 타이중 노조 10/22 조정).</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지.</strong> 실물은 논지 쪽, 가격은 반대쪽이다. 신호등은 실물(관문)로만 움직인다. 다음 판정은 10월 하순 자체 3분기 실적이다.</p>
+</div>
+<div class="paper">
+  <h3>IREN 🇺🇸</h3>
+  <div class="px">
+    <span class="px-num" data-price="iren" data-currency="USD" data-delta="-1.46">35.19</span>
+    <span class="px-cur">달러 · 10/9 종가</span>
+    <span class="px-delta">−1.46%</span>
+  </div>
+  <p class="note">10/7 38.69달러(−6.27%) → 10/8 35.71달러(−7.7%) → 10/9 35.19달러. 열흘 약 −20%.</p>
+  <p><strong>채점자는 업계 분석사 SemiAnalysis다.</strong> 10/7 X에 올린 글에서 고객들의 말을 빌려 캐나다 BC의 <strong>프린스조지·매켄지 사이트</strong>를 이렇게 적었다.</p>
+  <p>여러 날 이어진 정전, 네트워크 공사, 저장장치 고장, 공기질 관리 문제로 인한 연결 끊김이 있었고, 이를 <strong>"업계 최악의 사이트"</strong>라 불렀다. 자체 클러스터 평가(ClusterMAX)에서는 <strong>비추천 등급</strong>에 넣었다. 또 IREN 영업 책임자가 "관리형 클라우드 서비스는 아직 없다"고 말했다며, <strong>투자자 공시의 "완전 관리형 클라우드" 표현을 고치라</strong>고 요구했다.</p>
+  <p>반대편 사실도 같은 글에 있다. <strong>텍사스 차일드리스·스위트워터 캠퍼스는 "훨씬 낫다"</strong>고 적었다. 마이크로소프트 97억 달러 계약이 돌아가는 곳이 차일드리스다. IREN 쪽 답은 SemiAnalysis 글에 인용된 형태로만 있다: "고객들이 빠른 접근을 원해 업그레이드 중 이중화가 덜 된 상태를 받아들였다." 공식 성명은 찾지 못했다.</p>
+  <p>같은 주 오픈AI 매출 보도로 <strong>코어위브가 −7.77%</strong> 빠졌다. 고객 매출이 기대보다 작으면 빌려서 짓는 네오클라우드 전체의 상환 능력이 의심받는다. IREN은 같은 바구니에 담겨 있다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지 — 다만 지금 가장 위태로운 🟢이다.</strong> 비판은 구사이트와 공시 표현에 집중돼 있고, 핵심 계약지(텍사스)는 오히려 좋은 평가를 받았다. 실패한 관문은 아직 없다. 대신 11월 5일 FY27 1분기 콜의 판정 조건에 하나를 더한다. <strong>①인도 ②자금 조달 ③구사이트 안정성과 "관리형 클라우드" 공시에 대한 답</strong>. 셋 중 하나라도 비면 🟡다.</p>
+</div>
+<div class="paper">
+  <h3>Rocket Lab 🚀</h3>
+  <p>새 회사 소식은 찾지 못했다. 미국 주말 무기한 선물 가격은 68.77달러(+0.81%)이고, 금요일 종가는 확인하지 못했다. 뉴트론 일정 갱신도 없다. <strong>🟡 유지</strong> — 상향 조건(FCC 승인, 공람 11/9 / 뉴트론 첫 비행)은 그대로다.</p>
+</div>
+
+<h2 class="sec">신호등 요약</h2>
+<div class="wrap">
+<table>
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix" class="g"><td data-name>SK하이닉스</td><td data-light>🟢</td><td data-change>유지</td><td data-note>삼성 영업이익 <strong>107.4조원</strong>·반도체 수출 +170.9%로 메모리 실물 확인. 주가는 외국인 매도로 반대 방향. 다음 판정은 자체 3분기 실적</td></tr>
+<tr data-signal="iren" class="g"><td data-name>IREN</td><td data-light>🟢</td><td data-change>유지</td><td data-note><strong>SemiAnalysis "캐나다 구사이트 업계 최악"</strong>에 열흘 −20%. 텍사스는 호평. <strong>11/5 콜 조건에 ③구사이트·공시 답변 추가</strong> — 가장 위태로운 🟢</td></tr>
+<tr data-signal="rklb" class="y"><td data-name>RKLB</td><td data-light>🟡</td><td data-change>유지</td><td data-note>새 소식 없음. 상향 조건(FCC·뉴트론) 그대로</td></tr>
+</tbody>
+</table>
+</div>
+<p class="heat"><strong>포트폴리오 히트</strong>: 이번 주 두 채점(오픈AI 매출, SemiAnalysis)은 모두 <strong>AI 인프라를 짓는 쪽</strong>을 향했다. 하이닉스와 IREN이 같이 묶이는 AI 설비투자 익스포저가 같은 주에 동시에 흔들렸다. 다만 하이닉스는 실물 숫자(삼성·수출)가 버텨 주고, IREN은 회사 자체가 질문을 받았다는 점이 다르다.</p>
+
+<h2 class="sec">다음 체크포인트</h2>
+<ul class="cps">
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>하이닉스 3분기 실적 (10월 하순)</strong> — 다음 판정선. 삼성 107.4조원과 비교 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>IREN FY27 1분기 콜 (11/5)</strong> — ①인도 ②조달 ③구사이트 안정성·관리형 클라우드 공시 답변. 하나라도 비면 🟡 (이월·조건 추가)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 공식 답변</strong> — SemiAnalysis 지적에 대한 회사 성명 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 주말 무기한 선물 +8.55%</strong> — 월요일 개장 가격으로 확인 (신규·판독 보류)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>NAND 약세가 D램·HBM 계약가로 번지는가</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>마이크론 대만 파업</strong> — 찬성 99%, 날짜 미정. 10/19 집회·10/22 타이중 조정 (이월·갱신)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>9월 CPI (10/14 예정, 공식 일정 미확인)</strong> (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>미 30년물 6%</strong> — 이번 입찰 5.618% (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>국채 수요 방향</strong> — 10년물(2.77배)에 이어 30년물(2.54배)도 평균 이상. 수요는 살아 있다 (완료)</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>하이닉스 perp 펀딩 +236% 재확인</strong> — +45%로 정상화. 기준가 문제였을 가능성 (완료)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>원/달러 환율</strong> — 10/8 1,338.5원, 5거래일 하락 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 16일경 하이닉스 자사주 매입 종료</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>Nscale IPO 가격</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 FOMC (하순)</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>RKLB 상향 조건</strong> — FCC 승인(공람 11/9) 또는 뉴트론 첫 비행 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>11월 2일~ SK㈜ 블록딜</strong> (이월)</span></li>
+</ul>
+
+<h2 class="sec">메르 신규 글 브리핑</h2>
+<p class="sec-note">직전 판독(10/8) 이후 9편. <strong>블로거 분석이며 판정 근거로 쓰지 않는다.</strong></p>
+<div class="mer">
+<ul>
+<li>🔗 <strong>오픈AI 매출 쇼크의 비밀</strong> — 오픈AI는 클라우드 사업자 몫을 뺀 <strong>순액</strong>으로, 앤스로픽은 <strong>총액</strong>으로 매출을 잡는다. 시장이 알던 700억 달러는 투자자들이 총액 기준으로 자체 계산한 숫자였다. 그래서 500억 달러 보도의 상당 부분은 회계 차이라는 해석이다. 우리 판독과 일치: 수요가 꺾였다는 증거로 보지 않는다. 다만 코어위브 −7.77%처럼 <strong>매출 배수로 값이 매겨지는 쪽은 숫자 하나에 크게 흔들린다</strong></li>
+<li>🔗 <strong>30년물 미국국채 입찰결과도 뜯어보자</strong> — 낙찰 5.618%(2001년 이후 최고), 응찰 2.54배, 간접 72.3%, 딜러 6.8%. 10년물만큼은 아니지만 세 지표 모두 평균 이상. 프랑스 국채를 떠난 돈이 독일·미국으로 온다는 해석. 우리 국채 수요 체크포인트를 닫은 근거</li>
+<li>🔗 <strong>엔캐리가 아니라 프랑스 국채 캐리트레이드가 청산되고 있다</strong> — 프랑스-독일 금리차가 3주 만에 90bp → 154bp. 레버리지 펀드의 증거금 요구가 연쇄 매도를 키우는 중이다(피델리티는 움직임의 절반을 헤지펀드 탓으로 추정). 프랑스 정부의 10/16 중간점검이 다음 이벤트. 우리 종목과는 금리 경로로만 연결된다</li>
+<li><strong>경기도 재정문제가 최근 시끄러운데, 뭐가 문제일까?</strong> — 취득세 위주 세입 구조라 입주 물량 감소·거래 절벽에 세수가 막혔다. 추경으로 1,300개 사업에서 5,465억원 삭감</li>
+<li><strong>JYP 사옥 이슈가 뭘까?</strong> — 공원 옆이던 땅이 2년 만에 고층 용지로 바뀐 공공 개발자 신뢰 문제. JYP는 부지 매각으로 방향을 정함</li>
+<li><strong>쿠팡 및 쿠팡이츠 에러, 서버 터진듯</strong> — 공통 로그인 시스템 장애로 추정. 로그인을 반복 시도하지 말라는 조언</li>
+<li><strong>농지조사 근황 A/S</strong> — 장관 발표대로 입법되면 지적한 문제 대부분이 해결된다는 평가. "투기 3종세트"만 조치 대상</li>
+<li><strong>회사생활썰...발표 잘 하는 법</strong> — 키맨을 정하고, 장표가 아니라 말을 듣게 하라</li>
+<li><strong>주절주절...주말 부캉이 본썰, 딸과의 대화등</strong> — 부산 북항친수공원 산책기와 가족 이야기</li>
+</ul>
+</div>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+<ul>
+<li><a href="https://x.com/SemiAnalysis_/status/2107848521638416506">IREN continues to come up in our conversations with neocloud customers — SemiAnalysis (X)</a></li>
+<li><a href="https://www.investing.com/news/stock-market-news/iren-stock-falls-after-report-flags-infrastructure-and-disclosure-concerns-93CH-4939589">IREN stock falls after report flags infrastructure and disclosure concerns — Investing.com</a></li>
+<li><a href="https://finance.yahoo.com/markets/stocks/articles/iren-shares-fall-semianalysis-highlights-163350495.html">Iren shares fall as SemiAnalysis highlights data center reliability issues — Yahoo Finance</a></li>
+<li><a href="https://www.tipranks.com/news/iren-stock-plunges-as-semianalysis-flags-data-center-problems">IREN Stock Plunges as SemiAnalysis Flags Data Center Problems — TipRanks</a></li>
+<li><a href="https://coincentral.com/iren-stock-drops-8-after-report-flags-power-outages-at-key-sites">IREN Stock Drops 8% After Report Flags Power Outages at Key Sites — CoinCentral</a></li>
+<li><a href="https://startupfortune.com/iren-shares-sink-20-in-ten-days-as-a-scathing-infrastructure-report-collides-with-wall-streets-ai-bull-case/">IREN shares sink 20% in ten days — Startup Fortune</a></li>
+<li><a href="https://stockinvest.us/stock-news/iren-limited-stock-price-down-146-on-friday-2026-10-09">IREN Limited stock price down 1.46% on Friday — StockInvest</a></li>
+<li><a href="https://finance.yahoo.com/quote/IREN/">IREN quote — Yahoo Finance</a></li>
+<li><a href="https://www.tikr.com/blog/coreweave-stock-fell-nearly-8-in-a-day-on-an-openai-revenue-report-heres-why-its-borrowing-model-raises-the-stakes">CoreWeave Stock Fell Nearly 8% in a Day on an OpenAI Revenue Report — TIKR</a></li>
+<li><a href="https://news.samsung.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-2026%EB%85%84-3%EB%B6%84%EA%B8%B0-%EC%9E%A0%EC%A0%95%EC%8B%A4%EC%A0%81-%EB%B0%9C%ED%91%9C">삼성전자, 2026년 3분기 잠정실적 발표 — 삼성전자 뉴스룸</a></li>
+<li><a href="https://www.mt.co.kr/industry/2026/10/08/2026100806522773652">메모리가 다 했다…삼성전자, 3Q 영업이익 107.4조 — 머니투데이</a></li>
+<li><a href="https://news.jkn.co.kr/post/1012327">SK하이닉스 2.44% 하락 마감 168만1000원 — 재경일보</a></li>
+<li><a href="https://www.cbci.co.kr/news/articleView.html?idxno=613714">코스피 2.62%↓…삼성전자·SK하이닉스 약세 — CBC뉴스</a></li>
+<li><a href="https://www.seoul.co.kr/news/economy/securities/2026/10/08/20261008500218">상승 출발에도 무너진 코스피 — 서울신문</a></li>
+<li><a href="https://www.slist.kr/news/articleView.html?idxno=772728">코스피, 외국인 ‘팔자’에 6500선 붕괴 — 싱글리스트</a></li>
+<li><a href="https://www.segye.com/newsView/20261012506571">10월1∼10일 수출, 102% 증가한 261억달러…반도체 122억달러 — 세계일보</a></li>
+<li><a href="https://view.asiae.co.kr/article/2026101209183424033">이달에도 역대 최대 韓수출…1~10일 반도체 170.9%↑ — 아시아경제</a></li>
+<li><a href="https://focustaiwan.tw/business/202610070021">Micron union in Taiwan votes to strike — Focus Taiwan</a></li>
+<li><a href="https://www.thestar.com.my/tech/tech-news/2026/10/07/micron039s-taoyuan-union-in-taiwan-secures-authorisation-to-strike">Micron's Taoyuan union secures authorisation to strike — The Star</a></li>
+<li><a href="https://stockmarketwatch.com/digest/2026-10-09">Market Digest — Friday, October 9, 2026 — StockMarketWatch</a></li>
+<li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-09-2026">Stock Market Today (Oct. 9, 2026) — TheStreet</a></li>
+<li><a href="https://www.etoday.co.kr/news/view/2633988">[환율마감] 원·달러 1340원 하회 — 이투데이</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224436787721">오픈AI 매출 쇼크의 비밀 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224435867065">30년물 미국국채 입찰결과도 뜯어보자 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224436002512">엔캐리가 아니라 프랑스 국채 캐리트레이드가 청산되고 있다 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224438575128">경기도 재정문제가 최근 시끄러운데 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224436358808">JYP 사옥 이슈가 뭘까? — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224435833096">쿠팡 및 쿠팡이츠 에러 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224435147266">농지조사 근황 A/S — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224437729660">회사생활썰...발표 잘 하는 법 — 블로거 분석(메르)</a></li>
+<li><a href="https://m.blog.naver.com/ranto28/224437506112">주절주절...주말 부캉이 본썰 — 블로거 분석(메르)</a></li>
+<li><a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding">Funding — Hyperliquid Docs</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 · 모든 판단은 참고용이며 매매 권유가 아니다 · <a href="../index.html">대시보드로</a></footer>
+</div>
+</body>
+</html>
