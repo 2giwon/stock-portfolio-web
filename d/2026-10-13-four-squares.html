@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>네 칸 — 2026년 10월 13일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gothic+A1:wght@400;700;900&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-10-13 · 이 문서만을 위해 지은 페이지
+
+   사건: 중국 CXMT 가 "D램 셀 하나를 바둑판 여섯 칸이 아니라 네 칸에
+   넣겠다"고 발표했고, 그 한 장의 도면에 하이닉스 −4.52%, 코스피 −3.65%,
+   필라델피아 반도체 −2.67% 가 났다. 성능 숫자는 하나도 없었다.
+
+   그래서 이 지면은 **바둑판**이다 — 비자나무 판 색 지면에 격자를 깔고,
+   큰 소리는 붓글씨 같은 명조 "네 칸" 하나와, 여섯 칸·네 칸을 나란히
+   놓은 판 그림 하나. 나머지는 흰 돌 색 종이 위에 조용히 둔다.
+   기존 팔레트 전부와 거리 15 이상.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+  --page-bg: #dcb06a;
+  --grid:    rgba(52, 33, 12, .22);
+  --on-wood: #1d140a;
+  --on-wood-2:#3b2812;
+  --paper:   #f8f4ea;
+  --paper-2: #efe8d8;
+  --ink:     #15110c;
+  --body:    #2a221a;
+  --muted:   #5a4c3c;
+  --black:   #15110c;
+  --white:   #fbf8f1;
+  --accent:  #8c2b12;
+  --rule:    #ddd2bd;
+  --disp:  'Song Myung', 'AppleMyungjo', serif;
+  --sans:  'Gothic A1', 'Apple SD Gothic Neo', sans-serif;
+  --mono:  'IBM Plex Mono', ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page-bg: #2a2018; --grid: rgba(236, 196, 128, .13);
+    --on-wood: #f3e3c4; --on-wood-2: #d9c29b;
+    --paper: #1b1612; --paper-2: #241d17; --ink: #f4ead8; --body: #e4d8c4; --muted: #bfae96;
+    --black: #0c0a08; --white: #f4ead8; --accent: #ff9d7e; --rule: #3e3228;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #2a2018; --grid: rgba(236, 196, 128, .13);
+  --on-wood: #f3e3c4; --on-wood-2: #d9c29b;
+  --paper: #1b1612; --paper-2: #241d17; --ink: #f4ead8; --body: #e4d8c4; --muted: #bfae96;
+  --black: #0c0a08; --white: #f4ead8; --accent: #ff9d7e; --rule: #3e3228;
+}
+* { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body {
+  margin: 0; color: var(--body); font-family: var(--sans); font-size: 16px; line-height: 1.85;
+  word-break: keep-all; overflow-wrap: break-word; -webkit-text-size-adjust: 100%; overflow-x: hidden;
+  background-color: var(--page-bg);
+  /* 바둑판 격자 — 지면 전체에 깐다 */
+  background-image:
+    repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 36px);
+}
+.sheet { max-width: 880px; margin: 0 auto; padding: 0 16px 90px; }
+a { color: inherit; }
+strong { font-weight: 900; color: var(--ink); }
+
+/* 머리 */
+.top { padding: 22px 0 0; color: var(--on-wood); }
+.home { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-decoration: none; border-bottom: 1px solid var(--on-wood-2); color: var(--on-wood); }
+.when { margin-top: 18px; font-family: var(--mono); font-size: 13px; letter-spacing: .3em; color: var(--on-wood-2); }
+.doc-title { margin: 4px 0 0; font-weight: 400; color: var(--on-wood); }
+/* 🔴 이 지면의 큰 소리 — 붓 명조 두 글자를 가로로 늘인다. 두 글자 × 30vw × 1.32 ≈ 본문 폭의 80% */
+.doc-title .shout { display: block; font-family: var(--disp); font-size: clamp(88px, 30vw, 300px); line-height: 1; letter-spacing: -.04em; transform: scaleX(1.32); transform-origin: left center; white-space: nowrap; }
+.doc-title .tail { display: block; margin-top: 8px; font-family: var(--sans); font-size: clamp(16px, 4.2vw, 22px); font-weight: 700; color: var(--on-wood-2); }
+
+/* 판 그림 — 여섯 칸과 네 칸 */
+.boards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+.board { background: var(--paper); padding: 16px 14px 14px; border: 2px solid var(--black); }
+.board .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: var(--muted); }
+.board .big { font-family: var(--disp); font-size: clamp(30px, 8vw, 46px); line-height: 1.1; color: var(--ink); }
+.cells { display: grid; gap: 0; margin-top: 10px; width: max-content; border-top: 2px solid var(--black); border-left: 2px solid var(--black); }
+.cells.six { grid-template-columns: repeat(3, 34px); }
+.cells.four { grid-template-columns: repeat(2, 34px); }
+.cells i { display: block; width: 34px; height: 34px; border-right: 2px solid var(--black); border-bottom: 2px solid var(--black); position: relative; }
+.cells i.t::after { content: ""; position: absolute; left: 6px; right: 6px; top: 14px; height: 6px; background: var(--accent); }
+.cells i.c::after { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: var(--black); }
+.cells i.v::after { content: ""; position: absolute; top: 5px; bottom: 5px; left: 14px; width: 6px; background: var(--accent); }
+.board .cap { margin-top: 8px; font-size: 13.5px; line-height: 1.6; color: var(--body); }
+
+/* 종이 */
+.paper { background: var(--paper); color: var(--body); padding: 22px 20px; margin-top: 16px; border-left: 6px solid var(--black); }
+blockquote[data-summary] { margin: 24px 0 0; padding: 20px; background: var(--white); color: var(--body); font-size: 17px; border: 2px solid var(--black); box-shadow: 8px 8px 0 var(--black); }
+h2.sec { font-family: var(--disp); font-weight: 400; font-size: clamp(30px, 7.4vw, 46px); line-height: 1.15; margin: 50px 0 0; color: var(--on-wood); display: flex; align-items: center; gap: 12px; }
+/* 제목 앞의 돌 — 흑 */
+h2.sec::before { content: ""; flex: none; width: .7em; height: .7em; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #5b5148, var(--black) 60%); }
+h2.sec.w::before { background: radial-gradient(circle at 35% 30%, #ffffff, #e2dccd 65%); border: 1px solid var(--black); }
+.sec-note { color: var(--on-wood-2); margin: 6px 0 0; font-size: 15px; font-weight: 700; }
+.paper h3 { font-family: var(--disp); font-weight: 400; font-size: 26px; margin: 0 0 4px; color: var(--ink); }
+.paper p { margin: 10px 0 0; }
+.paper p:first-of-type { margin-top: 4px; }
+.paper ul { margin: 8px 0 0; padding-left: 20px; }
+.tag { display: inline-block; font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; padding: 1px 7px; border: 1px solid var(--muted); color: var(--muted); vertical-align: 2px; }
+
+/* 표 */
+.wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 14px; background: var(--paper); border: 2px solid var(--black); }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.6; color: var(--body); }
+th { text-align: left; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: var(--muted); padding: 12px 10px 8px; border-bottom: 2px solid var(--black); white-space: nowrap; }
+td { padding: 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+td.num { font-family: var(--mono); font-weight: 700; white-space: nowrap; color: var(--ink); }
+td[data-light] { font-size: 20px; }
+
+/* 두 편 — 메모리 쪽 저울 */
+.scale { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+.scale > div { background: var(--paper); padding: 16px 16px 14px; }
+.scale .bk { border-top: 10px solid var(--black); }
+.scale .wh { border-top: 10px solid var(--white); outline: 2px solid var(--black); outline-offset: -2px; }
+.scale h3 { font-family: var(--disp); font-weight: 400; font-size: 22px; margin: 0; color: var(--ink); }
+.scale ul { margin: 6px 0 0; padding-left: 18px; font-size: 14.5px; line-height: 1.7; }
+
+/* 시세 */
+.px { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-top: 2px; }
+.px-num { font-family: var(--mono); font-weight: 700; font-size: clamp(28px, 8vw, 40px); color: var(--ink); }
+.px-cur, .note { color: var(--muted); font-size: 14px; }
+.px-delta { font-family: var(--mono); font-weight: 700; color: var(--accent); }
+
+/* 정정 */
+.fix { background: var(--white); border: 3px double var(--accent); padding: 16px 20px; margin-top: 26px; }
+.fix h2 { margin: 0; font-family: var(--disp); font-weight: 400; color: var(--accent); font-size: 28px; }
+.fix p { margin: 6px 0 0; }
+
+ul.cps { list-style: none; padding: 16px 20px; margin: 14px 0 0; background: var(--paper); border-left: 6px solid var(--black); }
+ul.cps li { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; border-bottom: 1px solid var(--rule); }
+ul.cps li:last-child { border-bottom: 0; }
+ul.cps input { margin-top: 7px; accent-color: var(--black); }
+.heat { margin-top: 14px; background: var(--paper); padding: 16px 20px; }
+.mer, .src { background: var(--paper); padding: 6px 20px 16px; margin-top: 14px; }
+.mer ul, .src ul { padding-left: 18px; margin: 10px 0 0; }
+.src li { font-size: 14px; margin: 4px 0; }
+.src h2.sec { color: var(--ink); margin-top: 14px; }
+footer { margin-top: 40px; color: var(--on-wood-2); font-size: 13px; font-weight: 700; }
+@media (max-width: 560px) {
+  .paper, ul.cps, .heat, .mer, .src, .fix { padding-left: 14px; padding-right: 14px; }
+  .boards, .scale { grid-template-columns: 1fr; }
+  table { font-size: 13.5px; }
+  td, th { padding-left: 7px; padding-right: 7px; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>← 대시보드</a>
+  <div class="when" data-omit>2026 · 10 · 13 · TUE</div>
+  <h1 class="doc-title">
+    <span class="shout">네 칸</span>
+    <span class="tail">— 숫자 없는 도면 한 장에 메모리가 흔들린 날</span>
+  </h1>
+</header>
+
+<div class="boards" data-omit aria-hidden="true">
+  <div class="board">
+    <div class="lbl">지금 업계 표준</div>
+    <div class="big">6F²</div>
+    <div class="cells six"><i class="t"></i><i class="t"></i><i class="c"></i><i></i><i></i><i></i></div>
+    <div class="cap">수도꼭지(트랜지스터)를 눕혀 놓고 옆에 물컵(커패시터)을 세운다. 셀 하나가 여섯 칸.</div>
+  </div>
+  <div class="board">
+    <div class="lbl">CXMT 가 내놓겠다는 것</div>
+    <div class="big">4F²</div>
+    <div class="cells four"><i class="v"></i><i class="c"></i><i></i><i></i></div>
+    <div class="cap">수도꼭지를 세우고 그 위에 물컵을 올린다. 셀 하나가 네 칸 — 같은 면적에 이론상 50% 더.</div>
+  </div>
+</div>
+
+<blockquote data-summary>중국 메모리 회사 <strong>CXMT가 "D램 셀 하나를 바둑판 여섯 칸이 아니라 네 칸에 넣는 구조(4F²)로 연말까지 서버용 DDR5를 내놓겠다"</strong>고 발표했다. 성능·수율 숫자는 하나도 없었는데, 그 도면 한 장에 <strong>하이닉스 −4.52%(1,605,000원)</strong>, 코스피 −3.65%(외국인 2조원 순매도), 필라델피아 반도체 −2.67%가 났다. IREN은 앤스로픽 계약 보도(단독 보도 · 양사 미확인)로 장 초반 올랐다가 <strong>−1.11%(34.80달러)로 마감</strong>해 주말 상승을 다 돌려줬다. 실패한 관문은 없어 신호등은 셋 다 그대로다. 내일 밤(한국 시각) 9월 CPI가 나온다. 직전 문서 <a href="2026-10-12-graded-by-others.html">2026-10-12-graded-by-others.md</a>의 후속이다.</blockquote>
+
+<div class="fix">
+  <h2>정정 한 가지</h2>
+  <p><strong>하이닉스 10/8 종가는 1,681,000원(−2.44%)이다.</strong> 직전 문서는 소스가 엇갈린다고 적고 1,686,000원(−2.15%)을 썼다. 10/12 마감 기사들이 "7만6000원(4.52%) 내린 160만5000원"이라 적었는데, 거꾸로 계산하면 전일 종가가 1,681,000원이다. 재경일보·구글 파이낸스도 같은 값이다. 세 곳이 맞아 1,681,000원으로 확정한다.</p>
+</div>
+
+<h2 class="sec">어제 판 위의 숫자</h2>
+<p class="sec-note">10/12(월) 마감 기준. 확인 못 한 값은 그렇다고 적었다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>무엇</th><th>값</th><th>변화</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>SK하이닉스</td><td class="num">1,605,000원</td><td class="num">−4.52%</td><td>저가로 마감(종가 = 장중 최저). 외국인 순매도 상위</td></tr>
+<tr><td>코스피</td><td class="num">6,384.24</td><td class="num">−3.65%</td><td>외국인 −2조182억 · 기관 −1,338억 · 개인 +1조4,857억. 9/2(−3.99%) 이후 최대 낙폭</td></tr>
+<tr><td>필라델피아 반도체지수</td><td class="num">12,236.79</td><td class="num">−2.67%</td><td>메모리가 끌어내림</td></tr>
+<tr><td>마이크론</td><td class="num">989.21달러</td><td class="num">−3.87%</td><td>1,000달러 아래로. 보도 기준 값</td></tr>
+<tr><td>SK하이닉스 ADR</td><td class="num">162.23달러</td><td class="num">−4.02%</td><td>뉴욕 거래분</td></tr>
+<tr><td>미국 지수</td><td>—</td><td>—</td><td>다우 상승, 나스닥 하락, S&amp;P 500 보합권. 유가 상승과 메모리 약세가 눌렀다. 종가 수치는 확인 못 함</td></tr>
+<tr><td>IREN</td><td class="num">34.80달러</td><td class="num">−1.11%</td><td>장중 34.66~36.69. 거래량 4,850만 주(3개월 평균보다 13% 많음)</td></tr>
+<tr><td>RKLB</td><td class="num">약 65.7~66.0달러</td><td class="num">약 −3~4%</td><td>장중 집계만 확인. 종가 미확인</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">네 칸이란 무엇인가</h2>
+<div class="paper">
+  <h3>CXMT가 말한 것 <span class="tag">공식 · 회사 총재 발언</span></h3>
+  <p>10월 10일 상하이 업계 행사에서 CXMT(창신메모리) 차오칸위 총재가 <strong>4F² VSG(수직 포위 게이트)</strong>라는 D램 구조를 공개하고, <strong>2026년 말까지 이 구조를 쓴 서버용 DDR5를 내놓겠다</strong>고 했다.</p>
+  <p>D램 셀은 전기를 담는 물컵(커패시터)과 그 물을 넣고 빼는 수도꼭지(트랜지스터) 한 쌍이다. 지금 표준은 수도꼭지를 바닥에 눕혀서 셀 하나가 바둑판 <strong>여섯 칸(6F²)</strong>을 차지한다. 수도꼭지를 세우면 <strong>네 칸(4F²)</strong>이 된다. 단독주택 단지를 아파트로 바꾸는 셈이고, 이론상 같은 면적에 셀을 50% 더 넣는다.</p>
+  <p>왜 중국에 중요한가: 선을 더 가늘게 그리는 붓(ASML EUV 장비)을 미국 규제로 못 산다. 칸을 줄이는 대신 <strong>칸 수를 줄여서</strong> 그 경쟁을 비켜 가는 길이다.</p>
+  <p>경쟁사 일정: 삼성전자는 2026년 초 학회(ISSCC)에서 4F² 시제품을 공개했지만 상용화를 <strong>2028년 이후</strong>로 잡았다. SK하이닉스는 2026년 6월 학회(VLSI)에서 4F² 관련 논문을 낸 단계다. CXMT 발표대로라면 약 2년 빠르다.</p>
+</div>
+<div class="paper">
+  <h3>아직 없는 것</h3>
+  <ul>
+    <li><strong>"내놓는다(推出)"는 "대량 생산한다"가 아니다.</strong> 제품을 선보이는 것과 좋은 수율로 많이 찍는 것은 다른 단계다.</li>
+    <li><strong>전체 적용인지 일부 적용인지</strong> 모른다. 업계는 연내 제품에는 일부만 들어갔을 가능성이 높다고 본다(블로거 분석 · 메르가 전한 업계 시각).</li>
+    <li><strong>데이터 유지 시간, 수율, 속도 수치를 하나도 공개하지 않았다.</strong> 세운 수도꼭지는 안에 원치 않는 전하가 쌓여 물이 새는 약점(플로팅 바디 효과)이 있다. 새면 더 자주 다시 채워야 하고(리프레시), 24시간 도는 서버에서는 치명적이다. 바로 그 숫자가 비어 있다.</li>
+  </ul>
+</div>
+
+<h2 class="sec w">저울 양쪽</h2>
+<p class="sec-note">한쪽만 쌓지 않는다. 같은 무게로 적는다.</p>
+<div class="scale">
+  <div class="bk">
+    <h3>하이닉스에 불리한 쪽</h3>
+    <ul>
+      <li>발표대로면 4F² 상용화가 삼성 일정보다 약 2년 빠르다</li>
+      <li>2026년 웨이퍼 증설 예상: CXMT 월 8.5만 장 vs 하이닉스 6만 장 (SemiAnalysis 추정, 보도 인용)</li>
+      <li>CXMT D램 평균 판매가는 3강보다 약 5~10% 낮다 (1분기, SemiAnalysis)</li>
+      <li>17나노급 DDR5 수율 90% 돌파 보도 (중국 매체 인용 · 미확인)</li>
+      <li>"중국이 쫓는 게 아니라 일부에선 먼저 간다"는 이야기가 생기는 것 자체</li>
+    </ul>
+  </div>
+  <div class="wh">
+    <h3>하이닉스에 유리한 쪽</h3>
+    <ul>
+      <li>성능·수율·유지 시간 숫자가 하나도 없다</li>
+      <li>선두와의 수율 격차를 30%p로 보는 시각도 있다 (국내 보도)</li>
+      <li>HBM에서는 CXMT가 두 세대가량 뒤처져 있고 HBM3 양산도 밀릴 가능성 (국내 보도·업계 분석가)</li>
+      <li>CXMT 주가는 최근 한 달 성공 가능성을 높게 쳐주지 않았다 (블로거 분석 · 메르)</li>
+      <li>하이닉스 이익의 중심은 HBM이고, 4F²가 먼저 겨누는 곳은 범용 D램이다</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="sec">매크로</h2>
+<div class="paper">
+  <p><strong>9월 CPI — 10월 14일 오전 8시 30분(미 동부), 한국 시각 14일 밤 9시 30분.</strong> 공식 일정이 확인됐다. 예상은 헤드라인 3.4% → 3.6~3.7%(9월 휘발유값 사상 최고 영향), 근원 약 2.4%. 클리블랜드 연은 실시간 추정(10/7)은 헤드라인 3.60%, 근원 2.39%다. 시장은 근원을 더 본다 — 금리 인상 확률이 여기서 움직인다.</p>
+  <p><strong>10월 FOMC는 27~28일</strong>(워시 의장). 동결이 우세하다는 관측이다. 11월 3일 중간선거 일주일 전이다.</p>
+  <p><strong>코스피 −3.65%의 배경</strong>은 CXMT만이 아니다. 마감 기사들은 미국 금리 상승 압력, 기술주 경계, 중동 긴장도 함께 꼽았다. 외국인은 2조원을 팔았고 개인이 1조5천억원 가까이 받았다.</p>
+</div>
+
+<h2 class="sec">무기한 선물 포지셔닝</h2>
+<p class="sec-note">하이퍼리퀴드 trade.xyz · 10/13 오전 8시 19분(한국). 참고 채널이며 판정 근거로 쓰지 않는다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>심볼</th><th>가격</th><th>24시간</th><th>펀딩(연율)</th></tr></thead>
+<tbody>
+<tr><td>xyz:SKHX (하이닉스)</td><td class="num">1,158.9</td><td class="num">−5.81%</td><td class="num">−22.6%</td></tr>
+<tr><td>xyz:SMSN (삼성전자)</td><td class="num">181.65</td><td class="num">−6.03%</td><td class="num">−143.7%</td></tr>
+<tr><td>xyz:MU (마이크론)</td><td class="num">978.85</td><td class="num">−5.97%</td><td class="num">+5.5%</td></tr>
+<tr><td>xyz:IREN</td><td class="num">34.776</td><td class="num">−4.49%</td><td class="num">+5.5%</td></tr>
+<tr><td>xyz:RKLB</td><td class="num">65.406</td><td class="num">−4.90%</td><td class="num">+5.5%</td></tr>
+</tbody>
+</table>
+</div>
+<div class="paper">
+  <p><strong>한국 메모리 두 종목만 펀딩이 음수다.</strong> 펀딩이 음수면 하락에 건 쪽(숏)이 상승에 건 쪽(롱)에게 돈을 낸다는 뜻이다. 그만큼 숏이 몰려 있다. 삼성은 연율 −143.7%로 쏠림이 크다. 하이닉스는 지난주 롱 쏠림(+115%)에서 이번엔 반대편으로 넘어갔다. IREN의 24시간 −4.49%는 주말 장외 고점과 비교한 값이라 실제 정규장 하락(−1.11%)보다 크게 보인다.</p>
+</div>
+
+<h2 class="sec">종목별</h2>
+
+<div class="paper">
+  <h3>SK하이닉스 🇰🇷</h3>
+  <div class="px">
+    <span class="px-num" data-price="hynix" data-currency="KRW" data-delta="-4.52">1,605,000</span>
+    <span class="px-cur">원 · 10/12 종가 −4.52%</span>
+  </div>
+  <p>삼성 영업이익 107.4조원, 10월 1~10일 반도체 수출 +170.9%가 나온 지 하루 만에 <strong>중국 도면 한 장</strong>이 그 숫자들을 눌렀다. 실물 숫자는 그대로인데 이야기가 바뀌었다. 하이닉스 주가는 10/7 1,723,000원에서 두 거래일 만에 −6.9%다(10/9 한글날 휴장).</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지.</strong> 신호등은 가격이 아니라 관문으로 움직인다. CXMT 발표는 수치 없는 계획이고 실패한 관문이 아니다. 다만 위 저울의 불리한 쪽은 실재한다. 범용 D램에서 중국의 원가가 내려가면 2027년 이후 가격을 누를 수 있다. 그래서 체크포인트를 하나 더한다: <strong>CXMT가 유지 시간·수율을 공개하는가, 연말 DDR5가 "양산"인가.</strong> 다음 판정선은 그대로 자체 3분기 실적(10월 하순)이다.</p>
+</div>
+
+<div class="paper">
+  <h3>IREN 🇺🇸</h3>
+  <div class="px">
+    <span class="px-num" data-price="iren" data-currency="USD" data-delta="-1.11">34.80</span>
+    <span class="px-cur">달러 · 10/12 종가 −1.11%</span>
+  </div>
+  <p>일요일 장외에서 +8~9% 오르게 한 The Information 보도("앤스로픽이 IREN과 미공개 다년 클라우드 계약", <strong>단독 보도 · 양사 미확인</strong>)는 월요일 장 초반까지 이어졌다(보도별로 +2.6~8.75%). 그런데 <strong>종가는 34.80달러, −1.11%</strong>였다. 주말 상승을 하루 만에 다 돌려줬다. 같은 날 반도체가 크게 빠진 것도 겹쳤다.</p>
+  <p>읽을 점: 시장은 <strong>확인되지 않은 보도에 값을 오래 쳐주지 않았다.</strong> 7월 AFR의 앤스로픽 호주 입찰 보도 때는 종가 +13%였던 것과 다르다. 앤스로픽도 IREN도 아직 아무 말이 없다. 확인으로 바뀌는 조건은 그대로다 — IREN 공시(SEC·ASX), 앤스로픽 확인, 대형 언론의 독립 확인, 11/5 콜에서 고객 이름 공개.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지 — 가장 위태로운 🟢.</strong> 11/5 FY27 1분기 콜의 판정 조건은 ①인도 ②조달 ③구사이트 안정성·관리형 클라우드 공시. ③은 회사가 답하지 않을 가능성이 커서, "답변 여부" 대신 결과(고객 이탈·계약 취소 여부, 텍사스 쪽 장애 보도 여부, 공시 문구 유지 여부)로 판정하는 안을 검토 중이다. 콜 전에 정한다.</p>
+</div>
+
+<div class="paper">
+  <h3>Rocket Lab 🚀</h3>
+  <p>회사 소식은 없었다. 장중 65.7~66.0달러(약 −3~4%)가 확인됐고 종가는 확인하지 못했다. 기사로 확인된 것은 <strong>캐시 우드의 ARK가 하락 중에도 계속 사고 있다</strong>는 것(모틀리 풀 10/12)과, 이리듐 인수 자금을 위해 9월 중순까지 약 2,930만 주를 팔아 19.4억 달러를 마련했다는 것 — 기존 주주에게는 지분이 묽어지는 비용이다. <strong>🟡 유지</strong> — 상향 조건(FCC 승인, 공람 11/9 / 뉴트론 첫 비행)은 그대로다.</p>
+</div>
+
+<h2 class="sec w">신호등 요약</h2>
+<div class="wrap">
+<table>
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix"><td data-name>SK하이닉스</td><td data-light>🟢</td><td data-change>유지</td><td data-note><strong>CXMT 4F² 발표</strong>(수치 없음)에 −4.52%·코스피 −3.65%. 실물 숫자는 그대로, 관문 실패 없음. 다음 판정은 자체 3분기 실적</td></tr>
+<tr data-signal="iren"><td data-name>IREN</td><td data-light>🟢</td><td data-change>유지</td><td data-note>앤스로픽 보도(단독 보도 · 양사 미확인) 장외 +8~9%가 <strong>정규장 −1.11%로 소멸</strong>. 11/5 콜 ①인도 ②조달 ③구사이트·공시</td></tr>
+<tr data-signal="rklb"><td data-name>RKLB</td><td data-light>🟡</td><td data-change>유지</td><td data-note>새 소식 없음, 장중 약 −3~4%. ARK 계속 매수. 상향 조건(FCC·뉴트론) 그대로</td></tr>
+</tbody>
+</table>
+</div>
+<div class="heat">
+  <p><strong>포트폴리오 히트:</strong> 어제 타격은 <strong>메모리를 정확히 겨눴다</strong> — 하이닉스·삼성·마이크론이 같이 빠졌다. IREN은 같은 날 반도체 약세와 보도 효과 소멸이 겹쳤다. 하이닉스와 IREN이 함께 묶인 AI 설비투자 익스포저는 이번 주 두 번째로 동시에 흔들렸다(지난주 오픈AI 매출·SemiAnalysis). RKLB만 다른 축(정부 예산)이다.</p>
+</div>
+
+<h2 class="sec">다음 체크포인트</h2>
+<ul class="cps">
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>하이닉스 3분기 실적 (10월 하순)</strong> — 다음 판정선. 삼성 107.4조원과 비교 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>CXMT 4F²의 실체</strong> — 유지 시간·수율·속도 공개 여부, 연말 DDR5가 "출시"인지 "양산"인지, 전체 적용인지 일부인지 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>IREN FY27 1분기 콜 (11/5)</strong> — ①인도 ②조달 ③구사이트 안정성·관리형 클라우드 공시. ③의 판정 방식(답변 vs 결과)은 콜 전에 확정 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>앤스로픽-IREN 계약 확인 여부</strong> — 10/11 The Information 보도(단독 보도 · 양사 미확인). 월요일 종가 기준 보도 효과는 소멸 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 공식 답변</strong> — SemiAnalysis 지적에 대한 회사 성명 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>IREN 장외 +8~9%가 월요일 정규장에서 유지되는가</strong> — 유지되지 않았다. 장 초반 상승 후 34.80달러 −1.11% 마감 (완료)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9월 CPI (10/14 오전 8시 30분 미 동부 = 한국 14일 밤 9시 30분)</strong> — 예상 헤드라인 3.6~3.7%, 근원 약 2.4% (이월·일정 확정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 FOMC (10/27~28)</strong> (이월·일정 확정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>NAND 약세가 D램·HBM 계약가로 번지는가</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>하이닉스 perp 펀딩</strong> — 롱 쏠림(+115%)에서 숏 쏠림(−22.6%)으로. 삼성 −143.7% (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 1~20일 수출 (10/21 관세청)</strong> — 1~10일 반도체 +170.9%가 이어지는가 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>마이크론 대만 파업</strong> — 찬성 99%, 날짜 미정. 10/19 집회·10/22 타이중 조정 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>미 30년물 6%</strong> — 지난 입찰 5.618% (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>원/달러 환율</strong> — 10/8 1,338.5원 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 16일경 하이닉스 자사주 매입 종료</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>Nscale IPO 가격</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>RKLB 상향 조건</strong> — FCC 승인(공람 11/9) 또는 뉴트론 첫 비행 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>11월 2일~ SK㈜ 블록딜</strong> (이월)</span></li>
+</ul>
+
+<h2 class="sec w">메르 신규 글 브리핑</h2>
+<div class="mer">
+  <p>직전 판독(10/12) 이후 2편. <strong>블로거 분석이며 판정 근거로 쓰지 않는다.</strong></p>
+  <ul>
+    <li>🔗 <strong>중국 CXMT가 발표한 D램 신기술이 반도체주를 흔드는 이유?</strong> — 4F² VSG를 물컵·수도꼭지·바둑판으로 풀었다. 연말 출시가 맞으면 삼성(2028년 이후)보다 2년 빠르지만, "내놓는다"는 양산이 아니고, 일부 적용 가능성이 높으며, 유지 시간·수율·속도를 하나도 공개하지 않았다는 점을 짚었다. CXMT 주가도 성공 가능성을 낮게 본다는 것이 결론. 핵심은 기술보다 <strong>"중국이 먼저 간다"는 이야기</strong>가 주는 심리적 영향이다. 우리 판독과 일치 — 관문 실패가 아니라 이야기 충격으로 읽었다</li>
+    <li>🔗 <strong>2027년 예산안의 비밀</strong> — 2027년 국세가 584조원으로 194조원 늘어나는데, 법인세 +115조원과 소득세 +43조원의 주된 원인이 삼성전자·SK하이닉스(이익과 성과급)다. 정부는 추가 세수 162조원을 미래대응기금에 담고, 지방교부세·교육교부금 산식을 바꿔 중앙정부 몫을 늘렸다. 하이닉스 이익이 나라 예산을 바꿀 만큼 크다는 실감 — 동시에 그 이익이 꺾이면 재정도 흔들린다는 뜻이다</li>
+  </ul>
+</div>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+<ul>
+  <li><a href="https://finance.yahoo.com/markets/stocks/articles/samsung-sk-hynix-shares-drop-053408695.html">Samsung, SK Hynix shares drop as China's CXMT flags progress in memory development — Yahoo Finance</a></li>
+  <li><a href="https://x.com/globaltimesnews/status/2109169714794729897">CXMT plans DDR5 RDIMM on 4F² DRAM by end of 2026 — Global Times (X)</a></li>
+  <li><a href="https://kr.investing.com/news/stock-market-news/article-2122966">삼성·SK하이닉스 주가 3% 이상 하락…中 CXMT 차세대 D램 개발 진전 발표 — Investing.com</a></li>
+  <li><a href="https://www.etoday.co.kr/news/view/2634904">中 CXMT, 기술 공개에 SK하닉·마이크론 등 반도체 급락 — 이투데이</a></li>
+  <li><a href="https://www.slist.kr/news/articleView.html?idxno=772774">외국인 2조원 순매도, 코스피 6384 마감...삼성전자·SK하이닉스 4%대 급락 — 싱글리스트</a></li>
+  <li><a href="https://www.businesskorea.co.kr/news/articleView.html?idxno=278622">[마감 시황] 외인 2조 폭탄 매도 코스피 3%대 급락 — Businesskorea</a></li>
+  <li><a href="https://www.pinpointnews.co.kr/news/articleView.html?idxno=494614">[표] 10월 12일 매매동향 — 핀포인트뉴스</a></li>
+  <li><a href="https://news.jkn.co.kr/post/1012327">[마감분석] SK하이닉스 2.44% 하락 마감 168만1000원 — 재경일보</a></li>
+  <li><a href="https://www.google.com/finance/beta/quote/000660:KRX?hl=ko">SK하이닉스(000660) — Google Finance</a></li>
+  <li><a href="https://finance.biggo.com/news/fe4fb088-266f-45df-8c2d-3eb1d215190f">Semiconductor Stocks Plunge as China's CXMT Advances in Memory Tech — BigGo Finance</a></li>
+  <li><a href="https://www.fool.com/investing/2026/10/12/why-micron-stock-dropped-on-monday/">Why Micron Stock Dropped on Monday — Motley Fool</a></li>
+  <li><a href="https://stocktwits.com/news-articles/markets/equity/micron-sk-hynix-stocks-slip-overnight-china-s-cxmt-advances-next-gen-dram-technology/cZxIRD4RBFV">Micron, SK Hynix Stocks Slip Overnight: China's CXMT Advances Next-Gen DRAM — Stocktwits</a></li>
+  <li><a href="https://cnbc.com/2026/10/11/stock-market-today-live-updates.html">S&amp;P 500 closes near flat, pressured by higher oil prices and memory chip stock losses — CNBC</a></li>
+  <li><a href="https://stocktwits.com/news-articles/markets/equity/dow-rises-200-points-nasdaq-wavers-china-chip-competition-hits-tech-stocks-oil-climbs/cZxIi1oRB8W">Dow Rises 200 Points, Nasdaq Wavers: China Chip Competition Hits Tech Stocks — Stocktwits</a></li>
+  <li><a href="https://www.koreaherald.com/article/10821616">Chinese chipmaker directs $4.4 billion toward conventional memory — Korea Herald</a></li>
+  <li><a href="https://x.com/jukan05/status/2092870742400811129">CXMT High-k DRAM, analyst: roughly two generations behind — Jukan (X, 커뮤니티 반응)</a></li>
+  <li><a href="https://dealsite.co.kr/articles/167321">CXMT 수율·HBM 일정 — 딜사이트</a></li>
+  <li><a href="https://fool.com/coverage/stock-market-today/2026/10/12/stock-market-today-oct-12-iren-surges-on-reports-of-anthropic-cloud-services-deal/">Stock Market Today, Oct. 12: Iren Surges on Reports of Anthropic Cloud Services Deal — Motley Fool</a></li>
+  <li><a href="https://www.schaeffersresearch.com/content/news/2026/10/12/iren-stock-rises-on-reported-anthropic-ai-deal">IREN Stock Rises on Reported Anthropic AI Deal — Schaeffer's</a></li>
+  <li><a href="https://seekingalpha.com/news/4652006-iren-stock-rises-on-report-of-multiyear-anthropic-deal">IREN stock rises on report of multiyear Anthropic deal — Seeking Alpha</a></li>
+  <li><a href="https://sundayguardianlive.com/business/iren-stock-today-why-are-shares-rising-anthropic-ai-cloud-deal-puts-bitcoin-miners-ai-expansion-in-focus-heres-what-investors-need-to-know-304345/">IREN Stock Today: Why Are Shares Rising? — Sunday Guardian (Barron's 인용)</a></li>
+  <li><a href="https://www.tikr.com/blog/iren-stock-jumped-13-in-a-day-on-an-anthropic-australia-report-heres-where-the-stock-could-go-in-2026">IREN Stock Jumped 13% in a Day on an Anthropic Australia Report — TIKR (7월 비교)</a></li>
+  <li><a href="https://www.fool.com/investing/2026/10/12/cathie-wood-keeps-buying-rocket-lab-stock-as-it-trades-at-less-than-half-its-record/">Cathie Wood Keeps Buying Rocket Lab Stock — Motley Fool</a></li>
+  <li><a href="https://admiralmarkets.com/analytics/traders-blog/us-cpi-preview-september-2026-forecasts-and-the-core-cpi-outlook">US CPI Preview: September 2026 — Admiral Markets</a></li>
+  <li><a href="https://fedratecalc.com/cpi-release-date/">U.S. Inflation Report Calendar — fedratecalc</a></li>
+  <li><a href="https://www.mpamag.com/us/mortgage-industry/industry-trends/key-dates-that-will-define-kevin-warshs-opening-months-as-fed-chair/576298">Key dates that will define Kevin Warsh's opening months as Fed chair — MPA</a></li>
+  <li><a href="https://app.hyperliquid.xyz/trade/xyz:SKHX">Hyperliquid trade.xyz 무기한 선물 (SKHX·SMSN·MU·IREN·RKLB)</a></li>
+  <li><a href="https://blog.naver.com/ranto28/224439695894">중국 CXMT가 발표한 D램 신기술이 반도체주를 흔드는 이유? — 메르 (블로거 분석)</a></li>
+  <li><a href="https://blog.naver.com/ranto28/224439043424">2027년 예산안의 비밀 — 메르 (블로거 분석)</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 · 모든 판단은 참고용이며 매매 권유가 아니다 · <a href="../index.html">대시보드로</a></footer>
+</div>
+</body>
+</html>
