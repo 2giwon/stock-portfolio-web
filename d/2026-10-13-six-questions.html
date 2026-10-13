@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>여섯 질문 — 2026년 10월 13일 검은 화요일 문답</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<script type="application/json" id="doc-meta">{"category":"macro"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-10-13 · 이 문서만을 위해 지은 페이지 (매크로 문답)
+
+   사건: 코스피가 장중 6,000을 깨고 하이닉스가 −9% 안팎으로 빠진
+   "검은 화요일" 한낮에, 질문이 여섯 개 나왔다. 지수는 사상 최고인데
+   왜 내 주식은 반 토막인가, 금리는 계속 오를 수밖에 없나, 돈이 병목인가.
+
+   그래서 이 지면은 **질문지**다 — 짙은 코발트 지면에 노란 물음표
+   하나가 화면을 가로지르고, 질문은 노란 글자로, 답은 흰 종이로 받는다.
+   큰 소리는 물음표 하나뿐이다. 기존 팔레트 전부와 거리 30 이상.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  color-scheme: dark;
+  --page-bg: #1f3fae;
+  --on-blue:  #ffffff;
+  --on-blue-2:#d6dfff;
+  --q:        #ffd23f;
+  --paper:    #ffffff;
+  --paper-2:  #eef1fb;
+  --ink:      #0d1433;
+  --body:     #1d2440;
+  --muted:    #4a5272;
+  --accent:   #1f3fae;
+  --rule:     #d5dbef;
+  --disp: 'Black Han Sans', 'Apple SD Gothic Neo', sans-serif;
+  --sans: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page-bg: #0c1a52; --on-blue: #f2f5ff; --on-blue-2: #b9c6f2; --q: #ffd23f;
+    --paper: #141c3d; --paper-2: #1a2450; --ink: #f2f5ff; --body: #dde3f7; --muted: #a9b3d6;
+    --accent: #9fb4ff; --rule: #2c3768;
+  }
+}
+:root[data-theme="dark"] {
+  --page-bg: #0c1a52; --on-blue: #f2f5ff; --on-blue-2: #b9c6f2; --q: #ffd23f;
+  --paper: #141c3d; --paper-2: #1a2450; --ink: #f2f5ff; --body: #dde3f7; --muted: #a9b3d6;
+  --accent: #9fb4ff; --rule: #2c3768;
+}
+* { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body { margin: 0; background: var(--page-bg); color: var(--on-blue); font-family: var(--sans); font-size: 16px; line-height: 1.85; word-break: keep-all; overflow-wrap: break-word; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+.sheet { max-width: 880px; margin: 0 auto; padding: 0 16px 90px; position: relative; }
+a { color: inherit; }
+strong { font-weight: 900; }
+
+/* 머리 — 물음표 하나가 화면을 가로지른다 */
+.top { position: relative; padding: 22px 0 0; min-height: 300px; }
+.home { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-decoration: none; border-bottom: 1px solid var(--on-blue-2); color: var(--on-blue); }
+.when { margin-top: 18px; font-family: var(--mono); font-size: 13px; letter-spacing: .3em; color: var(--on-blue-2); }
+/* 물음표 글리프는 글자 크기의 절반쯤 폭이라, 64vw 면 화면 오른쪽 약 1/3 을 차지한다 — 제목(왼쪽 60%)과 겹치지 않는다 */
+.qmark { position: absolute; right: -2%; top: -20px; font-family: var(--disp); font-size: clamp(240px, 64vw, 560px); line-height: 1; color: var(--q); pointer-events: none; user-select: none; }
+.doc-title { position: relative; margin: 26px 0 0; font-weight: 400; max-width: 60%; }
+.doc-title .shout { display: block; font-family: var(--disp); font-size: clamp(64px, 17vw, 150px); line-height: .95; letter-spacing: -.02em; color: var(--on-blue); text-shadow: 0 4px 0 var(--ink); }
+.doc-title .tail { display: block; margin-top: 12px; font-size: clamp(16px, 4.2vw, 21px); font-weight: 700; color: var(--on-blue-2); }
+
+blockquote[data-summary] { position: relative; margin: 40px 0 0; padding: 20px; background: var(--paper); color: var(--body); font-size: 17px; border-left: 10px solid var(--q); }
+blockquote[data-summary] strong, .card strong, .ans strong { color: var(--ink); }
+
+h2.sec { font-family: var(--disp); font-weight: 400; font-size: clamp(28px, 7vw, 44px); line-height: 1.15; margin: 54px 0 0; color: var(--on-blue); }
+.sec-note { color: var(--on-blue-2); margin: 6px 0 0; font-size: 15px; }
+
+.card { background: var(--paper); color: var(--body); padding: 20px; margin-top: 14px; }
+.card p { margin: 10px 0 0; }
+.card p:first-child { margin-top: 0; }
+.card ul, .ans ul { margin: 8px 0 0; padding-left: 20px; }
+.card ol { margin: 8px 0 0; padding-left: 22px; }
+
+/* 문답 */
+.qa { margin-top: 30px; }
+.qa .num { font-family: var(--mono); font-weight: 700; font-size: 13px; letter-spacing: .2em; color: var(--q); }
+.qa h3 { margin: 2px 0 0; font-family: var(--disp); font-weight: 400; font-size: clamp(22px, 5.6vw, 32px); line-height: 1.3; color: var(--q); }
+.ans { background: var(--paper); color: var(--body); padding: 20px; margin-top: 12px; border-top: 6px solid var(--q); }
+.ans p { margin: 10px 0 0; }
+.ans p:first-child { margin-top: 0; }
+.ans .short { font-size: 18px; font-weight: 900; color: var(--ink); }
+
+/* 표 */
+.wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 12px; background: var(--paper); }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; line-height: 1.6; color: var(--body); }
+th { text-align: left; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: var(--muted); padding: 12px 10px 8px; border-bottom: 2px solid var(--ink); white-space: nowrap; }
+td { padding: 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+td.num { font-family: var(--mono); font-weight: 700; white-space: nowrap; color: var(--ink); }
+
+.src { background: var(--paper); color: var(--body); padding: 6px 20px 16px; margin-top: 14px; }
+.src h2.sec { color: var(--ink); margin-top: 14px; }
+.src ul { padding-left: 18px; margin: 10px 0 0; }
+.src li { font-size: 14px; margin: 4px 0; }
+footer { margin-top: 40px; color: var(--on-blue-2); font-size: 13px; }
+@media (max-width: 560px) {
+  .card, .ans, .src { padding-left: 14px; padding-right: 14px; }
+  .top { min-height: 250px; }
+  table { font-size: 13.5px; }
+  td, th { padding-left: 7px; padding-right: 7px; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <div class="qmark" data-omit aria-hidden="true">?</div>
+  <a class="home" href="../index.html" data-omit>← 대시보드</a>
+  <div class="when" data-omit>2026 · 10 · 13 · TUE · 장중</div>
+  <h1 class="doc-title">
+    <span class="shout">여섯 질문</span>
+    <span class="tail">— 지수는 사상 최고인데 왜 AI주는 반 토막인가</span>
+  </h1>
+</header>
+
+<blockquote data-summary>10월 13일 한낮, 코스피가 장중 6,000을 깨고 매도 사이드카가 걸렸으며 <strong>하이닉스는 −9% 안팎</strong>까지 빠졌다. 그 자리에서 나온 질문들을 묻고 답한 기록이다. 결론부터: 오늘 하락은 <strong>중국 CXMT 발표라는 방아쇠 위에 자사주 매입 종료로 생긴 수급 공백, 아시아 전역의 AI 레버리지 청산, 외국인 매도</strong>가 겹친 것이고, 실적 숫자가 나빠진 것은 아니다. 그리고 지금 시장이 묻는 진짜 질문은 <strong>"AI의 병목이 돈인가"</strong>다. 판정 문서 <a href="2026-10-13-four-squares.html">2026-10-13-four-squares.md</a>의 같은 날 짝이다. 모든 수치는 장중 기준이며, 판단은 참고용이다.</blockquote>
+
+<h2 class="sec">오늘 무슨 일이</h2>
+<p class="sec-note">10/13 오전~오후 1시 무렵 장중 보도 기준. 종가가 아니다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>무엇</th><th>장중</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>코스피</td><td class="num">약 −6~7%</td><td>오후 1시 1분 5,966.70(−6.54%). 6,000 아래는 7월 말 이후 처음</td></tr>
+<tr><td>매도 사이드카</td><td class="num">09:47</td><td>코스피200 선물 −5.08%. 8월 이후 처음. 선물이 급락할 때 프로그램 매도를 5분 멈추는 장치</td></tr>
+<tr><td>SK하이닉스</td><td class="num">−8.5~9.4%</td><td>145만5천~146만8천원대. 10/7 1,723,000원에서 세 거래일 약 −15%</td></tr>
+<tr><td>삼성전자</td><td class="num">−7~8%</td><td>23만3,500원(−6.79%) 등</td></tr>
+<tr><td>키옥시아(일본)</td><td class="num">−12~16%</td><td>D램이 아니라 NAND 회사인데도 같이 빠졌다</td></tr>
+<tr><td>소프트뱅크 · 닛케이</td><td class="num">−8% · −2%+</td><td>대만도 장중 1,000포인트 넘게 하락</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+  <p><strong>원인 다섯 겹</strong> (영향이 큰 순서로 보았다)</p>
+  <ol>
+    <li><strong>방아쇠 — 중국 CXMT의 4F² D램 발표.</strong> 성능 숫자 없는 계획인데, 어제 미국 반도체(필라델피아 반도체지수 −2.67%)가 먼저 빠졌고 오늘 아시아가 이어받았다.</li>
+    <li><strong>받아 주던 손이 빠졌다.</strong> 외국인이 판 물량을 삼성·하이닉스 자사주 매입이 받아 왔는데, 하이닉스 매입은 10월 중순 대부분 끝날 예정이었다. 국내 기타법인도 약 31조원을 순매수하며 받아 왔다.</li>
+    <li><strong>아시아 전역의 AI 레버리지 청산.</strong> 니케이아시아는 이를 "AI 디레버리지(빚내서 산 물량 정리)"라 불렀다. UBS 전략가는 "올해 많이 오른 AI·메모리주에서 차익을 실현할 구실을 찾던 참"이라고 평했다.</li>
+    <li><strong>AI 투자 수익성 의심.</strong> 지난주 오픈AI 매출 보도부터 이어진 질문이다. iM증권 연구원은 자금 조달·수익성 우려, CXMT 추격, 외국인 수급을 함께 꼽았다.</li>
+    <li><strong>중동 긴장과 유가.</strong> 일부 기사가 꼽았지만, 유가가 내렸다는 보도도 있어 보조 요인이다.</li>
+  </ol>
+  <p><strong>바뀌지 않은 것:</strong> 하이닉스 실적 전망이 깎였다거나 고객이 주문을 줄였다는 소식은 없다. 삼성 3분기 영업이익 107.4조원, 10월 1~10일 반도체 수출 +170.9%는 그대로다. 이야기와 수급이 만든 하락이다.</p>
+</div>
+
+<h2 class="sec">네오클라우드와 AI 섹터</h2>
+<div class="card">
+  <p><strong>네오클라우드(AI용 GPU를 빌려주는 회사들)는 1주일 넘게 하락세다.</strong> 10/8 코어위브 −7%, 네비우스 −6%, 오라클 −5%(오픈AI 매출 보도·장기 금리). 같은 시기 사이퍼 −7.5%, 테라울프 −5.5%, 어플라이드 디지털 −3.5%(비트코인 하락·금리). 10/12 네비우스 −3%(한 주 −11%), 코어위브 −1%. 공통점은 <strong>빚을 내서 데이터센터를 짓는 회사</strong>라는 것이다.</p>
+  <p><strong>AI 섹터 전체가 무너진 것은 아니다.</strong> 오늘 아시아 시간 무기한 선물 기준 엔비디아 −2.5%, 나스닥100 −1.8%로, 메모리(−9~16%)보다 훨씬 작다. 레버리지가 크거나 한 가지 이야기에 민감한 쪽이 크게 흔들리는 구조다.</p>
+</div>
+<div class="wrap">
+<table>
+<thead><tr><th>종목</th><th>고점</th><th>최근</th><th>고점 대비</th></tr></thead>
+<tbody>
+<tr><td>IREN</td><td class="num">76.87달러</td><td class="num">34.80달러 (10/12)</td><td class="num">약 −55%</td></tr>
+<tr><td>RKLB (우주)</td><td class="num">151달러</td><td class="num">약 65달러</td><td class="num">약 −57%</td></tr>
+<tr><td>SK하이닉스</td><td class="num">298.7만원 (7월 초)</td><td class="num">약 146만원 (장중)</td><td class="num">약 −51%</td></tr>
+<tr><td>코어위브</td><td class="num">150달러 (52주)</td><td class="num">약 82달러</td><td class="num">약 −45% (연초 대비는 +15%)</td></tr>
+<tr><td>코스피</td><td class="num">약 8,000 (5월)</td><td class="num">약 6,000 (장중)</td><td class="num">약 −25%</td></tr>
+<tr><td>S&amp;P 500</td><td class="num">7,818 (10/6 사상 최고)</td><td class="num">7,811.54 (10/9)</td><td class="num">거의 0%, 연초 대비 약 +14%</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">외국인은 왜 계속 파나</h2>
+<div class="card">
+  <p>올해 1~9월 외국인 순매도는 약 <strong>190조원</strong>, 그중 <strong>93.4%가 삼성전자·하이닉스 관련 4개 종목</strong>이다(오늘 오전 기준 200조원을 넘었다는 분석도 있다). 한국 전체가 아니라 반도체를 판 것이다.</p>
+  <ul>
+    <li><strong>너무 올라서 비중을 줄이는 것(리밸런싱).</strong> 반도체가 코스피 시가총액에서 차지하는 비중이 너무 커졌다. 해외 펀드는 한 업종을 일정 비율까지만 담는 규칙이 있어, 주가가 오를수록 기계적으로 판다. 그래서 외국인은 <strong>오르던 5~6월에도 40조원 이상</strong>을 팔았다.</li>
+    <li><strong>미국 금리.</strong> 10년물이 5.3%대로 2002년 이후 최고권이다. 신흥국 주식 대신 미국 국채로도 연 5% 넘게 받는다.</li>
+    <li><strong>AI 투자 의심.</strong> 오픈AI 매출, 네오클라우드 자금 조달, 이번 CXMT까지 재료가 이어진다.</li>
+    <li><strong>반도체 밖으로 번졌다.</strong> 10월 들어 "반도체만 팔던 외국인이 코스피 전체를 팔기 시작했다"는 분석이 나왔다(한국경제 10/2). 한국 비중 자체를 줄이는 신호일 수 있어 지켜볼 대목이다.</li>
+  </ul>
+</div>
+
+<h2 class="sec">여섯 질문</h2>
+
+<section class="qa">
+  <div class="num" data-omit>Q1</div>
+  <h3>S&amp;P 500이 사상 최고라는데, 대체 뭐가 올랐나?</h3>
+  <div class="ans">
+    <p class="short">몇몇 거대 기업이 끌어올렸다.</p>
+    <p>S&amp;P 500은 회사 크기(시가총액) 순으로 비중을 매긴다. 엔비디아(시가총액 6조 달러 근처)·마이크로소프트·애플·알파벳 몇 개가 오르면 나머지 수백 개가 빠져도 지수는 오른다. 이 쏠림 자체가 위험이라는 지적이 계속 나온다. 실적도 받쳤다 — 3분기 S&amp;P 500 이익이 전년보다 약 31% 늘 것이라는 분석이 있고, 그 상당 부분이 AI 관련이다. 지난주에는 오히려 유틸리티·필수소비재·에너지 같은 방어 업종이 올랐다.</p>
+    <p><strong>돈을 버는 쪽(장비를 파는 엔비디아, 현금이 넘치는 빅테크)은 올랐고, 돈을 빌려서 짓는 쪽과 한국 메모리는 빠졌다.</strong> 지수가 사상 최고여도 AI 관련 개별 종목은 반 토막일 수 있는 이유다.</p>
+  </div>
+</section>
+
+<section class="qa">
+  <div class="num" data-omit>Q2</div>
+  <h3>AI 회사채가 쏟아지면 금리는 계속 오를 수밖에 없지 않나?</h3>
+  <div class="ans">
+    <p class="short">절반은 맞다. 하지만 "계속"은 아니다.</p>
+    <p><strong>밀어 올리는 건 사실이다.</strong> 빅테크 회사채 발행은 올해 8월 10일까지 약 2,200억 달러로 사상 최대다. 가산금리(국채보다 더 얹어 주는 이자)는 5~7년물이 0.50%p → 0.60%p, 20년 넘는 장기물이 1.085%p → 1.18%p로 벌어졌다. 올해 나온 빅테크 채권 91개 중 78개가 발행 때보다 높은 금리에 거래됐다(7/28). 오라클은 부도 위험 보험료(CDS)가 9월 이후 세 배 넘게 뛰었다.</p>
+    <p><strong>그래도 계속 오를 수밖에는 아니다.</strong></p>
+    <ul>
+      <li>기본 금리(미국 국채 금리)를 가장 크게 움직이는 건 <strong>물가·연준·정부 적자</strong>다. 국채 시장은 수십조 달러 규모라, 빅테크가 1년에 수천억 달러를 빌리는 건 영향은 있어도 주된 원인은 아니다.</li>
+      <li>스스로 브레이크가 걸린다. 금리가 오르면 빌리는 비용이 커지고, 투자가 줄고, 차입도 준다. 경기가 식거나 물가가 내려가면 금리도 내려간다.</li>
+      <li>빅테크 대부분은 투자를 주로 영업으로 번 돈으로 하고 채권은 보충이다(오라클은 차입 의존이 큰 예외). <strong>금리가 진짜 아픈 곳은 빌려서 짓는 회사</strong>다.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="qa">
+  <div class="num" data-omit>Q3</div>
+  <h3>전쟁이 안 끝나면 유가는 계속 오르지 않나?</h3>
+  <div class="ans">
+    <p class="short">꼭 그렇지 않다.</p>
+    <p>유가가 높으면 덜 쓰고, 다른 산유국이 더 뽑고, 각국이 비축유를 푼다. 그래서 전쟁이 이어져도 유가는 보통 처음에 튀었다가 내려온다 — 1990년 걸프전, 2022년 러시아 침공 때도 그랬다. 더 중요한 건 <strong>시장이 수준이 아니라 변화에 반응한다</strong>는 점이다. 높은 유가가 이어지면 이미 가격에 들어가 있고, 주가를 흔드는 건 "예상보다 더 오를 때"다. 오늘도 유가는 보조 요인이었다.</p>
+  </div>
+</section>
+
+<section class="qa">
+  <div class="num" data-omit>Q4</div>
+  <h3>좋은 실적엔 조금 오르고 작은 악재엔 크게 빠진다. 누가 투자하나? 2027년도 나쁘지 않을까?</h3>
+  <div class="ans">
+    <p class="short">이 비대칭은 "기대가 이미 높고, 다들 사 놓은 상태"라는 신호다.</p>
+    <p>모두가 좋은 실적을 예상하고 이미 샀으니 좋은 실적엔 더 살 사람이 적다. 빚을 내서 산 사람이 많으면 작은 악재에도 강제로 팔리는 물량이 쏟아진다 — 오늘 키옥시아·하이닉스가 그랬다.</p>
+    <p>이 현상은 <strong>꼭대기에서도, 흔들어 털어내는 중간 조정에서도</strong> 나온다. 지나기 전에는 구분할 수 없다. 그리고 대칭이 있다 — 털어내기가 끝나 기대가 낮아지면 작은 호재에도 크게 오르는 구간이 온다. 그때 사는 쪽은 떠밀려 파는 물량을 싸게 받는 사람이다. 7월 폭락 때 하이닉스의 2027년 이익 대비 주가가 약 3.5배라며 "과도한 하락"이라 본 증권사 분석가도 있었다(한 명의 의견).</p>
+    <p>2027년은 예측할 수 없다. 갈림길은 셋이다: <strong>AI 회사들이 실제로 돈을 버는가</strong>(오픈AI·앤스로픽 매출), <strong>메모리 계약가가 유지되는가</strong>, <strong>금리가 어디로 가는가</strong>.</p>
+  </div>
+</section>
+
+<section class="qa">
+  <div class="num" data-omit>Q5</div>
+  <h3>결국 AI의 병목은 전력도 반도체도 아니고 돈이었나? 닷컴처럼 꺾인 건가?</h3>
+  <div class="ans">
+    <p class="short">지금 시장이 정확히 그 질문을 하고 있다. 다만 누구에게 병목인지가 다르다.</p>
+    <ul>
+      <li><strong>현금이 넘치는 빅테크</strong>에게 돈은 병목이 아니다. 여전히 전력·HBM·변압기 같은 물리적 부족이 병목이다.</li>
+      <li><strong>빌려서 짓는 회사(네오클라우드, 오라클)</strong>에게는 돈이 병목이 되기 시작했다. 금리와 가산금리가 오를수록 이쪽이 먼저 막힌다.</li>
+    </ul>
+  </div>
+  <div class="wrap">
+  <table>
+  <thead><tr><th></th><th>닷컴 (1990년대 말)</th><th>지금 AI</th></tr></thead>
+  <tbody>
+  <tr><td>기술 자체</td><td>인터넷은 진짜였고 결국 이겼다</td><td>진짜 매출이 나고 있다 (오픈AI 연환산 약 500억 달러 보도)</td></tr>
+  <tr><td>무너진 곳</td><td>빚내서 광케이블을 깐 통신사들 — 과잉 건설 뒤 줄도산</td><td>비슷한 자리에 있는 것은 빚내서 짓는 데이터센터 회사들</td></tr>
+  <tr><td>큰 회사</td><td>이익보다 기대로 오른 회사가 많았다</td><td>지수를 끄는 빅테크는 실제로 큰 이익을 낸다</td></tr>
+  </tbody>
+  </table>
+  </div>
+  <div class="ans">
+    <p>닷컴의 진짜 교훈은 <strong>"기술은 이겼는데, 그 기술에 돈을 빌려 먼저 깔아 둔 회사들은 망했다"</strong>는 것이다. 아마존조차 고점에서 −90%까지 빠졌다가 살아남았다. 지금이 꺾인 건지는 모른다. 하지만 IREN 같은 네오클라우드가 닷컴에 빗대면 <strong>"빌려서 까는 쪽"</strong>에 서 있다는 것은 분명하다 — 위험이 큰 대신, 계약이 실제로 돌아가면 보상도 큰 자리다.</p>
+  </div>
+</section>
+
+<section class="qa">
+  <div class="num" data-omit>Q6</div>
+  <h3>위기는 지나 봐야 안다는데 진짜인가? 모두가 좋다는 주식은 그래서 성공하기 어려운가?</h3>
+  <div class="ans">
+    <p class="short">대체로 사실이다.</p>
+    <p>지나고 나면 바닥이나 꼭대기가 뻔해 보이지만, 그 순간에는 오늘처럼 정반대 이야기가 동시에 돈다. "모두가 좋다는 주식"이 어려운 이유는 <strong>그 좋음이 이미 가격에 들어가 있기 때문</strong>이다. 주가는 좋은지 나쁜지가 아니라 <strong>기대보다 좋은지 나쁜지</strong>에 움직인다.</p>
+    <p>단, 반대로만 간다고 이기는 것도 아니다 — 엔비디아는 몇 년 내내 "모두가 아는 주식"이었는데도 계속 올랐다. 그래서 이 아카이브는 <strong>미리 정한 규칙</strong>을 쓴다. 신호등은 가격이 아니라 사전에 정한 관문으로만 움직인다. 그 순간에는 위기인지 기회인지 판단이 안 되니, <strong>판단이 안 되는 순간을 위해 판단을 미리 해 두는 것</strong>이다.</p>
+  </div>
+</section>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+<ul>
+  <li><a href="https://www.newspim.com/news/view/20261013000351">코스피, 장중 5%대 급락…두 달 만에 매도 사이드카 발동 — 뉴스핌</a></li>
+  <li><a href="https://www.etoday.co.kr/news/view/2635130">검은 화요일 코스피 6000선 무너졌다…반도체 투톱 8~9%대 급락 — 이투데이</a></li>
+  <li><a href="https://www.seoul.co.kr/news/economy/securities/2026/10/13/20261013500118">코스피 장중 6000선 붕괴…반도체주 급락에 외국인 매도까지 — 서울신문</a></li>
+  <li><a href="https://biz.heraldcorp.com/article/10900867">외인 올해만 200조 매도…육천피 붕괴 — 헤럴드경제</a></li>
+  <li><a href="https://biz.heraldcorp.com/article/10900855">멈출 줄 모르는 외국인 매도세 — 헤럴드경제</a></li>
+  <li><a href="https://www.topstarnews.net/news/articleView.html?idxno=16245354">SK하이닉스 10월 13일 장중 1,489,000원 7.23% 하락 — 톱스타뉴스</a></li>
+  <li><a href="https://www.investing.com/news/stock-market-news/south-koreas-kospi-briefly-halts-trade-after-5-slide-as-sk-hynix-samsung-tumble-4866353">KOSPI briefly halts trade after 5% slide — Investing.com</a></li>
+  <li><a href="https://www.tradingkey.com/analysis/stocks/more/262212946-south-korea-stocks-freefall-kospi-plunges-sk-hynix-tumbles-tradingkey">Kospi Tumbles 7% Below 6,000, SK Hynix Slumps Over 9% — TradingKey</a></li>
+  <li><a href="https://asia.nikkei.com/business/markets/japanese-stocks-plunge-as-ai-deleverage-sends-kioxia-down-16">Japanese stocks plunge as AI deleverage sends Kioxia down 16% — Nikkei Asia</a></li>
+  <li><a href="https://news.futunn.com/en/post/1000948430/ai-trading-hits-a-fragile-moment-japanese-and-south-korean">AI trading hits a fragile moment — Futu</a></li>
+  <li><a href="https://finance.biggo.com/news/eb8a05d9-76f2-4e04-9cf6-1d2e426b69ce">Taiwan's market plunges over 1,000 points intraday — BigGo Finance</a></li>
+  <li><a href="https://www.mt.co.kr/article/2026100116062783844">삼전닉스 매물 받아준 큰손 사라지는데 — 머니투데이</a></li>
+  <li><a href="https://inews24.com/view/2007584">삼전닉스 자사주 매입 막바지, 수급 공백 — 아이뉴스24</a></li>
+  <li><a href="https://www.hankyung.com/article/202610020777i">반도체 팔던 외국인, 코스피를 팔기 시작했다 — 한국경제</a></li>
+  <li><a href="https://www.mt.co.kr/stock/2026/05/12/2026051211164123996">8천피 코앞서 팔아치운 외인, 이유 있었다 — 머니투데이</a></li>
+  <li><a href="https://247wallst.com/investing/2026/10/08/coreweave-sinks-7-as-financed-ai-buildout-names-sell-off-apart-from-cloud-software-nebius-drops-6-oracle-falls-5/">CoreWeave Sinks 7% as Financed AI Buildout Names Sell Off — 24/7 Wall St.</a></li>
+  <li><a href="https://247wallst.com/investing/2026/10/12/nebius-slides-3-despite-rosenblatts-new-buy-rating-coreweave-slips/">Nebius Slides 3% Despite New Buy Rating — 24/7 Wall St.</a></li>
+  <li><a href="https://www.benzinga.com/trading-ideas/movers/26/10/62250665/bitcoin-slide-meets-rising-bond-yields-neoclouds-get-hit-from-both-sides">Bitcoin Slide Meets Bond Yields: Neoclouds Get Hit — Benzinga</a></li>
+  <li><a href="https://www.benzinga.com/markets/equities/26/10/62288504/nvidia-backed-neoclouds-face-a-test-as-iren-coreweave-and-nebius-stocks-slide">Neoclouds Face a Test as IREN, CoreWeave and Nebius Slide — Benzinga</a></li>
+  <li><a href="https://www.marketbeat.com/stocks/NASDAQ/CRWV/">CoreWeave (CRWV) — MarketBeat</a></li>
+  <li><a href="https://www.detroitnews.com/story/business/2026/10/05/sp-500-up-nasdaq-at-record-high-as-megacap-tech-stocks-rise/92103522007/">S&amp;P 500 up, Nasdaq at record high as megacap tech stocks rise — Detroit News</a></li>
+  <li><a href="https://www.bloomberg.com/news/articles/2026-10-05/s-p-500-closes-in-on-record-high-as-tech-rallies-markets-wrap-muvv94wz">Global Stocks Near Record Highs as Tech Rally Lifts Nasdaq, S&amp;P 500 — Bloomberg</a></li>
+  <li><a href="https://www.tradingkey.com/analysis/stocks/us-stocks/262210476-wall-street-weekly-report-s-p-500-10-year-treasury-yield-52-week-high-tradingkey">S&amp;P 500 Gains 1.2% as 10-Year Yield Hits 52-Week High — TradingKey</a></li>
+  <li><a href="https://www.wealthiertoday.com/news/sp-500-record-high-earnings-growth-stock-valuations-october-2026/">Can Earnings Growth Justify Valuations? — WealthierToday</a></li>
+  <li><a href="https://mlq.ai/news/hyperscaler-bond-issuance-reaches-about-220-billion-as-ai-financing-costs-rise/">Hyperscaler bond issuance reaches about $220 billion — MLQ (Reuters·BNP 인용)</a></li>
+  <li><a href="https://blog.twentyfouram.com/insights/how-hyperscaler-issuance-is-reshaping-the-treasury-curve">How hyperscaler issuance is reshaping the Treasury curve — TwentyFour AM</a></li>
+  <li><a href="https://blackflower-capital.com/research/w44-2026-hyperscaler-debt-ai-concentration-credit-market">Hyperscaler Debt Is Repeating Equity's AI Concentration Problem — Blackflower Capital</a></li>
+  <li><a href="https://nai500.com/blog/2026/09/ai-hyperscalers-turn-to-debt-as-bond-spreads-widen/">AI Hyperscalers Turn to Debt as Bond Spreads Widen — NAI500</a></li>
+  <li><a href="https://www.itiger.com/news/1119145868">Analyst sees opportunity in Samsung and SK Hynix (7월) — iTiger</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 · 모든 판단은 참고용이며 매매 권유가 아니다 · <a href="../index.html">대시보드로</a></footer>
+</div>
+</body>
+</html>
