@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>빈 댐 — 2026년 10월 14일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic:wght@400;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-10-14 · 이 문서만을 위해 지은 페이지
+
+   사건: 하이닉스가 하루에 −10.09% 빠졌다. 같은 시간 미국 반도체지수는
+   −0.23%였다. 한국에서만 받아 줄 사람이 없었다 — 50조원을 받아 내던
+   자사주 매입은 끝나 가고(하루 65만 주 → 40만 주), 국민연금은 살 여력이
+   없다. 블로거 메르가 쓴 말 그대로 "물을 미리 빼 두지 않은 댐".
+
+   그래서 이 지면은 **댐 벽**이다 — 청록 물빛 지면에 콘크리트 색 종이.
+   큰 소리는 세로로 길게 늘인 "빈 댐" 두 글자 하나. 글자 아랫부분만
+   물에 잠겨 있고, 오른쪽 수위 눈금에 9월 수위와 지금 수위를 적는다.
+   나머지는 조용히 둔다. 기존 팔레트 전부와 거리 20 이상.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  --page-bg: #6fa3a0;
+  --concrete: #eef2ec;
+  --ink: #0d2427;
+  --ink-2: #33504f;
+  --water: #0f3a44;
+  --water-2: #1d5a63;
+  --line: #9fbcb5;
+  --warn: #a3281c;
+  --mark: #f3d36b;
+  --on-bg: #0b1f22;
+  --shout-dry: #f4f7f2;
+  --disp: "Do Hyeon", "Nanum Gothic", sans-serif;
+  --sans: "Nanum Gothic", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page-bg: #08201f; --concrete: #13302f; --ink: #e4eee9; --ink-2: #a9c3bd;
+    --water: #5fb3bd; --water-2: #3c8a94; --line: #2b4c4a; --warn: #ff8a76; --mark: #f3d36b; --on-bg: #dcebe6;
+  }
+}
+:root[data-theme="dark"] {
+  --page-bg: #08201f; --concrete: #13302f; --ink: #e4eee9; --ink-2: #a9c3bd;
+  --water: #5fb3bd; --water-2: #3c8a94; --line: #2b4c4a; --warn: #ff8a76; --mark: #f3d36b; --on-bg: #dcebe6;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--page-bg); color: var(--on-bg); font-family: var(--sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+.sheet { max-width: 880px; margin: 0 auto; padding: 18px 16px 60px; }
+a { color: inherit; text-underline-offset: 3px; }
+
+/* ── 머리: 세로로 늘인 두 글자, 아랫부분만 물에 잠김 ── */
+header.top { position: relative; padding-right: 64px; }
+.home, .when { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; }
+.home { text-decoration: none; }
+.when { margin-top: 6px; }
+.doc-title { margin: 0; font-weight: 400; }
+.doc-title .shout {
+  display: block; font-family: var(--disp); font-size: clamp(104px, 31vw, 330px); line-height: .9;
+  padding-top: .48em; white-space: nowrap; letter-spacing: -.02em;
+}
+.doc-title .shout b {
+  display: inline-block; font-weight: 400; transform: scaleY(1.5); transform-origin: left bottom;
+  background: linear-gradient(to bottom, var(--shout-dry) 0 71%, var(--water) 71% 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.doc-title .tail { display: block; margin-top: 18px; font-size: clamp(17px, 4.4vw, 23px); font-weight: 800; color: var(--on-bg); max-width: 30em; }
+.gauge { position: absolute; right: 0; top: 40px; bottom: 60px; width: 52px; border-left: 3px solid var(--on-bg);
+  background: repeating-linear-gradient(to bottom, var(--on-bg) 0 2px, transparent 2px 18px) left / 14px 100% no-repeat; }
+.gauge .lv { position: absolute; left: -3px; width: 52px; border-top: 3px solid; font-family: var(--mono); font-size: 10px; line-height: 1.2; padding-top: 2px; padding-left: 16px; }
+.gauge .was { top: 14%; border-top-style: dashed; }
+.gauge .now { top: 66%; color: var(--water); border-color: var(--water); }
+.gauge .fill { position: absolute; left: 0; right: 0; top: 66%; bottom: 0; background: var(--water); opacity: .85; }
+
+blockquote[data-summary] { margin: 26px 0 0; padding: 20px 22px; background: var(--concrete); color: var(--ink); font-size: 17px; border-left: 10px solid var(--water); }
+
+/* ── 본문 ── */
+h2.sec { margin: 46px 0 6px; font-family: var(--disp); font-weight: 400; font-size: clamp(26px, 7vw, 38px); line-height: 1.15; color: var(--on-bg); }
+.sec-note { margin: 0 0 12px; font-size: 14px; color: var(--on-bg); opacity: .85; }
+.paper { background: var(--concrete); color: var(--ink); padding: 18px 20px; margin: 12px 0; }
+.paper h3 { margin: 0 0 8px; font-size: 19px; font-weight: 800; }
+.paper p { margin: 0 0 10px; }
+.paper p:last-child { margin-bottom: 0; }
+.paper ul { margin: 0; padding-left: 20px; }
+.tag { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500; padding: 1px 6px; border: 1px solid var(--ink-2); color: var(--ink-2); vertical-align: middle; }
+.wrap { overflow-x: auto; background: var(--concrete); color: var(--ink); }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+th, td { padding: 9px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--ink-2); background: transparent; }
+td.num { font-family: var(--mono); white-space: nowrap; }
+td.dn { color: var(--warn); }
+tr.hot td { background: color-mix(in srgb, var(--mark) 28%, transparent); }
+
+.fix { background: var(--water); color: #eef6f3; padding: 16px 20px; margin: 14px 0; }
+.fix h3 { margin: 0 0 6px; font-size: 17px; }
+.fix p { margin: 0 0 6px; }
+:root[data-theme="dark"] .fix { color: #08201f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fix { color: #08201f; } }
+
+/* 세 갈래 비교 막대 — 같은 하루, 다른 낙폭 */
+.drop { background: var(--concrete); color: var(--ink); padding: 18px 20px; margin: 12px 0; }
+.drop .row { display: grid; grid-template-columns: 9.5em 1fr 4.6em; gap: 10px; align-items: center; margin: 8px 0; font-size: 14px; }
+.drop .bar { height: 18px; background: var(--water); }
+.drop .v { font-family: var(--mono); text-align: right; color: var(--warn); }
+@media (max-width: 480px) { .drop .row { grid-template-columns: 7.2em 1fr 4.2em; font-size: 13px; } }
+
+.px { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin: 2px 0 10px; }
+.px-num { font-family: var(--mono); font-size: clamp(28px, 8vw, 40px); font-weight: 700; }
+.px-cur { font-size: 14px; color: var(--ink-2); }
+
+.heat { background: var(--concrete); color: var(--ink); padding: 14px 20px; margin: 12px 0; border-top: 4px solid var(--water); }
+.heat p { margin: 0; }
+ul.cps { list-style: none; margin: 0; padding: 0; background: var(--concrete); color: var(--ink); }
+ul.cps li { display: flex; gap: 10px; padding: 9px 16px; border-bottom: 1px solid var(--line); }
+ul.cps input { margin-top: 6px; flex: none; accent-color: var(--water); }
+.mer { background: var(--concrete); color: var(--ink); padding: 18px 20px; }
+.mer p { margin: 0 0 8px; }
+.mer ul { margin: 0; padding-left: 20px; }
+.mer li { margin-bottom: 10px; }
+section.src ul { background: var(--concrete); color: var(--ink); margin: 0; padding: 14px 16px 14px 34px; font-size: 13.5px; }
+section.src li { margin: 4px 0; overflow-wrap: anywhere; }
+footer { margin-top: 40px; font-size: 13px; color: var(--on-bg); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>← 대시보드</a>
+  <div class="when" data-omit>2026 · 10 · 14 · WED</div>
+  <h1 class="doc-title">
+    <span class="shout"><b>빈 댐</b></span>
+    <span class="tail">— 하이닉스 −10.09%, 받아 줄 사람이 줄어든 날</span>
+  </h1>
+  <div class="gauge" data-omit aria-hidden="true">
+    <div class="lv was">9월<br>65만</div>
+    <div class="fill"></div>
+    <div class="lv now">10월<br>40만</div>
+  </div>
+</header>
+
+<blockquote data-summary>10/13(화) <strong>하이닉스가 −10.09%(1,443,000원)</strong>, 삼성전자가 −7.39%, <strong>코스피가 −5.46%(6,035.35)</strong>로 마감했다. 55일 만에 매도 사이드카가 걸렸고 외국인은 하루에 4조5,259억원을 팔았다. 그런데 같은 날 <strong>미국 반도체지수는 −0.23%</strong>, 하이닉스 뉴욕 ADR은 −3.19%였다. 낙폭의 대부분은 한국 안에서 생겼다 — 수요를 받쳐 주던 <strong>자사주 매입이 끝나 가고</strong>(하루 65만 주 → 40만 주) 국민연금은 살 여력이 없다. IREN은 장중 −6%까지 밀렸다가 <strong>34.80달러 보합</strong>으로 돌아왔고, RKLB는 −2.27%. 실패한 관문은 없어 신호등은 셋 다 그대로다. 오늘 밤 9시 30분 9월 CPI, 내일 TSMC 실적, 27일 하이닉스 실적. 직전 문서 <a href="2026-10-13-four-squares.html">2026-10-13-four-squares.md</a>와 문답 <a href="2026-10-13-six-questions.html">2026-10-13-six-questions.md</a>의 후속이다.</blockquote>
+
+<div class="fix">
+  <h3>장중 값을 종가로 고친다</h3>
+  <p>어제 문답 문서는 오후 1시 무렵 장중 값(코스피 5,966.70 −6.54%, 하이닉스 −8.5~9.4%)을 썼다. <strong>종가는 코스피 6,035.35(−5.46%), 하이닉스 1,443,000원(−10.09%)</strong>이다. 지수는 장중보다 덜 빠졌고 하이닉스는 오히려 더 빠져서 끝났다.</p>
+  <p>작은 정정 둘 — <strong>RKLB 10/12 종가는 65.71달러</strong>로 확인됐다(직전 문서는 "약 65.7~66.0, 미확인"). 마이크론 10/12 종가는 집계 기준 989.04달러다(직전 문서의 989.21달러는 보도 값).</p>
+</div>
+
+<h2 class="sec">같은 하루, 다른 낙폭</h2>
+<p class="sec-note">막대 길이는 하락률. 뉴욕은 서울 장이 끝난 뒤 열려서 시간대가 반나절 어긋난다 — 정확한 짝 비교는 아니다.</p>
+<div class="drop" data-omit aria-hidden="true">
+  <div class="row"><span>하이닉스 (서울)</span><span class="bar" style="width:100%"></span><span class="v">−10.09%</span></div>
+  <div class="row"><span>삼성전자 (서울)</span><span class="bar" style="width:73%"></span><span class="v">−7.39%</span></div>
+  <div class="row"><span>마이크론 (뉴욕)</span><span class="bar" style="width:36%"></span><span class="v">−3.63%</span></div>
+  <div class="row"><span>하이닉스 ADR (뉴욕)</span><span class="bar" style="width:32%"></span><span class="v">−3.19%</span></div>
+  <div class="row"><span>미국 반도체지수</span><span class="bar" style="width:2.3%"></span><span class="v">−0.23%</span></div>
+</div>
+<div class="wrap">
+<table>
+<thead><tr><th>무엇</th><th>10/13 종가</th><th>변화</th><th>메모</th></tr></thead>
+<tbody>
+<tr class="hot"><td>SK하이닉스</td><td class="num">1,443,000원</td><td class="num dn">−10.09%</td><td>외국인 이 한 종목에서만 약 2조3,600억원 순매도. 10/7 1,723,000원에서 세 거래일 −16.3%</td></tr>
+<tr><td>삼성전자</td><td class="num">232,000원</td><td class="num dn">−7.39%</td><td>외국인 약 1조3,600억원 순매도</td></tr>
+<tr class="hot"><td>코스피</td><td class="num">6,035.35</td><td class="num dn">−5.46%</td><td>매도 사이드카(55일 만). 장중 6,000 아래는 7/31 이후 처음. 다섯 거래일 누적 −13.83%</td></tr>
+<tr><td>코스닥</td><td class="num">837.03</td><td>—</td><td></td></tr>
+<tr><td>외국인 / 개인 (코스피)</td><td class="num">−4조5,259억 / +2조2,271억</td><td>—</td><td>메르 집계: 자사주가 들어가는 기타법인 +약 6천억원, 연기금 +514억원</td></tr>
+<tr><td>필라델피아 반도체지수</td><td class="num">12,208.79</td><td class="num">−0.23%</td><td>다섯 거래일 연속 하락이지만 이날은 거의 보합</td></tr>
+<tr><td>마이크론</td><td class="num">953.19달러</td><td class="num dn">−3.63%</td><td>CXMT 우려가 이틀째</td></tr>
+<tr><td>SK하이닉스 ADR</td><td class="num">157.06달러</td><td class="num dn">−3.19%</td><td>뉴욕 거래분</td></tr>
+<tr><td>S&amp;P 500 / 나스닥</td><td class="num">7,805.45 / 27,204.38</td><td class="num">−0.02% / −0.15%</td><td>다우 −180.45(−0.35%). 은행 실적 혼조, J&amp;J 급락</td></tr>
+<tr class="hot"><td>IREN</td><td class="num">34.80달러</td><td class="num">0.00%</td><td>장중 32.69~34.88 — 7월 이후 최저까지 갔다가 돌아옴. 거래량 약 5,140만 주</td></tr>
+<tr><td>RKLB</td><td class="num">64.22달러</td><td class="num dn">−2.27%</td><td>장중 63.08~64.56</td></tr>
+<tr><td>코어위브 / 네비우스</td><td class="num">77.81 / 206.86달러</td><td class="num dn">−3.05% / −1.52%</td><td>네오클라우드 비교군</td></tr>
+<tr><td>원/달러</td><td class="num">1,340.69원</td><td>—</td><td>집계 기준</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">왜 한국만 이만큼 빠졌나</h2>
+<div class="paper">
+  <h3>받아 주던 사람이 빠지고 있다 <span class="tag">공식 공시 + 보도</span></h3>
+  <p>주가는 파는 사람이 있어도 받아 주는 사람이 있으면 덜 빠진다. 지난 석 달 외국인이 판 물량을 <strong>삼성전자·하이닉스 자사주 매입(합계 약 50조원)</strong>이 받아 냈다. 그 둑이 지금 낮아지고 있다.</p>
+  <ul>
+    <li><strong>삼성전자</strong> — 10월 초 매입을 끝냈다. 5,380만 주, 계획 대비 100.96%.</li>
+    <li><strong>SK하이닉스</strong> — 신고 2,407만 주 중 <strong>10/12까지 2,045만 주(약 85%)</strong>. 남은 것은 약 362만 주. 9월에는 하루 65만 주 안팎을 샀는데 <strong>10월에는 하루 40만 주</strong>로 줄였다. 이 속도면 약 9거래일, <strong>10월 23일 무렵</strong> 끝난다(직전 문서의 "10/16경"은 속도가 줄어 뒤로 밀렸다). 당초 공시한 종료 시한은 11월 19일이다.</li>
+    <li><strong>국민연금</strong> — 올해 리밸런싱(목표 비중을 넘으면 팔아서 맞추는 것)을 미뤄 국내주식 비중이 이미 높다. 그래서 떨어져도 살 자리가 없다. 최근 일주일 연기금은 1,762억원 순매도.</li>
+  </ul>
+</div>
+<div class="paper">
+  <h3>왜 파나 — 두 가지 시각 <span class="tag">블로거 분석 · 메르</span></h3>
+  <p>중장기 자금은 <strong>미국 장기금리</strong>를 본다. 확정 이자가 높아지면 이미 많이 오른 반도체를 다시 계산한다. 단기 자금은 <strong>"이익이 가파르게 늘어나는 이야기"</strong>를 쫓는데, 반도체는 내년에도 잘 벌겠지만 "가파르게 늘어나는" 단계는 지났다고 본다. 외국인을 돌려세울 조건으로 메르는 둘을 꼽았다 — 미국 장기금리 하락, 그리고 예상보다 강한 반도체 실적이나 새 수요처.</p>
+  <p>올해 한국에서 빠진 외국인 자금은 1,310억 달러, 같은 기간 일본에는 567억 달러가 들어갔다(메르 인용 집계).</p>
+</div>
+<div class="paper">
+  <h3>CXMT는 어떻게 읽히고 있나 <span class="tag">애널리스트 · 커뮤니티 반응</span></h3>
+  <p>여전히 <strong>수율 숫자가 하나도 나오지 않았다.</strong> 미즈호의 조던 클라인은 "검증된 수율이 없는데 공급 과잉을 가정하는 건 이르다, 셀이 작다고 칩이 싸지는 것도 아니다, 그리고 이건 HBM이 아니라 범용 서버 D램이다"라고 했다. 모닝스타는 "공개와, 쓸 만한 수율의 상용화 사이에는 상당한 시간차가 있을 것"이라고 봤다. X에서는 HSBC 전망표를 들어 "중국 물량을 더해도 2027년 D램은 여전히 공급 부족"이라는 반박이 돌았다(커뮤니티 반응 · 원 자료 미확인).</p>
+  <p>읽을 점: 10/13의 −10%는 CXMT 새 소식 때문이 아니었다. 새 숫자는 없었고, 이미 나온 이야기 위에 <strong>수급 공백</strong>이 겹쳤다.</p>
+</div>
+
+<h2 class="sec">매크로</h2>
+<div class="paper">
+  <p><strong>9월 CPI — 오늘(10/14) 밤 9시 30분(한국).</strong> 예상 헤드라인 3.6~3.7%(8월 3.4%), 근원 2.4~2.5%. 9월 휘발유 평균 갤런당 4.36달러로 한 달 새 +7.3% 오른 것이 헤드라인을 끌어올린다. 클리블랜드 연은 실시간 추정은 헤드라인 3.57%, 근원 2.39%. 10/28 FOMC 결정 전 마지막 CPI다.</p>
+  <p><strong>TSMC 3분기 실적 — 10/15.</strong> 매출은 이미 10/8에 나왔다: 약 467억 달러, 1년 전보다 +50%, 회사 가이던스(446~458억 달러) 위. 이번엔 이익률과 4분기·내년 전망이 나온다. 하이닉스 HBM의 최대 고객인 엔비디아 칩을 찍는 곳이라 <strong>AI 수요의 가장 가까운 거울</strong>이다.</p>
+  <p><strong>하이닉스 3분기 실적 — 10/27(화) 오전 8시</strong>로 일정이 잡혔다. 에프앤가이드 평균(10/8) 영업이익 약 77조원, 매출 약 98.4조원. 증권사들은 환율 가정 때문에 70~75.7조원으로 낮추는 중이다. 같은 날 FOMC 회의가 시작된다.</p>
+  <p><strong>국민연금 국정감사 — 오늘.</strong> 리밸런싱 유예를 결정한 회의록이 비공개인데, 이게 열리는지가 수급 쪽 관심사다.</p>
+</div>
+
+<h2 class="sec">무기한 선물 포지셔닝</h2>
+<p class="sec-note">하이퍼리퀴드 trade.xyz · 10/14 오전 8시 30분(한국). 참고 채널이며 판정 근거로 쓰지 않는다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>심볼</th><th>가격</th><th>24시간</th><th>펀딩(연율)</th></tr></thead>
+<tbody>
+<tr class="hot"><td>xyz:SKHX (하이닉스)</td><td class="num">1,101.2</td><td class="num">−5.00%</td><td class="num">−365.3%</td></tr>
+<tr><td>xyz:SMSN (삼성전자)</td><td class="num">175.97</td><td class="num">−3.15%</td><td class="num">−330.8%</td></tr>
+<tr><td>xyz:MU (마이크론)</td><td class="num">954.9</td><td class="num">−2.34%</td><td class="num">+5.5%</td></tr>
+<tr><td>xyz:IREN</td><td class="num">35.043</td><td class="num">+0.84%</td><td class="num">+12.0%</td></tr>
+<tr><td>xyz:RKLB</td><td class="num">64.281</td><td class="num">−1.62%</td><td class="num">+4.5%</td></tr>
+</tbody>
+</table>
+</div>
+<div class="paper">
+  <p><strong>하이닉스 펀딩이 연율 −22.6%에서 −365.3%로 깊어졌다.</strong> 펀딩이 음수면 하락에 건 쪽(숏)이 상승에 건 쪽(롱)에게 이자를 낸다. 이 정도면 숏이 한쪽으로 크게 몰렸다는 뜻이다. 몰린 숏은 작은 호재에도 한꺼번에 되사면서 반등을 키울 수 있고, 반대로 나쁜 소식이 이어지면 그대로 수익이 된다 — 방향을 알려 주는 숫자는 아니다.</p>
+  <p>SKHX 1,101.2는 하이닉스 서울 종가를 환율(1,340.69원)로 바꾼 약 1,076달러보다 약 2% 높다. 오라클(가격 공급 장치) 사고 전례가 있어 이 차이로 오늘 시초가를 예단하지 않는다.</p>
+</div>
+
+<h2 class="sec">종목별</h2>
+
+<div class="paper">
+  <h3>SK하이닉스 🇰🇷</h3>
+  <div class="px">
+    <span class="px-num" data-price="hynix" data-currency="KRW" data-delta="-10.09">1,443,000</span>
+    <span class="px-cur">원 · 10/13 종가 −10.09%</span>
+  </div>
+  <p>세 거래일 만에 1,723,000원 → 1,443,000원(−16.3%). 이번 주 새로 나온 실물 숫자는 오히려 좋은 쪽이다 — 삼성 영업이익 107.4조원, 10월 1~10일 반도체 수출 +170.9%, TSMC 매출 +50%. 나빠진 것은 <strong>이야기(CXMT)</strong>와 <strong>수급(자사주 종료·외국인 매도·연금 공백)</strong>이다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지.</strong> 신호등은 가격이 아니라 관문으로 움직인다. 이번 하락에서 실패한 관문은 없다. 대신 판정의 무게가 한 날짜로 모였다 — <strong>10/27 3분기 실적</strong>. 컨센서스는 77조원 안팎이고, 이번엔 숫자보다 <strong>4분기 가격·HBM4 물량에 대한 회사의 말</strong>이 외국인을 돌려세울 조건(메르가 꼽은 "예상보다 강한 전망")에 맞는지가 관건이다. 그 전에 TSMC(10/15)가 먼저 수요를 비춰 준다.</p>
+</div>
+
+<div class="paper">
+  <h3>IREN 🇺🇸</h3>
+  <div class="px">
+    <span class="px-num" data-price="iren" data-currency="USD" data-delta="0.00">34.80</span>
+    <span class="px-cur">달러 · 10/13 종가 보합</span>
+  </div>
+  <p>장 초반 −5~6%, 장중 최저 32.69달러로 <strong>7월 이후 가장 낮은 곳</strong>까지 갔다(벤징가). 앤스로픽 계약 보도(The Information發, <strong>단독 보도 · 양사 미확인</strong>) 효과가 사라진 다음 날이었다. 그런데 종가는 <strong>34.80달러, 전날과 같았다.</strong> 같은 날 코어위브 −3.05%, 네비우스 −1.52%보다 나았다. 한국 메모리와 달리 바닥에서 받는 매수가 있었다.</p>
+  <p>배경으로 볼 것: 네오클라우드 회사의 채권 가산금리는 투자등급보다 약 2.75~3.25%p 높다는 업계 발언이 나왔다(한 인프라 투자사 임원 인터뷰, 단일 출처). 돈을 빌려 짓는 회사들에겐 금리가 계속 부담이다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지 — 가장 위태로운 🟢.</strong> 11/5 FY27 1분기 콜의 판정 조건 ①인도 ②조달 ③구사이트 안정성·관리형 클라우드 공시는 그대로이고, ③을 "답변 여부" 대신 결과로 판정하는 안은 아직 정하지 않았다. 콜 전에 정한다.</p>
+</div>
+
+<div class="paper">
+  <h3>Rocket Lab 🚀</h3>
+  <div class="px">
+    <span class="px-num" data-price="rklb" data-currency="USD" data-delta="-2.27">64.22</span>
+    <span class="px-cur">달러 · 10/13 종가 −2.27%</span>
+  </div>
+  <p>회사 소식은 없었다. 거래량 약 1,556만 주로 평소(약 2,114만 주)보다 적었다. 증권사 피드에는 TD 코웬이 목표가를 120달러에서 90달러로 낮추고 매수 의견을 유지했다는 소식이 보인다(날짜 미확인). <strong>🟡 유지</strong> — 상향 조건(FCC 승인, 공람 11/9 / 뉴트론 첫 비행)은 그대로다. 다음 실적은 11월 중순 예정.</p>
+</div>
+
+<h2 class="sec">신호등 요약</h2>
+<div class="wrap">
+<table>
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix"><td data-name>SK하이닉스</td><td data-light>🟢</td><td data-change>유지</td><td data-note><strong>−10.09%(1,443,000원)</strong>. 미국 반도체지수 −0.23%와 달리 한국 수급 공백(자사주 종료 임박·외국인 4.5조 매도). 관문 실패 없음, 판정은 <strong>10/27 실적</strong></td></tr>
+<tr data-signal="iren"><td data-name>IREN</td><td data-light>🟢</td><td data-change>유지</td><td data-note>장중 7월 이후 최저(32.69)에서 <strong>34.80 보합</strong>으로 복귀. 앤스로픽 건은 단독 보도 · 양사 미확인. 11/5 콜 ①인도 ②조달 ③구사이트·공시</td></tr>
+<tr data-signal="rklb"><td data-name>RKLB</td><td data-light>🟡</td><td data-change>유지</td><td data-note>소식 없이 −2.27%(64.22). 상향 조건(FCC·뉴트론) 그대로</td></tr>
+</tbody>
+</table>
+</div>
+<div class="heat">
+  <p><strong>포트폴리오 히트:</strong> 어제 타격은 <strong>한국 시장 수급</strong>을 정확히 겨눴다 — 같은 메모리라도 뉴욕(마이크론 −3.63%)보다 서울(하이닉스 −10.09%)이 세 배 가까이 빠졌다. IREN은 AI 인프라 묶음 안에서 오히려 버텼다. 하이닉스·IREN이 공유하는 AI 설비투자 익스포저보다 <strong>하이닉스 단독의 한국 수급 리스크</strong>가 더 큰 하루였다. RKLB는 다른 축(정부 예산)이다.</p>
+</div>
+
+<h2 class="sec">다음 체크포인트</h2>
+<ul class="cps">
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9월 CPI (오늘 10/14 밤 9시 30분, 한국)</strong> — 예상 헤드라인 3.6~3.7%, 근원 2.4~2.5% (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>TSMC 3분기 실적 (10/15)</strong> — 이익률과 4분기·내년 전망. 매출은 이미 +50% (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>하이닉스 3분기 실적 (10/27 화 오전 8시)</strong> — 다음 판정선. 컨센서스 영업이익 약 77조원, 증권사 70~75.7조원으로 하향 중. 4분기 가격·HBM4 발언 (이월·일정 확정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>CXMT 4F²의 실체</strong> — 유지 시간·수율·속도 공개 여부, 연말 DDR5가 "출시"인지 "양산"인지 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>IREN FY27 1분기 콜 (11/5)</strong> — ①인도 ②조달 ③구사이트 안정성·관리형 클라우드 공시. ③의 판정 방식(답변 vs 결과)은 콜 전에 확정 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>앤스로픽-IREN 계약 확인 여부</strong> — 10/11 The Information 보도(단독 보도 · 양사 미확인) (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 공식 답변</strong> — SemiAnalysis 지적에 대한 회사 성명 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>하이닉스 자사주 매입 종료</strong> — 하루 40만 주로 줄여 10/23 무렵으로 밀림. 잔여 약 362만 주 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>국민연금 국정감사 (10/14)</strong> — 리밸런싱 유예 회의록 공개 여부, 매수 여력에 대한 답 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 FOMC (10/27~28)</strong> — 하이닉스 실적과 같은 날 시작 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>하이닉스 perp 펀딩</strong> — −22.6%에서 −365.3%로. 숏 쏠림이 풀리는지 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 1~20일 수출 (10/21 관세청)</strong> — 1~10일 반도체 +170.9%가 이어지는가 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>NAND 약세가 D램·HBM 계약가로 번지는가</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>마이크론 대만 파업</strong> — 찬성 99%, 날짜 미정. 10/19 집회·10/22 타이중 조정 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>미 30년물 6%</strong> — 지난 입찰 5.618% (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>원/달러 환율</strong> — 10/13 1,340.69원 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>Nscale IPO 가격</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>RKLB 상향 조건</strong> — FCC 승인(공람 11/9) 또는 뉴트론 첫 비행 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>11월 2일~ SK㈜ 블록딜</strong> (이월)</span></li>
+</ul>
+
+<h2 class="sec">메르 신규 글 브리핑</h2>
+<div class="mer">
+  <p>직전 판독(10/13) 이후 2편. <strong>블로거 분석이며 판정 근거로 쓰지 않는다.</strong></p>
+  <ul>
+    <li>🔗 <strong>지금 우리 국장은? (feat 국민연금, 자사주, 홍라희 이재용 증여)</strong> — 석 달간 외국인 41조원·개인 12조원 매도를 자사주 50조원이 버텼는데, 삼성은 매입을 끝냈고 하이닉스는 하루 40만 주로 줄여 10/23경 끝난다. 10/13 하루 외국인 4.5조원 매도에 기타법인(자사주 포함) 매수는 6천억원뿐. 국민연금은 리밸런싱을 미뤄 "물을 미리 빼 두지 않은 댐"이라 받을 여력이 없다. 삼성 지배주주 증여(11/12, 약 2.6조원)는 증여세가 9/12~1/12 평균 주가로 정해지는 구조라는 점도 짚었다. 우리 판독과 일치 — 10/13 낙폭의 대부분을 한국 수급으로 읽었다. 이 지면의 제목도 이 글의 비유에서 왔다</li>
+    <li>🔗 <strong>금값이 왜 비실비실 할까? 변수는?</strong> — 금 실물 수급은 1년 전과 같은데, 10년 물가연동국채 실질금리가 1.94%(1/2)에서 2.87%(10/8)로 올라 금 보유의 기회비용이 커졌고 헤지펀드가 선물 순매수를 줄였다. 3% 돌파 여부가 변수. 반도체에도 같은 압력이다 — 메르가 꼽은 외국인 매도 이유 중 하나도 미국 장기금리다</li>
+  </ul>
+</div>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+<ul>
+  <li><a href="https://www.etoday.co.kr/news/view/2635441">현대차證 "외국인 순매도…삼전·하닉 실적이 복귀 신호탄 될까" — 이투데이</a></li>
+  <li><a href="https://www.thepublic.kr/news/articleView.html?idxno=322114">반도체 투톱 무너지자 코스피도 와르르…삼전 7%, 하이닉스 10% 급락 — 더퍼블릭</a></li>
+  <li><a href="https://www.fnnews.com/news/202610131820301700">외국인 삼전닉스 10조 팔때 개미들은 7조 넘게 사들였다 — 파이낸셜뉴스</a></li>
+  <li><a href="https://www.newsspace.kr/news/article.html?no=16117">외국인 하루 4.5조 순매도·삼전닉스에 매물 82% 집중 — 뉴스스페이스</a></li>
+  <li><a href="https://www.slist.kr/news/articleView.html?idxno=773064">외국인 4.5조원 매도 폭탄…삼성전자·SK하이닉스 3.7조원 이탈 — 싱글리스트</a></li>
+  <li><a href="https://www.fnnews.com/news/202610140602364076">'50조 매도세' 받아낸 자사주 매입 '끝'…새 수급 변수는 실적·주주환원 — 파이낸셜뉴스</a></li>
+  <li><a href="https://biz.heraldcorp.com/article/10895501">자사주 매입 막바지…코스피 수급 분수령 — 헤럴드경제</a></li>
+  <li><a href="https://www.khan.co.kr/article/202609301800001">삼전·닉스 이제 누가 사려나…자사주 매입, 10월 초중순 종료 — 경향신문</a></li>
+  <li><a href="https://finance.yahoo.com/quote/000660.KS/">SK하이닉스(000660.KS) 일별 종가 — Yahoo Finance</a></li>
+  <li><a href="https://www.cnbc.com/2026/10/12/stock-market-today-live-updates.html">S&amp;P 500 closes near flat after big banks post earnings and memory chip stocks decline — CNBC</a></li>
+  <li><a href="https://www.cnbc.com/2026/10/13/sk-hynix-softbank-samsung-electronics-shares-tech-stocks-fall.html">Micron sinks, other memory-linked names dip for a second day — CNBC</a></li>
+  <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-13-2026">Stock Market Today (Oct. 13, 2026) — TheStreet</a></li>
+  <li><a href="https://finance.yahoo.com/quote/MU/">Micron(MU)·SKHY·^SOX·CRWV·NBIS 일별 종가 — Yahoo Finance</a></li>
+  <li><a href="https://www.benzinga.com/trading-ideas/movers/26/10/62323868/iren-stock-falls-to-its-lowest-level-since-july-after-a-brief-pop-on-a-reported-anthropic-deal">IREN Stock Falls to Its Lowest Level Since July After a Brief Pop on a Reported Anthropic Deal — Benzinga</a></li>
+  <li><a href="https://www.investing.com/news/stock-market-news/why-is-iren-stock-sliding-today-93CH-4947065">Why is IREN stock sliding today? — Investing.com</a></li>
+  <li><a href="https://stockanalysis.com/stocks/iren/">IREN Limited (IREN) — stockanalysis.com (10/13 종가·장중 범위)</a></li>
+  <li><a href="https://finance.yahoo.com/markets/stocks/articles/heres-why-rocket-lab-corporation-211506615.html">Here's Why Rocket Lab Corporation (RKLB) Fell More Than Broader Market — Yahoo Finance</a></li>
+  <li><a href="https://robinhood.com/us/en/stocks/RKLB/">Rocket Lab (RKLB) — Robinhood (장중 범위·거래량·애널리스트 피드)</a></li>
+  <li><a href="https://finance.yahoo.com/markets/stocks/articles/analyst-lists-7-reasons-why-132909546.html">Analyst lists 7 reasons why China CXMT's claims don't threaten Micron and Sandisk — Yahoo Finance</a></li>
+  <li><a href="https://gulfnews.com/technology/china-chip-claim-rattles-samsung-and-sk-hynix-what-is-the-4f-breakthrough-1.500708938">CXMT's Memory Chip Claim Sparks Selloff in Korean Tech Giants — Gulf News</a></li>
+  <li><a href="https://x.com/MelvinInvests/status/2109721852927173040">HSBC DRAM 수급 전망 인용 — Melvin (X, 커뮤니티 반응)</a></li>
+  <li><a href="https://finance.yahoo.com/real-estate/articles/neocloud-tenants-spark-data-center-055013734.html">Neocloud Tenants Spark Data Center Financing Concerns — Yahoo Finance</a></li>
+  <li><a href="https://admiralmarkets.com/analytics/traders-blog/us-cpi-preview-september-2026-forecasts-and-the-core-cpi-outlook">US CPI September 2026: Forecast, Core CPI and Fed Odds — Admiral Markets</a></li>
+  <li><a href="https://www.stocktitan.net/articles/september-2026-cpi-inflation-report">September CPI Report: Gas Prices — StockTitan</a></li>
+  <li><a href="https://cryptobriefing.com/tsmc-q3-earnings-nvidia-broadcom-amd/">TSMC's October 15 earnings call puts Nvidia, Broadcom and AMD investors on watch — Crypto Briefing</a></li>
+  <li><a href="https://www.businesstoday.com.my/2026/10/08/tsmc-revenue-surges-50-to-record-high-on-ai-chip-demand/">TSMC Revenue Surges 50% To Record High On AI Chip Demand — Business Today</a></li>
+  <li><a href="https://biz.heraldcorp.com/article/10897481">"SK하이닉스는 믿는다" 역대급 실적에도 주가 털썩 — 헤럴드경제 (10/27 실적 발표)</a></li>
+  <li><a href="https://www.knowingasset.com/app/calendar/7806">SK하이닉스 2026년 3분기 실적발표 일정 — knowingasset</a></li>
+  <li><a href="https://www.vegannews.co.kr/news/article.html?no=389695">삼성·SK 3분기 영업익 컨센서스 188조…증권사 전망은 엇갈려 — 비건뉴스</a></li>
+  <li><a href="https://app.hyperliquid.xyz/trade/xyz:SKHX">Hyperliquid trade.xyz 무기한 선물 (SKHX·SMSN·MU·IREN·RKLB)</a></li>
+  <li><a href="https://blog.naver.com/ranto28/224440926200">지금 우리 국장은? (feat 국민연금, 자사주, 홍라희 이재용 증여) — 메르 (블로거 분석)</a></li>
+  <li><a href="https://blog.naver.com/ranto28/224439764329">금값이 왜 비실비실 할까? 변수는? — 메르 (블로거 분석)</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 · 모든 판단은 참고용이며 매매 권유가 아니다 · <a href="../index.html">대시보드로</a></footer>
+</div>
+</body>
+</html>
