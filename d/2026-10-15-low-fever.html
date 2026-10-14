@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>미열 — 2026년 10월 15일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Hahmlet:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-10-15 · 이 문서만을 위해 지은 페이지
+
+   사건: 9월 CPI. 기름값 때문에 높을 줄 알았던 헤드라인(3.7%)이 아니라
+   0.2%로 내려올 줄 알았던 근원이 0.3%로 나왔다. 블로거 메르의 비유로
+   "감기 열인 줄 알았는데, 원인 모를 미열". 같은 밤 네오클라우드 채권이
+   흔들려 IREN −12.18%, RKLB 는 뉴트론 첫 비행을 2027년으로 공식 연기.
+
+   그래서 이 지면은 **병상의 체온표**다 — 연분홍 모눈 지면, 붉은 잉크.
+   큰 소리는 굵은 명조 "미열" 두 글자와, 화면을 가로지르는 체온계 하나
+   (예상 0.2 눈금에 점선, 수은은 0.3 까지). 나머지는 흰 차트 종이에.
+   기존 팔레트 전부와 거리 16 이상.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  --page-bg: #f6cfc2;
+  --grid: rgba(176, 40, 32, .13);
+  --paper: #fffaf6;
+  --ink: #2b1210;
+  --ink-2: #6e3f38;
+  --red: #b0281f;
+  --red-2: #d9534a;
+  --line: #ecc9bf;
+  --mute: #8a6a63;
+  --disp: "Hahmlet", "Gowun Batang", serif;
+  --body: "Gowun Batang", serif;
+  --mono: "Space Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page-bg: #2a1412; --grid: rgba(255, 140, 120, .10); --paper: #3a1e1b; --ink: #f6e4de; --ink-2: #d8aea5;
+    --red: #ff7a6b; --red-2: #ff9d91; --line: #5a332e; --mute: #c29a92;
+  }
+}
+:root[data-theme="dark"] {
+  --page-bg: #2a1412; --grid: rgba(255, 140, 120, .10); --paper: #3a1e1b; --ink: #f6e4de; --ink-2: #d8aea5;
+  --red: #ff7a6b; --red-2: #ff9d91; --line: #5a332e; --mute: #c29a92;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background-color: var(--page-bg);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--ink); font-family: var(--body); font-size: 16.5px; line-height: 1.75; overflow-x: hidden;
+}
+.sheet { max-width: 860px; margin: 0 auto; padding: 18px 16px 60px; }
+a { color: inherit; text-underline-offset: 3px; }
+
+/* ── 머리 ── */
+.home, .when { font-family: var(--mono); font-size: 12.5px; letter-spacing: .1em; color: var(--red); }
+.home { text-decoration: none; }
+.when { margin-top: 4px; }
+.doc-title { margin: 6px 0 0; font-weight: 400; }
+.doc-title .shout {
+  display: block; font-family: var(--disp); font-weight: 900; color: var(--red);
+  font-size: clamp(120px, 40vw, 380px); line-height: .95; letter-spacing: -.06em; white-space: nowrap;
+}
+.doc-title .tail { display: block; margin-top: 6px; font-size: clamp(17px, 4.6vw, 24px); font-weight: 700; color: var(--ink); }
+
+/* 화면을 가로지르는 체온계 — 장식. 수치는 본문 표에 있다 */
+.thermo { position: relative; margin: 26px 0 8px; padding: 0 0 34px; }
+.thermo .tube { position: relative; height: 26px; border: 3px solid var(--ink); border-radius: 0 13px 13px 0; background: var(--paper); }
+.thermo .bulb { position: absolute; left: -22px; top: -11px; width: 42px; height: 42px; border-radius: 50%; background: var(--red); border: 3px solid var(--ink); }
+.thermo .hg { position: absolute; left: 0; top: 4px; bottom: 4px; width: 75%; background: var(--red); }
+.thermo .exp { position: absolute; top: -12px; bottom: -12px; left: 50%; border-left: 3px dashed var(--ink); }
+.thermo .tick { position: absolute; top: 36px; font-family: var(--mono); font-size: 12px; transform: translateX(-50%); }
+.thermo .tick.e { font-weight: 700; }
+.thermo .tick.a { color: var(--red); font-weight: 700; }
+.thermo-cap { font-family: var(--mono); font-size: 12px; color: var(--ink-2); margin: 0 0 0 26px; }
+.thermo-wrap { padding-left: 22px; }
+
+blockquote[data-summary] { margin: 24px 0 0; padding: 18px 20px; background: var(--paper); border: 2px solid var(--ink); border-left: 12px solid var(--red); font-size: 17px; }
+
+/* ── 본문 ── */
+h2.sec { margin: 44px 0 8px; font-family: var(--disp); font-weight: 900; font-size: clamp(24px, 6.4vw, 34px); line-height: 1.2; color: var(--ink); display: flex; align-items: baseline; gap: 10px; }
+h2.sec::before { content: "+"; color: var(--red); font-family: var(--mono); font-weight: 700; }
+.sec-note { margin: 0 0 10px; font-size: 14px; color: var(--ink-2); }
+.paper { background: var(--paper); padding: 18px 20px; margin: 12px 0; border: 1px solid var(--line); }
+.paper h3 { margin: 0 0 8px; font-family: var(--disp); font-size: 20px; font-weight: 700; }
+.paper p { margin: 0 0 10px; }
+.paper p:last-child { margin-bottom: 0; }
+.paper ul { margin: 0; padding-left: 20px; }
+.tag { display: inline-block; font-family: var(--mono); font-size: 10.5px; padding: 1px 6px; border: 1px solid var(--red); color: var(--red); vertical-align: middle; letter-spacing: .03em; }
+.wrap { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+th, td { padding: 9px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; color: var(--red); }
+td.num { font-family: var(--mono); white-space: nowrap; }
+td.hot { color: var(--red); font-weight: 700; }
+
+.verdict { background: var(--red); color: #fff7f4; padding: 18px 20px; margin: 14px 0; }
+.verdict h3 { margin: 0 0 6px; font-family: var(--disp); font-size: 21px; }
+.verdict p { margin: 0 0 8px; }
+.verdict p:last-child { margin: 0; }
+:root[data-theme="dark"] .verdict { color: #2a1412; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .verdict { color: #2a1412; } }
+
+.px { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin: 2px 0 10px; }
+.px-num { font-family: var(--mono); font-size: clamp(28px, 8vw, 40px); font-weight: 700; color: var(--red); }
+.px-cur { font-size: 14px; color: var(--ink-2); }
+.heat { background: var(--paper); padding: 14px 20px; margin: 12px 0; border: 2px dashed var(--red); }
+.heat p { margin: 0; }
+ul.cps { list-style: none; margin: 0; padding: 0; background: var(--paper); border: 1px solid var(--line); }
+ul.cps li { display: flex; gap: 10px; padding: 9px 16px; border-bottom: 1px solid var(--line); }
+ul.cps input { margin-top: 7px; flex: none; accent-color: var(--red); }
+.mer { background: var(--paper); padding: 18px 20px; border: 1px solid var(--line); }
+.mer p { margin: 0 0 8px; }
+.mer ul { margin: 0; padding-left: 20px; }
+.mer li { margin-bottom: 10px; }
+section.src ul { background: var(--paper); border: 1px solid var(--line); margin: 0; padding: 14px 16px 14px 34px; font-size: 13.5px; }
+section.src li { margin: 4px 0; overflow-wrap: anywhere; }
+footer { margin-top: 40px; font-size: 13px; color: var(--ink-2); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>← 대시보드</a>
+  <div class="when" data-omit>2026 · 10 · 15 · THU — 체온표</div>
+  <h1 class="doc-title">
+    <span class="shout">미열</span>
+    <span class="tail">— 근원물가 0.3%, 같은 밤 세 종목이 각각 다른 곳을 맞았다</span>
+  </h1>
+</header>
+
+<div class="thermo-wrap" data-omit aria-hidden="true">
+  <div class="thermo">
+    <div class="tube"><div class="hg"></div><div class="exp"></div></div>
+    <div class="bulb"></div>
+    <span class="tick" style="left:25%">0.1</span>
+    <span class="tick e" style="left:50%">0.2 예상</span>
+    <span class="tick a" style="left:75%">0.3 실제</span>
+  </div>
+  <p class="thermo-cap">9월 근원 CPI · 전월 대비 %</p>
+</div>
+
+<blockquote data-summary>9월 CPI에서 기름값 때문에 높을 것으로 예상됐던 헤드라인(3.7%)보다, <strong>0.2%로 내려올 줄 알았던 근원물가가 0.3%(전년 대비 2.6%)</strong>로 나온 것이 시장을 흔들었다. 10월 금리 인상 확률이 21%에서 한때 50%를 넘었고, 나스닥 −1.88%, 미국 반도체지수 −4.30%. 같은 밤 세 종목은 서로 다른 곳을 맞았다 — <strong>IREN −12.18%(30.56달러)</strong>는 코어위브 채권 금리 급등으로 번진 네오클라우드 자금 조달 공포, <strong>RKLB −7.85%(59.18달러)</strong>는 장 마감 후 <strong>뉴트론 첫 비행 2027년 공식 연기</strong>, 하이닉스는 서울 −1.66%(1,419,000원) 뒤 뉴욕 ADR −6.06%. <strong>RKLB 신호등을 🟡에서 🔴로 내린다</strong> — 8월에 미리 정해 둔 하향 조건(4분기 패드 인도 미이행)이 회사 발표로 사실상 확정됐다. 하이닉스·IREN은 관문 실패가 없어 🟢 유지. 직전 문서 <a href="2026-10-14-empty-dam.html">2026-10-14-empty-dam.md</a>의 후속이다.</blockquote>
+
+<h2 class="sec">어젯밤 숫자</h2>
+<p class="sec-note">10/14(수) 마감. 서울 장은 CPI 발표(한국 시각 밤 9시 30분) 전에 끝났다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>무엇</th><th>10/14 종가</th><th>변화</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>SK하이닉스</td><td class="num">1,419,000원</td><td class="num">−1.66%</td><td>코스피는 장 초반 +2%대에서 오후에 하락 전환</td></tr>
+<tr><td>삼성전자</td><td class="num">232,000원</td><td class="num">0.00%</td><td></td></tr>
+<tr><td>코스피</td><td class="num">6,008.81</td><td class="num">−0.44%</td><td>6,000선 턱걸이. 외국인 약 1.1조원 순매도, 7거래일 연속</td></tr>
+<tr><td>SK하이닉스 ADR</td><td class="num">147.55달러</td><td class="num hot">−6.06%</td><td>CPI 이후 뉴욕 거래분 — 서울에는 오늘 반영된다</td></tr>
+<tr><td>필라델피아 반도체지수</td><td class="num">11,684.38</td><td class="num hot">−4.30%</td><td></td></tr>
+<tr><td>마이크론</td><td class="num">914.13달러</td><td class="num">−4.10%</td><td></td></tr>
+<tr><td>TSMC ADR</td><td class="num">430.00달러</td><td class="num">−3.40%</td><td>오늘 오후 실적 발표</td></tr>
+<tr><td>S&amp;P 500 / 나스닥</td><td class="num">7,718.94 / 26,692.87</td><td class="num">−1.11% / −1.88%</td><td>기술 업종이 가장 약했다. 다우는 거의 보합</td></tr>
+<tr><td>IREN</td><td class="num">34.80 → 30.56달러</td><td class="num hot">−12.18%</td><td>52주 최저 28.93달러에 근접</td></tr>
+<tr><td>코어위브 / 네비우스</td><td class="num">65.78 / 186.01달러</td><td class="num hot">−15.46% / −10.08%</td><td>네오클라우드 동반 급락</td></tr>
+<tr><td>RKLB</td><td class="num">64.22 → 59.18달러</td><td class="num hot">−7.85%</td><td>장 마감 후 뉴트론 연기 발표, 시간외 약 54.60달러</td></tr>
+<tr><td>미 10년물 금리</td><td class="num">약 5.19%</td><td>—</td><td>발표 직후 5.33% 근처까지 뛰었다가 되돌림. 종가는 소스별 5.19~5.28%</td></tr>
+<tr><td>브렌트유</td><td class="num">약 105달러</td><td>—</td><td>9월 말 98달러에서 상승. 호르무즈에서 컨테이너선 침몰</td></tr>
+<tr><td>원/달러</td><td class="num">1,341.25원</td><td>—</td><td>집계 기준</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">미열 — 9월 CPI</h2>
+<div class="wrap">
+<table>
+<thead><tr><th>항목</th><th>예상</th><th>실제</th><th>읽기</th></tr></thead>
+<tbody>
+<tr><td>헤드라인 (전년 대비)</td><td class="num">3.6~3.7%</td><td class="num">3.7%</td><td>예상 범위 위쪽. 8월 3.4%</td></tr>
+<tr><td>헤드라인 (전월 대비)</td><td class="num">0.6%</td><td class="num">0.6%</td><td>휘발유 +9.1%, 난방유 +15.3%, 에너지 +5.2%</td></tr>
+<tr><td>근원 (전월 대비)</td><td class="num">0.2%</td><td class="num hot">0.3%</td><td>시장이 놀란 숫자</td></tr>
+<tr><td>근원 (전년 대비)</td><td class="num">2.4~2.5%</td><td class="num hot">2.6%</td><td></td></tr>
+<tr><td>10월 금리 인상 확률</td><td class="num">약 21%</td><td class="num">한때 50%+ → 약 37%</td><td>마감 무렵 기준. 소스마다 다르다</td></tr>
+</tbody>
+</table>
+</div>
+<div class="paper">
+  <h3>왜 근원이 문제인가 <span class="tag">공식 지표 + 블로거 분석 · 메르</span></h3>
+  <p>헤드라인은 감기에 오르는 체온 같다. 원인(기름값)을 알고, 중동이 풀리면 내려올 수 있다. <strong>근원(식품·에너지 제외)은 원인을 모르는 미열</strong>이다. 발표 전 시장의 그림은 "헤드라인은 높아도 근원은 0.2%로 내려온다 → 연준이 10월엔 쉰다"였다. 0.3%가 나오면서 그 그림이 흔들렸다.</p>
+  <p>세부를 뜯으면 기름값 불이 옮겨붙었다기보다 <strong>집세(+0.4%)와 물건값(중고차 +0.7%, 의류 +0.3%)이 각자 올랐다.</strong> 집세는 한번 오르면 잘 안 내려오는 물가라 더 신경 쓰인다. 실질 주급(물가를 뺀 주급)은 −0.5% — 월급이 물가를 못 따라간다는 소비 둔화 신호다(메르 정리).</p>
+  <p>읽을 점: 10/28 FOMC에서 금리를 올릴 가능성이 다시 살아났다. 오늘 밤 생산자물가(PPI)가 다음 확인이다. 금리가 오르면 <strong>빌려서 짓는 회사(IREN)</strong>와 <strong>현금을 태우며 개발하는 회사(RKLB)</strong>가 먼저 아프다 — 어젯밤이 그대로였다.</p>
+</div>
+
+<h2 class="sec">IREN을 때린 것 — 남의 채권</h2>
+<div class="paper">
+  <h3>코어위브 채권이 먼저 흔들렸다 <span class="tag">보도</span></h3>
+  <p>네오클라우드 대장 코어위브의 2032년 만기 채권 금리가 <strong>15% 근처</strong>까지 올랐다는 보도가 나왔다(GuruFocus·24/7 Wall St.). 쟁점은 <strong>기간 불일치</strong>다 — 데이터센터 임대 계약은 길고, 그 안을 채우는 고객 계약은 더 짧다. 고객이 먼저 떠나면 임대료는 남는다. 코어위브는 올해 350억 달러 넘게 조달했고 부채·리스 의무가 약 520억 달러다. 보험사에서 자금을 구한다는 FT 보도도 나왔다. CNBC는 코어위브 하락에 거는 풋옵션이 몰렸다고 전했다.</p>
+  <p>시장은 같은 업종을 한 바구니로 팔았다: 코어위브 −15.46%, 네비우스 −10.08%, IREN −12.18%, 그 밖의 채굴사 출신 AI 회사들 −8~9%(커뮤니티 집계).</p>
+</div>
+<div class="paper">
+  <h3>IREN 자체 소식 — 레드뱅크 900MW 제안 <span class="tag">공식 · 회사 발표</span></h3>
+  <p>같은 날 IREN이 호주 뉴사우스웨일스 와가와가 인근 <strong>"레드뱅크" 900MW 데이터센터 캠퍼스</strong> 초기 계획을 지역사회에 공개했다. 투자 규모 100억 호주달러 이상, 2029년 전력망 연결 목표, 6~8년에 걸친 단계 건설. 회사 스스로 <strong>"초기 검토 단계이고, 발표한 5GW 확보 전력 포트폴리오에는 들어 있지 않다"</strong>고 밝혔다. 범위 보고서는 10월 말, 주민 설명회는 11월 4~5일.</p>
+  <p>읽을 점: 장기로는 호주 파이프라인이 1.7GW로 늘어나는 소식이다. 그런데 하필 <strong>"짓는 데 드는 돈을 어디서 빌리나"</strong>가 시장의 질문인 날에, 전력도 확보 안 된 100억 호주달러짜리 계획이 나왔다. 시장은 그날의 질문으로 읽었다.</p>
+</div>
+
+<h2 class="sec">RKLB — 미리 정한 선을 넘었다</h2>
+<div class="paper">
+  <h3>뉴트론 첫 비행 2027년으로 <span class="tag">공식 · 회사 발표</span></h3>
+  <p>10/14 장 마감 후 Rocket Lab이 뉴트론 첫 발사를 <strong>2026년 4분기 목표에서 2027년으로</strong> 옮겼다. 원인은 <strong>1단 추진제 탱크의 앞쪽 돔(탄소 복합재)</strong>에서 발견된 제조 결함이다. 피터 벡 CEO는 새 돔을 만들고 결함이 없는지 검사하는 일을 2027년 1분기 전에 마치고, 그 뒤 새 발사 목표를 내놓겠다고 했다. "성공할 수도 있다는 건 우리 기준이 아니다"라는 말도 했다.</p>
+  <p>뉴트론은 2021년 공개 때 2024년 첫 비행이 목표였다. 2025년 중반 → 2026년 → (1월 탱크 수압시험 파열 후) 2026년 4분기 → 이번에 2027년. <strong>다섯 번째 연기</strong>다.</p>
+  <p>⚠️ 일부 매체가 하락 원인으로 든 "벡 CEO 500만 주 매도 신고(Form 144)"는 확인해 보니 <strong>7월 6일 제출분</strong>이다. 10월에 새로 낸 신고는 찾지 못했다 — 이번 하락 원인으로 쓰지 않는다.</p>
+</div>
+<div class="verdict">
+  <h3>왜 🟡 → 🔴 인가</h3>
+  <p>8월 11일 레드팀 문서에서 RKLB의 🔴 하향 조건을 미리 정해 두었다 — <strong>①4분기 뉴트론 패드 인도 미이행 ②첫 발사 실패 ③이리듐 인수 무산.</strong> 회사가 패드 인도를 따로 언급하지는 않았다. 하지만 1단 부품을 새로 만들어 1분기 전에 검사를 마치고 그다음에야 일정을 내겠다고 했으니, <strong>올해 4분기 안에 완성된 기체가 발사대에 서는 것은 사실상 불가능</strong>해졌다. 조건 ①이 회사 발표로 확정된 것으로 본다.</p>
+  <p>🔴은 "팔아라"가 아니다. 이 체계에서 🔴은 <strong>보유 논지를 처음부터 다시 검토할 때</strong>라는 표시다. 다시 🟡로 올리는 조건은 새 발사 일정 공표와 1단 탱크 검사 통과, 그리고 FCC 승인(공람 11/9)이다. 장기 판단은 참고용이며, 투자 자문이 아니다.</p>
+</div>
+
+<h2 class="sec">무기한 선물 포지셔닝</h2>
+<p class="sec-note">하이퍼리퀴드 trade.xyz · 10/15 오전 8시 23분(한국). 참고 채널이며 판정 근거로 쓰지 않는다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>심볼</th><th>가격</th><th>24시간</th><th>펀딩(연율)</th></tr></thead>
+<tbody>
+<tr><td>xyz:SKHX (하이닉스)</td><td class="num">988.99</td><td class="num hot">−10.17%</td><td class="num hot">−844.1%</td></tr>
+<tr><td>xyz:SMSN (삼성전자)</td><td class="num">163.1</td><td class="num">−7.27%</td><td class="num hot">−894.6%</td></tr>
+<tr><td>xyz:MU (마이크론)</td><td class="num">889.74</td><td class="num">−6.84%</td><td class="num">+5.5%</td></tr>
+<tr><td>xyz:IREN</td><td class="num">29.92</td><td class="num">−14.85%</td><td class="num">+15.4%</td></tr>
+<tr><td>xyz:RKLB</td><td class="num">55.449</td><td class="num">−13.73%</td><td class="num">+5.5%</td></tr>
+</tbody>
+</table>
+</div>
+<div class="paper">
+  <p><strong>하이닉스 펀딩이 연율 −365.3%에서 −844.1%로 또 깊어졌다.</strong> 하락에 건 쪽(숏)이 이자를 크게 내면서도 버티고 있다는 뜻이다. 미결제약정(아직 정리 안 된 계약 규모)도 약 29.7만에서 35.2만으로 늘었다. SKHX 988.99는 서울 종가를 환율로 바꾼 약 1,058달러보다 약 6.5% 낮다 — 밤사이 ADR −6.06%와 비슷한 크기다. 오라클 사고 전례가 있어 이 숫자로 오늘 시초가를 예단하지 않는다.</p>
+  <p>RKLB perp 55.449는 정규장 종가보다 약 6.3% 낮아, 시간외 54.60달러와 같은 방향이다. IREN perp 29.92는 종가보다 약 2.1% 낮다.</p>
+</div>
+
+<h2 class="sec">종목별</h2>
+
+<div class="paper">
+  <h3>SK하이닉스 🇰🇷</h3>
+  <div class="px">
+    <span class="px-num" data-price="hynix" data-currency="KRW" data-delta="-1.66">1,419,000</span>
+    <span class="px-cur">원 · 10/14 종가 −1.66%</span>
+  </div>
+  <p>서울 장은 CPI 전에 끝나 −1.66%로 막았다. 장 초반 +2%대 반등을 오후에 다 돌려줬고 외국인은 7거래일째 팔았다. CPI 뒤 뉴욕 ADR이 −6.06%, 반도체지수가 −4.30%라 <strong>오늘 서울은 그 충격을 받는다.</strong> 오후에는 TSMC 실적이 나온다 — 매출은 이미 +50%였고, 이익률과 내년 전망이 수요를 비춰 줄 첫 거울이다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지.</strong> 금리 쪽 바람은 나빠졌지만 실패한 관문은 없다. 판정선은 그대로 <strong>10/27 3분기 실적</strong>이다. FOMC 결정(10/28) 하루 전이라, 금리 인상 여부와 실적이 같은 주에 겹친다.</p>
+</div>
+
+<div class="paper">
+  <h3>IREN 🇺🇸</h3>
+  <div class="px">
+    <span class="px-num" data-price="iren" data-currency="USD" data-delta="-12.18">30.56</span>
+    <span class="px-cur">달러 · 10/14 종가 −12.18%</span>
+  </div>
+  <p>하루 만에 네오클라우드 대장 채권의 금리가 업종 전체의 주가를 끌어내렸다. IREN 고유의 나쁜 소식은 없었고, 레드뱅크 계획은 "초기 검토"로 공시됐다. IREN은 전력을 직접 확보하는 쪽이라 코어위브와 구조가 다르다는 반론도 커뮤니티에서 계속 나오지만, 시장은 지금 둘을 같은 거래로 값을 매긴다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지 — 가장 위태로운 🟢.</strong> 가격은 관문이 아니다. 11/5 FY27 1분기 콜의 판정 조건 ①인도 ②조달 ③구사이트 안정성·관리형 클라우드 공시는 그대로다. 오늘 일로 <strong>②조달의 무게가 커졌다</strong> — 어떤 금리로, 어떤 구조로 돈을 구했는지가 콜의 핵심 질문이 된다. ③의 판정 방식(답변 vs 결과)은 아직 정하지 않았다.</p>
+</div>
+
+<div class="paper">
+  <h3>Rocket Lab 🚀</h3>
+  <div class="px">
+    <span class="px-num" data-price="rklb" data-currency="USD" data-delta="-7.85">59.18</span>
+    <span class="px-cur">달러 · 10/14 종가 −7.85% (시간외 약 54.60)</span>
+  </div>
+  <p>정규장 −7.85%는 CPI와 기술주 약세가 컸고, 뉴트론 연기는 장 마감 후에 나와 시간외에서 −8% 안팎이 더해졌다. 일렉트론 발사 사업, 우주 시스템, 이리듐 인수(규제 승인 대기)는 이번 발표와 관계없다. 그래도 회사 가치의 상당 부분이 <strong>"뉴트론이 날면"</strong>에 걸려 있었고, 그 날짜가 다섯 번째로 밀렸다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🔴 (🟡에서 하향).</strong> 위 "왜 🟡 → 🔴 인가" 참조. 다음 확인은 3분기 실적(11월 중순)에서 나올 뉴트론 개발비·현금 소진 속도와 새 일정이다.</p>
+</div>
+
+<h2 class="sec">신호등 요약</h2>
+<div class="wrap">
+<table>
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix"><td data-name>SK하이닉스</td><td data-light>🟢</td><td data-change>유지</td><td data-note>서울 −1.66%(1,419,000원) 뒤 CPI 충격으로 <strong>ADR −6.06%</strong>. 관문 실패 없음, 판정은 <strong>10/27 실적</strong>(FOMC 하루 전)</td></tr>
+<tr data-signal="iren"><td data-name>IREN</td><td data-light>🟢</td><td data-change>유지</td><td data-note><strong>−12.18%(30.56)</strong> — 코어위브 채권 금리 15% 근처로 번진 네오클라우드 조달 공포. 11/5 콜에서 <strong>②조달</strong>의 무게가 커졌다</td></tr>
+<tr data-signal="rklb"><td data-name>RKLB</td><td data-light>🔴</td><td data-change>🟡→🔴</td><td data-note><strong>뉴트론 첫 비행 2027년 공식 연기</strong>(1단 돔 결함, 다섯 번째). 미리 정한 하향 조건 ①4분기 패드 인도 미이행이 사실상 확정</td></tr>
+</tbody>
+</table>
+</div>
+<div class="heat">
+  <p><strong>포트폴리오 히트:</strong> 같은 밤에 세 종목이 <strong>서로 다른 곳</strong>을 맞았다 — 하이닉스는 금리(밸류에이션), IREN은 업종 신용(남의 채권), RKLB는 자기 관문(뉴트론). 공통분모는 근원물가가 되살린 <strong>"금리가 더 오래 높다"</strong>는 전제다. 9/28 기록의 판독("고리가 깨지면 IREN이 먼저, 어느 쪽이든 RKLB는 금리에 눌린다")이 그대로 나타났다.</p>
+</div>
+
+<h2 class="sec">다음 체크포인트</h2>
+<ul class="cps">
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>9월 CPI (10/14)</strong> — 헤드라인 3.7%(예상 범위 위쪽), <strong>근원 0.3%·2.6%로 예상 상회</strong>. 10월 인상 확률 21% → 약 37% (완료)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>TSMC 3분기 실적 (오늘 10/15 오후 3시, 한국)</strong> — 이익률(가이던스 65~67%)과 4분기·내년 전망 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9월 PPI (오늘 밤 9시 30분, 한국)</strong> — 공급 단계에도 물가 압력이 쌓이는가 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>하이닉스 3분기 실적 (10/27 화 오전 8시)</strong> — 다음 판정선. 컨센서스 영업이익 약 77조원 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>10월 FOMC (10/27~28)</strong> — 인상 확률이 살아났다. 하이닉스 실적과 같은 주 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>IREN FY27 1분기 콜 (11/5)</strong> — ①인도 ②조달(금리·구조) ③구사이트·공시. ③의 판정 방식은 콜 전에 확정 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>코어위브 채권 금리</strong> — 2032년물 15% 근처. 네오클라우드 조달 비용의 체온계 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>RKLB 뉴트론 새 일정</strong> — 새 돔 제작·검사 완료(2027년 1분기 전) 후 공표. 🟡 복귀 조건의 하나 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>RKLB FCC 승인</strong> — 공람 11/9 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>RKLB 3분기 실적 (11월 중순)</strong> — 뉴트론 개발비·현금 소진 속도 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 레드뱅크</strong> — 범위 보고서(10월 말), 주민 설명회(11/4~5) (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>앤스로픽-IREN 계약 확인 여부</strong> — 10/11 The Information 보도(단독 보도 · 양사 미확인) (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 공식 답변</strong> — SemiAnalysis 지적에 대한 회사 성명 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>CXMT 4F²의 실체</strong> — 유지 시간·수율·속도 공개 여부 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>하이닉스 자사주 매입 종료 (10/23 무렵)</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>국민연금 국정감사 답변</strong> — 리밸런싱 유예 회의록. 이번 스윕에선 답변 보도를 찾지 못함 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>하이닉스 perp 펀딩</strong> — −365.3%에서 −844.1%로 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>호르무즈·브렌트</strong> — 컨테이너선 GFS 프라이드 침몰(원인 기뢰 vs 발사체 엇갈림), 브렌트 약 105달러 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 1~20일 수출 (10/21 관세청)</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>NAND 약세가 D램·HBM 계약가로 번지는가</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>마이크론 대만 파업</strong> — 10/19 집회·10/22 타이중 조정 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>미 30년물 6%</strong> — 지난 입찰 5.618% (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>원/달러 환율</strong> — 10/14 1,341.25원 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>Nscale IPO 가격</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>11월 2일~ SK㈜ 블록딜</strong> (이월)</span></li>
+</ul>
+
+<h2 class="sec">메르 신규 글 브리핑</h2>
+<div class="mer">
+  <p>직전 판독(10/14) 이후 2편. <strong>블로거 분석이며 판정 근거로 쓰지 않는다.</strong></p>
+  <ul>
+    <li>🔗 <strong>9월 CPI가 발표되었다. 결과를 뜯어보자</strong> — 헤드라인(0.6%·3.7%)은 기름값이라 예상대로였고, 시장을 놀라게 한 건 근원 0.3%·2.6%(예상 0.2%·2.4%). 세부를 보면 집세 +0.4%, 중고차 +0.7%, 의류 +0.3%로 "기름값 불이 옮겨붙은 것"보다 "각자 들썩인 것"이라 더 끈적하다. 10년물이 5.19%에서 5.317%로 뛰었고, 10월 인상 확률이 22%에서 54%(작성 시점)로. 실질 주급 −0.5%. 내일 PPI가 다음 확인. 우리 판독과 일치 — 이 지면의 "미열" 비유가 이 글에서 왔다</li>
+    <li><strong>꿈의 암 치료제가 모더나에서 터졌다는데 어떤걸까? A/S</strong> — 세포 역분화 관련 기존 글의 후속으로 모더나 소식을 정리했다. 포트폴리오와 직접 관련 없음</li>
+  </ul>
+</div>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+<ul>
+  <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-14-2026">Stock Market Today (Oct. 14, 2026): Russell 2000, Nasdaq fall 2% on hot inflation data — TheStreet</a></li>
+  <li><a href="https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-14-dow-sp-500-nasdaq-081136597.html">Hot inflation report drops tech — Yahoo Finance</a></li>
+  <li><a href="https://www.schwab.com/learn/story/stock-market-update-open">'Hot' CPI Data Sends Yields, Rate Hike Odds Higher — Schwab</a></li>
+  <li><a href="https://babypips.com/news/financial-forex-market-recap-2026-10-14">Financial &amp; Forex Market Recap (10/14) — BabyPips</a></li>
+  <li><a href="https://finance.yahoo.com/quote/IREN/">IREN·RKLB·MU·SKHY·^SOX·CRWV·NBIS·TSM·000660.KS 일별 종가 — Yahoo Finance</a></li>
+  <li><a href="https://www.newspim.com/news/view/20261014001192">[마감시황] 코스피, 장 초반 2%대 상승분 반납…6000선 턱걸이 — 뉴스핌</a></li>
+  <li><a href="https://businesskorea.co.kr/news/articleView.html?idxno=278811">[마감 시황] 외인 1.1조 매도에 코스피 6000선 턱걸이 마감 — Businesskorea</a></li>
+  <li><a href="https://www.gurufocus.com/news/9123389/coreweave-nebius-iren-stocks-fall-as-ai-debt-fears-spread">CoreWeave, Nebius, IREN Stocks Fall as AI Debt Fears Spread — GuruFocus</a></li>
+  <li><a href="https://www.cnbc.com/2026/10/14/coreweave-put-options-ai-trade.html">Traders pile into 'bubble puts' on CoreWeave as neocloud stocks plunge — CNBC</a></li>
+  <li><a href="https://247wallst.com/investing/2026/10/14/coreweave-falls-10-as-bond-yield-touches-15-and-elon-musk-says-yikes-nebius-drops-6-oracle-slips/">CoreWeave Falls as Bond Yield Touches 15% — 24/7 Wall St.</a></li>
+  <li><a href="https://www.tipranks.com/news/why-are-nebius-and-coreweave-stocks-falling-in-premarket-today-october-14">Why Are Nebius and CoreWeave Stocks Falling, October 14 — TipRanks</a></li>
+  <li><a href="https://www.benzinga.com/trading-ideas/movers/26/10/62362018/iren-stock-tanks-whats-going-on">IREN Stock Tanks: What's Going On? — Benzinga</a></li>
+  <li><a href="https://www.gurufocus.com/news/9124273/iren-ltd-iren-shares-fall-122-gf-value-says-still-overvalued">IREN Shares Fall 12.2% — GuruFocus</a></li>
+  <li><a href="https://www.investing.com/news/stock-market-news/why-is-iren-stock-tumbling-today-93CH-4949595">Why is IREN stock tumbling today? — Investing.com</a></li>
+  <li><a href="https://x.com/IREN_Ltd/status/2110149386600947768">Redbank 초기 계획 공개 — IREN 공식 (X)</a></li>
+  <li><a href="https://finance.yahoo.com/energy/articles/irens-redbank-campus-adds-900mw-094922499.html">IREN's Redbank Campus Adds 900MW To Its Plans, But Power Is Not Secured Yet — Yahoo Finance</a></li>
+  <li><a href="https://www.capitalbrief.com/briefing/iren-plans-more-than-10b-data-centre-for-wagga-wagga-114bd944-9e24-4427-bd9a-9a60405f6370/">IREN to spend more than $10b on Wagga Wagga data centre — Capital Brief</a></li>
+  <li><a href="https://x.com/StockSavvyShay/status/2110371356332466358">네오클라우드 동반 급락 집계 — Shay Boloor (X, 커뮤니티 반응)</a></li>
+  <li><a href="https://www.bloomberg.com/news/articles/2026-10-14/rocket-lab-delays-debut-of-larger-neutron-rocket-to-next-year">Rocket Lab Falls After Neutron Rocket Debut Delayed to 2027 — Bloomberg</a></li>
+  <li><a href="https://www.investing.com/news/stock-market-news/rocket-lab-pushes-neutron-rockets-debut-flight-to-2027-shares-fall-4950171">Rocket Lab pushes Neutron rocket's debut flight to 2027 — Reuters (Investing.com)</a></li>
+  <li><a href="https://www.stocktitan.net/news/RKLB/rocket-lab-provides-update-on-neutron-development-and-adjusts-target-1znew34na4w9.html">Rocket Lab Provides Update on Neutron Development and Adjusts Target Launch Timing — 회사 보도자료 (StockTitan)</a></li>
+  <li><a href="https://stocktwits.com/news-articles/markets/equity/rklb-stock-slides-8-after-hours-as-neutron-debut-slips-into-2027-over-manufacturing-issues-ceo-says-possible-success-isn-t-our-standard/cZxQcr1RBqp">RKLB Slides 8% After Hours As Neutron Debut Slips Into 2027 — Stocktwits</a></li>
+  <li><a href="https://www.benzinga.com/trading-ideas/movers/26/10/62370952/rocket-lab-stock-tanks-after-neutron-launch-officially-pushed-to-2027">Rocket Lab Stock Tanks After Neutron Launch Officially Pushed to 2027 — Benzinga</a></li>
+  <li><a href="https://www.streetinsider.com/SEC+Filings/Form+144+Rocket+Lab+Corp+Filed+by:+Beck+Peter/26736948.html">Form 144 Rocket Lab Corp Filed by Beck Peter (7월 제출분) — StreetInsider</a></li>
+  <li><a href="https://www.timeslive.co.za/news/world/2026-10-14-container-ship-sinks-after-striking-a-mine-near-the-strait-of-hormuz/">Container ship sinks after striking a mine near the Strait of Hormuz — TimesLIVE</a></li>
+  <li><a href="https://cbsnews.com/live-updates/iran-war-us-houthi-saudi-arabia-trump">Iran war live updates (브렌트 약 105달러) — CBS News</a></li>
+  <li><a href="https://admiralmarkets.com/analytics/traders-blog/tsmc-earnings-q3-2026-preview">TSMC Earnings Q3 2026: Margins and Guidance Under Test — Admiral Markets</a></li>
+  <li><a href="https://app.hyperliquid.xyz/trade/xyz:SKHX">Hyperliquid trade.xyz 무기한 선물 (SKHX·SMSN·MU·IREN·RKLB)</a></li>
+  <li><a href="https://blog.naver.com/ranto28/224441926403">9월 CPI가 발표되었다. 결과를 뜯어보자 — 메르 (블로거 분석)</a></li>
+  <li><a href="https://blog.naver.com/ranto28/224442142358">꿈의 암 치료제가 모더나에서 터졌다는데 어떤걸까? A/S — 메르 (블로거 분석)</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 · 모든 판단은 참고용이며 매매 권유가 아니다 · <a href="../index.html">대시보드로</a></footer>
+</div>
+</body>
+</html>
