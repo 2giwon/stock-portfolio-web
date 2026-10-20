@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공모가 — 2026년 10월 21일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Batang:wght@400;700&family=Courier+Prime:wght@400;700&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-10-21 · 이 문서만을 위해 지은 페이지
+
+   사건: 10/20(화) 서울. GPU를 빌려주는 한국 네오클라우드 엘리스그룹이
+   코스닥 첫날 공모가 90,500원에서 61,600원(−32%)으로 마감했다. 공모가는
+   2주 전, 코어위브 쇼크 이전에 정해진 값이었다. 같은 날 하이닉스는
+   손자회사 솔리다임의 미국 상장 추진 보도에 −4.23%, 코스피 −3.73%.
+   뉴욕에서는 IREN 공동대표가 "데이터센터에 빚이 없다"고 직접 해명했다.
+
+   이번 주에 시장이 요구한 것은 숫자가 아니라 **증명서**다. 그래서 이
+   지면은 오래된 주권(株券) 증서다 — 황토 금박색 지면, 기요셰 무늬 테두리,
+   송명체 제목. 큰 소리는 공모가에 그어진 줄과 붉은 "−32%" 도장 하나뿐.
+   나머지는 증서 안쪽 크림색 종이에 바탕체로 조용히.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  --page-bg: #d9b23a;
+  --on-bg: #241804;
+  --on-bg-2: #4a3608;
+  --paper: #f6edd0;
+  --paper-ink: #22180a;
+  --paper-ink-2: #5a4a2c;
+  --line: #e0d2a8;
+  --guil: #8a6a12;
+  --stamp: #b3261e;
+  --disp: "Song Myung", "Gowun Batang", serif;
+  --serif: "Gowun Batang", "Noto Serif KR", serif;
+  --mono: "Courier Prime", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page-bg: #1c1405; --on-bg: #f0e2b8; --on-bg-2: #c9b47e; --paper: #2a2010; --paper-ink: #efe3c2;
+    --paper-ink-2: #c3b48e; --line: #463620; --guil: #a8862a; --stamp: #ff8f80;
+  }
+}
+:root[data-theme="dark"] {
+  --page-bg: #1c1405; --on-bg: #f0e2b8; --on-bg-2: #c9b47e; --paper: #2a2010; --paper-ink: #efe3c2;
+  --paper-ink-2: #c3b48e; --line: #463620; --guil: #a8862a; --stamp: #ff8f80;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--page-bg); color: var(--on-bg); font-family: var(--serif); font-size: 16px; line-height: 1.8; overflow-x: hidden; word-break: keep-all; overflow-wrap: break-word; }
+.sheet { max-width: 900px; margin: 0 auto; padding: 18px 16px 60px; }
+a { color: inherit; text-underline-offset: 3px; }
+
+.home, .when { font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--on-bg-2); }
+.home { text-decoration: none; }
+.doc-title { margin: 6px 0 0; font-weight: 400; }
+.doc-title .shout {
+  display: block; font-family: var(--disp); font-size: clamp(96px, 30vw, 270px); line-height: 1;
+  letter-spacing: .12em; transform: scaleY(1.12); transform-origin: left top; white-space: nowrap; color: var(--on-bg);
+}
+.doc-title .tail { display: block; margin-top: 22px; font-size: clamp(17px, 4.6vw, 24px); font-weight: 700; max-width: 30em; }
+
+/* 주권 증서 — 이 지면에서 유일하게 소리치는 요소 */
+.cert {
+  position: relative; margin: 28px 0 0; padding: 14px;
+  background:
+    repeating-radial-gradient(circle at 0 0, transparent 0 7px, var(--guil) 7px 8px),
+    repeating-radial-gradient(circle at 100% 100%, transparent 0 7px, var(--guil) 7px 8px);
+  background-color: var(--page-bg);
+}
+.cert-in { position: relative; background: var(--paper); color: var(--paper-ink); padding: 20px 18px 22px; border: 3px double var(--guil); text-align: center; overflow: hidden; }
+.cert .kind { font-family: var(--disp); font-size: clamp(22px, 6vw, 32px); letter-spacing: .5em; margin: 0; }
+.cert .issuer { font-size: 14px; color: var(--paper-ink-2); margin: 2px 0 14px; }
+.cert .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; color: var(--paper-ink-2); }
+.cert .offer { font-family: var(--mono); font-weight: 700; font-size: clamp(40px, 13vw, 86px); line-height: 1.05; text-decoration: line-through; text-decoration-thickness: 6px; text-decoration-color: var(--stamp); }
+.cert .close { font-family: var(--mono); font-weight: 700; font-size: clamp(30px, 9vw, 54px); line-height: 1.1; margin-top: 6px; }
+.cert .stamp {
+  position: absolute; right: 6%; top: 42%; transform: rotate(-14deg);
+  font-family: var(--mono); font-weight: 700; font-size: clamp(28px, 8vw, 50px); color: var(--stamp);
+  border: 4px solid var(--stamp); border-radius: 10px; padding: 0 12px; opacity: .88; background: transparent;
+}
+.cert .fine { margin: 14px auto 0; max-width: 34em; font-size: 13.5px; color: var(--paper-ink-2); line-height: 1.65; }
+
+blockquote[data-summary] { margin: 26px 0 0; padding: 18px 20px; background: var(--paper); color: var(--paper-ink); border-left: 8px solid var(--guil); font-size: 16.5px; }
+
+h2.sec { margin: 48px 0 8px; font-family: var(--disp); font-weight: 400; font-size: clamp(26px, 7vw, 38px); line-height: 1.2; letter-spacing: .06em; color: var(--on-bg); }
+.sec-note { margin: 0 0 10px; font-family: var(--mono); font-size: 12.5px; color: var(--on-bg-2); }
+.paper { background: var(--paper); color: var(--paper-ink); padding: 18px 20px; margin: 12px 0; border-left: 8px solid var(--guil); }
+.paper h3 { margin: 0 0 8px; font-size: 19px; font-weight: 700; }
+.paper p { margin: 0 0 10px; }
+.paper p:last-child { margin-bottom: 0; }
+.paper ul { margin: 0; padding-left: 20px; }
+.tag { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 0 6px; border: 1px solid var(--paper-ink); color: var(--paper-ink); vertical-align: middle; }
+.wrap { overflow-x: auto; background: var(--paper); color: var(--paper-ink); border-left: 8px solid var(--guil); }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.wrap th, .wrap td { padding: 9px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.wrap th { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; color: var(--paper-ink-2); }
+td.num { font-family: var(--mono); white-space: nowrap; }
+.hot { color: var(--stamp); font-weight: 700; }
+
+.px { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin: 2px 0 10px; }
+.px-num { font-family: var(--mono); font-size: clamp(28px, 8vw, 40px); font-weight: 700; }
+.px-cur { font-size: 14px; color: var(--paper-ink-2); }
+.heat { color: var(--on-bg); padding: 14px 18px; margin: 12px 0; border: 2px solid var(--on-bg); }
+.heat p { margin: 0; }
+ul.cps { list-style: none; margin: 0; padding: 0; background: var(--paper); color: var(--paper-ink); border-left: 8px solid var(--guil); }
+ul.cps li { display: flex; gap: 10px; padding: 9px 16px; border-bottom: 1px solid var(--line); }
+ul.cps input { margin-top: 7px; flex: none; accent-color: #8a6a12; }
+.mer { background: var(--paper); color: var(--paper-ink); padding: 18px 20px; border-left: 8px solid var(--guil); }
+.mer p { margin: 0 0 8px; }
+.mer ul { margin: 0; padding-left: 20px; }
+.mer li { margin-bottom: 10px; }
+section.src ul { background: var(--paper); color: var(--paper-ink); margin: 0; padding: 14px 16px 14px 34px; font-size: 13.5px; }
+section.src li { margin: 4px 0; overflow-wrap: anywhere; }
+footer { margin-top: 40px; font-size: 13px; color: var(--on-bg-2); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>← 대시보드</a>
+  <div class="when" data-omit>2026 · 10 · 21 · WED — 서울 10/20 급락 · 뉴욕 10/20 마감 뒤</div>
+  <h1 class="doc-title">
+    <span class="shout">공모가</span>
+    <span class="tail">시장이 "빚으로 GPU를 사서 빌려주는 장사"에 증명서를 요구한 날</span>
+  </h1>
+</header>
+
+<div class="cert" data-omit>
+  <div class="cert-in">
+    <p class="kind">株 券</p>
+    <p class="issuer">엘리스그룹 · 코스닥 · 상장 첫날 10월 20일</p>
+    <div class="lbl">공모가 (10/6 확정)</div>
+    <div class="offer">90,500</div>
+    <div class="lbl" style="margin-top:10px">첫날 종가</div>
+    <div class="close">61,600원</div>
+    <span class="stamp">−32%</span>
+    <p class="fine">기관 389대 1, 일반 408대 1로 흥행한 공모였다. 값이 정해진 날과 상장일 사이 2주 동안 코어위브 채권 쇼크가 지나갔다. 장중 56,500원까지 밀려 하한가(54,300원)에 다가갔다.</p>
+  </div>
+</div>
+
+<blockquote data-summary>10/20(화) 서울에서 <strong>코스피가 −3.73%(5,552.74)</strong>로 밀렸다. 외국인과 기관이 1조5천억원어치를 팔았다. 방아쇠는 셋이 겹쳤다. ① GPU를 빌려주는 한국 네오클라우드 <strong>엘리스그룹이 상장 첫날 공모가 대비 −32%</strong>로 마감했다. ② <strong>하이닉스가 손자회사 솔리다임의 미국 상장 추진 보도에 −4.23%(1,223,000원)</strong>로 빠졌다. ③ 주말에 나온 딥시크 새 모델이 "HBM이 75% 덜 든다"고 주장했다. 뉴욕에서는 <strong>IREN이 −4.00%(26.62달러)로 2026년 최저 종가를 다시 낮췄다</strong>. 공동대표 대니얼 로버츠는 X에 직접 글을 올려 "데이터센터는 현금으로 지었고 빚이 없다"고 해명했다. 같은 날 앤트로픽은 IREN이 아니라 <strong>Nscale과 두 번째 450억 달러 계약</strong>을 협상 중이라는 보도가 나왔다. 시장이 이번 주 요구한 것은 숫자보다 <strong>증명</strong>이다. 관문이 바뀐 곳은 없어 신호등은 하이닉스 🟢·IREN 🟢·RKLB 🔴 그대로다. 단, <strong>하이닉스 판정일은 10/27이 아니라 10/28(수) 오전 9시로 정정</strong>한다. 직전 문서 <a href="2026-10-20-interest-board.html">2026-10-20-interest-board.md</a>의 후속이다.</blockquote>
+
+<h2 class="sec">하루의 숫자</h2>
+<p class="sec-note">서울 10/20 종가 · 뉴욕 10/20 종가 (Yahoo 차트 + 기사 교차 확인)</p>
+<div class="wrap">
+<table>
+<thead><tr><th>항목</th><th>10/19</th><th>10/20</th><th>변화</th></tr></thead>
+<tbody>
+<tr><td>코스피</td><td class="num">5,768.01</td><td class="num">5,552.74</td><td class="num hot">−3.73%</td></tr>
+<tr><td>SK하이닉스</td><td class="num">1,277,000원</td><td class="num">1,223,000원</td><td class="num hot">−4.23%</td></tr>
+<tr><td>삼성전자</td><td class="num">218,000원</td><td class="num">211,500원</td><td class="num">−2.98%</td></tr>
+<tr><td>엘리스그룹 (첫날)</td><td class="num">공모가 90,500원</td><td class="num">61,600원</td><td class="num hot">−32%</td></tr>
+<tr><td>나스닥</td><td class="num">26,430.89</td><td class="num">26,424.82</td><td class="num">−0.02%</td></tr>
+<tr><td>IREN</td><td class="num">27.73달러</td><td class="num">26.62달러</td><td class="num hot">−4.00%</td></tr>
+<tr><td>코어위브</td><td class="num">61.12달러</td><td class="num">62.13달러</td><td class="num">+1.65%</td></tr>
+<tr><td>마이크론</td><td class="num">904.90달러</td><td class="num">896.07달러</td><td class="num">−0.98%</td></tr>
+<tr><td>RKLB</td><td class="num">51.36달러</td><td class="num">50.90달러</td><td class="num">−0.90%</td></tr>
+<tr><td>미 10년물</td><td class="num">5.14%</td><td class="num">5.12%</td><td class="num">−0.02%p</td></tr>
+<tr><td>브렌트</td><td class="num">109.55달러</td><td class="num">109.29달러</td><td class="num">−0.24%</td></tr>
+<tr><td>원/달러</td><td class="num">1,333.43원</td><td class="num">1,330.00원</td><td class="num">10/21 아침 1,325.55원</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">증명 요구서 — 이번 주 누가 무엇을 증명해야 하나</h2>
+<p class="sec-note">같은 질문이 다섯 곳에 동시에 걸렸다: "그 돈은 어디서 나오고, 정말 남는가"</p>
+<div class="wrap">
+<table>
+<thead><tr><th>누가</th><th>시장의 질문</th><th>이번 주 나온 답</th></tr></thead>
+<tbody>
+<tr><td><strong>엘리스그룹</strong><br>한국 네오클라우드</td><td>공공 수주(매출의 66%) 말고 민간 고객으로도 돈이 남는가</td><td>답 없음. 상반기 매출 344억원·영업이익 103억원이지만 첫날 −32%</td></tr>
+<tr><td><strong>IREN</strong></td><td>11월 이후 GPU 대금을 어떤 금리로 조달하나</td><td>공동대표가 X에 해명: 데이터센터는 현금으로 지어 부채 없음, 최근 3년 계약 선급금이 GPU 비용의 45~55%. 회사 공시는 아님</td></tr>
+<tr><td><strong>SK하이닉스</strong></td><td>돈이 넘치는 회사가 왜 자회사를 따로 상장하나</td><td>회사: "구체적으로 결정된 것 없음", 내부·외부 자금을 종합 검토. 금융당국은 중복상장으로 봤다는 보도</td></tr>
+<tr><td><strong>Nscale</strong></td><td>첫 앤트로픽 계약(약 446억 달러)의 돈은 마련됐나</td><td>상장 서류: 첫 계약 자금 조달은 아직. 그런데 두 번째 450억 달러 계약을 협상 중</td></tr>
+<tr><td><strong>코어위브</strong></td><td>무담보 채권 시장이 닫혀도 굴러가나</td><td>2031년물 수익률 15.58%. 골드만: 신규 무담보 발행은 몇 달째 막혔고 프로젝트 금융으로 빌리고 있다</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="paper">
+  <h3>엘리스그룹 — 한국에 처음 나타난 "작은 코어위브"의 첫날</h3>
+  <p>코딩 교육으로 시작해 실습용 서버를 굴리던 노하우로 GPU 임대에 들어간 회사다. 2026년 상반기 매출의 76%가 클라우드였다. 컨테이너에 서버·전력·냉각을 통째로 넣어 공장에서 찍어내는 이동식 데이터센터를 내세워 구축 기간을 3개월 안쪽으로 줄였다고 한다. 정부의 2조800억원 GPU 사업자로도 뽑혔다. 공모는 흥행했지만 <strong>공모가가 정해진 10/6과 상장일 10/20 사이에 코어위브 채권 쇼크가 지나갔고</strong>, 시장의 질문이 "GPU를 빚으로 사서 빌려주는 장사가 정말 남는가"로 바뀌었다. 블룸버그는 이 상장을 외국인 매도의 이유 중 하나로 꼽았다. 메르는 이 상장을 국내 IPO 역사상 최악의 첫날로 소개했다. <span class="tag">블로거 분석(메르)</span></p>
+  <p>우리 종목과의 관계: IREN이 바로 이 사업 모델(빌려서 사고, 빌려준다)의 미국 버전이다. 한국 시장이 같은 질문을 한국 회사에 던졌다는 것은 <strong>네오클라우드 할인이 미국만의 현상이 아니라는</strong> 뜻이다.</p>
+</div>
+
+<div class="paper">
+  <h3>솔리다임 상장 — 하이닉스 주주에게 무엇이 걸렸나</h3>
+  <p>솔리다임은 하이닉스가 인텔 낸드·SSD 사업을 사서 만든 미국 회사다. 블룸버그는 골드만삭스·모건스탠리가 대표 주관사이고 <strong>공모 규모가 최대 150억 달러</strong>라고 보도했다. 기업가치는 블룸버그 최대 1,000억 달러, 로이터 최대 1,500억 달러로 <strong>보도가 엇갈린다</strong>. 상장 시기는 빠르면 2027년이다. 회사는 "구체적으로 결정된 사항이 없다"는 입장이다. 한국기업거버넌스포럼은 상장 중단을 요구했고, 금융당국이 중복상장에 해당한다고 판단했다는 방송 보도가 있다.</p>
+  <p>찬반의 숫자: 블룸버그 인텔리전스는 외부에 지분 10~30%를 넘겨도 하이닉스 주당순이익 감소는 1~3% 수준이라고 봤다. 반대 쪽 논리는 2022년부터 2년간 7조원 넘는 솔리다임 적자를 하이닉스 주주가 떠안았는데 이익이 나는 지금은 밖에 판다는 것이다. 주가가 빠진 직접 이유는 희석보다 <strong>"왜 지금 외부 돈이 필요한가"라는 의문</strong>이다. 고객사의 조달 금리가 오르는 국면이라 더 예민하게 읽혔다.</p>
+</div>
+
+<div class="paper">
+  <h3>딥시크 V4.1-Flash-1017 — "HBM 75% 덜 든다"는 주장</h3>
+  <p>딥시크가 10/17 새 체크포인트를 내며 이전 모델보다 HBM 필요량을 75%, SSD 필요량을 87.5% 줄였다고 주장했다. 10/19 아시아 반도체주가 장중에 밀린 이유로 꼽혔다(블룸버그). <strong>회사 자신의 주장이고 외부 실측은 아직 없다.</strong> 같은 날 브로커 노트들은 반대 방향을 가리켰다. JP모건은 삼성·하이닉스와의 구매 협상이 2028~29년까지 뻗어 있다고 했고, D램 현물값은 한 달 전과 같거나 최대 4% 올랐다. 마이크론의 가격 공식이 붙은 장기 계약은 매출의 50%까지 늘 전망이다(캔터). <span class="tag">브로커 노트 모음(404K 브리프) · 2차 인용</span> 수요 쪽 증거는 아직 무너지지 않았다. 그래서 딥시크 주장의 실측 검증을 체크포인트로 올린다.</p>
+</div>
+
+<h2 class="sec">무기한 선물 포지셔닝</h2>
+<p class="sec-note">하이퍼리퀴드 trade.xyz · 10/21 오전 8시 42분(한국, 서울 개장 전). 펀딩은 그 시각 순간값의 연율. 참고 채널이며 판정 근거로 쓰지 않는다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>심볼</th><th>가격</th><th>24시간</th><th>펀딩(연율)</th><th>미결제약정</th></tr></thead>
+<tbody>
+<tr><td>xyz:SKHX (하이닉스)</td><td class="num">950.77</td><td class="num">−1.48%</td><td class="num hot">−154.1%</td><td class="num">약 39.7만</td></tr>
+<tr><td>xyz:SMSN (삼성전자)</td><td class="num">164.91</td><td class="num">−0.30%</td><td class="num hot">−294.1%</td><td class="num">약 24.8만</td></tr>
+<tr><td>xyz:MU (마이크론)</td><td class="num">915.04</td><td class="num">+1.01%</td><td class="num">+5.5%</td><td class="num">약 16.4만</td></tr>
+<tr><td>xyz:IREN</td><td class="num">27.778</td><td class="num">+0.22%</td><td class="num">+5.5%</td><td class="num">약 19.8만</td></tr>
+<tr><td>xyz:RKLB</td><td class="num">52.287</td><td class="num">+1.49%</td><td class="num">+11.2%</td><td class="num">약 13.1만</td></tr>
+</tbody>
+</table>
+</div>
+<div class="paper">
+  <p><strong>한국 반도체 두 종목의 펀딩이 크게 음수로 뒤집혔다.</strong> 하이닉스는 −21%에서 −154.1%로, 삼성은 +125.7%에서 −294.1%로 바뀌었다. 펀딩이 음수면 하락에 거는 쪽(숏)이 돈을 내고 자리를 지킨다는 뜻이다. 하이닉스 미결제약정도 36.4만에서 39.7만으로 늘었다. 솔리다임·딥시크 소식 위에 <strong>새 숏이 들어왔다</strong>는 신호다. 한쪽으로 몰린 포지션은 반대 뉴스(10/28 실적)에 크게 되감길 수 있지만, 이 값은 순간값이라 몇 시간 안에도 바뀐다.</p>
+  <p>가격 쪽에는 설명 못 한 차이가 둘 있다. 하이닉스 perp 950.77달러는 서울 종가 1,223,000원을 환율로 바꾼 약 920달러보다 3%쯤 높다. IREN perp 27.778달러도 뉴욕 종가 26.62달러보다 약 4% 높다. 장 마감 뒤 회사 소식은 찾지 못했다. <strong>현물과 무관한 값이 찍힌 전례(7월 오라클 사고)</strong>가 있으므로 다음 개장 갭을 미리 보여 주는 값으로 읽지 않는다. 원인 미상의 차이로만 기록한다.</p>
+</div>
+
+<h2 class="sec">종목별</h2>
+
+<div class="paper">
+  <h3>SK하이닉스 🇰🇷</h3>
+  <div class="px">
+    <span class="px-num" data-price="hynix" data-currency="KRW" data-delta="-4.23">1,223,000</span>
+    <span class="px-cur">원 · 10/20 종가 −4.23%</span>
+  </div>
+  <p>솔리다임 상장 보도로 장중 한때 −4.9%까지 밀렸다(블룸버그). 지주사 SK스퀘어도 한때 −7.1%였다. 코스피 −3.73% 안에서 외국인 −5,388억원, 기관 −1조11억원 순매도였다(EBN). 9월 고점 이후 하락 폭이 커졌지만 <strong>새 실적 숫자나 주문 취소 소식은 없었다</strong>. 3분기 컨센서스(에프앤가이드)는 매출 98조2,257억원·영업이익 76조9,640억원이다. 메리츠는 영업이익 80조1,000억원을 예상했고, 실적 발표 때 추가 주주환원(증권가 추정 재원 30조원 이상)이 나올 예정이다.</p>
+  <p><strong>🔴 일정 정정:</strong> 실적 발표·콘퍼런스콜은 <strong>10/28(수) 오전 9시</strong>다(10/14 공시, 한국어·영어 동시 중계). 직전 문서까지 적어 둔 "10/27 화 오전 8시"는 틀린 날짜다. FOMC 회의(미국 10/27~28)가 이미 시작된 뒤에 나오지만, 금리 결정(한국 10/29 새벽 3시)보다는 하루 가까이 앞선다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지.</strong> 실패한 관문이 없다. 판정은 10/28 실적이다. 볼 것은 셋이다. ① 4분기·내년 HBM 물량과 가격에 대한 회사의 말 ② 솔리다임 상장에 대한 공식 입장(자금 용도) ③ 주주환원 규모. 딥시크 주장과 고객 조달 금리가 주문에 영향을 줬는지는 ①에서 드러난다.</p>
+</div>
+
+<div class="paper">
+  <h3>IREN 🇺🇸</h3>
+  <div class="px">
+    <span class="px-num" data-price="iren" data-currency="USD" data-delta="-4.00">26.62</span>
+    <span class="px-cur">달러 · 10/20 종가 −4.00%</span>
+  </div>
+  <p>장 초반 −6%(26.15달러)까지 밀렸다가 공동대표 대니얼 로버츠의 X 글이 나온 뒤 −1%대로 회복했다. 하지만 종가는 −4.00%였다. <strong>10/16의 26.99달러보다 낮은 2026년 최저 종가</strong>이고, 장중 저점은 25.59달러였다(MarketBeat). 로버츠의 말은 세 가지다. ① 데이터센터는 현금으로 지었고 그 부지에 빚이 없다. ② 최근 3년 계약은 선급금이 GPU 비용의 45~55%를 대고 나머지 대부분은 GPU를 담보로 대주단이 낸다. 마이크로소프트 계약은 A등급 대출 한도와 합쳐 96%가 덮인다. ③ 올해 물량은 거의 다 팔렸고 내년 물량에는 수요가 몇 배 몰렸다. <span class="tag">회사 경영진의 SNS 발언 · 공시 아님</span> 주의할 점이 있다. "빚 없이 확장"은 아니다. <strong>GPU 구매는 여전히 빚으로 한다</strong>. 그 빚의 금리가 11/5 콜의 ②번 관문이다.</p>
+  <p>앤트로픽 쪽 소식: 블룸버그(로이터 인용)는 앤트로픽이 Nscale과 <strong>두 번째 약 450억 달러 계약</strong>을 협상 중이라고 보도했다. 웨스트버지니아 모나크 캠퍼스 두 번째 건물, 460MW, 엔비디아 베라 루빈 규모다. 앤트로픽이 컴퓨트를 여러 네오클라우드에 나눠 사고 있다는 점은 IREN도 고객 후보에 남을 수 있다는 근거다. 동시에 IREN-앤트로픽 계약은 여전히 <strong>단독 보도 · 양사 미확인</strong>이다. 앤트로픽 상장 몸값도 2조 달러(CNBC)와 1.5조 달러(10/16 보도)로 보도가 엇갈린다. 가트너 수석 애널리스트 존 러브록은 10/19 CNBC에서 "지금의 AI 수익으로는 네오클라우드 증설 규모가 정당화되지 않는다"는 견해를 되풀이했다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지 — 가장 위태로운 🟢.</strong> 경영진이 직접 해명에 나선 것은 시장의 질문이 조달로 좁혀졌다는 뜻이지 관문 통과가 아니다. 11/5 콜의 판정 조건은 ①인도 ②조달(금리·구조. 비교 기준은 코어위브 15.58%, 앤트로픽 후순위 10%+) ③구사이트·공시다. ③의 판정 방식(답변 여부 vs 결과)은 아직 정하지 못했다.</p>
+</div>
+
+<div class="paper">
+  <h3>Rocket Lab 🚀</h3>
+  <div class="px">
+    <span class="px-num" data-price="rklb" data-currency="USD" data-delta="-0.90">50.90</span>
+    <span class="px-cur">달러 · 10/20 종가 −0.90%</span>
+  </div>
+  <p>뉴트론 연기 주(10/16까지) −25.5% 뒤 횡보 중이다. 일렉트론 98번째 발사 "We're Not Hawking Around"(호크아이360 위성 3기)의 창이 10/21 오전 3시(미 동부, 한국 오후 4시)에 열린다. 다음은 iQPS 두 번(11/4·11/10 이후)이다. 키뱅크는 10/15에 매수를 유지하며 목표가를 135→100달러로 내렸다. 이리듐 인수의 FCC 공람은 11/9까지다. 새 계약 공시는 이번 주에 찾지 못했다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🔴 유지.</strong> 하향 근거(4분기 패드 인도 미이행이 사실상 확정)는 그대로다. 🟡 복귀 조건: 새 발사 일정 공표, 1단 탱크 검사 통과, FCC 승인.</p>
+</div>
+
+<h2 class="sec">신호등 요약</h2>
+<div class="wrap">
+<table>
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix"><td data-name>SK하이닉스</td><td data-light>🟢</td><td data-change>유지</td><td data-note>1,223,000원(−4.23%). <strong>솔리다임 미국 상장 추진 보도</strong>와 딥시크 "HBM 75% 절감" 주장. 실적 소식은 없음 — 판정은 <strong>10/28(수) 9시</strong>로 정정</td></tr>
+<tr data-signal="iren"><td data-name>IREN</td><td data-light>🟢</td><td data-change>유지</td><td data-note>26.62달러, <strong>2026년 최저 종가 갱신</strong>. 공동대표 "데이터센터 무부채·선급금 45~55%" 해명. GPU 조달 금리는 11/5 콜에서</td></tr>
+<tr data-signal="rklb"><td data-name>RKLB</td><td data-light>🔴</td><td data-change>유지</td><td data-note>50.90달러. 일렉트론 98번째 발사 대기. 새 일정·FCC 승인 전까지 🔴</td></tr>
+</tbody>
+</table>
+</div>
+<div class="heat">
+  <p><strong>포트폴리오 히트:</strong> 엘리스·IREN·Nscale·코어위브가 받은 질문("빌린 돈으로 GPU를 사서 남는가")에 하이닉스까지 엮였다. 고객이 돈을 못 구하면 곡괭이 장수도 흔들린다. 그 위에 하이닉스는 이번 주 "왜 우리도 외부 돈을 구하나"라는 질문을 하나 더 받았다. 세 종목 중 두 종목(하이닉스·IREN)이 같은 질문 하나에 함께 묶여 있다. 그 답이 차례로 나오는 날은 10/28(하이닉스)과 11/5(IREN)이다. RKLB는 이 질문 밖에서 뉴트론 일정에 걸려 있다.</p>
+</div>
+
+<h2 class="sec">다음 체크포인트</h2>
+<ul class="cps">
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>하이닉스 3분기 실적 (10/28 수 오전 9시)</strong> — 다음 판정선. 날짜 정정(종전 10/27 8시). HBM 물량·가격, 솔리다임 공식 입장, 주주환원 규모 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>10월 FOMC (10/27~28)</strong> — 금리 결정은 한국 10/29 새벽 3시, 하이닉스 실적보다 뒤. 10년물 5.12% (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9월 PCE (10/29 오전 8시 30분, 미 동부)</strong> — 발표일 확인됨. 근원 전월 대비 약 0.35%로 역산됨 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>솔리다임 상장</strong> — 이사회 결정, 금융당국 판단 공식화, 공모 규모(최대 150억 달러)와 자금 용도 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>딥시크 "HBM 75% 절감" 실측</strong> — 외부 측정이 주장을 뒷받침하는가. 하이닉스 실적 콜의 수요 발언과 대조 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>코어위브 채권·CDS</strong> — 2031년물 15.58%(10/20), 2032년물 14.9%, CDS 약 1,082bp. 15% 아래로 내려오는가 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>앤트로픽 600억 달러 칩 대출 최종 금리</strong> — 후순위 10%+가 확정되는가. IREN ②조달의 비교 기준 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>IREN FY27 1분기 콜 (11/5)</strong> — ①인도 ②조달 ③구사이트·공시. 공동대표 X 해명(선급금 45~55%)이 콜 자료로 확인되는가. ③의 판정 방식은 콜 전에 확정 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>앤스로픽-IREN 계약 확인 여부</strong> — 단독 보도 · 양사 미확인. 앤트로픽-Nscale 두 번째 450억 달러 협상, 상장 몸값 보도 상충(1.5조 vs 2조 달러) (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>Nscale 두 번째 앤트로픽 계약</strong> — 확정 여부, 첫 계약 조달 해결 여부(상장 서류상 미조달) (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>엘리스그룹 주가와 민간 수주</strong> — 공모가 90,500원 회복 여부. 한국 네오클라우드 할인의 지표 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 마케팅 지출</strong> — 레알 마드리드(10/18)·워리어스 후원 비용과 조달 계획을 11/5 콜에서 함께 확인 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>가트너 예측 이후 네오클라우드 조달 조건</strong> — 신규 채권·대출 금리에 반영되는가 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 공식 답변</strong> — SemiAnalysis 지적 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 레드뱅크</strong> — 범위 보고서(10월 말), 주민 설명회(11/4~5) (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>RKLB 뉴트론 새 일정</strong> — 새 돔 제작·검사 완료(2027년 1분기 전) 후 공표 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>RKLB 일렉트론 98번째 발사</strong> — 10/21 오전 3시(미 동부) 창. 다음 iQPS 11/4·11/10 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>RKLB FCC 승인</strong> — 공람 11/9 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>RKLB 3분기 실적</strong> (11월 중순) (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>테슬라 3분기 실적 콜</strong> — 10/21 오후 5시 30분(미 동부), 한국 10/22 아침. 스페이스X 합병 질문에 대한 답(메르 관전 포인트) (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>하이닉스 자사주 매입 종료 (10/23 무렵)</strong> — 10월 진행 공시 재확인 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>외국인 하이닉스 매도</strong> — 10/20 외국인 −5,388억원·기관 −1조11억원(코스피 전체). 매도가 이어지는가 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>하이닉스 perp 숏 쏠림</strong> — 펀딩 −154.1%, 미결제약정 39.7만. 실적 전후로 되감기는가 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>금융당국 후속 조치·증안펀드</strong> — 10조7,600억 틀 집행 여부 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>국민연금</strong> — 국감 답변 원문 미확인. 메르 계산 매수선 코스피 약 5,380 — 10/20 장중 5,493까지 접근 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>CXMT 4F²의 실체</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>호르무즈·브렌트</strong> — 109.29달러 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>10월 1~20일 수출 (10/21 오전 9시 관세청)</strong> — 이 문서 작성 시각(8시 42분)에는 미발표. 1~10일은 반도체 122억 달러 +170.9% (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>NAND 약세가 D램·HBM 계약가로 번지는가</strong> — 이번 주 D램 현물은 보합~+4% (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>마이크론 대만 노조</strong> — 타이중 노조 10/22 조정 재개, 타오위안 노조는 99% 파업 찬성 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>미 30년물 6%</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>원/달러 환율</strong> — 10/21 아침 1,325.55원 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>Nscale IPO 가격</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>11월 2일~ SK㈜ 블록딜</strong> (이월)</span></li>
+</ul>
+
+<h2 class="sec">메르 신규 글 브리핑</h2>
+<div class="mer">
+  <p>직전 판독(10/20 아침) 이후 2편. <strong>블로거 분석이며 판정 근거로 쓰지 않는다.</strong></p>
+  <ul>
+    <li>🔗 <strong>10월 20일 국장의 엘리스 상장 쇼크가 뭐지?</strong> — 코딩 교육 회사가 GPU 임대 회사(클라우드 매출 76%)로 바뀐 과정과 이동식 모듈형 데이터센터(구축 3개월·초기비용 절반)를 정리했다. 첫날 −32%의 이유를 공모가 확정(10/6)과 상장일 사이의 코어위브 쇼크라는 "타이밍"으로 봤다. 시장의 질문은 "GPU를 빚으로 사서 빌려주는 장사가 정말 남는가"라고 짚었다. 한 줄 코멘트는 공공 수주 말고 민간 수주와 수익성을 확인시켜야 하며, 데이터센터로 돈을 벌겠다는 기업에 시장이 점점 까칠해진다는 것이다. 이 지면의 주제가 이 글에서 왔다 — IREN 판독과 같은 방향</li>
+    <li><strong>임대차 계약에 중요한 신상 판례가 나왔다 (feat 갱신권)</strong> — 실거주를 이유로 갱신을 거절한 집주인이 14개월 살고 다시 세를 놓은 사건을 다뤘다. 대법원은 "갱신 거절 때 예측할 수 없었던 사정이고, 제3자 임대가 불가피해야 하며, 증명은 임대인이 한다"며 배상을 확정했다. 포트폴리오와 무관</li>
+  </ul>
+</div>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+<ul>
+  <li><a href="https://www.ebn.co.kr/news/articleView.html?idxno=1728524">코스피, 외국인·기관 1.5조 '팔자'에 와르르…5550대로 후퇴 — EBN</a></li>
+  <li><a href="https://www.etnews.com/20261020000354">코스피, 3%대 급락 5500선 마감 — 전자신문</a></li>
+  <li><a href="https://www.bloomberg.com/news/articles/2026-10-20/chipmakers-lead-korean-stock-selloff-on-yield-spike-ipo-stumble">Chipmakers Lead Korean Stock Selloff on Yield Spike, IPO Stumble — Bloomberg</a></li>
+  <li><a href="https://www.bloomberg.com/news/articles/2026-10-19/korean-stocks-fall-as-deepseek-model-funding-worry-rattle-chips">Asian Chip Stocks Extend Losses on Funding Worry, DeepSeek Model — Bloomberg</a></li>
+  <li><a href="https://www.technology.org/2026/10/19/deepseek-v4-1-flash-1017-chip-stocks-search-api/">DeepSeek V4.1-Flash-1017 Update Hits Chip Stocks — technology.org</a></li>
+  <li><a href="https://finance.biggo.com/news/054590cf-101d-4756-bb3c-7e0f46cf512b">DeepSeek's Leaner AI Model Slams Korean Chip Stocks — BigGo Finance</a></li>
+  <li><a href="https://magazine.hankyung.com/business/article/202610190138b">솔리다임 상장 SK하이닉스의 셈법은 — 한경비즈니스</a></li>
+  <li><a href="https://news.mtn.co.kr/article/2026101916225998399">SK 솔리다임 상장 추진…성장동력 확보냐, 주주가치 희석이냐 — MTN</a></li>
+  <li><a href="https://view.asiae.co.kr/article/2026102017512579009">거버넌스포럼 "솔리다임 상장, 중단해야" — 아시아경제</a></li>
+  <li><a href="https://imnews.imbc.com/replay/2026/nwdesk/article/6859107_37004.html">하이닉스 자회사 '솔리다임' 상장하나‥당국 "중복상장 해당 판단" — MBC</a></li>
+  <li><a href="https://kr.investing.com/news/stock-market-news/article-2130779">솔리다임 상장, SK하이닉스 'HBM 실탄' 될까…최대 20조 조달 주목 — EBN(인베스팅닷컴)</a></li>
+  <li><a href="https://x.com/TheValueist/status/2104388859626688763">SK Hynix shares drop as much as 4.9% after Solidigm IPO reports (블룸버그 인용) — 커뮤니티 반응(X)</a></li>
+  <li><a href="https://x.com/wallstengine/status/2103527967792275830">Solidigm eyes $150B IPO, per Reuters — 커뮤니티 반응(X)</a></li>
+  <li><a href="https://www.newsis.com/view/NISX20261016_0003829262">SK하이닉스, 올 3Q 영업익 80조 돌파할까 — 뉴시스</a></li>
+  <li><a href="https://www.economytribune.co.kr/news/articleView.html?idxno=3904119">메리츠證 "SK하이닉스 컨센서스 상회 전망" — 이코노미트리뷴</a></li>
+  <li><a href="https://newsroom.stockplus.com/breaking-news/39522">SK하이닉스, 28일 3분기 실적 발표..추가 주주환원 주목 — 스톡플러스</a></li>
+  <li><a href="https://www.theglobeandmail.com/investing/markets/stocks/SKHY/pressreleases/7817208/sk-hynix-sets-october-28-conference-call-for-q3-2026-earnings/">SK hynix Sets October 28 Conference Call for Q3 2026 Earnings — Globe and Mail</a></li>
+  <li><a href="https://404kresearch.substack.com/p/404k-semi-ai-evening-brief-october-491">404K SEMI-AI Evening Brief — October 20, 2026 (브로커 노트 모음, 2차 인용)</a></li>
+  <li><a href="https://247wallst.com/investing/2026/10/20/iren-sinks-6-then-recovers-after-co-ceos-no-debt-reassurance-as-neocloud-worries-persist-terawulf-and-applied-digital-rise-3/">IREN Sinks 6%, Then Recovers After Co-CEO's No-Debt Reassurance — 24/7 Wall St.</a></li>
+  <li><a href="https://stocktwits.com/news-articles/markets/equity/iren-co-ceo-daniel-roberts-says-firm-s-data-centers-carry-no-debt-as-funding-worries-hit-stock/cZxqtl2RBuo">IREN Co-CEO Pushes Back On Funding Concerns — Stocktwits</a></li>
+  <li><a href="https://www.marketbeat.com/instant-alerts/price-iren-nasdaq-iren-stock-falls-4-heres-what-happened-2026-10-20/">IREN Stock Falls 4% - Here's What Happened — MarketBeat</a></li>
+  <li><a href="https://www.tipranks.com/news/iren-coreweave-and-nebius-stocks-are-falling-in-premarket-today-whats-behind-the-sell-off">IREN, CoreWeave, and Nebius Stocks Are Falling in Premarket Today (Oct. 20) — TipRanks</a></li>
+  <li><a href="https://x.com/moninvestor/status/2111218737869127698">$IREN is down 25% this week — 커뮤니티 반응(X)</a></li>
+  <li><a href="https://www.investing.com/news/stock-market-news/nscale-anthropic-in-talks-for-45-billion-cloud-computing-deal-bloomberg-news-reports-4958188">Anthropic, Nscale in talks for new $45 billion AI cloud computing deal, Bloomberg News reports — Reuters(인베스팅닷컴)</a></li>
+  <li><a href="https://qz.com/nscale-anthropic-second-45-billion-computing-deal-102026">Nscale is in talks with Anthropic for a second $45 billion AI computing deal — Quartz</a></li>
+  <li><a href="https://www.cnbc.com/2026/10/20/anthropic-nscale-data-center-deal.html">Anthropic in talks for second $45 billion Nscale data center deal: source — CNBC</a></li>
+  <li><a href="https://www.benzinga.com/markets/tech/26/10/62470728/coreweave-bond-yields-15-5-percent-shares-17-month-lows">CoreWeave Bond Yields Hit 15.5%, Shares at 17-Month Lows — Benzinga</a></li>
+  <li><a href="https://www.cnbc.com/2026/10/19/coreweave-oracle-ai-credit-stress.html">CoreWeave bond yields stay near 15% as AI stocks rebound — CNBC</a></li>
+  <li><a href="https://www.bloomberg.com/opinion/articles/2026-10-20/coreweave-s-bond-rout-should-make-the-fed-cautious">CoreWeave's Bond Rout Should Make the Fed Cautious — Bloomberg Opinion</a></li>
+  <li><a href="https://finance.biggo.com/news/23d759e2-98ab-47a4-962b-48be7268ee0e">HSBC Says CoreWeave's Slide Is Not the Bottom, Keeps $39 Target — BigGo Finance</a></li>
+  <li><a href="https://www.fool.com/investing/2026/10/20/why-rocket-labs-fall-is-overblown/">Why Rocket Lab's Recent Fall Is Overblown — Motley Fool</a></li>
+  <li><a href="https://newsable.asianetnews.com/markets/rklb-stock-dips-overnight-rocket-lab-shows-neutron-progress-after-2027-delay-but-retail-wants-dates-and-deals-articleshow-avrm8nn">RKLB Stock Dips Overnight: Rocket Lab Shows Neutron Progress After 2027 Delay — Asianet Newsable</a></li>
+  <li><a href="https://www.space.com/space-exploration/launches-spacecraft/rocket-lab-pushes-1st-launch-of-next-gen-neutron-rocket-to-2027">Rocket Lab pushes 1st launch of next-gen Neutron rocket to 2027 — Space.com</a></li>
+  <li><a href="https://x.com/StockSavvyShay/status/2110494417769635938">Neutron slipped into 2027 — 커뮤니티 반응(X)</a></li>
+  <li><a href="https://www.bea.gov/data/income-saving/personal-income">Personal Income — 다음 발표 2026-10-29 — BEA</a></li>
+  <li><a href="https://www.teslaoracle.com/?p=66789">Tesla Q3 2026 earnings call date and time — Tesla Oracle</a></li>
+  <li><a href="https://www.tikr.com/ko/blog/micron-taiwan-workers-authorize-strike-bonus-dispute">대만 마이크론 직원들, 보너스 제도 분쟁으로 파업 동의 투표 가결 — TIKR</a></li>
+  <li><a href="https://www.dailian.co.kr/news/view/1700155/10%EC%9B%94-%EC%B4%88-%EC%88%98%EC%B6%9C-261%EC%96%B5-%EB%8B%AC%EB%9F%AC-%E2%80%98%EC%8B%A0%EA%B8%B0-2026">10월 초 수출 261억 달러 '신기록'…반도체 비중 46.7% — 데일리안</a></li>
+  <li><a href="https://data.sec.gov/submissions/CIK0001878848.json">IREN SEC 제출 목록 — 10/13 DEF 14A 이후 새 서류 없음</a></li>
+  <li><a href="https://app.hyperliquid.xyz/trade/xyz:SKHX">Hyperliquid trade.xyz 무기한 선물 (SKHX·SMSN·MU·IREN·RKLB)</a></li>
+  <li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224448448961">10월 20일 국장의 엘리스 상장 쇼크가 뭐지? — 메르(블로거 분석)</a></li>
+  <li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224447538235">임대차 계약에 중요한 신상 판례가 나왔다 (feat 갱신권) — 메르(블로거 분석)</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 · 모든 판단은 참고용이며 매매 권유가 아니다 · <a href="../index.html">대시보드로</a></footer>
+</div>
+</body>
+</html>
