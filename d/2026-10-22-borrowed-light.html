@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>빌린 빛 — 2026년 10월 22일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;800&family=Gowun+Dodum&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-10-22 · 이 문서만을 위해 지은 페이지
+
+   사건: 10/21(수) 하루에 세 종목이 함께 올랐다 — 하이닉스 +5.81%,
+   IREN +4.58%, RKLB +5.44%. 그런데 셋 다 자기 관문은 하나도 열리지
+   않았다. 빛은 남에게서 왔다. 스페이스X가 AI 컴퓨트를 앤트로픽·구글에
+   빌려주고 처음 흑자를 냈고(머스크: 과잉 설비론은 "터무니없다"),
+   10월 1~20일 반도체 수출이 +222.5%였고, 미-이란 외교 기대에 유가가
+   내렸다. 그날 밤 테슬라·메타 실적 뒤 나스닥 선물이 꺾였고, 10/22
+   서울에서 하이닉스는 일부를 되돌렸다.
+
+   그래서 이 지면은 달빛이다 — 연보라 밤하늘, 화면을 가르는 큰 달 하나,
+   그 표면에 반사된 세 숫자. 제목은 옆으로 길게 늘였다. 소리치는 것은
+   달 하나뿐이고, 나머지는 옅은 종이 위에 고딕으로 조용히. 스스로 빛나는
+   날(자기 관문)은 10/28과 11/5다.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  --page-bg: #b6aee6;
+  --on-bg: #1d1640;
+  --on-bg-2: #352c6a;
+  --paper: #f4f1fd;
+  --paper-ink: #1a1533;
+  --paper-ink-2: #4e4775;
+  --line: #ddd8f2;
+  --edge: #4b3fa0;
+  --hot: #a61f50;
+  --moon: #f6e7a1;
+  --moon-shade: #d9c672;
+  --moon-ink: #1d1640;
+  --disp: "Nanum Myeongjo", serif;
+  --sans: "Gowun Dodum", "Apple SD Gothic Neo", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page-bg: #120f26; --on-bg: #e9e5ff; --on-bg-2: #b7afe6; --paper: #1d1938; --paper-ink: #ece8ff;
+    --paper-ink-2: #b9b2df; --line: #332d5a; --edge: #8f84e8; --hot: #ff8fb3; --moon: #e9d98a; --moon-shade: #b8a85e; --moon-ink: #1d1640;
+  }
+}
+:root[data-theme="dark"] {
+  --page-bg: #120f26; --on-bg: #e9e5ff; --on-bg-2: #b7afe6; --paper: #1d1938; --paper-ink: #ece8ff;
+  --paper-ink-2: #b9b2df; --line: #332d5a; --edge: #8f84e8; --hot: #ff8fb3; --moon: #e9d98a; --moon-shade: #b8a85e; --moon-ink: #1d1640;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--page-bg); color: var(--on-bg); font-family: var(--sans); font-size: 16px; line-height: 1.8; overflow-x: hidden; word-break: keep-all; overflow-wrap: break-word; }
+.sheet { max-width: 880px; margin: 0 auto; padding: 18px 16px 60px; }
+a { color: inherit; text-underline-offset: 3px; }
+
+.home, .when { font-family: var(--mono); font-size: 12.5px; font-weight: 600; letter-spacing: .1em; color: var(--on-bg-2); }
+.home { text-decoration: none; }
+.doc-title { margin: 10px 0 0; font-weight: 400; }
+.doc-title .shout {
+  display: block; font-family: var(--disp); font-weight: 800; font-size: clamp(56px, 17vw, 158px); line-height: 1;
+  transform: scaleX(1.55); transform-origin: left center; white-space: nowrap; color: var(--on-bg); letter-spacing: .02em;
+}
+.doc-title .tail { display: block; margin-top: 20px; font-size: clamp(17px, 4.6vw, 23px); max-width: 30em; }
+
+/* 달 — 이 지면에서 유일하게 소리치는 요소 */
+.sky { position: relative; margin: 30px 0 0; padding: 0 0 6px; }
+.moon {
+  position: relative; width: min(100%, 520px); aspect-ratio: 1; margin: 0 auto; border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 34%, var(--moon-shade) 0 6%, transparent 6.5%),
+    radial-gradient(circle at 68% 62%, var(--moon-shade) 0 9%, transparent 9.5%),
+    radial-gradient(circle at 58% 24%, var(--moon-shade) 0 4%, transparent 4.5%),
+    radial-gradient(circle at 36% 36%, var(--moon) 0 62%, var(--moon-shade) 100%);
+  box-shadow: 0 0 0 14px color-mix(in srgb, var(--moon) 22%, transparent), 0 0 90px 30px color-mix(in srgb, var(--moon) 30%, transparent);
+  color: var(--moon-ink); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12%;
+}
+.moon .lbl { font-family: var(--mono); font-size: clamp(11px, 2.8vw, 13px); letter-spacing: .14em; }
+.moon .rows { margin: 8px 0; display: grid; gap: 2px; }
+.moon .r { display: flex; justify-content: space-between; gap: 18px; font-family: var(--mono); font-weight: 600; font-size: clamp(22px, 7vw, 40px); line-height: 1.2; }
+.moon .r span:first-child { font-family: var(--sans); font-weight: 400; font-size: .55em; align-self: center; }
+.moon .cap { font-size: clamp(12px, 3.2vw, 14px); max-width: 22em; line-height: 1.55; }
+.sun { margin: 18px auto 0; max-width: 36em; text-align: center; font-family: var(--mono); font-size: 13px; color: var(--on-bg-2); }
+
+blockquote[data-summary] { margin: 30px 0 0; padding: 18px 20px; background: var(--paper); color: var(--paper-ink); border-left: 6px solid var(--edge); font-size: 16.5px; border-radius: 0 14px 14px 0; }
+
+h2.sec { margin: 50px 0 8px; font-family: var(--disp); font-weight: 800; font-size: clamp(25px, 6.6vw, 36px); line-height: 1.25; color: var(--on-bg); }
+.sec-note { margin: 0 0 10px; font-family: var(--mono); font-size: 12.5px; color: var(--on-bg-2); }
+.paper { background: var(--paper); color: var(--paper-ink); padding: 18px 20px; margin: 12px 0; border-radius: 14px; }
+.paper h3 { margin: 0 0 8px; font-size: 19px; font-family: var(--disp); font-weight: 800; }
+.paper p { margin: 0 0 10px; }
+.paper p:last-child { margin-bottom: 0; }
+.paper ul { margin: 0; padding-left: 20px; }
+.tag { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 600; padding: 0 7px; border: 1px solid var(--paper-ink-2); border-radius: 99px; color: var(--paper-ink-2); vertical-align: middle; }
+.wrap { overflow-x: auto; background: var(--paper); color: var(--paper-ink); border-radius: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.wrap th, .wrap td { padding: 9px 11px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.wrap th { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; color: var(--paper-ink-2); }
+td.num { font-family: var(--mono); white-space: nowrap; }
+.hot { color: var(--hot); font-weight: 700; }
+
+.px { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin: 2px 0 10px; }
+.px-num { font-family: var(--mono); font-size: clamp(28px, 8vw, 40px); font-weight: 600; }
+.px-cur { font-size: 14px; color: var(--paper-ink-2); }
+.heat { color: var(--on-bg); padding: 14px 18px; margin: 12px 0; border: 2px solid var(--on-bg); border-radius: 14px; }
+.heat p { margin: 0; }
+ul.cps { list-style: none; margin: 0; padding: 0; background: var(--paper); color: var(--paper-ink); border-radius: 14px; overflow: hidden; }
+ul.cps li { display: flex; gap: 10px; padding: 9px 16px; border-bottom: 1px solid var(--line); }
+ul.cps input { margin-top: 7px; flex: none; accent-color: #4b3fa0; }
+.mer { background: var(--paper); color: var(--paper-ink); padding: 18px 20px; border-radius: 14px; }
+.mer p { margin: 0 0 8px; }
+.mer ul { margin: 0; padding-left: 20px; }
+.mer li { margin-bottom: 10px; }
+section.src ul { background: var(--paper); color: var(--paper-ink); margin: 0; padding: 14px 16px 14px 34px; font-size: 13.5px; border-radius: 14px; }
+section.src li { margin: 4px 0; overflow-wrap: anywhere; }
+footer { margin-top: 40px; font-size: 13px; color: var(--on-bg-2); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>← 대시보드</a>
+  <div class="when" data-omit>2026 · 10 · 22 · THU — 뉴욕 10/21 마감 뒤 · 서울 10/22 장중</div>
+  <h1 class="doc-title">
+    <span class="shout">빌린 빛</span>
+    <span class="tail">세 종목이 한날 함께 올랐다. 빛은 전부 남의 실적과 수출 통계에서 왔다</span>
+  </h1>
+</header>
+
+<div class="sky" data-omit>
+  <div class="moon">
+    <div class="lbl">10/21 종가 · 반사된 빛</div>
+    <div class="rows">
+      <div class="r"><span>하이닉스</span><span>+5.81%</span></div>
+      <div class="r"><span>IREN</span><span>+4.58%</span></div>
+      <div class="r"><span>RKLB</span><span>+5.44%</span></div>
+    </div>
+    <div class="cap">자기 관문은 하나도 열리지 않았다. 스스로 빛나는 날은 10/28과 11/5다.</div>
+  </div>
+  <p class="sun">광원 → 스페이스X 3분기 흑자 · 반도체 수출 +222.5% · 미-이란 외교 기대</p>
+</div>
+
+<blockquote data-summary>10/21(수) 하루에 세 종목이 함께 올랐다. <strong>하이닉스 +5.81%(1,294,000원), IREN +4.58%(27.84달러), RKLB +5.44%(53.67달러)</strong>다. 그러나 셋 다 자기 관문이 열린 것은 아니다. 빛은 남에게서 왔다. ① <strong>스페이스X가 앤트로픽·구글에 AI 컴퓨트를 빌려주는 사업에서 처음 흑자</strong>를 냈다. 머스크는 실적 콜에서 AI 과잉 설비론을 "터무니없다"고 했다. ② <strong>10월 1~20일 반도체 수출이 275억 달러로 +222.5%</strong>였다(관세청 잠정치). ③ 미-이란 외교 진전 기대에 유가가 내리고 장기금리가 안정됐다. IREN은 스페인 300MW 캠퍼스를 따로 발표했지만 첫 가동은 2028년이고 고객은 정해지지 않았다. 그날 밤 테슬라·메타 실적 뒤 나스닥100 선물이 −0.7% 꺾였다. 10/22 서울에서는 하이닉스가 장중 일부를 되돌렸다. 한편 WSJ가 본 <strong>앤트로픽 상장 서류 초안</strong>의 컴퓨트 약정 보도에는 구글·AWS·마이크로소프트만 이름이 나오고 IREN은 없다. 관문이 바뀐 곳이 없어 신호등은 하이닉스 🟢·IREN 🟢·RKLB 🔴 그대로다. 직전 문서 <a href="2026-10-21-offering-price.html">2026-10-21-offering-price.md</a>의 후속이다.</blockquote>
+
+<h2 class="sec">하루의 숫자</h2>
+<p class="sec-note">서울 10/21 종가 · 뉴욕 10/21 종가 · 서울 10/22 오전 10시 47분 장중 (Yahoo 차트 + 기사 교차 확인)</p>
+<div class="wrap">
+<table>
+<thead><tr><th>항목</th><th>직전</th><th>10/21</th><th>변화</th></tr></thead>
+<tbody>
+<tr><td>코스피</td><td class="num">5,552.74</td><td class="num">5,735.66</td><td class="num">+3.29%</td></tr>
+<tr><td>SK하이닉스</td><td class="num">1,223,000원</td><td class="num">1,294,000원</td><td class="num hot">+5.81%</td></tr>
+<tr><td>삼성전자</td><td class="num">211,500원</td><td class="num">223,500원</td><td class="num">+5.67%</td></tr>
+<tr><td>나스닥</td><td class="num">26,424.82</td><td class="num">26,702.86</td><td class="num">+1.05%</td></tr>
+<tr><td>필라델피아 반도체</td><td class="num">—</td><td class="num">11,505.56</td><td class="num">+1.97%</td></tr>
+<tr><td>엔비디아</td><td class="num">216.47달러</td><td class="num">221.97달러</td><td class="num">+2.54%</td></tr>
+<tr><td>마이크론</td><td class="num">896.07달러</td><td class="num">913.67달러</td><td class="num">+1.96%</td></tr>
+<tr><td>IREN</td><td class="num">26.62달러</td><td class="num">27.84달러</td><td class="num hot">+4.58%</td></tr>
+<tr><td>코어위브</td><td class="num">62.13달러</td><td class="num">61.82달러</td><td class="num">−0.50%</td></tr>
+<tr><td>RKLB</td><td class="num">50.90달러</td><td class="num">53.67달러</td><td class="num hot">+5.44%</td></tr>
+<tr><td>테슬라</td><td class="num">373.71달러</td><td class="num">386.47달러</td><td class="num">+3.41% (시간외 373.63, −3.32%)</td></tr>
+<tr><td>미 10년물</td><td class="num">5.12%</td><td class="num">5.15%</td><td class="num">+0.03%p</td></tr>
+<tr><td>브렌트</td><td class="num">108.79달러</td><td class="num">108.82달러</td><td class="num">10/22 아시아 110.33달러</td></tr>
+<tr><td>원/달러</td><td class="num">—</td><td class="num">1,325.2원</td><td class="num">−2.9원</td></tr>
+<tr><td>SK하이닉스 (10/22 장중)</td><td class="num">1,294,000원</td><td class="num">1,256,000원</td><td class="num">−2.94%</td></tr>
+<tr><td>코스피 (10/22 장중)</td><td class="num">5,735.66</td><td class="num">5,634.33</td><td class="num">−1.77%</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">빛의 출처 — 누구의 빛이 어디를 비췄나</h2>
+<p class="sec-note">10/21 상승의 원인은 우리 종목 밖에 있었다. 자기 빛은 IREN의 스페인 발표 하나뿐이다</p>
+<div class="wrap">
+<table>
+<thead><tr><th>광원</th><th>무엇이 나왔나</th><th>비춘 곳</th></tr></thead>
+<tbody>
+<tr><td><strong>스페이스X 3분기</strong><br>10/20 장 마감 뒤</td><td>매출 145.8억 달러(+161%, 예상 127.2억). 순이익 44억 달러로 상장 후 첫 흑자. AI 부문("슈퍼 인텔리전스") 매출 75.6억 달러, 영업이익 4.31억 달러로 흑자 전환</td><td>네오클라우드(IREN·코어위브·네비우스 장전 +2~3%), 반도체, 우주주(RKLB)</td></tr>
+<tr><td><strong>10월 1~20일 수출</strong><br>10/21 관세청</td><td>전체 616억 달러 +105.4%. 반도체 275억1,600만 달러 +222.5%, 비중 44.7%. 조업일수는 13일로 1년 전(10.5일)보다 2.5일 많다</td><td>하이닉스·삼성전자</td></tr>
+<tr><td><strong>미-이란 외교 기대</strong></td><td>유가 하락, 미국 장기금리 안정 → 전날 급락의 반발 매수</td><td>코스피 전체</td></tr>
+<tr><td><strong>IREN 자체</strong><br>엔비디아 GTC 베를린</td><td>스페인 바다호스 300MW 캠퍼스·IREN 유럽 설립. 첫 가동 2028년, 고객 미정, 허가·전력·자금 조건부</td><td>IREN (데이터센터주 동반 +3~4%)</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="paper">
+  <h3>스페이스X 실적이 네오클라우드에 비춘 빛 — 두 갈래로 읽힌다</h3>
+  <p>스페이스X는 AI 돈을 자기 모델이 아니라 <strong>데이터센터 용량을 앤트로픽·구글·리플렉션 AI에 빌려주는 데서</strong> 번다. 3분기 설비투자는 196억 달러였고 그중 164억 달러가 AI였다. 메르 정리로는 4분기 AI 투자가 400억 달러까지 늘어난다. 머스크는 일주일 전 코어위브 채권 차트에 "Yikes"라고 답해 네오클라우드주를 흔들었다. 이번 실적 콜에서는 AI 인프라 과잉 설비 이야기를 "터무니없다(ridiculous)"고 했다. 그 말에 10/21 장전 코어위브·네비우스가 +2%, IREN이 +3% 움직였다(야후 파이낸스).</p>
+  <p>우리 종목에는 두 갈래다. <strong>좋은 쪽:</strong> 컴퓨트를 빌려주는 사업이 실제로 이익을 낼 수 있다는 첫 대형 증거다. 10/20 엘리스 첫날 −32%가 던진 질문("빚으로 GPU를 사서 빌려주는 장사가 남는가")에 대한 부분적인 답이다. <strong>불편한 쪽:</strong> 스페이스X가 IREN의 고객 후보(앤트로픽)에게 컴퓨트를 파는 <strong>경쟁 공급자</strong>로 올라섰다. 스페이스X는 스타링크라는 현금원이 있다. IREN은 GPU를 빚으로 산다. 같은 사업을 하는 쪽의 자금 비용이 다르다. 그래서 IREN의 11/5 ②조달 관문이 더 무거워졌다.</p>
+</div>
+
+<div class="paper">
+  <h3>앤트로픽 상장 서류 초안 — 컴퓨트 약정 4,500억 달러, IREN 이름은 없다</h3>
+  <p>WSJ가 본 비공개 초안에 따르면 앤트로픽은 향후 10년 약 4,500억 달러의 클라우드 컴퓨트 계약을 맺었다. 이름이 나온 것은 <strong>구글 클라우드 1,110억 달러, AWS 1,100억 달러, 마이크로소프트 310억 달러</strong>다. 협상 중인 계약을 합치면 최대 7,500억 달러다. 9월 초안 숫자는 5,180억 달러(브로드컴 포함)였다. 마케팅은 빠르면 11/9 주에 시작하고, 추수감사절 전 상장할 수 있다. 몸값은 초안 기준 약 2조 달러다. <span class="tag">WSJ 보도 · 2차 인용 · 공개 서류(EDGAR) 아님</span></p>
+  <p>우리 판독: 공개된 보도 안에서 <strong>IREN은 이름이 나오지 않는다</strong>. 이것은 "계약이 없다"는 증거가 아니다. 개별 금액이 공개된 것은 세 회사뿐이다. 그래서 IREN-앤트로픽 계약은 여전히 <strong>단독 보도 · 양사 미확인</strong>이다. 공개 S-1이 EDGAR에 올라오면 공급자 목록을 다시 본다. IREN 쪽 관문에서 가장 직접적인 1차 자료가 될 수 있다.</p>
+</div>
+
+<div class="paper">
+  <h3>그날 밤 빛이 꺼진 자리 — 테슬라·메타 이후</h3>
+  <p><strong>메타</strong>: 매출 646억 달러로 +26%였다. 3분기 설비투자는 349.1억 달러, 잉여현금흐름은 −21.2억 달러다. 2026년 설비투자 범위는 1,350~1,450억 달러로 좁혔다(직전 1,300~1,450억). 법률 비용 99억 달러도 반영했다. 2027년 설비투자는 "예산을 짜기 시작한 단계"라며 숫자를 주지 않았다. 시간외 +2%였다. <strong>테슬라</strong>: 조정 주당순이익 0.48달러로 예상을 넘겼다. 매출 280.5억 달러, 잉여현금흐름은 약 15억 달러 흑자다. 연간 설비투자 계획은 250억에서 200억 달러로 줄였다. 그런데도 시간외 −3%대였다. 그 뒤 나스닥100 선물은 −0.7%였다(CNBC). 하이닉스 고객 쪽 설비투자는 꺾이지 않았지만(메타 하단을 올림) 2027년 숫자는 비어 있다. 알파벳·마이크로소프트·아마존의 실적 콜이 그 빈칸을 채울 다음 증거다.</p>
+</div>
+
+<h2 class="sec">무기한 선물 포지셔닝</h2>
+<p class="sec-note">하이퍼리퀴드 trade.xyz · 10/22 오전 11시 7분(한국, 서울 장중). 펀딩은 그 시각 순간값의 연율. 참고 채널이며 판정 근거로 쓰지 않는다.</p>
+<div class="wrap">
+<table>
+<thead><tr><th>심볼</th><th>가격</th><th>24시간</th><th>펀딩(연율)</th><th>미결제약정</th></tr></thead>
+<tbody>
+<tr><td>xyz:SKHX (하이닉스)</td><td class="num">944.20</td><td class="num">−4.83%</td><td class="num hot">+59.9%</td><td class="num">약 34.9만</td></tr>
+<tr><td>xyz:SMSN (삼성전자)</td><td class="num">164.02</td><td class="num">−3.89%</td><td class="num">+25.4%</td><td class="num">약 25.9만</td></tr>
+<tr><td>xyz:MU (마이크론)</td><td class="num">895.51</td><td class="num">−3.33%</td><td class="num">+5.5%</td><td class="num">약 16.0만</td></tr>
+<tr><td>xyz:IREN</td><td class="num">26.953</td><td class="num">−3.78%</td><td class="num hot">+30.8%</td><td class="num">약 18.2만</td></tr>
+<tr><td>xyz:RKLB</td><td class="num">52.446</td><td class="num">−0.59%</td><td class="num">+11.4%</td><td class="num">약 11.7만</td></tr>
+<tr><td>xyz:CRWV (코어위브)</td><td class="num">59.72</td><td class="num">−8.10%</td><td class="num">+4.2%</td><td class="num">약 28.8만</td></tr>
+</tbody>
+</table>
+</div>
+<div class="paper">
+  <p><strong>하루 만에 숏 쏠림이 풀렸다.</strong> 10/21 아침 하이닉스 펀딩은 −154.1%, 삼성은 −294.1%였다. 하락에 거는 쪽(숏)이 돈을 내며 버티던 자리다. 하루 뒤 둘 다 양수(+59.9%, +25.4%)로 돌아섰다. 하이닉스 미결제약정도 39.7만에서 34.9만으로 줄었다. 10/21 급등 때 <strong>숏 일부가 되사서 빠져나갔다</strong>는 신호로 읽힌다. IREN 펀딩도 +5.5%에서 +30.8%로 올라 롱 쪽이 다시 붙었다.</p>
+  <p>가격은 이번엔 설명이 된다. 하이닉스 perp 944.20달러는 서울 장중 1,256,000원을 환율로 바꾼 약 948달러와 거의 같다. 전날 아침 같은 비교에서 남았던 3% 차이는 사라졌다. IREN perp 26.953달러는 뉴욕 종가보다 3.2% 낮다. 테슬라·메타 이후 나스닥 선물 하락과 IREN 시간외 27.13달러(−2.55%)와 같은 방향이다. 순간값이고 현물과 무관한 값이 찍힌 전례(7월 오라클 사고)가 있으므로 참고로만 둔다.</p>
+</div>
+
+<h2 class="sec">종목별</h2>
+
+<div class="paper">
+  <h3>SK하이닉스 🇰🇷</h3>
+  <div class="px">
+    <span class="px-num" data-price="hynix" data-currency="KRW" data-delta="5.81">1,294,000</span>
+    <span class="px-cur">원 · 10/21 종가 +5.81%</span>
+  </div>
+  <p>전날 −4.23%를 하루 만에 되찾고 더 올랐다. 이유는 셋이 겹쳤다(파이낸셜뉴스). 미-이란 외교 기대로 유가와 금리가 안정됐고, 미국 실적과 <strong>수출 호조</strong>가 받쳐 줬다. 10월 1~20일 반도체 수출은 275억1,600만 달러로 1년 전보다 +222.5%였다. 같은 기간 기준 역대 최대다. 다만 조업일수가 2.5일 많았다는 점은 걸러 읽는다(일평균 전체 수출은 +65.9%). 10/22 오전에는 차익실현으로 장중 1,256,000원(−2.94%)까지 밀렸다. 외국인은 오전 코스피 전체를 순매수했다(디지털타임스·미디어펜). 솔리다임 상장에 대한 새 공식 입장은 없었다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지.</strong> 오른 이유도 내린 이유도 하이닉스 자신의 관문이 아니다. 판정은 <strong>10/28(수) 오전 9시</strong> 실적이다. 볼 것은 셋이다. ① HBM 물량·가격 ② 솔리다임 공식 입장 ③ 주주환원 규모. 수출 +222.5%는 ①에 대한 회사의 말과 맞춰 볼 사전 증거로 둔다.</p>
+</div>
+
+<div class="paper">
+  <h3>IREN 🇺🇸</h3>
+  <div class="px">
+    <span class="px-num" data-price="iren" data-currency="USD" data-delta="4.58">27.84</span>
+    <span class="px-cur">달러 · 10/21 종가 +4.58%</span>
+  </div>
+  <p>엔비디아 GTC 베를린에서 <strong>스페인 바다호스 300MW 캠퍼스</strong>와 유럽 지주회사 IREN 유럽 설립을 발표했다. 첫 가동 목표는 2028년이다. 토목공사 허가는 받았지만, 계획은 여전히 허가·전력망 연결·자금 조달을 전제로 한다. <strong>고객은 정해지지 않았다</strong>(TipRanks). 이사회 의장에는 산탄데르은행 전 최고경영자 앙헬 코르코스테기를 앉혔다. 2차 자료로는 6월 인수한 스페인 개발사 인게노스트룸의 부지가 기반이다. 전력 연결 승인은 리오카야 변전소 경유 300MW, 투자 약 19억 유로, 1단계 150MW다. <span class="tag">2차 자료 · 회사 공시 미확인</span> 데이터센터주가 함께 올랐다(사이퍼 +4%, 코어 사이언티픽 +3%). 그러나 시간외에서는 27.13달러(−2.55%)로 일부를 되돌렸다. SEC 제출 서류는 10/13 DEF 14A 이후 새것이 없다.</p>
+  <p>주목할 점: 이 확장은 <strong>또 하나의 자금 수요</strong>다. 2028년 가동 부지는 11월 GPU 조달과 직접 관련은 없다. 하지만 같은 주에 스페이스X가 앤트로픽에 컴퓨트를 파는 흑자 공급자로 확인됐고, 앤트로픽 서류 보도에 IREN 이름은 없었다. IREN에 필요한 것은 부지보다 <strong>고객 계약과 그 계약을 담보로 한 조달 금리</strong>다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🟢 유지 — 가장 위태로운 🟢.</strong> 11/5 콜의 판정 조건은 그대로다. ①인도 ②조달(금리·구조. 비교 기준은 코어위브 2032년물 14.9%, 앤트로픽 후순위 10%+) ③구사이트·공시. ③의 판정 방식(답변 여부 vs 결과)은 아직 정하지 못했다.</p>
+</div>
+
+<div class="paper">
+  <h3>Rocket Lab 🚀</h3>
+  <div class="px">
+    <span class="px-num" data-price="rklb" data-currency="USD" data-delta="5.44">53.67</span>
+    <span class="px-cur">달러 · 10/21 종가 +5.44%</span>
+  </div>
+  <p>스페이스X 실적에 우주주가 함께 올랐다(Benzinga). 장중 고가는 53.89달러였다. RKLB 자신의 새 소식은 실적일 하나다. <strong>3분기 실적은 11/9(월) 미국 장 마감 뒤</strong>, 콘퍼런스콜은 오후 5시(미 동부)다. 한국 시간으로 11/10 아침 7시다(10/20 회사 보도자료). 그동안 "11월 중순"으로 적어 둔 것을 확정한다. 일부 기사의 "11/16"은 틀린 날짜다. 일렉트론 98번째 발사 "We're Not Hawking Around"(호크아이360 위성 3기)는 아직 결과가 확인되지 않았다. 회사 발사 페이지는 10/22 이후로 적고 있다(KeepTrack은 10/22 07:00 UTC, 한국 오후 4시). 스페이스X-테슬라 합병 특별위원회 소식은 경쟁사의 자금력이 더 커질 수 있다는 뜻이다. 아직 절차 초입이다.</p>
+  <p><strong>판단(참고용):</strong> <strong>🔴 유지.</strong> 하향 근거(4분기 패드 인도 미이행이 사실상 확정)는 그대로다. 🟡 복귀 조건: 새 발사 일정 공표, 1단 탱크 검사 통과, FCC 승인.</p>
+</div>
+
+<h2 class="sec">신호등 요약</h2>
+<div class="wrap">
+<table>
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix"><td data-name>SK하이닉스</td><td data-light>🟢</td><td data-change>유지</td><td data-note>1,294,000원(+5.81%). <strong>반도체 수출 10/1~20 +222.5%</strong>와 유가·금리 안정에 반등, 10/22 장중 일부 반납. 판정은 <strong>10/28(수) 9시</strong></td></tr>
+<tr data-signal="iren"><td data-name>IREN</td><td data-light>🟢</td><td data-change>유지</td><td data-note>27.84달러(+4.58%). 스페이스X 컴퓨트 임대 흑자·<strong>스페인 300MW(2028, 고객 미정)</strong>. 앤트로픽 서류 보도에 이름 없음 — 조달은 11/5 콜에서</td></tr>
+<tr data-signal="rklb"><td data-name>RKLB</td><td data-light>🔴</td><td data-change>유지</td><td data-note>53.67달러(+5.44%). 스페이스X 실적에 동반 상승. <strong>3분기 실적 11/9 확정</strong>. 새 일정·FCC 승인 전까지 🔴</td></tr>
+</tbody>
+</table>
+</div>
+<div class="heat">
+  <p><strong>포트폴리오 히트:</strong> 10/21은 세 종목이 한 광원(AI 컴퓨트 수요가 이익이 된다는 스페이스X의 숫자)에 함께 반응한 날이다. 반대로 말하면, 그 광원이 꺼지는 날에도 함께 어두워진다. 그날 밤 나스닥 선물이 꺾이자 perp 세 종목이 모두 밀린 것이 그 예다. 하이닉스와 IREN은 AI 설비투자 사이클에 직접 묶여 있다. RKLB는 이번엔 우주주 동반 상승으로 같은 날 움직였을 뿐 근거(정부 예산·뉴트론)는 다르다. 빌린 빛은 하루 만에 일부 반납됐다. 각자 스스로 빛나는 날은 10/28(하이닉스)·11/5(IREN)·11/9(RKLB)다.</p>
+</div>
+
+<h2 class="sec">다음 체크포인트</h2>
+<ul class="cps">
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>하이닉스 3분기 실적 (10/28 수 오전 9시)</strong> — 다음 판정선. HBM 물량·가격, 솔리다임 공식 입장, 주주환원 규모. 수출 +222.5%와 회사 말이 맞는가 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>10월 FOMC (10/27~28)</strong> — 금리 결정은 한국 10/29 새벽 3시. 10년물 5.15% (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>9월 PCE (10/29 오전 8시 30분, 미 동부)</strong> — 근원 전월 대비 약 0.35%로 역산됨 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>알파벳·마이크로소프트·아마존 실적 콜</strong> — 메타가 2026년 설비투자 하단을 올렸고 2027년은 미정. 2027년 설비투자 첫 숫자가 나오는가 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>솔리다임 상장</strong> — 이사회 결정, 금융당국 판단 공식화, 공모 규모(최대 150억 달러)와 자금 용도 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>딥시크 "HBM 75% 절감" 실측</strong> — 외부 측정, 하이닉스 실적 콜의 수요 발언과 대조 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>코어위브 채권·CDS</strong> — 2032년물 14.9%(10/19), CDS 약 1,082bp. 10/21 이후 새 수치 못 찾음 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>앤트로픽 600억 달러 칩 대출 최종 금리</strong> — 후순위 10%+ 확정 여부. IREN ②조달의 비교 기준 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>IREN FY27 1분기 콜 (11/5)</strong> — ①인도 ②조달 ③구사이트·공시. 공동대표 X 해명(선급금 45~55%) 확인, 스페인 부지 자금 계획. ③의 판정 방식은 콜 전에 확정 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>앤스로픽-IREN 계약 확인 여부</strong> — 단독 보도 · 양사 미확인. WSJ의 상장 서류 초안 보도에 이름이 나온 곳은 구글·AWS·마이크로소프트뿐 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>앤트로픽 공개 S-1 (EDGAR)</strong> — 컴퓨트 공급자 목록에 IREN이 있는가. 마케팅 빠르면 11/9 주, 추수감사절 전 상장 보도, 몸값 약 2조 달러(초안) (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>스페이스X 컴퓨트 임대</strong> — 앤트로픽·구글에 파는 흑자 공급자. 4분기 AI 투자 400억 달러(메르 정리). IREN과 고객·가격 경쟁이 되는가 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 스페인 바다호스</strong> — 300MW·2028년. 허가·전력망·자금 조건과 첫 고객 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>Nscale 두 번째 앤트로픽 계약</strong> — 확정 여부, 첫 계약 조달 해결 여부 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>엘리스그룹 주가와 민간 수주</strong> — 공모가 90,500원 회복 여부 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 마케팅 지출</strong> — 레알 마드리드·워리어스 후원 비용 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>가트너 예측 이후 네오클라우드 조달 조건</strong> — 신규 채권·대출 금리에 반영되는가 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 공식 답변</strong> — SemiAnalysis 지적 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>IREN 레드뱅크</strong> — 범위 보고서(10월 말), 주민 설명회(11/4~5) (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>RKLB 뉴트론 새 일정</strong> — 새 돔 제작·검사 완료(2027년 1분기 전) 후 공표 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>RKLB 3분기 실적 (11/9 월 장 마감 뒤, 한국 11/10 아침 7시)</strong> — 날짜 확정(회사 보도자료). 백로그, 뉴트론 비용, 이리듐 인수 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>RKLB 일렉트론 98번째 발사</strong> — 10/21 창에서 결과 미확인, 10/22 07:00 UTC(한국 오후 4시)로 표기됨. 다음 iQPS 11/4·11/10 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>RKLB FCC 승인</strong> — 공람 11/9 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>스페이스X-테슬라 합병</strong> — 양사 특별위원회 가동. 테슬라 발행주식 50% 찬성 필요. RKLB 경쟁사의 자금력 (신규)</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>테슬라 3분기 실적 콜</strong> — 결과: 조정 주당순이익 0.48달러, 설비투자 계획 200억 달러로 축소, 시간외 −3%대. 합병 세부는 실적 자료에 없음 (완료)</span></li>
+  <li data-checkpoint><input type="checkbox" checked disabled><span><strong>10월 1~20일 수출 (관세청)</strong> — 결과: 616억 달러 +105.4%, 반도체 275억1,600만 달러 +222.5%(비중 44.7%). 조업일수 2.5일 많음 (완료)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>하이닉스 자사주 매입 종료 (10/23 무렵)</strong> — 10월 진행 공시 재확인 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>외국인 하이닉스 매도</strong> — 10/22 오전 외국인은 코스피 전체 순매수로 돌아섬. 종목별 수급 확인 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>하이닉스 perp 쏠림</strong> — 펀딩 −154.1% → +59.9%, 미결제약정 39.7만 → 34.9만. 숏 일부 청산. 실적 전후 다시 한쪽으로 몰리는가 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>금융당국 후속 조치·증안펀드</strong> — 10조7,600억 틀 집행 여부 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>국민연금</strong> — 국감 답변 원문 미확인. 메르 계산 매수선 코스피 약 5,380 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>CXMT 4F²의 실체</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>호르무즈·브렌트</strong> — 미-이란 외교 기대. 10/21 108.82달러, 10/22 아시아 110.33달러 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span>🔴 <strong>NAND 약세가 D램·HBM 계약가로 번지는가</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>마이크론 대만 노조</strong> — 타이중 노조 10/22 조정 재개, 타오위안 노조는 99% 파업 찬성 (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>미 30년물 6%</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>원/달러 환율</strong> — 10/21 1,325.2원 (이월·수정)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>Nscale IPO 가격</strong> (이월)</span></li>
+  <li data-checkpoint><input type="checkbox" disabled><span><strong>11월 2일~ SK㈜ 블록딜</strong> (이월)</span></li>
+</ul>
+
+<h2 class="sec">메르 신규 글 브리핑</h2>
+<div class="mer">
+  <p>직전 판독(10/21 아침) 이후 2편. <strong>블로거 분석이며 판정 근거로 쓰지 않는다.</strong></p>
+  <ul>
+    <li>🔗 <strong>일론 머스크는 1,250억달러의 테슬라 보상금을 받을 수 있을까?</strong> — 스페이스X 3분기 실적부터 정리했다. 매출 146억 달러(+161%), 상장 후 첫 분기 흑자(순이익 44억 달러), AI 부문 첫 영업흑자 4.3억 달러다. 그 흑자는 앤트로픽·구글에 컴퓨트를 빌려준 클라우드 계약 덕이라고 짚었다. 4분기 AI 투자는 400억 달러로 늘고 돈을 빌려야 하는데, 스타링크 수익성(매출총이익률 55%)이 이를 받친다고 봤다. 핵심은 합병이다. 머스크가 특별위원회 가동을 밝혀 합병이 "설"에서 "절차"로 넘어왔다고 해석했다. WSJ가 찾은 조항에 따르면, 경영권이 바뀌면 운영 목표 조건이 사라지고 인수 가격 기준으로 보상이 계산된다. 한 줄 코멘트는 테슬라를 싸게 사든 비싸게 사든 머스크에게는 나쁘지 않은 "U자형 보상 구조"라는 것이다. 우리 판독과의 관계: 컴퓨트 임대가 이익이 된다는 점은 이 지면의 광원과 같은 방향이다. 동시에 스페이스X가 IREN의 경쟁 공급자라는 점은 메르가 다루지 않은 쪽이다</li>
+    <li><strong>날씨가 갑자기 추워졌다. 조심할 점과 하면 좋은 것은?</strong> — 추위에 혈관이 수축해 심근경색·뇌졸중 위험이 커진다는 이야기와, 선충 연구에서 적당한 추위가 수명을 늘린 메커니즘(황화수소·BH2)을 정리했다. 포트폴리오와 무관</li>
+  </ul>
+</div>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+<ul>
+  <li><a href="https://www.fnnews.com/news/202610220826367068">5%대 뛰었던 삼성전자·SK하이닉스…나란히 하락 — 파이낸셜뉴스</a></li>
+  <li><a href="https://www.ddaily.co.kr/page/view/2026102209430078364">뉴욕증시 훈풍에도 코스피 5700선 내줘…차익실현에 1%대 하락 — 디지털데일리</a></li>
+  <li><a href="https://www.dt.co.kr/article/12090562">코스피, 1%대 하락 출발…외인 '사자'에도 삼전·SK하닉 보합권 — 디지털타임스</a></li>
+  <li><a href="https://www.mediapen.com/news/view/1131726">코스피, 외국인 매수에도 0.8% 하락…5700선 내줘 — 미디어펜</a></li>
+  <li><a href="https://www.joongangenews.com/news/articleView.html?idxno=557271">SK하이닉스 주가, 10월 22일 장중 1,276,000원 — 중앙이코노미뉴스</a></li>
+  <li><a href="https://www.sejungilbo.com/news/articleView.html?idxno=60730">10월 1~20일 수출 105.4% 급증…반도체 222.5% 늘어 '역대 최대' — 세정일보</a></li>
+  <li><a href="https://www.joongangenews.com/news/articleView.html?idxno=556855">반도체 수출 222% 폭증…10월 1~20일 수출 616억달러 — 중앙이코노미뉴스</a></li>
+  <li><a href="https://idailynews.co.kr/article/10%EC%9B%94-120%EC%9D%BC-%EC%88%98%EC%B6%9C-1054-%EC%A6%9D%EA%B0%80%EB%8A%98%EC%96%B4%EB%82%9C-%EC%88%98%EC%B6%9C%EC%95%A1-%EC%95%BD-60%EB%8A%94-%EB%B0%98%EB%8F%84%EC%B2%B4">10월 1~20일 수출 105.4% 증가…늘어난 수출액 약 60%는 반도체 — 아이데일리</a></li>
+  <li><a href="https://www.marketscreener.com/news/nasdaq-leads-wall-street-to-higher-close-as-spacex-super-micro-boost-ai-sentiment-ce785cd9dd8cf725">Nasdaq leads Wall Street to higher close as SpaceX, Super Micro boost AI sentiment — MarketScreener</a></li>
+  <li><a href="https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-21-dow-sp-500-nasdaq-100000105.html">Stock market today: tech rallies, SpaceX stock surges nearly 8% — Yahoo Finance</a></li>
+  <li><a href="https://www.cnbc.com/2026/10/21/stock-market-today-live-updates.html">Stock futures fall as investors digest earnings from Meta and Tesla — CNBC</a></li>
+  <li><a href="https://money.usnews.com/investing/news/articles/2026-10-20/spacex-quarterly-revenue-jumps-beats-estimates-as-ai-business-surges">SpaceX Quarterly Revenue Jumps, Beats Estimates as AI Business Surges — Reuters(US News)</a></li>
+  <li><a href="https://fortune.com/2026/10/20/spacex-q3-profit-ai-si-elon-musk/">SpaceX posts first operating profit as public company as AI revenue nearly triples — Fortune</a></li>
+  <li><a href="https://www.cnbc.com/2026/10/20/spacex-spcx-earnings-live-updates-q3-2026html.html">Musk says Tesla and SpaceX formed special committees to discuss merger — CNBC</a></li>
+  <li><a href="https://www.benzinga.com/markets/tech/26/10/62494484/spacex-earnings-chip-stocks-rally-super-micro-sk-hynix">SpaceX Lifts Chip Stocks After $1.6 Trillion AI Rout — Benzinga</a></li>
+  <li><a href="https://finance.yahoo.com/markets/stocks/article/one-week-after-crushing-neocloud-stocks-like-coreweave-and-nebius-with-a-single-word-spacexs-elon-musk-is-out-with-another-word-that-is-less-dire-104420999.html">One week after crushing neocloud stocks with a single word, Musk is out with another word — Yahoo Finance</a></li>
+  <li><a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx">Meta Reports Third Quarter 2026 Results — Meta IR</a></li>
+  <li><a href="https://fortune.com/2026/10/21/meta-q3-earnings-mark-zuckerberg-capex-muse/">Meta's revenue surges 26% to $64.6 billion, but AI spending turns screws on free cash flow — Fortune</a></li>
+  <li><a href="https://www.cnbc.com/2026/10/21/tesla-tsla-q3-2026-earnings-report.html">Tesla (TSLA) Q3 2026 earnings report — CNBC</a></li>
+  <li><a href="https://www.teslarati.com/tesla-tsla-q3-2026-earnings-results/">Tesla Q3 2026 Earnings results: in-line revenues, slight beat on EPS — Teslarati</a></li>
+  <li><a href="https://247wallst.com/investing/2026/10/21/anthropic-has-committed-450-billion-to-cloud-computing-its-draft-ipo-filing-shows/">Anthropic Has Committed $450 Billion to Cloud Computing, Its Draft IPO Filing Shows (WSJ 인용) — 24/7 Wall St.</a></li>
+  <li><a href="https://thenextweb.com/news/anthropic-s-1-750bn-compute-80-7bn-loss">Anthropic could spend $750bn on compute, WSJ reports — The Next Web</a></li>
+  <li><a href="https://www.tipranks.com/news/iren-stock-jumps-on-deeper-push-into-europe-with-new-spain-campus-and-leadership">IREN Stock Jumps on Deeper Push into Europe with New Spain Campus and Leadership — TipRanks</a></li>
+  <li><a href="https://stocktwits.com/news-articles/markets/equity/iren-stock-spain-ai-campus-launch-2028/cZxMTrDRBva">IREN Stock Rises: AI Cloud Provider Plans 300MW AI Campus In Spain For 2028 — Stocktwits</a></li>
+  <li><a href="https://247wallst.com/investing/2026/10/21/data-center-stocks-rise-as-iren-plans-300mw-ai-campus-in-spain-iren-and-cipher-digital-gain-4-core-scientific-climbs-3/">Data Center Stocks Rise as IREN Plans 300MW AI Campus in Spain — 24/7 Wall St.</a></li>
+  <li><a href="https://iren.com/data-centers/badajoz">Badajoz — IREN</a></li>
+  <li><a href="https://app.getquin.com/en/post/pnUDvjPabE">IREN 바다호스 전력 연결 승인 정리 — getquin(2차 자료)</a></li>
+  <li><a href="https://x.com/growthrapidly/status/2112874043749646753">IREN expanding into Europe, 300 MW Badajoz — 커뮤니티 반응(X)</a></li>
+  <li><a href="https://www.cnbc.com/2026/10/19/coreweave-oracle-ai-credit-stress.html">CoreWeave bond yields stay near 15% as AI stocks rebound — CNBC</a></li>
+  <li><a href="https://www.globenewswire.com/news-release/2026/10/20/3385004/0/en/rocket-lab-announces-date-of-third-quarter-2026-financial-results.html">Rocket Lab Announces Date of Third Quarter 2026 Financial Results — GlobeNewswire</a></li>
+  <li><a href="https://www.benzinga.com/trading-ideas/movers/26/10/62507567/why-is-rocket-lab-stock-surging-on-wednesday-2">Why Is Rocket Lab Stock Surging on Wednesday? — Benzinga</a></li>
+  <li><a href="https://www.marketbeat.com/instant-alerts/price-rocket-lab-nasdaq-rklb-shares-climb-55-whats-next-2026-10-21/">Rocket Lab Shares Climb 5.5% — MarketBeat</a></li>
+  <li><a href="https://www.nasaspaceflight.com/2026/10/launch-preview-102026/">Launch Preview: H3, Falcon 9, Electron, and others — NASASpaceFlight</a></li>
+  <li><a href="https://keeptrack.space/launches/upcoming">Upcoming Rocket Launches — KeepTrack</a></li>
+  <li><a href="https://x.com/SpaceInvestor_D/status/2112643649792098702">$RKLB Q3 2026 results November 9 — 커뮤니티 반응(X)</a></li>
+  <li><a href="https://data.sec.gov/submissions/CIK0001878848.json">IREN SEC 제출 목록 — 10/13 DEF 14A 이후 새 서류 없음</a></li>
+  <li><a href="https://app.hyperliquid.xyz/trade/xyz:SKHX">Hyperliquid trade.xyz 무기한 선물 (SKHX·SMSN·MU·IREN·RKLB·CRWV)</a></li>
+  <li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224448807329">일론 머스크는 1,250억달러의 테슬라 보상금을 받을 수 있을까? — 메르(블로거 분석)</a></li>
+  <li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224449696593">날씨가 갑자기 추워졌다. 조심할 점과 하면 좋은 것은? — 메르(블로거 분석)</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 · 모든 판단은 참고용이며 매매 권유가 아니다 · <a href="../index.html">대시보드로</a></footer>
+</div>
+</body>
+</html>
