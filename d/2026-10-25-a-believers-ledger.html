@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>확신의 장부 — 한 IREN 강세론자의 2년</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;700&family=IBM+Plex+Mono:wght@500;700&display=swap">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   2026-10-25 · 이 문서만을 위해 지은 페이지
+
+   무엇: 토스증권 커뮤니티의 한 IREN 장기 강세론자가 2024-10 ~ 2026-10에
+   쓴 글 161편을 읽고, 논지·예측·사실 주장을 우리 판독과 대조했다.
+   작성자는 익명 처리했다 — 닉네임·팔로워·재산·매매 기록은 싣지 않는다.
+
+   그래서 이 지면은 장부다 — 먼지 낀 분홍 종이에 줄이 그어져 있고,
+   소리치는 것은 오른쪽 여백에 찍힌 도장 네 개(적중·빗나감·진행 중·미발표).
+   제목 "확신"은 명조로 크고 무겁게. 나머지는 장부처럼 조용히.
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  --page-bg: #e8c8d8;
+  --on-bg: #2a0d22;
+  --on-bg-2: #5c2f4c;
+  --paper: #fdf6f9;
+  --paper-ink: #2a1422;
+  --paper-ink-2: #6b4a5e;
+  --line: #efdbe5;
+  --rule: #d6a9c0;
+  --hit: #1d6b45;
+  --miss: #b0263a;
+  --open: #8a5a00;
+  --none: #4f4f7a;
+  --serif: "Gowun Batang", "Nanum Myeongjo", serif;
+  --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page-bg: #2a0d22; --on-bg: #f6dcea; --on-bg-2: #d6a9c0; --paper: #3a1530; --paper-ink: #f6e4ee;
+    --paper-ink-2: #d6b3c6; --line: #52223f; --rule: #5f2a4a; --hit: #8fe0b0; --miss: #ff9aa8; --open: #f2c66b; --none: #b9b9f0;
+  }
+}
+:root[data-theme="dark"] {
+  --page-bg: #2a0d22; --on-bg: #f6dcea; --on-bg-2: #d6a9c0; --paper: #3a1530; --paper-ink: #f6e4ee;
+  --paper-ink-2: #d6b3c6; --line: #52223f; --rule: #5f2a4a; --hit: #8fe0b0; --miss: #ff9aa8; --open: #f2c66b; --none: #b9b9f0;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background-color: var(--page-bg); color: var(--on-bg); font-family: var(--sans); font-size: 15.5px; line-height: 1.8;
+  overflow-x: hidden; word-break: keep-all; overflow-wrap: break-word;
+  background-image: repeating-linear-gradient(180deg, transparent 0 31px, var(--rule) 31px 32px);
+}
+.sheet { max-width: 820px; margin: 0 auto; padding: 18px 16px 60px; }
+a { color: inherit; text-underline-offset: 3px; }
+.home, .when { font-family: var(--mono); font-size: 12.5px; font-weight: 700; letter-spacing: .06em; color: var(--on-bg-2); }
+.home { text-decoration: none; }
+.doc-title { margin: 12px 0 0; font-weight: 400; }
+.doc-title .shout { display: block; font-family: var(--serif); font-weight: 700; font-size: clamp(88px, 28vw, 200px); line-height: 1; letter-spacing: -.03em; color: var(--on-bg); }
+.doc-title .tail { display: block; margin-top: 10px; font-family: var(--serif); font-size: clamp(17px, 4.6vw, 23px); font-weight: 700; max-width: 30em; }
+
+/* 도장 — 이 지면에서 유일하게 소리치는 요소 */
+.stamps { margin: 26px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.stamp { background: var(--paper); border-radius: 6px; padding: 12px 12px 10px; position: relative; overflow: hidden; }
+.stamp .st-mark { display: inline-block; font-family: var(--serif); font-weight: 700; font-size: clamp(22px, 6.4vw, 30px); padding: 2px 12px; border: 3px solid currentColor; border-radius: 6px; transform: rotate(-7deg); margin: 4px 0 8px; }
+.stamp.hit .st-mark { color: var(--hit); }
+.stamp.miss .st-mark { color: var(--miss); }
+.stamp.open .st-mark { color: var(--open); }
+.stamp.none .st-mark { color: var(--none); }
+.stamp .st-n { font-family: var(--mono); font-weight: 700; font-size: 13px; color: var(--paper-ink-2); }
+.stamp .st-t { font-size: 13px; color: var(--paper-ink); line-height: 1.5; }
+
+blockquote[data-summary] { margin: 26px 0 0; padding: 16px 18px; background: var(--paper); color: var(--paper-ink); border-left: 8px solid var(--on-bg); border-radius: 6px; font-size: 16px; }
+h2.sec { margin: 44px 0 8px; font-family: var(--serif); font-weight: 700; font-size: clamp(26px, 7vw, 36px); line-height: 1.2; color: var(--on-bg); }
+.sec-note { margin: 0 0 10px; font-family: var(--mono); font-size: 12px; color: var(--on-bg-2); font-weight: 700; }
+.paper { background: var(--paper); color: var(--paper-ink); padding: 16px 18px; margin: 10px 0; border-radius: 6px; }
+.paper h3 { margin: 0 0 6px; font-family: var(--serif); font-size: 18px; font-weight: 700; }
+.paper p { margin: 0 0 9px; }
+.paper p:last-child { margin-bottom: 0; }
+.paper ul { margin: 0; padding-left: 20px; }
+.paper li { margin-bottom: 6px; }
+.tag { display: inline-block; font-family: var(--mono); font-size: 10.5px; font-weight: 700; padding: 0 6px; border: 1px solid var(--paper-ink-2); color: var(--paper-ink-2); border-radius: 3px; vertical-align: middle; }
+.wrap { overflow-x: auto; background: var(--paper); color: var(--paper-ink); border-radius: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.wrap th, .wrap td { padding: 8px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.wrap th { font-family: var(--mono); font-size: 11.5px; letter-spacing: .04em; color: var(--paper-ink-2); }
+td.when-c { font-family: var(--mono); white-space: nowrap; }
+.v-hit { color: var(--hit); font-weight: 700; }
+.v-miss { color: var(--miss); font-weight: 700; }
+.v-open { color: var(--open); font-weight: 700; }
+.v-none { color: var(--none); font-weight: 700; }
+section.src ul { background: var(--paper); color: var(--paper-ink); margin: 0; padding: 14px 16px 14px 34px; font-size: 13px; border-radius: 6px; }
+section.src li { margin: 4px 0; overflow-wrap: anywhere; }
+footer { margin-top: 40px; font-size: 13px; color: var(--on-bg-2); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="top">
+  <a class="home" href="../index.html" data-omit>← 대시보드</a>
+  <div class="when" data-omit>2026 · 10 · 25 · 커뮤니티 판독 — 글 161편 · 2024-10 ~ 2026-10</div>
+  <h1 class="doc-title">
+    <span class="shout">확신</span>
+    <span class="tail">한 IREN 장기 강세론자가 2년 동안 쓴 글 161편 — 무엇을 믿었고, 무엇이 맞았고, 지금 무엇이 시험대에 있나</span>
+  </h1>
+</header>
+
+<div class="stamps" data-omit>
+  <div class="stamp hit"><span class="st-mark">적중</span><div class="st-n">2025-09 예측</div><div class="st-t">"4분기 전 계약" → 11/3 마이크로소프트 97억 달러</div></div>
+  <div class="stamp miss"><span class="st-mark">빗나감</span><div class="st-n">2026-01 예측</div><div class="st-t">"2개월 안 섹터 큰 반등" → 3월 70달러대에서 40달러대로</div></div>
+  <div class="stamp open"><span class="st-mark">진행 중</span><div class="st-n">2025-08 예측</div><div class="st-t">"2027년 말 300달러" → 2026-10-23 24.91달러</div></div>
+  <div class="stamp none"><span class="st-mark">미발표</span><div class="st-n">2026-05 기대</div><div class="st-t">"호주 정부 소버린 AI 계약" → 아직 발표 없음</div></div>
+</div>
+
+<blockquote data-summary>토스증권 커뮤니티에서 IREN 장기 강세론을 펴 온 한 작성자의 글 161편(2024-10-23 ~ 2026-10-19)을 처음부터 끝까지 읽었다. <strong>작성자는 익명 처리했고, 개인 재산·매매 기록은 싣지 않는다.</strong> 논지는 하나로 모인다. <strong>AI의 병목은 칩이 아니라 전력이고, IREN은 비트코인 채굴로 그 전력을 먼저 확보한 뒤 임대(콜로케이션)와 자체 클라우드로 수익화하는 수직통합 회사라는 것</strong>이다. 2025년의 예측은 꽤 맞았다(마이크로소프트 97억 달러 계약). 2026년 들어 섹터 반등 예측은 빗나갔다. 가장 흥미로운 대목은 작성자가 2025-10에 <strong>스스로 꼽은 유일한 위험이 "자본지출 관리와 조달 능력"</strong>이었다는 점이다. 우리의 11/5 ②조달 관문과 같은 지점이고, 지금 시장이 바로 이것을 의심하고 있다. 반면 작성자는 조달(ATM·전환사채)을 늘 강세 신호로 읽어 왔고, 최근 한 달의 "조달 조건 악화"를 다룬 글은 없다. <strong>커뮤니티 반응이며 신호등 판정 근거로 쓰지 않는다.</strong> 같은 날 스윕 <a href="2026-10-25-seesaw.html">2026-10-25-seesaw.md</a>와 함께 읽는다.</blockquote>
+
+<h2 class="sec">논지 지도</h2>
+<p class="sec-note">161편에서 되풀이되는 주장 다섯 개와, 지금 확인되는 것</p>
+<div class="wrap">
+<table>
+<thead><tr><th>주장</th><th>작성자가 든 근거</th><th>지금 확인되는 것</th></tr></thead>
+<tbody>
+<tr><td><strong>병목은 전력이다</strong></td><td>하이퍼스케일러가 돈이 있어도 전력 때문에 원치 않는 콜로케이션 계약을 맺는다. 칩은 돈으로 사지만 전력은 못 산다</td><td>엔비디아 젠슨 황(10/22)은 "수요는 넘치는데 자본이 부족하다"고 했다. 병목이 <strong>전력에서 자본으로</strong> 옮겨 가는 신호다</td></tr>
+<tr><td><strong>소프트웨어는 해자가 아니다</strong></td><td>AI가 소프트웨어 격차를 줄인다. 엔비디아 플랫폼으로 소프트웨어 없이도 클라우드를 할 수 있다</td><td>정작 IREN은 2026-05 소프트웨어 회사 미란티스를 약 6.25억 달러에 인수했다(8/3 완료). 작성자는 "쉽게 확보했다"고 읽었다</td></tr>
+<tr><td><strong>조달은 강세 신호다</strong></td><td>2025년엔 전환사채·ATM 뒤마다 GPU 확보·계약 같은 큰 뉴스가 따랐다</td><td>2026-03 60억 달러 ATM 뒤 주가는 하락. 10월에는 네오클라우드 조달 조건 자체가 시장의 질문이 됐다</td></tr>
+<tr><td><strong>자체 클라우드가 임대보다 낫다</strong></td><td>MW당 매출이 임대의 5~10배, GPU 투자 회수는 약 2년(회사 CCO 발언 인용)</td><td>회수 2년은 "GPU 가격이 지금 수준일 때"라는 전제가 붙어 있다. GPU 담보 대출의 금리·담보 비율은 11/5 콜에서 볼 것</td></tr>
+<tr><td><strong>경쟁사는 없다</strong></td><td>채굴사 중 자체 클라우드가 가능한 곳은 IREN뿐, 나머지는 전력 임대업</td><td>가트너는 네오클라우드 대다수가 독자 생존이 어렵다고 봤다(10/14). 경쟁은 채굴사가 아니라 코어위브·네비우스·스페이스X 컴퓨트 임대 쪽에서 온다</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">시기별 흐름</h2>
+<p class="sec-note">2년을 여섯 구간으로</p>
+
+<div class="paper">
+  <h3>① 2024-10 ~ 2025-06 · 조용한 시작</h3>
+  <p>글은 드물다. 첫 글은 IREN만 호주 기업이라 미국 우선 채굴 정책이 걸린다는 걱정이었다. 2025-02에는 채굴은 수단이고 목표는 AI 인프라라고 정리했고, 2025-06 전환사채 발행을 "수요가 있어서 하는 조달"로 읽었다.</p>
+</div>
+<div class="paper">
+  <h3>② 2025-06 말 ~ 08 · "전력은 현대의 유전"</h3>
+  <ul>
+    <li>코어위브의 코어사이언티픽 인수 예상가를 MW당 가치로 바꿔 IREN 전력 2.9GW에 곱하면 주당 100달러 이상이라는 계산. 실제 인수가는 예상의 절반 수준으로 나왔다</li>
+    <li>계약 상대를 오라클·스타게이트로 추정했다가, 위스콘신 채용 공고를 근거로 메타 쪽으로 수정</li>
+    <li>엔비디아 클라우드 플랫폼(렙톤) 덕에 소프트웨어 없이 자체 클라우드로 직행할 수 있다는 논지</li>
+    <li>가치 계산을 여러 번 올렸다. 다른 회사의 계약 단가를 IREN 전력 전체에 곱하는 방식이고, 일부는 본인도 낙관 시나리오라고 밝혔다. 2027년 말 300달러라는 목표도 이때 나왔다</li>
+  </ul>
+</div>
+<div class="paper">
+  <h3>③ 2025-08 말 ~ 10 · 급등기</h3>
+  <p>주가가 몇 배로 오르는 동안 근거 글이 가장 많았다. 핵심은 세 편이다. IREN만의 독보적 기술은 없고 해자는 시장(전력 병목)에 있다는 글. 전력 수익화의 세 방법(채굴·임대·자체 클라우드)을 비교하며 <strong>유일한 위험은 자본지출 관리와 조달 능력</strong>이라고 쓴 글. 그리고 코어위브·네비우스·IREN 셋 다 크겠지만 IREN이 가장 크게 큰다는 글이다. 2025-10의 10억 달러 무이자 전환사채를 가장 주주친화적인 조달로 평가했다.</p>
+</div>
+<div class="paper">
+  <h3>④ 2025-10 말 ~ 11 · 첫 30% 조정, 그리고 마이크로소프트</h3>
+  <p>첫 30% 넘는 조정에서 "주가가 아니라 회사에 투자한다"고 썼다. 11/3 마이크로소프트와 5년 97억 달러 계약이 나오자, 공개된 전력 파이프라인의 7%에 불과하다며 시작일 뿐이라고 했다. 코어위브는 부채로 시장을 선점한 대가를 치르는 중이라는 비교도 이어졌다.</p>
+</div>
+<div class="paper">
+  <h3>⑤ 2026-01 ~ 04 · 하락과 ATM 논쟁</h3>
+  <p>1월에 "2개월 안에 데이터센터 섹터 큰 반등"을 세 번째 확신으로 꼽았다. 3월에는 하루에 여러 편을 쓰며 게시판과 부딪혔다. 회사가 ATM(시장에서 수시로 신주를 파는 조달) 한도를 늘리자 쏟아진 비판에, 1년 전 5달러였던 주식이라고 반박했다. 작성자는 이 규모를 "600억 달러"로 썼지만, <strong>SEC 공시상 60억 달러</strong>다(기존 10억 달러 한도 소진 뒤 2026-03-04 확대). 4월에는 결국 신뢰의 문제이고 희석이 싫으면 애초에 종목을 잘못 고른 것이라고 정리했다.</p>
+</div>
+<div class="paper">
+  <h3>⑥ 2026-05 ~ 10 · 글이 뜸해짐</h3>
+  <p>미란티스 인수(5/5 계약)를 소프트웨어 조각을 확보한 것으로 평가하고, 이를 근거로 호주 정부 소버린 AI 계약을 기대했다. 경영진 보상(RSU) 구조를 창업자 형제의 의결권 유지 장치로 해석한 X 계정 분석도 옮겼다. 9월에는 볼 것을 <strong>자본조달·건설·판매</strong> 셋으로 줄였다. 마지막 글(10/19)은 스포츠 팀 후원이 정상적인 사업 활동이라는 변론이다. 10/20~23 급락을 다룬 글은 없다.</p>
+</div>
+
+<h2 class="sec">예측 대조표</h2>
+<p class="sec-note">결과를 확인할 수 있는 것만 올렸다</p>
+<div class="wrap">
+<table>
+<thead><tr><th>언제</th><th>예측·주장</th><th>결과</th></tr></thead>
+<tbody>
+<tr><td class="when-c">2025-09-14</td><td>4분기 전에 어떤 형태로든 계약</td><td><span class="v-hit">적중</span> — 11/3 마이크로소프트 97억 달러(4분기 초)</td></tr>
+<tr><td class="when-c">2025-08-23</td><td>오래된 채무 소송의 갑작스러운 합의 = 큰 계약 임박</td><td><span class="v-open">판단 불가</span> — 계약은 나왔지만 인과는 알 수 없다</td></tr>
+<tr><td class="when-c">2025-07-11</td><td>오라클·스타게이트가 유력 상대</td><td><span class="v-miss">빗나감</span> — 첫 대형 계약은 마이크로소프트. 본인이 8월에 수정</td></tr>
+<tr><td class="when-c">2026-01-13</td><td>2개월 안에 데이터센터 섹터 큰 반등</td><td><span class="v-miss">빗나감</span> — 3월 글에서 본인이 70→40달러대 하락을 언급</td></tr>
+<tr><td class="when-c">2026-05-07</td><td>호주 정부 소버린 AI 계약</td><td><span class="v-none">미발표</span></td></tr>
+<tr><td class="when-c">2025-08-25</td><td>2027년 말까지 300달러</td><td><span class="v-open">진행 중</span> — 2026-10-23 종가 24.91달러</td></tr>
+<tr><td class="when-c">2025-10-03</td><td>유일한 위험은 자본지출 관리와 조달 능력</td><td><span class="v-open">시험 중</span> — 11/5 IREN 콜의 ②조달이 바로 이 질문</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">사실 확인</h2>
+<p class="sec-note">작성자의 사실 주장 중 공개 자료로 확인한 것과 못 한 것</p>
+<div class="wrap">
+<table>
+<thead><tr><th>주장</th><th>확인 결과</th></tr></thead>
+<tbody>
+<tr><td>마이크로소프트 5년 97억 달러 계약</td><td><span class="v-hit">확인</span> — 회사 발표(2025-11)</td></tr>
+<tr><td>600억 달러 ATM (2026-03)</td><td><span class="v-miss">정정</span> — SEC 공시상 <strong>60억 달러</strong>. 3/31까지 약 3.8억 달러, 8/14까지 약 25억 달러 발행</td></tr>
+<tr><td>미란티스 인수</td><td><span class="v-hit">확인</span> — 약 6.25억 달러, 주식 지급. 2026-05-05 계약, 08-03 완료</td></tr>
+<tr><td>10억 달러 무이자 전환사채, 전환 프리미엄 42.5%</td><td><span class="v-open">부분 확인</span> — 작성자가 회사 발표문을 옮겨 적은 것. 원문과 숫자는 대조하지 않았다</td></tr>
+<tr><td>스포츠 후원은 2027년 설비투자 300억 달러의 0.16%</td><td><span class="v-none">미확인</span> — 후원 금액이 공개되지 않았다. 산식대로면 약 4,800만 달러</td></tr>
+<tr><td>레오폴드 아셴브레너 펀드 13F에서 IREN 4순위</td><td><span class="v-none">미확인</span> — 2026-05 기준 주장. 이후 분기 13F 확인 필요</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 class="sec">우리 판독과의 관계</h2>
+<div class="paper">
+  <h3>같은 곳</h3>
+  <p>볼 것을 "자본조달·건설·판매"로 줄인 틀은 우리 11/5 관문(①인도 ②조달 ③구사이트·공시)과 거의 같다. 경쟁사보다 시장 전체의 병목을 먼저 보는 관점도 같다.</p>
+</div>
+<div class="paper">
+  <h3>다른 곳</h3>
+  <ul>
+    <li><strong>조달을 늘 좋은 신호로 읽는다.</strong> 2025년엔 맞았다. 2026년 10월의 시장은 같은 조달을 "조건이 나빠지는 신호"로 읽는다. 무위험 금리가 내려도 네오클라우드의 위험 가산 금리는 벌어졌다</li>
+    <li><strong>가치 계산이 가장 좋은 가정에 기댄다.</strong> 남의 계약 단가를 IREN 전력 전체에 곱하는 방식이고, 희석·지연·가동률은 반영하지 않는다</li>
+    <li><strong>"소프트웨어는 해자가 아니다"와 미란티스 인수가 부딪힌다.</strong> 회사가 6억 달러대를 들여 소프트웨어 회사를 산 것은, 적어도 회사 입장에선 소프트웨어가 필요하다는 뜻이기도 하다</li>
+  </ul>
+</div>
+<div class="paper">
+  <h3>쓸모</h3>
+  <p>경영진의 인터뷰·리테일 방송·IR 질의응답을 빠르게 모아 주는 2차 채널로는 유용하다. 판단 근거로는 쓰지 않는다. 우리 장부에 남길 것은 하나다. <strong>가장 확신이 강한 강세론자조차 2025년에 "유일한 위험"으로 꼽은 것이 조달이었고, 11/5에 그 답이 나온다.</strong></p>
+</div>
+
+<section class="src" data-sources>
+<h2 class="sec">출처</h2>
+<ul>
+  <li><a href="https://www.tossinvest.com/stocks/US20211116005/community">토스증권 IREN 커뮤니티 (작성자 익명 처리 · 커뮤니티 반응)</a></li>
+  <li><a href="https://iren.com/resources/blog/iren-signs97-billion-agreement-with-microsoft-to-deploy-ai-cloud-infrastructure">IREN signs $9.7 billion agreement with Microsoft — IREN</a></li>
+  <li><a href="https://iren.gcs-web.com/news-releases/news-release-details/iren-announces-acquisition-mirantis-strengthen-ai-cloud-delivery">IREN Announces Acquisition of Mirantis — IREN IR</a></li>
+  <li><a href="https://www.datacenterknowledge.com/infrastructure/iren-buys-mirantis-for-625m-to-unlock-ai-compute-utilization">IREN Buys Mirantis for $625M — Data Center Knowledge</a></li>
+  <li><a href="https://www.sec.gov/Archives/edgar/data/0001878848/000187884826000026/iren-20260331.htm">IREN 10-Q (2026-03-31) — ATM 60억 달러 보충 설명서·발행 실적 — SEC</a></li>
+  <li><a href="https://www.sec.gov/Archives/edgar/data/0001878848/000187884826000052/iren-20260630.htm">IREN 10-K (2026-06-30) — 8/14까지 ATM 발행 실적 — SEC</a></li>
+  <li><a href="https://www.marketbeat.com/instant-alerts/iren-nasdaqiren-stock-price-down-85-heres-what-happened-2026-03-06/">IREN stock price down 8.5% (2026-03-06) — MarketBeat</a></li>
+  <li><a href="https://iren.gcs-web.com/news-releases/news-release-details/nvidia-and-iren-announce-strategic-partnership-accelerate">NVIDIA and IREN Announce Strategic Partnership — IREN IR</a></li>
+  <li><a href="https://www.marketbeat.com/instant-alerts/price-iren-nasdaq-iren-stock-price-down-24-should-you-sell-2026-10-23/">IREN Stock Price Down 2.4% (10/23) — MarketBeat</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 · 커뮤니티 글은 참고 채널이며 매매 권유가 아니다 · <a href="../index.html">대시보드로</a></footer>
+</div>
+</body>
+</html>
