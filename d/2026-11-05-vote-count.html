@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개표 — 2026년 11월 5일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;600;700&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+:root {
+  --page-bg: #163a8c;
+  --wall-ink: #ffffff;
+  --wall-soft: #c9d6f5;
+  --stamp: #e23b3b;
+  --up: #9ff0c0;
+  --down: #ffb3ad;
+  --paper: #fbfaf6;
+  --paper-2: #eef0f6;
+  --ink: #121831;
+  --ink-soft: #4a5170;
+  --red: #b8202a;
+  --blue: #1a46b8;
+  --line: #d3d7e4;
+  --disp: 'Black Han Sans', 'Noto Sans KR', sans-serif;
+  --body: 'IBM Plex Sans KR', 'Noto Sans KR', sans-serif;
+  --serif: 'Noto Serif KR', serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page-bg: #12307a;
+    --wall-ink: #ffffff;
+    --wall-soft: #bccbf0;
+    --stamp: #ff6464;
+    --up: #9ff0c0;
+    --down: #ffb3ad;
+    --paper: #161b30;
+    --paper-2: #1f2640;
+    --ink: #eef1fa;
+    --ink-soft: #b9c0d8;
+    --red: #ff8f8a;
+    --blue: #9dbbff;
+    --line: #353d5c;
+  }
+}
+:root[data-theme="dark"] {
+  --page-bg: #12307a;
+  --wall-ink: #ffffff;
+  --wall-soft: #bccbf0;
+  --stamp: #ff6464;
+  --up: #9ff0c0;
+  --down: #ffb3ad;
+  --paper: #161b30;
+  --paper-2: #1f2640;
+  --ink: #eef1fa;
+  --ink-soft: #b9c0d8;
+  --red: #ff8f8a;
+  --blue: #9dbbff;
+  --line: #353d5c;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page-bg); color: var(--ink); font: 400 16px/1.75 var(--body); overflow-x: hidden; }
+a { color: var(--blue); overflow-wrap: anywhere; }
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 16px 56px; }
+
+/* 머리글: 개표 상황판 */
+.top { color: var(--wall-ink); padding: 24px 0 0; position: relative; }
+.crumb { font-size: 13px; color: var(--wall-soft); margin: 0 0 4px; }
+.crumb a { color: var(--wall-ink); }
+h1 { font: 400 clamp(96px, 30vw, 260px)/.88 var(--disp); margin: 0; transform: scaleX(1.6); transform-origin: left; width: fit-content; color: var(--wall-ink); letter-spacing: 0; }
+.seal { position: absolute; right: 4px; top: 54px; width: clamp(76px, 18vw, 150px); height: auto; transform: rotate(-12deg); }
+.lede { font: 500 clamp(18px, 3.5vw, 24px)/1.6 var(--serif); max-width: 36em; margin: 18px 0 0; color: var(--wall-ink); }
+
+/* 결과판: 두 칸 */
+.board { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin: 24px 0 0; }
+.col { border: 2px solid var(--wall-soft); border-radius: 4px; padding: 14px 16px 10px; color: var(--wall-ink); }
+.col h2 { font: 400 clamp(24px, 6vw, 36px)/1.1 var(--disp); margin: 0 0 8px; color: var(--wall-ink); }
+.col ul { list-style: none; margin: 0; padding: 0; }
+.col li { display: flex; justify-content: space-between; gap: 10px; border-top: 1px dashed rgba(255,255,255,.35); padding: 6px 0; font-size: 15px; }
+.col li b { font: 400 22px/1.2 var(--disp); white-space: nowrap; }
+.col.up b { color: var(--up); }
+.col.down { border-color: var(--down); }
+.col.down b { color: var(--down); }
+.col .cap { font-size: 13px; color: var(--wall-soft); margin: 6px 0 0; }
+
+/* 투표용지 카드 */
+section.ballot { position: relative; background: var(--paper); margin: 30px 0 0; padding: 30px 18px 20px; border-radius: 3px; box-shadow: 0 12px 26px rgba(0,0,0,.35); }
+section.ballot::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 8px; background: repeating-linear-gradient(90deg, var(--page-bg) 0 10px, transparent 10px 18px); opacity: .9; }
+.ballot .no { position: absolute; top: -16px; right: 14px; background: var(--paper); color: var(--stamp); border: 3px solid var(--stamp); border-radius: 999px; font: 400 15px/1 var(--disp); padding: 8px 12px 6px; transform: rotate(-4deg); }
+.ballot h2 { font: 400 clamp(26px, 6.4vw, 44px)/1.15 var(--disp); margin: 0 0 12px; }
+h3 { font: 700 18px/1.4 var(--body); margin: 20px 0 6px; }
+p { margin: 0 0 12px; }
+blockquote { margin: 0; padding: 0; }
+.tw { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0 14px; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th { text-align: left; font-weight: 700; border-bottom: 2px solid var(--ink); padding: 6px 8px; white-space: nowrap; }
+td { border-bottom: 1px solid var(--line); padding: 8px; vertical-align: top; }
+tr.today td { background: var(--paper-2); }
+.red { color: var(--red); font-weight: 700; }
+.px { font: 400 clamp(30px, 8vw, 48px)/1.1 var(--disp); }
+.sig td:nth-child(2) { font-size: 22px; }
+.note { font-size: 14px; color: var(--ink-soft); }
+.key { border-left: 6px solid var(--stamp); padding: 4px 0 4px 14px; margin: 12px 0; font-weight: 600; }
+ul { padding-left: 20px; margin: 8px 0; }
+ul.cp { list-style: none; padding: 0; font-size: 14.5px; }
+ul.cp li { padding: 6px 0; border-bottom: 1px dotted var(--line); }
+ul.src { font-size: 13.5px; }
+footer { color: var(--wall-soft); font-size: 13px; padding: 22px 0 0; }
+footer a { color: var(--wall-ink); }
+@media (min-width: 760px) {
+  section.ballot { padding: 34px 34px 26px; }
+  .board { grid-template-columns: 1fr 1.25fr; gap: 18px; }
+}
+@media (max-width: 759px) {
+  table.week thead { display: none; }
+  table.week tr { display: block; padding: 10px 0; border-bottom: 2px solid var(--line); }
+  table.week td { display: block; border: 0; padding: 2px 8px; }
+  table.week td:first-child { font: 400 21px/1.3 var(--disp); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="crumb" data-omit><a href="../index.html">대시보드</a> / 2026-11-05 목요일 아침 관측 (서울 개장 전, 미국 중간선거 다음 날)</p>
+  <h1>개표</h1>
+  <svg class="seal" data-omit aria-hidden="true" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="var(--stamp)" stroke-width="8"/><path d="M50 22 V78 M50 48 L70 60" stroke="var(--stamp)" stroke-width="9" stroke-linecap="round" fill="none"/></svg>
+  <blockquote class="lede" data-summary>민주당이 상하원을 모두 가져갔다. 텍사스 새 주지사는 데이터센터 승인을 멈추겠다고 공약했다. 넓은 시장은 올해 최고의 하루였는데, AI 설비를 짓는 쪽만 따로 빠졌다. IREN −11.24%, 마이크론 −7.00%다.</blockquote>
+</header>
+
+<div class="board">
+<div class="col up">
+<h2>오른 쪽</h2>
+<ul>
+<li><span>S&amp;P 500</span> <b>+1.58%</b></li>
+<li><span>나스닥</span> <b>+1.44%</b></li>
+<li><span>AMD (실적 다음 날)</span> <b>+1.01%</b></li>
+<li><span>아마존 (장중)</span> <b>약 +7%</b></li>
+<li><span>마이크로소프트 (오전)</span> <b>약 +5.5%</b></li>
+</ul>
+<p class="cap">AI에 돈을 쓰는 쪽</p>
+</div>
+<div class="col down">
+<h2>내린 쪽</h2>
+<ul>
+<li><span>비스트라 (전력)</span> <b>−13.83%</b></li>
+<li><span>IREN</span> <b>−11.24%</b></li>
+<li><span>코어위브</span> <b>−9.90%</b></li>
+<li><span>마이크론</span> <b>−7.00%</b></li>
+<li><span>록히드마틴</span> <b>−6.88%</b></li>
+<li><span>RKLB</span> <b>−3.78%</b></li>
+</ul>
+<p class="cap">AI 설비를 짓고 전기를 대는 쪽, 그리고 방산</p>
+</div>
+</div>
+
+<section class="ballot">
+<span class="no" data-omit>11/5 아침</span>
+<p>11/5(목) 오전 8시 반, 서울 개장 전이다. 미국 중간선거 개표가 한국 시간 어제(11/4) 아침부터 나왔다. 서울은 장중 크게 흔들렸다가 제자리로 돌아왔다. <strong>SK하이닉스는 11/4 <span data-price="hynix" data-currency="KRW" data-delta="-0.14">1,396,000</span>원(−0.14%)</strong>, 코스피는 장중 5,421.72까지 밀렸다가 5,683.80(+0.62%)으로 마감했다. 그날 밤 뉴욕에서 <strong>IREN <span data-price="iren" data-currency="USD" data-delta="-11.24">21.71</span>달러(−11.24%)</strong>, <strong>RKLB <span data-price="rklb" data-currency="USD" data-delta="-3.78">52.37</span>달러(−3.78%)</strong>였다. 신호등은 <strong>하이닉스 🟢, IREN 🟢, RKLB 🔴 그대로</strong>다. IREN 판정 관문(실적 콜)은 내일 아침 7시다. 직전 문서 <a href="2026-11-03-balance-scale.html">2026-11-03-balance-scale.md</a>의 후속이다.</p>
+</section>
+
+<section class="ballot">
+<span class="no" data-omit>개표 결과</span>
+<h2>민주당 상하원, 텍사스는 데이터센터를 멈추겠다는 주지사</h2>
+<p><strong>의회.</strong> 민주당이 상원과 하원을 모두 가져갔다. 수요일 아침 AP 집계로 상원은 민주 54, 공화 44이고 미시시피와 알래스카 2곳이 미확정이다(버라이어티 정리). 하원 의석수는 집계 기관마다 다르다(AP 민주 228석에 68곳 미확정, 디시전데스크HQ 민주 241 대 공화 149). 다수당이 바뀐다는 결론은 같다.</p>
+<p><strong>텍사스.</strong> 민주당 지나 히노호사가 현직 그레그 애벗을 이기고 주지사가 됐다. 그는 선거 운동 내내 "주지사가 되면 모든 데이터센터 승인을 멈추겠다(모라토리엄)"고 했다. 주 의회가 주민 보호 법을 만들 때까지라는 조건이고, 데이터센터 세금 감면도 없애겠다고 했다. 취임은 1월 19일이다(텍사스트리뷴). 주지사 혼자 이걸 명령할 수 있는지는 다툼이 있다.</p>
+<p>이미 걸려 있는 장치도 있다. 애벗은 8월부터 데이터센터의 전력망 연결 신청과 환경 허가를 멈추고 한 건씩 감사하게 했다. 대상은 "연결을 기다리는 신청"이고 감사는 올해 안(12월께)에 끝날 예정이다(세이파스 법률 정리, 텍사스트리뷴). 웰스파고는 미국에서 계획된 데이터센터 전력(GW)의 <strong>27%가 텍사스</strong>에 있다고 했다(CNBC).</p>
+<p class="key">텍사스는 IREN의 집이다. 큰 두 캠퍼스 차일드리스(750MW, 마이크로소프트 호라이즌 1이 있는 곳)와 스위트워터(2GW)가 모두 텍사스에 있다. 스위트워터는 9월 ERCOT 배치 제로에 "조건부"로 들어갔고, 1단계 변전소에 전기가 들어와 300MW를 짓는 중이다(목표 2027년 4분기).</p>
+<p><strong>시장의 읽기.</strong> 개표가 아시아 장중에 나오면서 처음에는 AI 주식이 아시아 전역에서 빠졌다. 그 뒤 미국은 방향을 틀어 다우가 약 1,500포인트 오른 올해 최고의 하루가 됐다(야후 파이낸스). 분석가들은 "의회가 갈리면 재정 지출이 덜 늘어난다"(JP모건자산운용 타이 후이), "텍사스에서 AI 설비 속도가 크게 늦어질 수 있다"(무무 ANZ 타파스 스트릭랜드)고 봤다. 그래서 같은 날 <strong>쓰는 쪽(아마존, 마이크로소프트)은 오르고 짓는 쪽(코어위브, IREN, 비스트라, 마이크론)은 빠졌다.</strong> 반대 의견도 있다. 펀드스트랫 톰 리는 선거 전까지 가장 많이 맞은 메모리, 반도체, 데이터센터, 네오클라우드가 가장 크게 되튈 것이라고 했다(BigGo 재인용).</p>
+</section>
+
+<section class="ballot">
+<span class="no" data-omit>계표</span>
+<h2>11/4(수) 마감</h2>
+<div class="tw"><table>
+<thead><tr><th>종목, 지수</th><th>11/4 종가</th><th>등락</th><th>메모</th></tr></thead>
+<tbody>
+<tr><td>SK하이닉스</td><td>1,396,000원</td><td>−0.14%</td><td>11/3 종가 1,398,000원. 나스닥 SKHY는 143.07달러(−5.12%)</td></tr>
+<tr><td>코스피</td><td>5,683.80</td><td>+0.62%</td><td>장중 저점 5,421.72(−4.0%)에서 회복</td></tr>
+<tr><td>IREN</td><td>21.71달러</td><td class="red">−11.24%</td><td>11/3 24.46달러(+11.08%) 반등을 하루 만에 모두 내줬다. 종가 기준 올해 최저</td></tr>
+<tr><td>RKLB</td><td>52.37달러</td><td>−3.78%</td><td>방산주와 같이 빠졌다</td></tr>
+<tr><td>코어위브</td><td>48.42달러</td><td class="red">−9.90%</td><td></td></tr>
+<tr><td>네비우스</td><td>141.52달러</td><td>−6.67%</td><td></td></tr>
+<tr><td>마이크론</td><td>795.23달러</td><td class="red">−7.00%</td><td>11/3 855.10달러</td></tr>
+<tr><td>엔비디아</td><td>200.13달러</td><td>−3.17%</td><td></td></tr>
+<tr><td>AMD</td><td>488.78달러</td><td>+1.01%</td><td>11/3 장 마감 뒤 실적(아래)</td></tr>
+<tr><td>슈퍼마이크로</td><td>29.60달러</td><td>−5.70%</td><td>11/3 실적(아래)</td></tr>
+<tr><td>오라클</td><td>123.73달러</td><td>−1.95%</td><td></td></tr>
+<tr><td>비스트라</td><td>120.29달러</td><td class="red">−13.83%</td><td>텍사스 전력 회사</td></tr>
+<tr><td>록히드마틴</td><td>595.04달러</td><td class="red">−6.88%</td><td>민주당 의회의 방산 예산 우려</td></tr>
+<tr><td>테슬라</td><td>385.19달러</td><td>−3.34%</td><td>텍사스 선거와 데이터센터 우려(CNBC)</td></tr>
+<tr><td>필라델피아 반도체</td><td>10,268.65</td><td class="red">−3.13%</td><td></td></tr>
+<tr><td>S&amp;P 500</td><td>7,688.62</td><td>+1.58%</td><td>나스닥 25,736.51(+1.44%)</td></tr>
+<tr><td>미 국채 10년물</td><td>4.89%</td><td>4.95%에서 하락</td><td></td></tr>
+<tr><td>브렌트</td><td>94.62달러</td><td class="red">−8.7%</td><td>정산가(CNBC). WTI 88.12달러(−8.3%)</td></tr>
+<tr><td>원/달러</td><td>약 1,340원</td><td>—</td><td></td></tr>
+</tbody>
+</table></div>
+<p class="note">하이닉스와 코스피는 정규장 종가다(야후와 네이버 기본 시세가 같다). 네이버 일별 목록(1,420,000원)은 장 마감 뒤 대체거래소 체결이 섞여 있어 쓰지 않는다. 오늘 서울 개장은 아래 무기한 선물이 먼저 가리키고 있다.</p>
+</section>
+
+<section class="ballot">
+<span class="no" data-omit>수요 증언</span>
+<h2>AMD와 슈퍼마이크로 — 수요는 꺾이지 않았다</h2>
+<p><strong>AMD.</strong> 3분기 매출 134억 달러(+45%)로 자기 전망 상단을 넘었고, 데이터센터 매출은 +97%였다. 4분기 전망은 <strong>약 170억 달러(±3%)</strong>, 이익률 약 55%다(SEC 8-K). 메모리 값이 오르는 중에도 AI 칩 수요 전망을 크게 올렸다는 뜻이다. 주가는 다음 날 +1.01%로 반도체 지수(−3.13%)와 반대로 갔다.</p>
+<p><strong>슈퍼마이크로.</strong> 회계 1분기(9월 말) 매출 199억 달러로 직전 분기 111억 달러의 두 배 가까이 됐다. 대신 이익률이 17.5%에서 12.7%로 떨어졌고 영업활동 현금이 4.34억 달러 빠져나갔다(SEC 8-K). 서버를 많이 팔았지만 남는 돈은 줄었다. 주가 −5.70%.</p>
+<p>체크포인트 "메모리 값이 수요를 깎는가"에는 이번 주 증언이 넷 모였다. 애플은 흡수, 인텔은 PC 둔화, AMD와 슈퍼마이크로는 AI 수요 증가다. 남은 것은 퀄컴이다.</p>
+</section>
+
+<section class="ballot">
+<span class="no" data-omit>바깥 바람</span>
+<h2>유가 −8.7%, "진 이유는 전쟁"</h2>
+<p>브렌트가 94.62달러로 하루 8.7% 빠져 약 두 달 만의 최저가 됐다(CNBC). 밴스 부통령이 선거 뒤 "우리가 진 이유는 전쟁"이라고 썼고, 시장은 트럼프가 이란과 합의할 이유가 커졌다고 읽었다. 트럼프는 이란을 당장 칠 계획은 없다고 했다. 이란은 미국이 조건(제재 해제, 동결 자산)을 받으면 이틀 안에 호르무즈를 열 수 있다는 입장이지만 미국 답이 모자라다고 했다. 골드만삭스는 여전히 12월 브렌트 105달러를 본다.</p>
+<p>유가가 내리면 금리 부담이 덜해진다. 다만 12월 FOMC(12/8~9) 인상 확률은 선거 전 보도마다 70%대에서 80%대 초반이었고 선거 뒤 수치는 이번에 확인하지 못했다. 내일 밤 10월 고용이 다음 기준이다.</p>
+</section>
+
+<section class="ballot">
+<span class="no" data-omit>레버리지</span>
+<h2>무기한 선물 — 하이닉스 하락 베팅이 다시 몰렸다</h2>
+<div class="tw"><table>
+<thead><tr><th>심볼</th><th>선물가</th><th>미결제약정</th><th>펀딩 (연율)</th><th>직전 문서 대비</th></tr></thead>
+<tbody>
+<tr><td>xyz:SKHX</td><td>995.7달러 (약 133.5만원)</td><td>30.0만</td><td class="red">약 −623%</td><td>약정 23.7만에서 +27%, 펀딩 양수에서 큰 음수로. 하루 전 1,088.1달러 대비 −8.5%</td></tr>
+<tr><td>xyz:IREN</td><td>21.828달러</td><td>19.8만</td><td>약 +5.5%</td><td>약정 21.4만에서 줄었다</td></tr>
+<tr><td>xyz:RKLB</td><td>52.423달러</td><td>10.1만</td><td>약 +5.5%</td><td>약정 9.27만에서 늘었다</td></tr>
+<tr><td>xyz:SMSN</td><td>158.79달러</td><td>28.0만</td><td>약 −426%</td><td>펀딩 양수에서 큰 음수로</td></tr>
+</tbody>
+</table></div>
+<p>하이닉스 선물을 원화로 바꾸면 약 133.5만원으로 어제 서울 종가(1,396,000원)보다 4%쯤 낮다. 사흘 전 정리됐던 하락 베팅이 다시 몰렸다(약정 +27%, 펀딩 연율 약 −623%). 서울은 어제 미국 장이 열리기 전에 마감해서, 밤사이 마이크론 −7.00%와 나스닥 SKHY −5.12%를 아직 반영하지 않았다. 오늘 개장 갭(어제 종가와 오늘 시가의 차이)의 선행 신호다. <strong>참고 채널일 뿐 판정 근거가 아니다</strong>(7월 오라클 사고 전례).</p>
+</section>
+
+<section class="ballot">
+<span class="no" data-omit>종목별</span>
+<h2>종목별</h2>
+<h3>SK하이닉스 🇰🇷</h3>
+<p class="px">1,396,000원 <span>−0.14%</span></p>
+<p><strong>현황.</strong> 어제 개표가 나오는 동안 장중 크게 밀렸다가 제자리로 마감했다. 그 뒤 미국에서 메모리가 크게 빠져 오늘 개장은 낮게 시작할 가능성이 크다(선물과 나스닥 SKHY 기준).</p>
+<p><strong>링 검색.</strong> Ring 1: AMD 4분기 약 170억 달러 전망, 데이터센터 +97%. Ring 2: 슈퍼마이크로 매출 두 배, 이익률 하락. 텍사스 데이터센터 승인 중단 공약(웰스파고: 계획 전력의 27%). Ring 3: 마이크론 −7.00%. Ring 4: 로이터 보도로 솔리다임(하이닉스 미국 낸드 자회사)이 미국 새 공장을 중국 다롄 공장 장비 반입 허가와 묶어 협상 중이다. 2027년분 연간 수출 허가가 아직 안 나왔다. 하이닉스는 "다롄 모드 B 생산능력을 늘리려는 것이 아니다"라고 했다(더스탠더드, 테크크런치 인용).</p>
+<p><strong>리스크.</strong> 고객의 고객인 데이터센터 건설이 정치 때문에 늦어지는 경우다. 메모리 값이 아니라 "짓는 속도"가 꺾이는 경로다. 다롄 허가가 늦으면 유지보수 장비조차 막힐 수 있다(메르 정리, 아래).</p>
+<p><strong>판단(참고용).</strong> 🟢 유지. 10/28 판정 근거(실적과 장기 계약)는 그대로이고, 이번 주 고객 증언(애플, AMD)은 수요 쪽이다. 텍사스 공약은 아직 공약이고 취임은 1월 19일이다.</p>
+
+<h3>IREN 🇺🇸</h3>
+<p class="px">21.71달러 <span class="red">−11.24%</span></p>
+<p><strong>현황.</strong> 11/3 +11.08%로 반등했다가 하루 만에 모두 내주고 올해 최저 종가를 다시 갈았다. 이유는 회사가 아니라 텍사스 선거다(CNBC, 24/7 월스트리트). 회사 새 공시는 없다.</p>
+<p><strong>링 검색.</strong> Ring 3: 코어위브 −9.90%, 네비우스 −6.67%. Ring 2: 텍사스 전력 회사 비스트라 −13.83%. Ring 4: 히노호사 승인 중단 공약, 애벗의 연결 신청 감사(12월께 종료). 블룸버그는 선거 전(10/29)부터 개발사들이 유타, 조지아, 아이오와로 눈을 돌린다고 썼다.</p>
+<p><strong>리스크.</strong> 이미 전기가 들어온 곳(차일드리스, 스위트워터 1)보다 <strong>아직 승인이 필요한 다음 단계</strong>가 걸린다. 공약이 "모든 승인"이라 스위트워터의 조건부 배치 제로와 추가 증설이 어디까지 묶이는지가 핵심이다. 이것은 내일 콜에서 회사가 처음 답할 질문이다.</p>
+<p><strong>판단(참고용).</strong> 🟢 유지, 세 종목 중 가장 위태롭다. 선거와 주가는 관문이 아니다. 판정은 10/12에 정한 조건 그대로 내일(한국 11/6) 아침 7시 콜이다. ①인도 ②조달 ③구사이트와 공시. 텍사스 질문은 <strong>판정 조건에 넣지 않고 듣기 항목</strong>으로 둔다(조건을 바꾸는 것은 사용자 결정).</p>
+
+<h3>Rocket Lab 🚀</h3>
+<p class="px">52.37달러 <span class="red">−3.78%</span></p>
+<p><strong>현황.</strong> 록히드마틴 −6.88% 등 방산주와 같이 빠졌다(CNBC: 민주당 의회 승리 뒤 방산 하락). 11/3에 Form 4(임원 실제 거래 신고) 두 건이 접수됐다. 11/2 매도 예정 신고(CFO, 이사)의 후속으로 보이지만, 이번에는 수량과 미리 정한 매매 계획 여부를 원문으로 읽지 못했다. X에서는 "미리 정한 매도"라는 글이 돈다(커뮤니티 반응, 원문 미확인).</p>
+<p><strong>리스크.</strong> 민주당 의회가 골든돔(1,750억 달러 미사일 방어) 예산을 깎거나 늦추는 경우다. 민주당과 군축 단체는 골든돔을 비판해 왔다.</p>
+<p><strong>판단(참고용).</strong> 🔴 유지. 복귀 조건(새 발사 일정 공표, 1단 탱크 검사 통과, FCC 승인)은 그대로이고 첫 확인은 11/9 실적(한국 11/10 아침)이다.</p>
+</section>
+
+<section class="ballot">
+<span class="no" data-omit>판정</span>
+<h2>신호등 요약</h2>
+<div class="tw"><table class="sig">
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix"><td data-name>SK하이닉스</td><td data-light>🟢</td><td data-change>유지</td><td data-note>11/4 1,396,000원(−0.14%). 밤사이 마이크론 −7.00%, 선물은 약 4% 아래. AMD 4분기 약 170억 달러 전망은 수요 쪽 증언</td></tr>
+<tr data-signal="iren"><td data-name>IREN</td><td data-light>🟢</td><td data-change>유지</td><td data-note>21.71달러(<strong>−11.24%</strong>) 올해 최저 종가. 텍사스 새 주지사의 데이터센터 승인 중단 공약. 판정은 내일(한국 11/6) 아침 콜</td></tr>
+<tr data-signal="rklb"><td data-name>RKLB</td><td data-light>🔴</td><td data-change>유지</td><td data-note>52.37달러(−3.78%). 민주당 의회에 방산주 하락. 3분기 실적 11/9</td></tr>
+</tbody>
+</table></div>
+<p><strong>포트폴리오 히트:</strong> 이번 선거는 세 종목을 한 번에 건드렸다. IREN은 텍사스(집), 하이닉스는 그 고객의 건설 속도, RKLB는 방산 예산이다. 넓은 시장이 오른 날 세 종목만 내린 쪽에 섰다. 같은 AI 접시라는 걱정에 더해 "정치" 한 가지가 공통 위험으로 새로 생겼다.</p>
+</section>
+
+<section class="ballot">
+<span class="no" data-omit>이번 주</span>
+<h2>남은 일정 (한국 시간)</h2>
+<div class="tw"><table class="week">
+<thead><tr><th>날짜</th><th>일</th><th>걸린 종목</th><th>볼 것</th></tr></thead>
+<tbody>
+<tr class="today"><td>11/5 목 오늘</td><td>서울 개장, 하이닉스 레버리지 ETF 거래 종료</td><td>하이닉스</td><td>밤사이 미국 메모리 하락이 얼마나 넘어오나</td></tr>
+<tr><td>11/6 금 아침 7시</td><td><strong class="red">IREN 1분기 실적 콜</strong> (미국 11/5 17:00)</td><td>IREN, 판정 관문</td><td>①인도 ②조달(6%, 9%) ③구사이트와 공시. 듣기 항목: 텍사스 승인 중단이 어디까지 걸리나</td></tr>
+<tr><td>11/6 금 밤</td><td>10월 미국 고용</td><td>전 종목</td><td>12월 FOMC 인상 확률</td></tr>
+<tr><td>11/10 화 아침 7시</td><td>RKLB 3분기 실적 (미국 11/9 장 마감 뒤)</td><td>RKLB</td><td>뉴트론 새 일정, FCC 공람도 11/9</td></tr>
+<tr><td>12/8~9</td><td>FOMC</td><td>전 종목</td><td></td></tr>
+<tr><td>1/19</td><td>히노호사 텍사스 주지사 취임</td><td>IREN, 하이닉스</td><td>승인 중단 명령을 실제로 내리나</td></tr>
+</tbody>
+</table></div>
+</section>
+
+<section class="ballot">
+<span class="no" data-omit>체크</span>
+<h2>다음 체크포인트</h2>
+<ul class="cp">
+<li data-checkpoint><input type="checkbox" disabled checked> <strong>미국 중간선거 (11/3)</strong> — 민주당 상하원. 텍사스 주지사 히노호사, 데이터센터 승인 중단 공약. 시장은 짓는 쪽을 팔았다 (완료)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>IREN FY27 1분기 콜 (11/5 17:00 미국, 한국 11/6 07:00)</strong> — ①인도 ②조달(금리 기준선 6%, 9%, 오라클 조달 뒤 시장 반응) ③구사이트와 공시. ③의 판정 방식은 말씀이 없으면 "답변 여부". 듣기 항목: 텍사스 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>텍사스 데이터센터 승인 중단</strong> — 히노호사 1/19 취임, 애벗의 연결 신청 감사 12월께 종료. IREN 스위트워터 조건부 배치 제로가 묶이는가, 주지사 단독 명령이 가능한가 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>다른 주의 데이터센터 주민투표 결과</strong> — 선거 전 13개 주 49건(발로트피디아). 결과 집계 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>메모리 값이 수요를 깎는가</strong> — 애플은 흡수, 인텔은 PC 둔화, AMD 4분기 약 170억 달러, 슈퍼마이크로 매출 두 배와 이익률 12.7%. 남은 것: 퀄컴 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>메모리 값 상승 속도</strong> — 키옥시아 낸드 보합 전망이 D램, HBM 계약가로 번지나 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>AI 설비 회사의 조달</strong> — 오라클 주식 100억, 회사채 100억 달러. 다음 대형 발행과 시장 반응 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>10월 미국 고용 (11/6)</strong> — 12월 FOMC(12/8~9) 인상 확률. 선거와 유가 하락 뒤 수치 확인 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>외국인 수급</strong> — 10월 하이닉스 −10조3,778억원. 11/4, 11/5 금액 확인 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>"잔액" 채점이 계속되나</strong> — 빅테크가 현금 압박에 지출 속도를 늦추는 발언이 나오는가. 선거 날은 쓰는 쪽이 올랐다 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>빅테크가 덜 쓴 이유</strong> — MS, 구글의 이유(장비, 전력 지연 또는 회계 시점) 미확인 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 구글 2027년 설비투자 금액 — 4분기 실적(2027년 초) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>사용자 가설 시험 — 비트당 원가</strong> — 메르: 3분기 D램 비트 약 +10%, 4분기 20%대. 교차확인 필요 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>하이닉스 순이익 차이</strong> — 39조7,756억원 vs 예상 61조2,900억원. 분기보고서로 확인 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 하이닉스 내년 설비투자 금액 — 4분기 실적 때 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 하이닉스 매입과 소각 남은 몫 — 목표 60조원 이상, 새 20조원은 1/28까지 하루 최대 149.2만 주 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>솔리다임 미국 공장과 다롄 허가</strong> — 블룸버그 450억 달러(최대 1,000억), 회사 "결정 없음". 로이터: 미국 공장을 다롄 모드 B 장비 허가와 묶어 협상, 2027년분 연간 허가 미발급. 메르: 48D 세액공제는 12/31까지 착공(투자비 5% 지출) 조건 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> HBM 점유율 — 삼성 30%대 후반 전언 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 트레이니엄4 HBM 공급사 — 칩당 HBM4 8개(메르), 2027년 납품 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 하이닉스 장기 계약 5년 초과 연장 — 가격 범위의 바닥, 보증금 장치 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 하이닉스 레버리지 ETF 청산 — 11/5 거래 종료, 11/12께 청산 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 하이닉스 perp — 미결제약정 23.7만에서 30.0만, 펀딩 연율 약 −623% (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>윙스파이어 3.63억 달러 금리와 만기</strong> — 비공개. 6%, 9%와 비교 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 네오클라우드 위험 가산 금리 — 11월 첫 발행 조건. 네비우스 CEO "일부 시장이 일시적으로 말랐다" (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN perp — 미결제약정 21.4만에서 19.8만, 펀딩 약 +5.5% (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 목표가 — B. 라일리 91에서 64달러(매수 유지). 콜 뒤 추가 조정 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 대주주 변동 — 뱅크오브아메리카 13G/A(10/28) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 엔비디아 "GPU를 금융 가능한 자산으로" — 문은 열려 있고 값이 오르는 중 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 앤트로픽 600억 달러 칩 대출 최종 금리 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 앤트로픽-IREN 계약 확인 여부 — 단독 보도, 양사 미확인. 남은 경로: 공시와 11/5 콜 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 앤트로픽 상장 일정 — 로드쇼 11/10~, 공모가 11/18경, 상장 11/19~20 예상 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 오픈AI 구글 TPU 구매 — The Information 발(2차 인용), 양사 미확인 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> Nscale — 300억 달러 상장 추진, 앤트로픽 약정 최대 446억 달러 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 딥시크 "HBM 75% 절감" 실측 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 기판 병목 — 삼성전기 3.7조원 선투자, 골드만 ABF 부족 전망 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 메타 의결권 없는 C주 (2027년 1월) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 엔비디아 미네르바 — IREN 첫 실가동 고객 보도, 원문 확인 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 스페이스X 컴퓨트 임대 — 앤트로픽 최대 1,205억 달러, 2027년 3월 뒤 90일 통보 해지 가능. 스페이스X도 텍사스 선거에 −3% (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 코어위브 덴마크 가동 vs IREN 스페인 바다호스 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 스페인 바다호스 — 300MW, 2028년, 첫 고객. 텍사스 밖 물량으로 무게가 커졌다 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 엘리스그룹 주가와 민간 수주 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 마케팅 지출 — 레알 마드리드, 워리어스 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 공식 답변 — SemiAnalysis 지적 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 레드뱅크 — 주민 설명회(11/4~5) 결과 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 RKLB 뉴트론 새 일정 — 2027년 1분기 말까지 목표일 공표(X 클립, 원문 미확인). 2단과 추력 모듈 월롭스 도착 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> RKLB 3분기 실적 (11/9 장 마감 뒤, 한국 11/10 07:00) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> RKLB FCC 승인 — 공람 11/9. 이리듐 인수 마감 2027년 중반 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> RKLB 임원 매도 — Form 144(11/2) 뒤 Form 4 두 건(11/3) 접수. 수량과 매매 계획 여부 원문 확인 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>골든돔과 방산 예산</strong> — 민주당 의회에서 1,750억 달러 미사일 방어 예산이 깎이거나 늦어지나. 록히드마틴 −6.88% (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> RKLB 일렉트론 99, 100번째 발사 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 스페이스X-테슬라 합병 — 특별위원회 진행 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>이란과 호르무즈</strong> — 이란 "조건 받으면 이틀 안에 재개", 미국 답 부족하다는 입장. 브렌트 94.62달러. 골드만 12월 105달러. 시노코 실제 조치 여부도 계속 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 이스라엘 연정 — 네타냐후 진영 53, 야당 48, 아랍 19석. 선관위 공식 발표와 협상 105일 (이월)</li>
+</ul>
+</section>
+
+<section class="ballot">
+<span class="no" data-omit>메르</span>
+<h2>📰 메르 신규 글</h2>
+<p>직전 판독(11/3 아침) 이후 4편. <strong>블로거 분석이며 판정 근거로 쓰지 않는다.</strong></p>
+<ul>
+<li>🔗 <strong>미국정부의 SK하이닉스 증설허가 상황 및 삼성전자 영향은?</strong> (11/5) — 로이터 보도를 이어 쓴 글이다. 솔리다임이 미국 낸드 공장(뉴욕주 후보)을 다롄 모드 B 장비 허가와 함께 협상한다고 봤다. 미국 48D 세액공제는 투자비의 35%인데 12/31 뒤 착공분은 빠지고, 투자비 5%를 먼저 쓰면 착공으로 인정된다. 보조금에는 "중국에서 생산능력을 의미 있게 늘리면 토해낸다"는 조항이 있어 인디애나 패키지 공장 보조금 4.58억 달러도 걸려 있다. 메르는 중국에서 하이닉스가 D램 약 40%, 낸드 30% 안팎을 만든다며, 유지보수 승인까지 막히면 공급 부족으로 값이 더 뛸 수 있어 미국이 유지보수는 승인할 것으로 봤다. 우리 체크포인트(솔리다임)와 <strong>일치</strong>하고, 2027년분 허가 시점을 새 관찰 대상으로 더한다.</li>
+<li>🔗 <strong>미국 기업중 중간선거의 가장 큰 패배자는?</strong> (11/5) — 빅테크의 정치 후원을 뜯어본 글이다. 머스크는 공화당 슈퍼팩에 3분기에만 2.76억 달러 이상을 넣었고 텍사스 상원에 약 2.57억 달러를 썼는데, 공화당 팩스턴이 55 대 43, 주지사도 민주당이 53 대 46으로 이겼다고 정리했다(블로거 집계). 패자는 머스크, 젠슨 황도 어느 정도 영향을 받는다고 봤다. 텍사스가 핵심이라는 우리 판독과 <strong>일치</strong>한다. 스페이스X와 테슬라도 텍사스 데이터센터 우려로 빠졌다.</li>
+<li>🔗 <strong>미국 중간선거, 생각보다 팽팽한 상원 판세분석</strong> (11/4, 개표 전) — 민주당이 상원 과반을 얻으려면 공화당 텃밭 6곳(메인, 알래스카, 아이오와, 텍사스, 오하이오, 캔자스) 중 3곳 이상을 이겨야 한다는 개표 전 분석이다. 결과는 민주당 상원 다수로 나왔다.</li>
+<li><strong>스페이스X의 도전은 성공할 수 있을까? A/S</strong> (11/4) — 스페이스X가 800MHz 주파수를 80억 달러에 산 뒤 기존 통신 철탑을 빌려 "올려 보내기(업로드)" 약점을 메우려 한다는 글이다. 포트폴리오와 직접 관련은 없다.</li>
+</ul>
+</section>
+
+<section class="ballot" data-sources>
+<span class="no" data-omit>출처</span>
+<h2>출처</h2>
+<ul class="src">
+<li><a href="https://www.cnbc.com/2026/11/04/2026-midterm-election-results-live-updates.html">2026 midterm election results — CNBC</a></li>
+<li><a href="https://www.yahoo.com/news/politics/live/midterms-2026-live-updates-election-day-voters-head-to-the-polls-as-democrats-look-to-flip-gop-control-of-the-house-and-senate-110000715.html">Midterms 2026: Democrats take control of Congress — Yahoo News</a></li>
+<li><a href="https://variety.com/2026/biz/news/stocks-midterm-elections-democrats-congress-1236939220/">Stocks Surge After Democrats Flip Congress — Variety</a></li>
+<li><a href="https://finance.yahoo.com/markets/live/stock-market-today-dow-sp-500-nasdaq-midterm-elections-earnings-140752043.html">Dow surges 1,500 points in best day of 2026 — Yahoo Finance</a></li>
+<li><a href="https://finance.yahoo.com/markets/stocks/articles/analysts-react-us-midterm-election-025738421.html">Market analysts react to Democratic sweep — Yahoo Finance(로이터)</a></li>
+<li><a href="https://www.cnbc.com/2026/11/04/stocks-making-the-biggest-moves-midday-crwv-mu-bkng-mcd-cvs.html">Stocks making the biggest moves midday — CNBC</a></li>
+<li><a href="https://cnbc.com/2026/11/04/ai-stocks-texas-governor-data-centers.html">AI data center stocks and SpaceX decline on Texas governor result — CNBC</a></li>
+<li><a href="https://www.texastribune.org/2026/11/04/data-center-texas-pause-gina-hinojosa-governor-policies/">Under Hinojosa, Texas data center approvals could stay paused — Texas Tribune</a></li>
+<li><a href="https://finance.yahoo.com/economy/article/a-democrat-won-the-texas-governors-race-after-promising-to-halt-new-data-center-construction-044536389.html">Democrats' victories in Texas laid bare voter unease over data centers — Yahoo Finance</a></li>
+<li><a href="https://www.seyfarth.com/news-insights/texas-pauses-pending-data-center-grid-interconnections-for-project-by-project-audit.html">Texas Pauses Pending Data Center Grid Interconnections — Seyfarth Shaw</a></li>
+<li><a href="https://247wallst.com/investing/2026/11/04/iren-falls-5-coreweave-drops-4-as-texas-election-stokes-data-center-moratorium-fears-nebius-dips-2/">IREN Falls as Texas Election Stokes Moratorium Fears — 24/7 Wall St.</a></li>
+<li><a href="https://www.bloomberg.com/news/articles/2026-10-29/texas-data-center-boom-collides-with-backlash-ahead-of-midterms">Texas Data Center Boom Collides With Backlash Ahead of Midterms — Bloomberg</a></li>
+<li><a href="https://www.bloomberg.com/news/videos/2026-11-04/us-midterm-blue-wave-puts-ai-data-centers-in-spotlight-video">US Midterm Blue Wave Puts AI, Data Centers in Spotlight — Bloomberg</a></li>
+<li><a href="https://finance.biggo.com/news/901e3d96-0b43-4d6f-8b70-991a69c2309f">Fundstrat's Tom Lee: beaten-down memory, neocloud stocks set for biggest bounces — BigGo Finance</a></li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/0000002488/000000248826000188/q32026991.htm">AMD Q3 2026 results — SEC 8-K</a></li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/0001375365/000137536526000026/exhibit991_20260930.htm">Supermicro FQ1 2027 results — SEC 8-K</a></li>
+<li><a href="https://www.cnbc.com/2026/11/04/oil-price-iran-war-us-election-strait-hormuz.html">Crude falls below $90 as Vance blames GOP defeat on Iran war — CNBC</a></li>
+<li><a href="https://oilprice.com/Latest-Energy-News/World-News/Oil-Crashes-9-as-Trump-and-Vance-Blame-Iran-War-for-Midterm-Rout.html">Oil Crashes 9% as Trump and Vance Blame Iran War — OilPrice</a></li>
+<li><a href="https://www.thestandard.com.hk/innovation/article/345527/SK-Hynix-conditions-new-US-factory-on-more-US-chip-equipment-exports-to-China-sources-say">SK Hynix conditions new US factory on more US chip equipment exports to China — The Standard(로이터)</a></li>
+<li><a href="https://techcrunch.com/?p=3178049">SK Hynix Dalian Mod B 입장 — TechCrunch</a></li>
+<li><a href="https://news.ballotpedia.org/?p=51237">Data center ballot measures 2026 — Ballotpedia News</a></li>
+<li><a href="https://m.stock.naver.com/domestic/stock/000660/total">SK하이닉스 시세 — 네이버 증권</a></li>
+<li><a href="https://finance.yahoo.com/quote/IREN/">IREN quote — Yahoo Finance</a></li>
+<li><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001819994&amp;type=4&amp;dateb=&amp;owner=include&amp;count=40">RKLB Form 4 목록 — SEC EDGAR</a></li>
+<li><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001878848&amp;type=&amp;dateb=&amp;owner=include&amp;count=40">IREN SEC 제출 목록 — SEC EDGAR</a></li>
+<li><a href="https://app.hyperliquid.xyz/trade/xyz:SKHX">xyz:SKHX 무기한 선물 — Hyperliquid (trade.xyz)</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224464224343">미국정부의 SK하이닉스 증설허가 상황 및 삼성전자 영향은? — 메르(블로거 분석)</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224465427340">미국 기업중 중간선거의 가장 큰 패배자는? — 메르(블로거 분석)</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224464289223">미국 중간선거, 생각보다 팽팽한 상원 판세분석 — 메르(블로거 분석)</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224463343551">스페이스X의 도전은 성공할 수 있을까? A/S — 메르(블로거 분석)</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 / 모든 판단은 참고용이며 매매 권유가 아니다 / <a href="../index.html">대시보드로</a></footer>
+
+</div>
+</body>
+</html>
