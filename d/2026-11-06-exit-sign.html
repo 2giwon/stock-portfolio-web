@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>비상구 — 2026년 11월 6일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+:root {
+  --page-bg: #00843d;
+  --sign-ink: #ffffff;
+  --sign-soft: #d4f5e2;
+  --amber: #ffc23d;
+  --paper: #ffffff;
+  --paper-2: #eef7f1;
+  --ink: #0c1f14;
+  --ink-soft: #3f5a49;
+  --line: #cfe1d6;
+  --green: #00703c;
+  --red: #b3261e;
+  --link: #005a9e;
+  --disp: 'Black Han Sans', 'Noto Sans KR', sans-serif;
+  --sign: 'Do Hyeon', 'Noto Sans KR', sans-serif;
+  --body: 'IBM Plex Sans KR', 'Noto Sans KR', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page-bg: #006b35;
+    --sign-ink: #ffffff;
+    --sign-soft: #c7efd8;
+    --amber: #ffcf5c;
+    --paper: #0f1a14;
+    --paper-2: #17261d;
+    --ink: #e9f4ed;
+    --ink-soft: #a9c4b3;
+    --line: #2b3f33;
+    --green: #7fe0a8;
+    --red: #ff9a90;
+    --link: #8ec9ff;
+  }
+}
+:root[data-theme="dark"] {
+  --page-bg: #006b35;
+  --sign-ink: #ffffff;
+  --sign-soft: #c7efd8;
+  --amber: #ffcf5c;
+  --paper: #0f1a14;
+  --paper-2: #17261d;
+  --ink: #e9f4ed;
+  --ink-soft: #a9c4b3;
+  --line: #2b3f33;
+  --green: #7fe0a8;
+  --red: #ff9a90;
+  --link: #8ec9ff;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page-bg); color: var(--ink); font: 400 16px/1.75 var(--body); overflow-x: hidden; }
+a { color: var(--link); overflow-wrap: anywhere; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px 56px; }
+
+/* 머리글: 비상구 표지판 */
+.top { color: var(--sign-ink); padding: 22px 0 0; }
+.crumb { font-size: 13px; color: var(--sign-soft); margin: 0 0 10px; }
+.crumb a { color: var(--sign-ink); }
+.plate { display: flex; align-items: center; gap: clamp(10px, 3vw, 26px); border: 4px solid var(--sign-ink); border-radius: 6px; padding: 10px clamp(10px, 3vw, 22px); overflow: hidden; }
+.plate svg { flex: 0 0 auto; width: clamp(70px, 20vw, 170px); height: auto; }
+h1 { font: 400 clamp(48px, 13vw, 150px)/.95 var(--disp); margin: 0; transform: scaleX(1.45); transform-origin: left; color: var(--sign-ink); white-space: nowrap; }
+.exit-word { font: 400 clamp(16px, 4vw, 26px)/1 var(--sign); letter-spacing: .32em; color: var(--sign-soft); margin: 8px 0 0; }
+.lede { font: 600 clamp(18px, 3.6vw, 24px)/1.6 var(--body); max-width: 36em; margin: 18px 0 0; color: var(--sign-ink); }
+
+/* 출구 앞 줄 */
+.queue { margin: 22px 0 0; color: var(--sign-ink); }
+.queue h2 { font: 400 clamp(22px, 5.4vw, 34px)/1.2 var(--sign); margin: 0 0 8px; color: var(--sign-ink); }
+.queue ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.queue li { border: 2px solid var(--sign-soft); border-radius: 4px; padding: 8px 10px; display: flex; flex-direction: column; }
+.queue li span { font-size: 13.5px; color: var(--sign-soft); }
+.queue li b { font: 400 clamp(24px, 6.4vw, 36px)/1.1 var(--disp); color: var(--sign-ink); }
+.queue .cap { font-size: 13px; color: var(--sign-soft); margin: 8px 0 0; }
+
+/* 황색등 판 */
+.verdict { margin: 26px 0 0; background: var(--amber); color: #1d1500; border-radius: 6px; padding: 18px 18px 14px; overflow: hidden; }
+.verdict .big { font: 400 clamp(38px, 11vw, 92px)/1 var(--disp); margin: 0; transform: scaleX(1.15); transform-origin: left; white-space: nowrap; }
+.verdict p { margin: 10px 0 0; font-weight: 600; }
+
+/* 안내문 카드 */
+section.notice { position: relative; background: var(--paper); margin: 34px 0 0; padding: 34px 18px 20px; border-radius: 4px; }
+.notice .tag { position: absolute; top: -15px; left: 14px; background: var(--page-bg); color: var(--sign-ink); border: 3px solid var(--sign-ink); font: 400 15px/1 var(--sign); padding: 7px 12px 6px; border-radius: 3px; letter-spacing: .06em; }
+.notice h2 { font: 400 clamp(26px, 6.2vw, 42px)/1.18 var(--disp); margin: 0 0 12px; }
+h3 { font: 700 18px/1.4 var(--body); margin: 20px 0 6px; }
+p { margin: 0 0 12px; }
+blockquote { margin: 0; padding: 0; }
+.tw { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0 14px; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th { text-align: left; font-weight: 700; border-bottom: 2px solid var(--ink); padding: 6px 8px; white-space: nowrap; }
+td { border-bottom: 1px solid var(--line); padding: 8px; vertical-align: top; }
+.sig td:nth-child(2) { font-size: 22px; }
+.red { color: var(--red); font-weight: 700; }
+.note { font-size: 14px; color: var(--ink-soft); }
+.key { border-left: 6px solid var(--green); padding: 4px 0 4px 14px; margin: 12px 0; font-weight: 600; }
+.warn { border-left: 6px solid var(--amber); padding: 4px 0 4px 14px; margin: 12px 0; font-weight: 600; }
+ul { padding-left: 20px; margin: 8px 0; }
+ul.cp { list-style: none; padding: 0; font-size: 14.5px; }
+ul.cp li { padding: 6px 0; border-bottom: 1px dotted var(--line); }
+ul.src { font-size: 13.5px; }
+footer { color: var(--sign-soft); font-size: 13px; padding: 22px 0 0; }
+footer a { color: var(--sign-ink); }
+@media (min-width: 760px) {
+  section.notice { padding: 38px 34px 26px; }
+  .queue ol { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 759px) {
+  table.gate thead, table.week thead { display: none; }
+  table.gate tr, table.week tr { display: block; padding: 10px 0; border-bottom: 2px solid var(--line); }
+  table.gate td, table.week td { display: block; border: 0; padding: 2px 8px; }
+  table.gate td:first-child, table.week td:first-child { font: 400 21px/1.3 var(--disp); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="crumb" data-omit><a href="../index.html">대시보드</a> / 2026-11-06 금요일 아침 관측 (서울 개장 전, IREN 실적 콜 직후)</p>
+  <div class="plate">
+    <svg data-omit aria-hidden="true" viewBox="0 0 120 100"><rect x="78" y="8" width="36" height="84" fill="none" stroke="#fff" stroke-width="6"/><circle cx="40" cy="16" r="9" fill="#fff"/><path d="M40 28 L32 52 L48 60 L40 86 M32 52 L18 70 M38 36 L58 44 L70 34 M36 40 L20 40" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M58 86 H96 M86 76 L96 86 L86 96" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
+    <div>
+      <h1>비상구</h1>
+      <p class="exit-word" data-omit>EXIT</p>
+    </div>
+  </div>
+  <blockquote class="lede" data-summary>11/5 뉴욕은 AI에 걸린 돈이 한꺼번에 같은 문으로 몰린 날이다. 반도체 지수 −12.25%, 나스닥 −5.52%. 같은 날 IREN은 실적에서 40억 달러 목표를 연말에서 1월로 미뤘고, 블룸버그는 MS가 IREN을 포함한 네오클라우드 사업 감독을 조였다고 보도했다. IREN 판정 관문은 빈칸이 생겨 🟢에서 🟡로 내린다.</blockquote>
+</header>
+
+<div class="queue">
+<h2>같은 문 앞에 선 줄 (11/5 마감)</h2>
+<ol>
+<li><span>반도체 지수</span> <b>−12.25%</b></li>
+<li><span>마이크론</span> <b>−17.46%</b></li>
+<li><span>IREN</span> <b>−16.95%</b></li>
+<li><span>하이닉스 미국 주식 SKHY</span> <b>−13.40%</b></li>
+<li><span>RKLB</span> <b>−12.18%</b></li>
+<li><span>엔비디아</span> <b>−9.26%</b></li>
+<li><span>나스닥</span> <b>−5.52%</b></li>
+<li><span>공포 지수 VIX</span> <b>28.18</b></li>
+</ol>
+<p class="cap">하이닉스 서울 11/5 종가는 그보다 먼저 −9.46%. 무기한 선물은 오늘 서울 개장을 약 11.8% 더 아래로 가리킨다(참고용).</p>
+</div>
+
+<div class="verdict">
+<p class="big" data-omit>IREN 🟢→🟡</p>
+<p>판정 조건 ①인도 ②조달 ③구사이트와 공시 가운데 ①은 날짜를 놓쳤고, ②는 남은 60억 달러가 미정이며, ③은 답을 찾지 못했다. 10/12에 정한 규칙은 "셋 중 하나라도 비면 🟡"이다.</p>
+</div>
+
+<section class="notice">
+<span class="tag" data-omit>11/6 아침</span>
+<p>11/6(금) 오전 8시 반, 서울 개장 전이다. 11/5 서울이 먼저 빠졌다. <strong>SK하이닉스는 <span data-price="hynix" data-currency="KRW" data-delta="-9.46">1,264,000</span>원(−9.46%)</strong>, 코스피는 5,383.80(−5.28%)으로 종가 기준 4월 이후 최저였고, 외국인은 약 3조4천억원을 팔았다. 그날 밤 뉴욕은 더 크게 빠졌다. <strong>IREN <span data-price="iren" data-currency="USD" data-delta="-16.95">18.03</span>달러(−16.95%)</strong>, <strong>RKLB <span data-price="rklb" data-currency="USD" data-delta="-12.18">45.99</span>달러(−12.18%)</strong>다. IREN은 장 마감 뒤 실적을 냈고 시간외 18.85달러(+4.5%, Yahoo 5분 시세 마지막 값)다. 신호등은 <strong>하이닉스 🟢, IREN 🟡(내림), RKLB 🔴</strong>이다. 직전 문서 <a href="2026-11-05-vote-count.html">2026-11-05-vote-count.md</a>의 후속이다.</p>
+</section>
+
+<section class="notice">
+<span class="tag" data-omit>무슨 일</span>
+<h2>세 가지가 한꺼번에 밀려왔다</h2>
+<p><strong>① 빌린 돈의 청산.</strong> 골드만삭스 프라임 브로커리지(헤지펀드에 돈과 주식을 빌려주는 부서)는 11/5 고객 보고에서 대형 멀티전략 펀드들이 큰 AI 종목 비중 때문에 "크게" 잃었다고 했다. 노무라는 레버리지 ETF(지수 움직임의 2~3배를 따라가는 상품)가 장 마감 무렵 약 470억 달러어치를 팔아야 한다고 추정했다. 2006년 이후 노무라 자료에서 두 번째로 큰 규모다. 노무라의 찰리 매켈리곳은 "장군들을 쏘고 있다"고 했다. 시장을 이끌던 대장주부터 팔려 나간다는 뜻이다. 모건스탠리 집계로는 10월 말에 이미 헤지펀드가 2023년 이후 처음 AI 비중을 시장보다 낮췄다(10월 자료).</p>
+<p><strong>② 선거 뒤의 규제 걱정.</strong> 민주당 상하원 승리 다음 날 반등이 하루 만에 꺾였다. 애리조나의 민주당 하원의원 야스민 안사리는 11/4 X에 "첨단 AI 개발 중단을 첫날 의제 맨 위에"라고 썼다. 법안이 아니라 글이다. 메르는 골드만삭스가 "규제 가능성이 높은 주들이 계획된 데이터센터 용량의 45%"라고 봤다고 전했다(블로거 인용, 원문 미확인).</p>
+<p><strong>③ 고객이 직접 한 발 물러섰다.</strong> 블룸버그(11/5)는 MS가 Nebius, IREN, Nscale의 데이터센터 사업 감독을 조이고, 위험하다고 보는 사업에서 물러나며, 새 네오클라우드 계약을 맺을지 내부에서 논쟁 중이라고 보도했다. MS는 Nscale 텍사스 계약을 두 배로 늘릴 선택권을 쓰지 않고, 몇 주 전에는 영국 에식스의 Nscale 대표 데이터센터 계약에서 빠졌다. MS 대변인은 자체, 임차, 제3자 용량을 섞는 "유연성과 선택지"라고 답했다. 소식통 인용이고 IREN 관련 세부는 기사 요약에 없다.</p>
+<div class="tw"><table>
+<thead><tr><th>11/5(목) 뉴욕 마감</th><th>값</th><th>등락</th></tr></thead>
+<tbody>
+<tr><td>S&amp;P 500</td><td>7,353.73</td><td class="red">−4.36%</td></tr>
+<tr><td>나스닥</td><td>24,315.00</td><td class="red">−5.52%</td></tr>
+<tr><td>다우</td><td>51,523.06</td><td class="red">−3.44%</td></tr>
+<tr><td>반도체 지수 SOX</td><td>9,011.14</td><td class="red">−12.25%</td></tr>
+<tr><td>마이크론</td><td>656.39</td><td class="red">−17.46%</td></tr>
+<tr><td>엔비디아</td><td>181.60</td><td class="red">−9.26%</td></tr>
+<tr><td>하이닉스 미국 주식 SKHY</td><td>123.90</td><td class="red">−13.40%</td></tr>
+<tr><td>네비우스</td><td>120.37</td><td class="red">−14.94%</td></tr>
+<tr><td>코어위브</td><td>43.66</td><td class="red">−9.83%</td></tr>
+<tr><td>어플라이드 디지털</td><td>14.17</td><td class="red">−14.69%</td></tr>
+<tr><td>비스트라 (전력)</td><td>112.89</td><td class="red">−6.15%</td></tr>
+<tr><td>록히드마틴</td><td>576.16</td><td class="red">−3.17%</td></tr>
+<tr><td>미국 10년물 금리</td><td>4.84%</td><td>−0.05%p</td></tr>
+<tr><td>VIX</td><td>28.18</td><td>+69.66%</td></tr>
+<tr><td>브렌트유</td><td>99.46달러</td><td>+5.12%</td></tr>
+</tbody></table></div>
+<p class="note">주식을 팔고 채권을 샀다(10년물 금리 하락). AMD는 약 15% 빠졌다(보도 기준). 브렌트 반등 이유는 확인하지 못했다. 메르는 12월 금리 인상 확률이 "90% 가까이에서 70% 아래로" 내려갔다고 썼다(블로거 집계, 원자료 미확인).</p>
+</section>
+
+<section class="notice">
+<span class="tag" data-omit>판정</span>
+<h2>IREN 실적 콜 — 관문 셋</h2>
+<p><strong>숫자 자체는 좋았다.</strong> 7~9월 매출 2.28억 달러(직전 분기보다 +66%), 이 가운데 AI 클라우드 2.00억 달러(+182%). LSEG 평균 예상 2.21억 달러보다 많다. AI 클라우드 매출총이익률 86%, 조정 EBITDA 0.66억 달러, 순손실 2.63억 달러(주당 −0.66달러). 수주잔고 203억 달러(+22%), 약 3분의 2가 투자등급 고객이다. 분기 뒤에는 MW당 약 2,200만 달러짜리 5년 계약(고객이 GPU 비용 90% 선지급), MW당 4,000만 달러짜리 단기 계약을 맺었고, 계약 가격은 3년 +11%, 5년 +12% 올랐다. 공동 CEO 로버츠는 "공개 시장 분위기와 고객 쪽에서 보는 것 사이에 괴리가 있다"고 했다.</p>
+<div class="tw"><table class="gate">
+<thead><tr><th>관문</th><th>회사가 내놓은 것</th><th>판정</th></tr></thead>
+<tbody>
+<tr><td>①인도</td><td>Horizon 1 가동, Horizon 2~4는 "막바지 공사". 40억 달러 연간 매출 규모 목표가 2026년 말에서 <strong>2027년 1월 31일, 2월 말까지 늦어질 수 있음</strong>으로 밀렸다. 이유는 MS 요청 네트워크 설계 변경과 공급 일정(10-Q는 제3자 지연도 적었다). 로버츠: 200MW를 최신 프런티어 모델용으로 바꿔 달라는 요청. 계약상 MS 요청 변경은 지연 크레딧 없이 인도일이 늘어나고, 수수료와 크레딧과 비용 보전은 협의 중이다. 10-Q: "새 일정 안에 끝난다는 보장은 없다"</td><td>⚠️ 진척은 확인, <strong>4분기 인도 날짜는 놓쳤다</strong></td></tr>
+<tr><td>②조달</td><td>남은 2027 회계연도 설비투자 150억 달러 중 90억은 현금과 확정 금융, 선수금으로 확보. <strong>60억은 "시장 상황에 따라" 조달 목표</strong>. 10-Q 금리: MS 계약분 대출 SOFR+2.25%와 사채 5.96%, 캐나다 GPU 금융 2.0은 9.0%, 8월 GPU 금융 3.0(3.63억 달러)은 <strong>9.51%</strong>. 주식 수 3억 8,071만(6/30) → 4억 2,436만(10/30), 넉 달 +11.5%. 로버츠: "최근 몇 주 자본시장이 더 까다로워졌다"</td><td>⚠️ 진행은 확인, <strong>최신 금리는 9% 기준선 위, 3분의 1 미정</strong></td></tr>
+<tr><td>③구사이트와 공시</td><td>보도자료, 10-Q, 콜 보도 어디에도 캐나다 구사이트 안정성(SemiAnalysis 지적)에 대한 답이 없다. 10-Q는 여전히 "베어메탈과 관리형 클라우드 서비스"라고 쓴다. 매켄지에 새 액체냉각 데이터센터 착공. 콜 녹취록은 아직 읽지 못했다</td><td>❌ <strong>답을 찾지 못했다</strong></td></tr>
+</tbody></table></div>
+<p class="warn">③의 판정 방식은 따로 말씀이 없어 기본값 "답변 여부"로 판정했다. 녹취록에서 구사이트 답변이 나오면 ③은 다시 본다. 다만 ①과 ②도 깨끗한 통과가 아니어서 🟡 판정은 그 하나에만 기대지 않는다.</p>
+<p><strong>텍사스(듣기 항목).</strong> 스위트워터 2GW가 ERCOT 배치 제로(전력망 연결 일괄 심사)에 "기저 부하"로 조건부 포함됐다. 조건은 공개하지 않았다. 로버츠는 텍사스, 호주, 스페인 모두 데이터센터가 "제 비용을 내기"를 원한다고 했다.</p>
+<p class="key">🟢로 돌아오는 조건: ①1/31까지 40억 달러 가동 ②MS와의 수수료, 크레딧 협의가 IREN 부담 없이 끝남 ③60억 달러가 대규모 주식 발행 없이 9% 안팎 이하로 조달 ④구사이트 답변. 🔴로 가는 조건: 2월 말도 넘김, MS의 계약 축소나 해지권 행사, 대규모 희석.</p>
+</section>
+
+<section class="notice">
+<span class="tag" data-omit>레버리지</span>
+<h2>무기한 선물 — 하이닉스 하락 베팅이 더 몰렸다</h2>
+<p class="note">참고용이다. 판정 근거로 쓰지 않는다(7월 오라클 사고 전례).</p>
+<div class="tw"><table>
+<thead><tr><th>심볼</th><th>가격</th><th>미결제약정</th><th>펀딩(연율)</th></tr></thead>
+<tbody>
+<tr><td>xyz:SKHX</td><td>821.49달러 (약 111.5만원)</td><td>30.0만 → 46.4만</td><td>약 −1,332%</td></tr>
+<tr><td>xyz:IREN</td><td>18.96달러</td><td>19.8만 → 22.3만</td><td>약 +24.5%</td></tr>
+<tr><td>xyz:RKLB</td><td>45.52달러</td><td>10.1만 → 12.4만</td><td>약 +47.9%</td></tr>
+</tbody></table></div>
+<p>SKHX를 원/달러 1,356.9원으로 바꾸면 약 111.5만원이다. 서울 11/5 종가보다 약 11.8% 낮다. 미결제약정(아직 정리되지 않은 계약 수)이 하루 새 55% 늘었고 펀딩(롱과 숏이 주고받는 비용)이 깊은 음수다. 하락 쪽에 새 돈이 몰렸다는 뜻이다. IREN과 RKLB는 값이 빠지는데 계약 수가 늘고 펀딩은 양수다. 떨어지는 칼을 롱이 받고 있다.</p>
+</section>
+
+<section class="notice">
+<span class="tag" data-omit>종목별</span>
+<h2>종목별</h2>
+<h3>SK하이닉스 🇰🇷</h3>
+<p>11/5 1,264,000원(−9.46%), 시가총액 약 923조원으로 1,000조원 아래. 삼성전자 201,500원(−7.57%). 서울이 먼저 빠진 뒤 그날 밤 마이크론 −17.46%, SKHY −13.40%가 나왔으니 오늘도 크게 밀려 시작할 가능성이 높다.</p>
+<p>그런데 메모리 수요 쪽 소식은 이번에도 나쁘지 않다. 카운터포인트는 AI 수요가 메모리 가격을 계속 끌어올린다고 했고(Invezz 인용), 마이크론은 대만 타오위안의 HBM과 D램 공장 계획이 노사 분쟁으로 멈췄다는 보도가 나왔다(GuruFocus). 공급 쪽 차질은 값에는 오히려 받침이다. 이번 하락은 "같은 묶음을 너무 많은 빌린 돈이 들고 있었다"는 수급 문제로 읽힌다.</p>
+<p><strong>판단(참고용).</strong> 🟢 유지. 가격은 관문이 아니다. 2018년식 재현의 신호(고객사의 "재고 소화" 발언, D램 계약가 하락)는 아직 없다.</p>
+<h3>IREN 🇺🇸</h3>
+<p>18.03달러(−16.95%), 올해 최저 종가를 다시 낮췄다. 같은 날 블룸버그의 MS 감독 강화 보도와 시장 급락이 겹쳤다. 실적은 시간외 +4.5%로 일부만 되돌렸다. CNBC 집계로 선거 뒤 −26%, 한 달 −55%다.</p>
+<p>정리하면 돈을 버는 쪽(매출, 수주, 가격)은 좋았고, 문제는 일정과 돈이다. 가장 큰 고객 MS가 설계를 바꿔 달라고 해서 늦어졌는데, 같은 MS가 네오클라우드 사업 감독을 조인다는 보도가 같은 날 나왔다. 두 이야기가 같은 이야기인지는 아직 모른다.</p>
+<p><strong>판단(참고용).</strong> <strong>🟢→🟡.</strong> 위 관문표 그대로다. 가격 때문에 내리는 것이 아니다.</p>
+<h3>Rocket Lab 🚀</h3>
+<p>45.99달러(−12.18%). 회사 소식은 없고, 고성장주 전체 매도에 같이 빠졌다. 11/3 접수된 Form 4 두 건을 이번에 원문으로 읽었다. CFO 애덤 스파이스는 11/2 스톡옵션 140,157주를 1.09달러에 행사해 같은 수를 51.28~54.78달러(가중평균)에 팔았고, 거래 뒤 1,155,967주를 보유한다. 이사 니나 아마뇨는 10,926주를 팔아 100,496주를 보유한다. <strong>둘 다 미리 정해 둔 매도 계획(10b5-1)</strong>에 따른 자동 매도다(스파이스 2026-06-03, 아마뇨 2025-09-19 채택). 회사 사정을 보고 판 것이 아니라는 뜻이다.</p>
+<p><strong>판단(참고용).</strong> 🔴 유지. 🟡 복귀 조건은 그대로다(뉴트론 새 발사 일정, 1단 탱크 검사 통과, FCC 승인). 3분기 실적은 한국 11/10 아침 7시.</p>
+</section>
+
+<section class="notice">
+<span class="tag" data-omit>신호등</span>
+<h2>신호등 요약</h2>
+<div class="tw"><table class="sig">
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix"><td data-name>SK하이닉스</td><td data-light>🟢</td><td data-change>유지</td><td data-note>1,264,000원(<strong>−9.46%</strong>). 그날 밤 마이크론 −17.46%, 선물은 오늘 약 11.8% 아래를 가리킨다. 수요 쪽 증언은 그대로, 수급 충격으로 읽는다</td></tr>
+<tr data-signal="iren"><td data-name>IREN</td><td data-light>🟡</td><td data-change>🟢→🟡</td><td data-note>18.03달러(<strong>−16.95%</strong>) 올해 최저 종가. 실적은 좋았지만 40억 달러 목표가 1~2월로 밀렸고, 60억 달러 조달 미정, 구사이트 답 없음. MS 감독 강화 보도</td></tr>
+<tr data-signal="rklb"><td data-name>RKLB</td><td data-light>🔴</td><td data-change>유지</td><td data-note>45.99달러(−12.18%). 임원 매도 두 건은 미리 정한 계획. 3분기 실적 한국 11/10 아침</td></tr>
+</tbody></table></div>
+<p class="key">포트폴리오 히트: 세 종목이 하루에 모두 두 자릿수 가깝게 빠졌다(하이닉스 −9.46%, IREN −16.95%, RKLB −12.18%). 정부 예산 쪽인 RKLB까지 같이 빠진 것은, 빌린 돈이 청산될 때는 "AI와 고성장"이 한 묶음으로 팔린다는 뜻이다. 평소의 분산은 이런 날 작동하지 않는다.</p>
+</section>
+
+<section class="notice">
+<span class="tag" data-omit>이번 주</span>
+<h2>남은 일정 (한국 시간)</h2>
+<div class="tw"><table class="week">
+<thead><tr><th>언제</th><th>무엇</th><th>누구에게</th></tr></thead>
+<tbody>
+<tr><td>11/6 금 09:00</td><td>서울 개장. 선물은 하이닉스 약 11.8% 아래</td><td>하이닉스</td></tr>
+<tr><td>11/6 금 밤</td><td>10월 미국 고용</td><td>전부, 12월 FOMC(12/8~9)</td></tr>
+<tr><td>11/10 화 아침 7시</td><td>RKLB 3분기 실적</td><td>RKLB</td></tr>
+<tr><td>11/10 화</td><td>미국 CPI(한 보도 기준, 날짜 확인 필요)</td><td>전부</td></tr>
+<tr><td>11/10~</td><td>앤트로픽 상장 로드쇼</td><td>IREN, 하이닉스</td></tr>
+<tr><td>11/11 수 아침</td><td>코어위브 실적(미국 화요일)</td><td>IREN</td></tr>
+<tr><td>11/13 금 아침</td><td>네비우스 실적(미국 목요일)</td><td>IREN</td></tr>
+<tr><td>1/19</td><td>히노호사 텍사스 주지사 취임</td><td>IREN</td></tr>
+<tr><td>1/31</td><td>IREN 40억 달러 가동 목표(2월 말까지 가능)</td><td>IREN</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="notice">
+<span class="tag" data-omit>체크</span>
+<h2>다음 체크포인트</h2>
+<ul class="cp">
+<li data-checkpoint><input type="checkbox" disabled checked> <strong>IREN FY27 1분기 콜 (한국 11/6 07:00)</strong> — ①인도 날짜 놓침(1월, 2월 말 가능) ②90억 확보, 60억 미정, 최신 금리 9.51% ③구사이트 답 못 찾음 → 🟢→🟡 (완료)</li>
+<li data-checkpoint><input type="checkbox" disabled checked> <strong>RKLB 임원 매도 Form 4 두 건</strong> — CFO 스파이스 140,157주, 이사 아마뇨 10,926주, 둘 다 10b5-1 계획 매도 (완료)</li>
+<li data-checkpoint><input type="checkbox" disabled checked> <strong>윙스파이어 3.63억 달러 금리</strong> — 10-Q의 GPU 금융 3.0(3.63억 달러, 9.51%, 36개월)과 금액이 같다. 같은 건으로 보이나 날짜 표기(8월)가 달라 추정 (완료, 추정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>IREN 40억 달러 가동 (1/31, 2월 말까지 가능)</strong> — 🟢 복귀 조건 ① (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>IREN과 MS의 수수료, 크레딧, 비용 보전 협의</strong> — 누가 설계 변경 비용을 내나 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>IREN 남은 60억 달러 조달</strong> — 자산 담보 금융과 선수금 위주인가, 주식 발행인가. 금리 기준선 6%, 9% (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>IREN 콜 녹취록</strong> — 구사이트 안정성과 관리형 클라우드 공시에 대한 답이 있었나. 있으면 ③ 재검토 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>MS의 네오클라우드 감독 강화</strong> — 블룸버그 소식통 보도. IREN 계약에 실제 변화(축소, 해지권)가 생기나 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>AI 묶음 청산이 끝났나</strong> — 골드만 프라임 브로커리지, 노무라 레버리지 ETF, 모건스탠리 헤지펀드 비중 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>텍사스 데이터센터 승인 중단</strong> — 히노호사 1/19 취임, 애벗의 감사 12월께 종료. 스위트워터 배치 제로 "조건"이 무엇인가 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>민주당 의회의 AI 규제</strong> — 안사리 의원 "AI 개발 중단" 글. 실제 법안이 나오나 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 다른 주의 데이터센터 주민투표 결과 — 선거 전 13개 주 49건 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>10월 미국 고용 (11/6 밤)</strong> — 12월 FOMC(12/8~9) 인상 확률. 급락 뒤 확률이 얼마나 내려갔나 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>외국인 수급</strong> — 11/5 코스피 약 −3조4천억원. 하이닉스 개별 금액 확인 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>2018년식 재현 신호</strong> — 고객사의 "재고 소화" 발언, D램 계약가 하락 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>메모리 값이 수요를 깎는가</strong> — 애플 흡수, 인텔 PC 둔화, AMD 4분기 약 170억 달러. 퀄컴 스마트폰 칩 매출 미달(11/5)의 원인 확인 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 마이크론 대만 타오위안 HBM 공장 노사 분쟁 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 메모리 값 상승 속도 — 키옥시아 낸드 보합 전망이 D램, HBM 계약가로 번지나 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 AI 설비 회사의 조달 — 오라클 주식 100억, 회사채 100억 달러 뒤 다음 대형 발행 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 "잔액" 채점과 빅테크가 덜 쓴 이유 — MS의 이유는 IREN 설계 변경과 제3자 지연으로 일부 드러났다 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 구글 2027년 설비투자 금액 — 4분기 실적(2027년 초) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 사용자 가설 시험 — 비트당 원가. 메르: 3분기 D램 비트 약 +10%, 4분기 20%대. 교차확인 필요 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 하이닉스 순이익 차이 — 39조7,756억원 vs 예상 61조2,900억원. 분기보고서로 확인 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 하이닉스 내년 설비투자 금액 — 4분기 실적 때 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 하이닉스 매입과 소각 남은 몫 — 목표 60조원 이상, 새 20조원은 1/28까지 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 솔리다임 미국 공장과 다롄 허가 — 2027년분 연간 허가 미발급, 48D 세액공제 12/31 착공 조건(메르) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> HBM 점유율 — 삼성 30%대 후반 전언 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 트레이니엄4 HBM 공급사 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 하이닉스 장기 계약 5년 초과 연장 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 하이닉스 레버리지 ETF 청산 — 11/5 거래 종료, 11/12께 청산 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 하이닉스 perp — 미결제약정 30.0만에서 46.4만, 펀딩 연율 약 −1,332% (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 네오클라우드 위험 가산 금리 — 코어위브(11/11), 네비우스(11/13) 실적과 조달 조건 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN perp — 미결제약정 19.8만에서 22.3만, 펀딩 약 +24.5% (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 목표가 — 콜 뒤 조정 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 매출 10% 이상 고객 A 28%, B 24%, C 18% — 실명 미공개 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 앤트로픽-IREN 계약 확인 여부 — 단독 보도, 양사 미확인. 보도자료는 "선두 프런티어 AI 연구소" 계약 확대라고만 썼다 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 앤트로픽 상장 — 로드쇼 11/10~, 공모가 11/18경. 메르: 1년 안 지급 약정 700억 달러, 1,000억 달러 조달 계획(블로거 인용) (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 엔비디아 "GPU를 금융 가능한 자산으로" (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 앤트로픽 600억 달러 칩 대출 최종 금리 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> Nscale — MS가 텍사스 확대 선택권 포기, 에식스 계약 철수(블룸버그) (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 오픈AI 구글 TPU 구매 — The Information 발(2차 인용) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 딥시크 "HBM 75% 절감" 실측 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 기판 병목 — 삼성전기 3.7조원 선투자 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 메타 의결권 없는 C주 (2027년 1월) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 스페이스X 컴퓨트 임대와 테슬라 합병 — 11/5 둘 다 9% 넘게 하락(Yahoo) (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 스페인 바다호스 — 공사 인허가 확보 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 오클라호마 키오와 — 세금 감면 보류, 새 주지사의 재산세 감면 폐지 공약(멜러리) (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 마케팅 지출과 레드뱅크 주민 설명회 결과 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 RKLB 뉴트론 새 일정 — 2027년 1분기 말까지 목표일 공표(X 클립, 원문 미확인) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>RKLB 3분기 실적 (한국 11/10 07:00)</strong> — 뉴트론 일정, 1단 탱크 검사 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> RKLB FCC 승인 — 공람 11/9. 이리듐 인수 마감 2027년 중반 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 골든돔과 방산 예산 — 조정 법안을 1월 전에 밀어붙이나, 민주당 의회의 삭감 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> RKLB 일렉트론 99, 100번째 발사 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 이란과 호르무즈 — 브렌트 94.62에서 99.46달러로 반등, 이유 미확인. 골드만 12월 105달러 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 미국 재무부 분기 조달 — "최소(at least)" 문구 삭제, 2027년 중반 쿠폰 증액 가능성(메르) (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 이스라엘 연정 협상 (이월)</li>
+</ul>
+</section>
+
+<section class="notice">
+<span class="tag" data-omit>메르</span>
+<h2>📰 메르 신규 글</h2>
+<ul>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224466693885">오늘 미장에 무슨 일이 일어났나?</a> — 블로거 분석(메르). 하락을 세 파도로 나눴다. 헤지펀드 청산(노무라: 헤지펀드의 빅테크 7개 민감도 97번째 백분위, 모건스탠리: 2023년 이후 첫 AI 비중 축소, 골드만: 청산은 "끝보다 시작"), 민주당 압승의 정책 위험(NBC 출구조사 76%가 동네 데이터센터 반대, 골드만: 규제 가능 주가 계획 용량의 45%), 앤트로픽 상장 의구심(약정 8,954억 달러 중 700억이 1년 안). 결론은 "AI가 망해서가 아니라 같은 곳에 빌린 돈이 너무 몰렸다". 우리 판독과 같다. 인용 수치는 원문 미확인.</li>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224465454676">재무부 분기조달계획에 숨겨진 비밀</a> — 블로거 분석(메르). 11/4 재무부 분기 조달 발표에서 입찰 규모(3년 580억, 10년 420억, 30년 250억 달러)는 그대로였지만 "향후 최소 몇 분기 유지"의 "최소"가 빠졌다. 2027년 4~9월쯤 증액 신호로 읽었고, 긴 국채보다 2~10년물과 단기채로 메울 것으로 봤다. IREN ②조달 금리 기준선의 바탕(국채 금리)과 닿는 이야기다.</li>
+</ul>
+</section>
+
+<section class="notice">
+<span class="tag" data-omit>멜러리</span>
+<h2>📰 멜러리 신규 글</h2>
+<ul>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224466732558">아이렌 Q1 실적: AI 매출 3배, 수주 203억 달러, 그런데 40억 달러 목표는 1월로</a> — 블로거 분석(멜러리). 보도자료, 10-Q, 발표 자료 32쪽을 근거로 "버는 쪽은 좋고, 문제는 일정과 돈"이라고 정리했다. 매출 10% 이상 고객 A 28%, B 24%, C 18%(실명 비공개), 9/30 뒤 시장가 주식 발행 약 1,737만 주(약 6.3억 달러), 순부채 44억 달러를 짚었고, MS 계약 유예기간(2027년 2분기 초) 안이라 위약 단계는 아니라고 봤다. 우리 ①②판정과 같다. ③구사이트는 다루지 않았다. 순부채와 발행 주식 수는 원문 대조 전이다.</li>
+<li>아이온큐 3분기 실적 분석 (양자, 포트폴리오와 무관)</li>
+<li>2026.11.06 경제 시황</li>
+<li>[2026.11.6 경제뉴스] 한국 미국채 대량 매입 추진, 호반 한진칼 최대주주, 영국 금리 인상</li>
+</ul>
+</section>
+
+<section class="notice" data-sources>
+<span class="tag" data-omit>출처</span>
+<h2>출처</h2>
+<h3>IREN</h3>
+<ul class="src">
+<li><a href="https://www.sec.gov/Archives/edgar/data/0001878848/000187884826000065/irenreportsq1-fy27result.htm">IREN Reports Q1 FY27 Results — 8-K 보도자료 (SEC)</a></li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm">IREN 10-Q, 2026년 9월 30일 분기 (SEC)</a></li>
+<li><a href="https://www.cnbc.com/2026/11/05/iren-earnings-report-q1-2027-.html">IREN earnings report Q1 2027 — CNBC</a></li>
+<li><a href="https://www.benzinga.com/markets/earnings/26/11/62955661/iren-stock-pops-after-q1-ai-cloud-revenue-nearly-triples-to-200-million">IREN Stock Pops After Q1 AI Cloud Revenue Nearly Triples — Benzinga</a></li>
+<li><a href="https://www.bloomberg.com/news/articles/2026-11-05/microsoft-sours-on-neoclouds-iren-nebius-nscale-on-delays-costs">Microsoft Sours on Neoclouds IREN, Nebius, Nscale on Delays, Costs — Bloomberg</a></li>
+<li><a href="https://www.investing.com/news/stock-market-news/microsoft-tightens-oversight-of-neocloud-data-center-projects-bloomberg-news-reports-5005281">Microsoft tightens oversight of neocloud data center projects — Reuters (Investing.com)</a></li>
+</ul>
+<h3>시장</h3>
+<ul class="src">
+<li><a href="https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-plunge-chip-stocks-melt-down-193726491.html">Dow plunges, Nasdaq enters correction in AI trade meltdown — Yahoo Finance</a></li>
+<li><a href="https://hedgeweek.com/news/hedge-funds-unwind-ai-bets-as-tech-selloff-accelerates">Hedge funds unwind AI bets as tech selloff accelerates — Hedgeweek</a></li>
+<li><a href="https://www.tipranks.com/news/morgan-stanley-ms-says-hedge-funds-are-underweight-ai-stocks-for-the-first-time-since-2023">Morgan Stanley: hedge funds underweight AI for the first time since 2023 — TipRanks</a></li>
+<li><a href="https://seekingalpha.com/news/4666706-ai-and-chip-stocks-slide-with-qualcomm-facing-worst-day-since-2020">AI and chip stocks plunge on data center outlook — Seeking Alpha</a></li>
+<li><a href="https://www.tokenpost.com/news/investing/49597">Micron Shares Close Down More Than 17% — TokenPost</a></li>
+<li><a href="https://www.gurufocus.com/news/9175198/why-is-micron-stock-sinking-today">Why is Micron Stock Sinking Today — GuruFocus</a></li>
+<li><a href="https://invezz.com/en-ae/news/2026/11/05/micron-sandisk-sk-hynix-plunge-up-to-20percent-as-memory-stocks-selloff-intensifies/">Micron, SanDisk, SK Hynix plunge as memory selloff intensifies — Invezz</a></li>
+<li><a href="https://247wallst.com/investing/2026/11/05/sandisk-slides-7-micron-and-western-digital-fall-5-as-lawmakers-call-for-ai-pause-extends-memory-rout/">Lawmaker's Call for AI Pause Extends Memory Rout — 24/7 Wall St.</a></li>
+<li><a href="https://www.topstarnews.net/news/articleView.html?idxno=16269150">코스피 5.28% 폭락, 5383선 — 톱스타뉴스</a></li>
+<li><a href="https://www.jnilbo.com/news/articleView.html?idxno=90000080064">외국인 3.4조원 투매에 코스피 5%대 급락 — 진일보</a></li>
+<li><a href="https://www.tradingkey.com/analysis/economic/central-banks/262247759-fed-kevin-warsh-forward-guidance-december-hike-83-percent-tradingkey">December rate hike odds — TradingKey</a></li>
+<li><a href="https://app.hyperliquid.xyz/trade/xyz:SKHX">Hyperliquid xyz:SKHX</a></li>
+</ul>
+<h3>RKLB</h3>
+<ul class="src">
+<li><a href="https://www.sec.gov/Archives/edgar/data/1819994/000200101126000144/edgardoc.xml">Form 4 — 애덤 스파이스 CFO (SEC)</a></li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/1819994/000200101126000145/edgardoc.xml">Form 4 — 니나 아마뇨 이사 (SEC)</a></li>
+</ul>
+<h3>블로그</h3>
+<ul class="src">
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224466693885">메르 — 오늘 미장에 무슨 일이 일어났나?</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224465454676">메르 — 재무부 분기조달계획에 숨겨진 비밀</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224466732558">멜러리 — 아이렌 Q1 실적</a></li>
+</ul>
+</section>
+
+<footer data-omit>장기 투자 관측 기록 / 모든 판단은 참고용이며 매매 권유가 아니다 / <a href="../index.html">대시보드로</a></footer>
+</div>
+</body>
+</html>
