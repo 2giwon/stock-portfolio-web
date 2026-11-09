@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>엇갈린 월요일 — 2026년 11월 10일 포트폴리오 관측 기록</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic+Coding:wght@400;700&family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
+<script type="application/json" id="doc-meta">{"category":"analysis"}</script>
+<style>
+:root {
+  --page-bg: #4a1d1d;
+  --on-bg: #fff4ea;
+  --on-bg-soft: #f0cfc0;
+  --rise: #7fe0a0;
+  --fall: #ff9a86;
+  --ours: #ffd35a;
+  --paper: #fff8f1;
+  --paper-2: #f6e9de;
+  --ink: #241210;
+  --ink-soft: #5c4038;
+  --line: #e6d2c4;
+  --red: #a3241a;
+  --green: #136b3a;
+  --link: #8a2a12;
+  --disp: 'Black Han Sans', 'Noto Sans KR', sans-serif;
+  --mono: 'Nanum Gothic Coding', ui-monospace, monospace;
+  --body: 'Noto Sans KR', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page-bg: #2e1111;
+    --on-bg: #fff4ea;
+    --on-bg-soft: #e8c2b3;
+    --rise: #8ae8aa;
+    --fall: #ffa896;
+    --ours: #ffd96e;
+    --paper: #1d0f0d;
+    --paper-2: #2a1714;
+    --ink: #f7e9e1;
+    --ink-soft: #d1b3a8;
+    --line: #4a2c26;
+    --red: #ff8a7a;
+    --green: #7fd8a0;
+    --link: #ffb48f;
+  }
+}
+:root[data-theme="dark"] {
+  --page-bg: #2e1111;
+  --on-bg: #fff4ea;
+  --on-bg-soft: #e8c2b3;
+  --rise: #8ae8aa;
+  --fall: #ffa896;
+  --ours: #ffd96e;
+  --paper: #1d0f0d;
+  --paper-2: #2a1714;
+  --ink: #f7e9e1;
+  --ink-soft: #d1b3a8;
+  --line: #4a2c26;
+  --red: #ff8a7a;
+  --green: #7fd8a0;
+  --link: #ffb48f;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page-bg); color: var(--ink); font: 400 16px/1.75 var(--body); overflow-x: hidden; }
+a { color: var(--link); overflow-wrap: anywhere; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px 60px; }
+.top { color: var(--on-bg); padding: 22px 0 6px; overflow: hidden; }
+.crumb { margin: 0 0 18px; font: 400 13px/1.5 var(--mono); color: var(--on-bg-soft); }
+.crumb a { color: var(--on-bg); }
+h1 { margin: 0; font: 400 clamp(54px, 15vw, 150px)/0.95 var(--disp); letter-spacing: -0.01em; position: relative; }
+h1 .a { display: block; transform: translateX(-2%); color: var(--rise); }
+h1 .b { display: block; transform: translateX(12%); color: var(--fall); }
+h1::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 3px solid var(--on-bg); transform: rotate(-4deg); opacity: .5; }
+.lede { margin: 22px 0 0; padding: 0; font: 400 17px/1.8 var(--body); color: var(--on-bg); border: 0; }
+.split { margin: 26px 0 8px; color: var(--on-bg); overflow: hidden; }
+.split h2 { font: 400 15px/1.4 var(--mono); color: var(--on-bg-soft); margin: 0 0 10px; }
+.bar { display: grid; grid-template-columns: 1fr 1fr; align-items: center; font: 400 13px/1.2 var(--mono); margin: 3px 0; }
+.bar .l, .bar .r { position: relative; height: 26px; display: flex; align-items: center; }
+.bar .l { justify-content: flex-end; border-right: 2px solid var(--on-bg); }
+.bar .fill { height: 18px; flex: none; }
+.bar .l .fill { background: var(--fall); }
+.bar .r .fill { background: var(--rise); }
+.bar .lab { white-space: nowrap; margin: 0 6px; }
+.bar.ours .lab { color: var(--ours); font-weight: 700; }
+.bar.ours .fill { outline: 2px solid var(--ours); }
+.verdict { margin: 26px 0 0; border: 3px solid var(--ours); color: var(--on-bg); padding: 12px 16px; font: 400 15px/1.7 var(--body); }
+.verdict b { font: 400 20px/1.3 var(--disp); display: block; color: var(--ours); }
+.card { background: var(--paper); border-radius: 2px; padding: 20px 18px; margin: 18px 0; box-shadow: 0 6px 0 rgba(0,0,0,.25); }
+.tag { display: inline-block; font: 700 12px/1 var(--mono); background: var(--ink); color: var(--paper); padding: 5px 8px; margin-bottom: 8px; }
+h2 { font: 400 clamp(22px, 5.2vw, 30px)/1.3 var(--disp); margin: 4px 0 12px; }
+h3 { font: 800 17px/1.4 var(--body); margin: 18px 0 6px; }
+p { margin: 0 0 12px; }
+.tw { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px 0 14px; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { border-bottom: 1px solid var(--line); padding: 8px 8px; text-align: left; vertical-align: top; }
+th { font: 700 12.5px/1.3 var(--mono); color: var(--ink-soft); background: var(--paper-2); }
+td.n { font-family: var(--mono); white-space: nowrap; }
+.up { color: var(--green); font-weight: 700; }
+.dn { color: var(--red); font-weight: 700; }
+.two { display: grid; gap: 18px; }
+@media (min-width: 760px) { .two { grid-template-columns: 1fr 1fr; } .two .card { margin: 0; } }
+ul { padding-left: 20px; margin: 0 0 12px; }
+li { margin: 0 0 8px; }
+ul.cp { list-style: none; padding-left: 0; }
+ul.cp li { padding: 6px 0; border-bottom: 1px dashed var(--line); }
+ul.src li { font-size: 14px; margin-bottom: 4px; }
+.note { font-size: 14px; color: var(--ink-soft); }
+@media (max-width: 759px) {
+  table.stack thead { display: none; }
+  table.stack tr { display: block; padding: 10px 0; border-bottom: 2px solid var(--line); }
+  table.stack td { display: block; border: 0; padding: 2px 6px; }
+  table.stack td:first-child { font: 400 18px/1.3 var(--disp); }
+  .bar { font-size: 10.5px; }
+  .bar .lab { margin: 0 4px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="crumb" data-omit><a href="../index.html">대시보드</a> / 2026년 11월 10일 화요일 아침 기록 (한국 주식시장 개장 전, 08시 30분 기준)</p>
+  <h1><span class="a">엇갈린</span><span class="b">월요일</span></h1>
+  <blockquote class="lede" data-summary>11월 9일 월요일 미국 주식시장은 필라델피아 반도체 지수가 6.85%, 나스닥이 2.74% 올랐다. 같은 날 엔비디아는 이사회가 최고경영자 젠슨 황을 조사하기로 하면서 4.27% 떨어졌고, IREN도 1.06% 떨어졌다. 로켓랩은 정규장에서 10.91% 오른 뒤 장 마감 후 3분기 실적을 냈다. 매출과 수주잔고는 예상보다 컸지만 뉴트론 첫 발사 날짜는 여전히 "2027년 이후"였고, 시간외 거래에서 주가가 내렸다. 한국은 코스피가 0.81% 떨어졌고 외국인이 7일 연속 순매도했다. 세 종목 판정은 모두 그대로 둔다.</blockquote>
+</header>
+
+<section class="split" data-omit>
+  <h2>11월 9일 월요일 하루 등락률 (미국 종가, 한국 종목은 한국 종가)</h2>
+  <div class="bar"><div class="l"></div><div class="r"><div class="fill" style="width:45%"></div><span class="lab">AMD +13.26%</span></div></div>
+  <div class="bar ours"><div class="l"></div><div class="r"><div class="fill" style="width:37%"></div><span class="lab">로켓랩 +10.91%</span></div></div>
+  <div class="bar"><div class="l"></div><div class="r"><div class="fill" style="width:31%"></div><span class="lab">네비우스 +9.24%</span></div></div>
+  <div class="bar"><div class="l"></div><div class="r"><div class="fill" style="width:23%"></div><span class="lab">반도체 지수 +6.85%</span></div></div>
+  <div class="bar"><div class="l"></div><div class="r"><div class="fill" style="width:21%"></div><span class="lab">마이크론 +6.25%</span></div></div>
+  <div class="bar"><div class="l"></div><div class="r"><div class="fill" style="width:19%"></div><span class="lab">코어위브 +5.56%</span></div></div>
+  <div class="bar"><div class="l"></div><div class="r"><div class="fill" style="width:19%"></div><span class="lab">하이닉스 미국 +5.53%</span></div></div>
+  <div class="bar"><div class="l"></div><div class="r"><div class="fill" style="width:9%"></div><span class="lab">나스닥 +2.74%</span></div></div>
+  <div class="bar ours"><div class="l"></div><div class="r"><div class="fill" style="width:2%"></div><span class="lab">하이닉스 서울 +0.35%</span></div></div>
+  <div class="bar"><div class="l"><span class="lab">코스피 −0.81%</span><div class="fill" style="width:3%"></div></div><div class="r"></div></div>
+  <div class="bar ours"><div class="l"><span class="lab">IREN −1.06%</span><div class="fill" style="width:4%"></div></div><div class="r"></div></div>
+  <div class="bar"><div class="l"><span class="lab">엔비디아 −4.27%</span><div class="fill" style="width:14%"></div></div><div class="r"></div></div>
+  <div class="bar"><div class="l"><span class="lab">브렌트유 −6.24%</span><div class="fill" style="width:21%"></div></div><div class="r"></div></div>
+</section>
+
+<div class="verdict" data-omit><b>🟢 🟡 🔴 판정 유지</b>SK하이닉스, IREN, 로켓랩 모두 판정을 바꿀 조건이 충족되지 않았다. 로켓랩 실적에서 뉴트론 새 발사 날짜가 나오지 않았다.</div>
+
+<section class="card">
+<span class="tag" data-omit>월요일 시장</span>
+<h2>11월 9일 월요일 종가</h2>
+<p>미국 주식시장은 지난주 하락분 일부를 되찾았다. S&amp;P 500 지수는 2.35% 올라 4월 이후 가장 크게 올랐고, 미국 주가 변동성 지수는 25.64에서 19.92로 내려왔다. 반도체 회사 대부분이 올랐지만 엔비디아만 떨어졌다. 브렌트유는 하루 6.24% 내려 92.18달러가 됐다. 왜 내렸는지는 확인하지 못했다.</p>
+<div class="tw"><table>
+<thead><tr><th>종목 또는 지수</th><th>11월 6일 종가</th><th>11월 9일 종가</th><th>등락률</th></tr></thead>
+<tbody>
+<tr><td>SK하이닉스 (서울)</td><td class="n">1,132,000원</td><td class="n">1,136,000원</td><td class="n up">+0.35%</td></tr>
+<tr><td>코스피</td><td class="n">5,059.69</td><td class="n">5,018.85</td><td class="n dn">−0.81%</td></tr>
+<tr><td>SK하이닉스 미국 상장 주식</td><td class="n">127.34달러</td><td class="n">134.38달러</td><td class="n up">+5.53%</td></tr>
+<tr><td>IREN</td><td class="n">21.64달러</td><td class="n">21.41달러</td><td class="n dn">−1.06%</td></tr>
+<tr><td>로켓랩</td><td class="n">53.07달러</td><td class="n">58.86달러</td><td class="n up">+10.91%</td></tr>
+<tr><td>필라델피아 반도체 지수</td><td class="n">9,390.25</td><td class="n">10,033.93</td><td class="n up">+6.85%</td></tr>
+<tr><td>나스닥</td><td class="n">24,579.43</td><td class="n">25,253.14</td><td class="n up">+2.74%</td></tr>
+<tr><td>S&amp;P 500</td><td class="n">7,376.86</td><td class="n">7,549.94</td><td class="n up">+2.35%</td></tr>
+<tr><td>엔비디아</td><td class="n">186.64달러</td><td class="n">178.67달러</td><td class="n dn">−4.27%</td></tr>
+<tr><td>마이크론</td><td class="n">690.00달러</td><td class="n">733.15달러</td><td class="n up">+6.25%</td></tr>
+<tr><td>코어위브</td><td class="n">46.40달러</td><td class="n">48.98달러</td><td class="n up">+5.56%</td></tr>
+<tr><td>네비우스</td><td class="n">129.49달러</td><td class="n">141.45달러</td><td class="n up">+9.24%</td></tr>
+<tr><td>록히드마틴</td><td class="n">567.08달러</td><td class="n">588.19달러</td><td class="n up">+3.72%</td></tr>
+<tr><td>미국 주가 변동성 지수</td><td class="n">25.64</td><td class="n">19.92</td><td class="n">−5.72</td></tr>
+<tr><td>미국 10년 만기 국채 금리</td><td class="n">4.86%</td><td class="n">4.86%</td><td class="n">변화 없음</td></tr>
+<tr><td>브렌트유</td><td class="n">98.32달러</td><td class="n">92.18달러</td><td class="n dn">−6.24%</td></tr>
+</tbody>
+</table></div>
+<p class="note">가격은 야후 파이낸스 일별 종가로 계산했다. CNBC는 그 밖에 AMD +13.26%, 마벨 +9.49%, 브로드컴 +8.78%, 인텔 +5.49%라고 전했다. 한국 시각 11월 10일 08시 24분 넥스트레이드 장 전 거래에서 SK하이닉스는 1,214,000원(+6.87%)이었다.</p>
+</section>
+
+<section class="card">
+<span class="tag" data-omit>엔비디아</span>
+<h2>엔비디아 이사회가 젠슨 황 최고경영자를 조사한다</h2>
+<p>젠슨 황은 일요일 직원들에게 보낸 메일에서 아내에게 불성실했다고 인정하고 사과했다. 상대는 클라우드 회사 메가스피드의 임원 앨리스 황이다. 뉴욕타임스와 파이낸셜타임스는 미국 정보기관이 이 사람을 중국에 정보를 넘기는 사람으로 본다고 보도했다. 중국 외교부는 이를 근거 없는 이야기라고 했다. 엔비디아 이사회는 독립 조사를 시작했고, 국가 안보나 회사 기밀이 새어 나갔다고 볼 이유는 없다고 밝혔다(CNBC, 블룸버그).</p>
+<p>메가스피드는 싱가포르 회사다. 말레이시아 자회사를 통해 엔비디아 고성능 칩을 약 20억 달러어치 사들였고, 말레이시아와 인도네시아 데이터센터에서 중국 고객에게 원격으로 빌려준다는 의혹을 받는다(뉴욕타임스 보도를 다른 매체가 옮긴 것). 싱가포르 경찰은 수사 중이라고 밝혔고, 미국 상무부는 수사 여부를 확인하지 않았다. 엔비디아는 칩이 다른 곳으로 빼돌려졌다고 볼 이유를 찾지 못했다고 했다.</p>
+<p><strong>우리 종목과의 연결.</strong> 엔비디아는 SK하이닉스 고대역폭 메모리의 가장 큰 고객이고, IREN에 인공지능 칩을 판다. 엔비디아는 코어위브, 네비우스 같은 데이터센터 임대 회사에 투자하거나 대출을 보증해 왔다. 판무어 리베룸의 요아힘 클레멘트는 지금은 영향이 엔비디아에 그치지만, 젠슨 황의 입지가 약해지면 엔비디아가 다른 회사 지원을 줄일 수 있다고 했다(CNBC). 월요일에는 다른 반도체 회사와 메모리 회사 주가가 올랐다. 실제로 엔비디아가 투자나 보증을 줄였다는 보도는 없다. 확인 목록에 올린다.</p>
+</section>
+
+<section class="card">
+<span class="tag" data-omit>매도 점검</span>
+<h2>빌린 돈으로 산 주식의 대량 매도가 끝났는지 보는 기준 네 가지</h2>
+<div class="tw"><table class="stack">
+<thead><tr><th>기준</th><th>11월 9일 상태</th><th>판단</th></tr></thead>
+<tbody>
+<tr><td>나쁜 소식에도 덜 떨어지나</td><td>엔비디아 최고경영자 조사라는 나쁜 소식에도 반도체 지수는 6.85% 올랐다. 반도체 지수는 이틀 연속 올랐다(+4.21%, +6.85%)</td><td>일부 충족</td></tr>
+<tr><td>미국 주가 변동성 지수 20 아래</td><td>19.92. 11월 4일(16.61) 이후 처음으로 20 아래</td><td>충족</td></tr>
+<tr><td>헤지펀드 주식 비중이 낮은 수준인가</td><td>11월 자료를 찾지 못했다. 10월 자료는 골드만삭스 집계로 빌린 돈을 포함한 투자 규모가 5년 중 높은 수준이었다</td><td>자료 없음</td></tr>
+<tr><td>무기한 선물에서 한쪽 계약이 줄어드나</td><td>SK하이닉스 선물은 남은 계약이 42만8,000에서 37만2,000으로 줄고, 하락에 건 쪽이 내는 수수료가 줄었다. IREN 선물은 남은 계약이 18만6,000에서 24만4,000으로 늘었다</td><td>엇갈림</td></tr>
+<tr><td>(추가) 한국 외국인 매도가 멈추나</td><td>11월 9일 6,580억~6,925억원 순매도(매체별). 7거래일 연속</td><td>미충족</td></tr>
+</tbody>
+</table></div>
+<p>네 가지 중 하나가 충족됐고, 하나는 일부 충족됐다. 한국 외국인 매도는 계속되고 있다.</p>
+</section>
+
+<section class="card">
+<span class="tag" data-omit>무기한 선물</span>
+<h2>주식 무기한 선물 현황</h2>
+<p>하이퍼리퀴드에서 trade.xyz가 운영하는 시장이다. 한국 시각 11월 10일 08시 25분에 조회했다. 펀딩비는 상승에 건 쪽과 하락에 건 쪽이 주고받는 수수료이고, 1년으로 환산했다. 양수면 상승에 건 쪽이, 음수면 하락에 건 쪽이 낸다. 판정 근거로는 쓰지 않는다.</p>
+<div class="tw"><table>
+<thead><tr><th>종목</th><th>가격</th><th>남은 계약 수</th><th>펀딩비 (1년 환산)</th></tr></thead>
+<tbody>
+<tr><td>SK하이닉스</td><td class="n">907.99달러 (약 1,218,000원)</td><td class="n">42만8,000 → 37만2,000</td><td class="n">약 −222% → 약 −99.7%</td></tr>
+<tr><td>IREN</td><td class="n">21.66달러</td><td class="n">18만6,000 → 24만4,000</td><td class="n">약 +353% → 약 +6.7%</td></tr>
+<tr><td>로켓랩</td><td class="n">55.36달러</td><td class="n">12만3,000 → 11만9,000</td><td class="n">약 +21% → 약 +17.6%</td></tr>
+<tr><td>삼성전자 (참고)</td><td class="n">150.45달러</td><td class="n">37만6,000</td><td class="n">약 −232.8%</td></tr>
+</tbody>
+</table></div>
+<p>SK하이닉스 선물 가격을 원화로 바꾸면 약 1,218,000원으로, 넥스트레이드 장 전 가격 1,214,000원과 비슷하다. 로켓랩 선물 55.36달러는 정규장 종가 58.86달러보다 약 6% 낮아 실적 발표 뒤 시간외 하락을 반영한다. IREN 선물은 남은 계약이 약 31% 늘었는데 펀딩비는 크게 내려왔다. 상승에 건 쪽과 하락에 건 쪽이 함께 늘었다는 뜻이다.</p>
+</section>
+
+<section class="card">
+<span class="tag" data-omit>SK하이닉스</span>
+<h2>SK하이닉스 🇰🇷</h2>
+<p><strong>현황.</strong> 11월 9일 종가는 <span data-price="hynix" data-currency="KRW" data-delta="0.35">1,136,000</span>원(+0.35%)이다. 장중에 올랐다가 장 막판 외국인과 개인 매도로 상승 폭을 대부분 내줬다. 외국인은 11월 2일부터 6일까지 5거래일 동안 유가증권시장에서 약 11조500억원을 순매도했고, 그중 SK하이닉스가 5조7,837억원이었다(파이낸셜뉴스). 한국 장이 끝난 뒤 미국에서 반도체 지수가 6.85%, 마이크론이 6.25%, SK하이닉스 미국 상장 주식이 5.53% 올랐다. 그래서 10일 아침 넥스트레이드 장 전 가격이 1,214,000원(+6.87%)까지 올라 있다.</p>
+<p><strong>새로 나온 것.</strong> 가장 큰 고객인 엔비디아의 최고경영자 조사다. 메모리 수요나 가격이 바뀌었다는 소식은 아니다. 엔비디아 조사와 관련해 고대역폭 메모리 주문이 바뀌었다는 보도는 찾지 못했다.</p>
+<p><strong>위험.</strong> 외국인 매도가 7거래일 이어졌다. 엔비디아가 리더십 문제로 투자 계획을 늦추면 고대역폭 메모리 주문에도 영향이 갈 수 있다. 지난주에 나온 TSMC의 D램 생산 검토 보도도 확인이 끝나지 않았다.</p>
+<p><strong>판단 (참고용).</strong> 🟢 유지. 판정 기준인 수요, 가격, 장기 계약에 변화가 없다. 가격 하락은 외국인 매도 때문이고 회사 실적과 연결된 새 소식은 없다.</p>
+</section>
+
+<section class="card">
+<span class="tag" data-omit>IREN</span>
+<h2>IREN 🇺🇸 — 반도체가 오른 날 떨어졌다</h2>
+<p><strong>현황.</strong> 11월 9일 종가는 <span data-price="iren" data-currency="USD" data-delta="-1.06">21.41</span>달러(−1.06%)다. 장 초반에는 20.60달러(약 −5%)까지 내렸다(야후 파이낸스). 같은 날 코어위브는 5.56%, 네비우스는 9.24% 올랐다.</p>
+<p><strong>새로 나온 것.</strong></p>
+<ul>
+<li><strong>은행이 데이터센터 대출을 더 까다롭게 본다.</strong> 야후 파이낸스는 로이터 11월 9일 보도를 인용해, 은행들이 지난주 기술주 하락과 민주당의 중간선거 승리를 이유로 대출을 더 조심하고 있다고 전했다. 은행은 빌리는 회사의 현금 흐름, 완공 기한, 고객의 계약 해지 조항을 다시 본다고 했다. 어느 은행인지는 나오지 않았고, 로이터 원문은 확인하지 못했다. IREN 조건 ② 남은 60억 달러 조달과 직접 관련된 소식이다.</li>
+<li><strong>JP모건이 11월 9일 목표 주가를 낮췄다.</strong> 설비투자 축소와 일정 지연을 이유로 들었다. 새 목표 주가 금액은 확인하지 못했다(야후 파이낸스).</li>
+<li><strong>마이크로소프트가 데이터센터 임대 회사 수를 줄인다는 보도.</strong> 데이터코노미는 관계자를 인용해 마이크로소프트가 더 적은 회사와 거래하고 자체 데이터센터 투자를 늘리려 한다고 전했다. 어느 회사를 뺄지는 정하지 않았다고 했다. 원래 보도한 매체는 적혀 있지 않다. 확인된 결정은 오라클 계약 미갱신, Nscale 텍사스 계약 미갱신, Nscale 영국 부지 철회다.</li>
+<li><strong>엔비디아 최고경영자 조사.</strong> IREN은 엔비디아 칩을 사서 빌려주는 회사다. 블룸버그 칼럼은 엔비디아가 고객에게 투자와 보증을 해 주는 역할을 해 왔고, 그 지원이 줄면 데이터센터 임대 회사가 먼저 흔들린다고 봤다(멜러리 블로그가 김단테 영상을 정리한 것, 블로거 분석. 칼럼 원문은 확인하지 못했다).</li>
+</ul>
+<div class="tw"><table class="stack">
+<thead><tr><th>🟢로 돌아가는 조건</th><th>11월 10일 상태</th></tr></thead>
+<tbody>
+<tr><td>① 1년 치로 환산한 매출 40억 달러 가동 (1월 31일 목표)</td><td>새 소식 없음</td></tr>
+<tr><td>② 남은 60억 달러를 큰 주식 발행 없이 연 9% 안팎 이하로 조달</td><td>새 소식 없음. 은행 대출 조건이 까다로워졌다는 보도가 나왔다</td></tr>
+<tr><td>③ 캐나다 예전 부지 문제에 대한 답</td><td>새 소식 없음</td></tr>
+<tr><td>마이크로소프트와 비용 협의가 IREN에 부담 없이 끝남</td><td>새 소식 없음</td></tr>
+</tbody>
+</table></div>
+<p><strong>판단 (참고용).</strong> 🟡 유지. 🟢로 돌아갈 조건도, 🔴로 내려갈 조건(2월 말을 넘긴 지연, 마이크로소프트 계약 축소나 해지, 대규모 주식 발행)도 생기지 않았다. 다만 반도체와 다른 데이터센터 임대 회사가 오른 날 IREN만 떨어졌다. 시장이 자금 조달 문제를 더 무겁게 보고 있다는 뜻으로 읽는다.</p>
+</section>
+
+<section class="card">
+<span class="tag" data-omit>로켓랩</span>
+<h2>로켓랩 🚀 — 3분기 실적</h2>
+<p><strong>현황.</strong> 11월 9일 정규장 종가는 <span data-price="rklb" data-currency="USD" data-delta="10.91">58.86</span>달러(+10.91%)다. 장 마감 뒤 실적이 나오고 시간외 거래에서 약 3.8%(인베스팅닷컴)에서 6.6%(벤징가)까지 내렸다. 무기한 선물은 55.36달러다.</p>
+<div class="tw"><table>
+<thead><tr><th>항목</th><th>3분기 실적</th><th>비교 기준</th></tr></thead>
+<tbody>
+<tr><td>매출</td><td class="n">2억6,780만 달러 (+73%)</td><td>회사 전망 2억5,000만~2억6,500만 달러. 예상 약 2억5,700만 달러. 넘음</td></tr>
+<tr><td>매출총이익률</td><td class="n">33.6%</td><td>회사 전망 29~31%. 넘음</td></tr>
+<tr><td>이자, 세금, 감가상각 전 영업이익 (조정)</td><td class="n">−1,800만 달러</td><td>회사 전망 범위 안</td></tr>
+<tr><td>순손실</td><td class="n">−7,970만 달러</td><td>주당 −0.12달러. 예상 약 −0.07달러보다 나쁨</td></tr>
+<tr><td>수주잔고</td><td class="n">35억7,000만 달러</td><td>6월 말보다 52% 늘어 사상 최대</td></tr>
+<tr><td>영업으로 들어온 현금</td><td class="n">+720만 달러</td><td>처음으로 플러스</td></tr>
+<tr><td>뉴트론 3분기 신규 계약</td><td class="n">5억1,500만 달러 이상</td><td>대기 16회. 여러 계약에서 기본 발사 가격을 7,000만 달러로 올림</td></tr>
+<tr><td>뉴트론 첫 발사</td><td class="n">"빨라도 2027년"</td><td>10월 14일 발표와 같음. 새 날짜 없음</td></tr>
+</tbody>
+</table></div>
+<p><strong>10~12월 회사 전망.</strong> 매출 2억7,000만~2억9,000만 달러(예상 약 2억6,550만 달러보다 높음), 매출총이익률 34~36%, 조정 이자, 세금, 감가상각 전 영업이익 −1,400만~−2,000만 달러다. 멜러리 블로그는 이 손실 전망이 예상(약 −1,260만 달러)보다 나쁘다고 정리했다(블로거 분석, 예상치 출처 미확인).</p>
+<p><strong>손실이 커진 이유.</strong> 멜러리 블로그는 분기 보고서를 근거로 순손실 7,970만 달러 중 4,860만 달러가 이리듐 인수 관련 일회성 비용(자문료 2,130만 달러, 쓰지 않은 인수 대출 해지 비용 2,730만 달러)이라고 정리했다(블로거 분석, 분기 보고서 원문은 직접 확인하지 못했다). 인수 자금은 시장 가격으로 주식을 수시로 파는 방식으로 9개월간 약 39억1,000만 달러를 마련했고, 유통 주식은 2025년 말 5억4,357만 주에서 9월 말 6억3,916만 주로 약 17.6% 늘었다(같은 블로그).</p>
+<p><strong>뉴트론 부품 상태 (회사 발표 자료를 정리한 멜러리 블로그).</strong> 발사 연기 원인이던 1단 앞쪽 돔은 성형과 경화를 마쳤고, 파괴하지 않고 하는 재료 검사를 앞두고 있다. 2단과 추력 부품은 버지니아 발사장에 도착했다. 이리듐 인수는 주주 승인을 받았고, 미국 연방통신위원회 승인을 기다린다. 회사는 "규제 기관과 긍정적으로 진행 중"이라고만 했고 마감 시점은 밝히지 않았다.</p>
+<div class="tw"><table class="stack">
+<thead><tr><th>🟡로 돌아가는 조건</th><th>11월 10일 상태</th></tr></thead>
+<tbody>
+<tr><td>뉴트론 새 발사 날짜 공표</td><td>미충족. "빨라도 2027년"만 반복</td></tr>
+<tr><td>1단 연료 탱크 검사 통과</td><td>미충족. 앞쪽 돔 경화 완료, 검사 전</td></tr>
+<tr><td>연방통신위원회의 이리듐 인수 승인</td><td>미충족. 승인 대기</td></tr>
+</tbody>
+</table></div>
+<p><strong>판단 (참고용).</strong> 🔴 유지. 매출, 수주잔고, 현금 흐름은 좋아졌다. 발사가 늦어졌는데도 고객이 더 높은 값에 뉴트론 발사를 예약했다. 하지만 🔴를 정한 이유인 뉴트론 일정에 새 정보가 없고, 돌아가는 조건 세 가지가 모두 남아 있다. 주식 수가 늘어나는 것도 계속 본다.</p>
+</section>
+
+<div class="two">
+<section class="card">
+<span class="tag" data-omit>금리</span>
+<h2>오늘 밤 미국 10월 소비자물가지수</h2>
+<p>한국 시각 11월 10일 22시 30분에 나온다. 예상은 전체 +0.3%, 에너지와 식품을 뺀 지수 +0.2%(다우존스, 블룸버그 조사)다. MUFG는 전체 +0.29%, 에너지와 식품 제외 +0.23%로 봤고, RBC는 둘 다 +0.3%로 봤다(CNBC). 지난해 정부 업무 정지로 2025년 10월 자료가 없는 항목은 1년 전 대비 상승률을 발표하지 않는다. 직전 확인에서 12월 금리 인상 확률은 약 77.7%였다.</p>
+</section>
+<section class="card">
+<span class="tag" data-omit>유가</span>
+<h2>브렌트유 92.18달러</h2>
+<p>월요일 하루 6.24% 떨어졌다(야후 파이낸스, 근월물 기준). CNBC 등은 유가 하락이 물가 걱정을 줄여 주가 상승에 도움이 됐다고 전했다. 왜 떨어졌는지는 확인하지 못했다. 한 기사는 미국이 이란에 새 제재를 발표하기 전 차익 실현 매도라고 했지만 날짜가 적혀 있지 않다.</p>
+</section>
+</div>
+
+<section class="card">
+<span class="tag" data-omit>종목별 판정</span>
+<h2>신호등 요약</h2>
+<div class="tw"><table>
+<thead><tr><th>종목</th><th>신호등</th><th>변화</th><th>한 줄</th></tr></thead>
+<tbody>
+<tr data-signal="hynix"><td data-name>SK하이닉스</td><td data-light>🟢</td><td data-change>유지</td><td data-note>1,136,000원(<strong>+0.35%</strong>). 외국인 7거래일 연속 순매도. 미국 반도체 지수 +6.85%로 10일 장 전 가격 1,214,000원. 고객 엔비디아의 최고경영자 조사는 확인 목록에 올림</td></tr>
+<tr data-signal="iren"><td data-name>IREN</td><td data-light>🟡</td><td data-change>유지</td><td data-note>21.41달러(<strong>−1.06%</strong>). 다른 데이터센터 임대 회사가 오른 날 떨어짐. 은행 대출 조건이 까다로워졌다는 보도와 JP모건 목표 주가 인하. 판정 조건에는 새 소식 없음</td></tr>
+<tr data-signal="rklb"><td data-name>RKLB</td><td data-light>🔴</td><td data-change>유지</td><td data-note>로켓랩 58.86달러(+10.91%), 시간외 하락. 3분기 매출 2억6,780만 달러와 수주잔고 35억7,000만 달러는 사상 최대. 뉴트론 첫 발사는 여전히 "빨라도 2027년"</td></tr>
+</tbody>
+</table></div>
+<p><strong>세 종목을 함께 보면.</strong> SK하이닉스와 IREN은 둘 다 엔비디아와 인공지능 데이터센터 투자에 매출이 걸려 있다. 엔비디아 최고경영자 조사가 투자 축소로 이어지면 두 종목이 함께 영향을 받는다. 로켓랩은 정부와 위성 회사 주문에 기대고 있어 이 위험에서 떨어져 있다.</p>
+</section>
+
+<section class="card">
+<span class="tag" data-omit>이번 주 일정</span>
+<h2>이번 주 일정 (한국 시각)</h2>
+<div class="tw"><table class="stack">
+<thead><tr><th>날짜</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td>11월 10일 22:30</td><td>미국 10월 소비자물가지수</td></tr>
+<tr><td>11월 11일 06:10</td><td>코어위브 3분기 실적. 예상 매출 35억5,000만 달러(LSEG). 2031년 만기 일부 채권 수익률 16% 이상, 5년 부도 대비 보험료 1,240 이상(CNBC)</td></tr>
+<tr><td>11월 11일</td><td>한국 11월 1~10일 수출</td></tr>
+<tr><td>11월 12일께</td><td>SK하이닉스 레버리지 상장지수펀드 청산</td></tr>
+<tr><td>11월 13일 아침</td><td>네비우스 3분기 실적</td></tr>
+<tr><td>11월 14일 이후</td><td>로켓랩 일렉트론 100번째 발사(뉴질랜드 시각)</td></tr>
+<tr><td>11월 17일</td><td>미국 기관 투자자의 9월 말 보유 주식 공개 서류 제출 기한(11월 16일이 일요일이라 하루 미뤄짐)</td></tr>
+<tr><td>11월 18일</td><td>젠슨 황 관련 미국 하원 비공개 설명 요구일</td></tr>
+<tr><td>11월 18~19일</td><td>중국 아시아태평양경제협력체 정상회의. 트럼프, 시진핑, 푸틴 3자 회담 이야기(메르 블로그, 블로거 분석)</td></tr>
+</tbody>
+</table></div>
+</section>
+
+<section class="card">
+<span class="tag" data-omit>확인 목록</span>
+<h2>다음 체크포인트</h2>
+<ul class="cp">
+<li data-checkpoint><input type="checkbox" disabled checked> <strong>로켓랩 3분기 실적</strong> — 매출 2억6,780만 달러(전망 상단 넘음), 매출총이익률 33.6%, 수주잔고 35억7,000만 달러, 뉴트론 신규 5억1,500만 달러 이상과 기본 가격 7,000만 달러. 뉴트론 첫 발사는 "빨라도 2027년" 그대로 (완료)</li>
+<li data-checkpoint><input type="checkbox" disabled checked> <strong>로켓랩 일렉트론 99번째 발사</strong> — 성공, 올해 20번째(멜러리 블로그). 100번째는 11월 14일 이후 (완료)</li>
+<li data-checkpoint><input type="checkbox" disabled checked> <strong>로켓랩 연방통신위원회 의견 수렴 11월 9일</strong> — 기한 지남. 글로벌스타가 공급사 이해충돌 검토를 요청했다(멜러리 블로그). 승인 여부는 아래 항목으로 이어감 (완료)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>로켓랩 뉴트론 새 발사 날짜</strong> — 🟡로 돌아가는 조건 ①. 2027년 1분기 말까지 목표일을 공개한다는 발언(엑스 영상, 원문 미확인) (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>로켓랩 1단 앞쪽 돔 재료 검사와 1단 탱크 압력 시험</strong> — 🟡로 돌아가는 조건 ②. 돔 경화는 끝남 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>로켓랩 이리듐 인수 연방통신위원회 승인</strong> — 🟡로 돌아가는 조건 ③. 스페이스X와 글로벌스타의 조건 요구 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 로켓랩 10~12월 실적 — 매출 전망 2억7,000만~2억9,000만 달러, 조정 손실 1,400만~2,000만 달러. 영업 현금이 다시 마이너스가 되는지 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 로켓랩 주식 수 — 9월 말 6억3,916만 주. 4분기 가중평균 전망 6억8,100만 주(멜러리 블로그) (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 로켓랩 미국 미사일방어청 계약 납기 지연과 배상금 가능성 — 분기 보고서 문구(멜러리 블로그, 원문 미확인) (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 로켓랩 일렉트론 100번째 발사 — 11월 14일 이후 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>엔비디아 이사회의 젠슨 황 조사</strong> — 결과, 최고경영자 유지 여부, 데이터센터 임대 회사 투자와 보증을 줄이는지, 고대역폭 메모리 주문에 변화가 있는지 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>메가스피드 수사</strong> — 싱가포르 경찰 수사, 미국 상무부 조사 여부, 미국 수출 규제 강화로 이어지는지 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>젠슨 황 관련 미국 하원 비공개 설명 (11월 18일)</strong> (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>IREN 1년 치 환산 매출 40억 달러 가동 (1월 31일 목표, 2월 말까지 가능)</strong> — 🟢로 돌아가는 조건 ① (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>IREN과 마이크로소프트의 수수료, 배상, 비용 보전 협의</strong> (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>IREN 남은 60억 달러 조달</strong> — 은행이 데이터센터 대출에서 현금 흐름, 완공 기한, 해지 조항을 더 본다는 로이터 보도(야후 파이낸스 인용, 원문 미확인). 주식 발행 비중과 금리(기준 연 6%, 9%) (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>IREN 캐나다 예전 부지 답변</strong> (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>IREN 10~12월 실적 (2월께)</strong> — 인공지능 클라우드 매출 약 2억5,000만 달러 기준 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>마이크로소프트의 데이터센터 임대 회사 축소</strong> — 데이터코노미 보도는 어느 회사를 뺄지 미정. IREN 계약에 실제 변화가 생기나 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN JP모건 새 목표 주가 금액 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 주식 수 — 10월 30일 4억2,436만 주. 60억 달러 시장 가격 주식 판매 남은 약 23억 달러, 전환사채 67억5,000만 달러(멜러리 블로그, 블로거 분석) (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>빌린 돈으로 산 주식의 대량 매도가 끝났는지 보는 기준 네 가지</strong> — 11월 9일: 변동성 지수 19.92로 충족, 나쁜 소식에도 덜 떨어짐 일부 충족, 헤지펀드 자료 없음, 무기한 선물 엇갈림. 한국 외국인 7거래일 연속 매도 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>미국 10월 소비자물가지수 (11월 10일 22:30)</strong> — 예상 전체 +0.3%, 에너지와 식품 제외 +0.2% (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>코어위브 실적 (11월 11일 06:10)</strong> — 2032년 만기 채권 수익률 16%가 14.5% 아래로 내려오나(메르 기준), 자금 조달 계획, 마이크로소프트 관련 답변 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 네비우스 실적 (11월 13일 아침) — 마이크로소프트 계약 물량과 해지 조항. 예상 매출 약 9억800만 달러(CNBC) (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 미국 기관 투자자 9월 말 보유 주식 공개 서류 (11월 17일 제출 기한) — 세 종목을 어느 기관이 늘리고 줄였나 (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>TSMC의 D램 생산 검토</strong> — 디인포메이션 보도를 다른 매체가 옮긴 것. 2027년 1월 중순 TSMC 4분기 실적 발표 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>텍사스 데이터센터 승인 중단</strong> — 히노호사 새 주지사 1월 19일 취임. 12월 10일 텍사스 전력망 운영 기관, 12월 17일 텍사스 공공요금위원회, 1월 12일 주의회 일정(멜러리 블로그, 원출처 미확인) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>민주당 다수 의회의 인공지능 규제</strong> — 실제 법안이 나오나 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 다른 주의 데이터센터 주민투표 결과 — 선거 전 13개 주 49건 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 <strong>2018년 같은 메모리 가격 하락이 다시 오는지</strong> — 고객사가 쌓인 재고를 먼저 쓰겠다고 말하는지, D램 계약 가격이 떨어지는지 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 메모리 가격 상승이 다른 제품 수요를 줄이는가 — 애플이 비용을 떠안음, 인텔 PC 판매 둔화, AMD 4분기 매출 전망 약 170억 달러 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 마이크론 대만 타오위안 고대역폭 메모리 공장 노사 분쟁 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 메모리 가격 상승 속도 — 4분기 계약 가격 +10~15%(트렌드포스)와 가격 유지 전망이 엇갈림 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 인공지능 설비 회사의 자금 조달 — 오라클 주식 100억 달러, 회사채 100억 달러 발행 뒤 다음 대형 발행 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 빅테크 설비투자가 계획보다 적었던 이유 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 구글 2027년 설비투자 금액 — 4분기 실적(2027년 초) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 사용자 가설 확인 — 메모리 저장 단위당 원가. 메르: 3분기 D램 출하량 약 +10%, 4분기 20%대. 다른 자료로 확인 필요 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 SK하이닉스 순이익 차이 — 39조7,756억원 대 예상 61조2,900억원. 분기보고서로 확인 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> SK하이닉스 내년 설비투자 금액 — 4분기 실적 때 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> SK하이닉스 자사주 매입과 소각 남은 금액 — 목표 60조원 이상, 새 20조원은 1월 28일까지 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 솔리다임 미국 공장과 중국 다롄 공장 허가 — 2027년분 연간 허가 미발급, 미국 반도체 투자 세액공제는 12월 31일까지 착공 조건(메르) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 고대역폭 메모리 점유율 — 삼성 30%대 후반이라는 전언 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 아마존 자체 인공지능 칩 트레이니엄4의 고대역폭 메모리 공급사 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> SK하이닉스 장기 계약의 5년 넘는 연장 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> SK하이닉스 레버리지 상장지수펀드 청산 — 11월 12일께 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> SK하이닉스 무기한 선물 — 펀딩비 연율 약 −222%에서 약 −99.7%, 남은 계약 37만2,000 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 무기한 선물 — 남은 계약 24만4,000, 펀딩비 약 +6.7% (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 매출 10% 이상 고객 A 28%, B 24%, C 18% — 이름 미공개 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 앤트로픽과 IREN 계약 확인 여부 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 앤트로픽 상장 — 이번 주 투자자 설명회 시작 예정이라는 보도, 공식 가격 범위는 아직 없음. 기업 가치 논의 1조2,000억~1조6,000억 달러로 보도마다 다름 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 엔비디아가 인공지능 칩을 담보 가치 있는 자산으로 만드는가 — Nscale의 웨스트버지니아 앤트로픽 데이터센터 대출 보증 협의(디인포메이션 보도를 다른 매체가 옮김) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 앤트로픽 600억 달러 칩 구매 대출의 최종 금리 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> Nscale — 마이크로소프트가 텍사스 확대 선택권을 쓰지 않음, 영국 에식스 계약에서 빠짐(블룸버그) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 오픈AI의 구글 자체 인공지능 칩 구매 — 디인포메이션 보도를 다른 매체가 옮김 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 딥시크 "고대역폭 메모리 사용량 75% 절감" 실제 측정 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 반도체 기판 부족 — 삼성전기 3조7,000억원 선투자 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 메타 의결권 없는 주식 발행 (2027년 1월) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 스페이스X 컴퓨터 임대 사업과 테슬라 합병 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 스페인 바다호스 — 공사 인허가 확보 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 미국 오클라호마 키오와 — 세금 감면 보류, 새 주지사의 재산세 감면 폐지 공약(멜러리) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> IREN 마케팅 지출과 호주 레드뱅크 주민 설명회 결과 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 미국 미사일 방어 계획 골든돔과 국방 예산 — 예산 조정 법안, 민주당 다수 의회의 삭감. 11월 새 소식 없음 (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 🔴 이란과 호르무즈 해협 — 서명된 합의 없음. 11월 9일 브렌트유 −6.24%의 이유 미확인 (이월, 수정)</li>
+<li data-checkpoint><input type="checkbox" disabled> 겨울 천연가스 가격 — 유럽 저장률이 2011년 집계 이후 최저, 아시아 액화천연가스 가격이 미국의 8배 이상(메르 블로그, 블로거 분석) (신규)</li>
+<li data-checkpoint><input type="checkbox" disabled> 미국 재무부 분기 국채 발행 계획 — 2027년 중반 이표채 발행 증가 가능성(메르) (이월)</li>
+<li data-checkpoint><input type="checkbox" disabled> 이스라엘 연립정부 구성 (이월)</li>
+</ul>
+</section>
+
+<section class="card">
+<span class="tag" data-omit>메르 블로그</span>
+<h2>📰 메르 신규 글</h2>
+<ul>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224471158038">주절주절....젠슨 황이 없어도 엔비디아가 돌아갈까?</a> — 블로거 분석(메르). 엔비디아 직원들은 한 달에 두 번 가장 중요한 다섯 가지를 짧은 메일로 써서 젠슨 황에게도 보내고, 젠슨 황은 직접 보고하는 임원 36명과 팀들을 사업부 없이 직접 관리한다고 설명했다. 후임이 같은 방식으로 일할 수 없다면 엔비디아도 사업부와 중간 관리자를 새로 만들어야 하므로, 이번 일은 보통 회사의 최고경영자 교체와 다르다고 봤다. 우리가 확인 목록에 올린 엔비디아 리더십 위험과 같은 방향이다.</li>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224470328213">올겨울, 난방비 폭탄 고지서가 날아올까? (feat 천연가스 시장 근황)</a> — 블로거 분석(메르). 이란 미사일이 카타르 라스라판 액화천연가스 단지를 때렸고 호르무즈 해협이 정상화되지 않아, 11월 1일 유럽 천연가스 저장률이 2011년 집계 이후 최저라고 했다. 10월 4일 아시아 가격이 1MMBtu당 25.79달러로 미국의 8배를 넘었다. 한국가스공사는 70~80%를 장기 계약으로 들여오지만 가격은 유가에 따라 몇 달 뒤 움직인다고 설명했다. 11월 18~19일 아시아태평양경제협력체 회의의 우크라이나 논의를 지켜보라고 했다. 데이터센터 전력 비용과 유가 항목에 참고한다.</li>
+</ul>
+</section>
+
+<section class="card">
+<span class="tag" data-omit>멜러리 블로그</span>
+<h2>📰 멜러리 신규 글</h2>
+<ul>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224471128825">로켓랩 3분기 실적 — 매출 73% 증가, 수주잔고 $3.57B, 뉴트론 발사가격은 $70M으로 올렸다</a> — 블로거 분석(멜러리). 실적 보도자료, 분기 보고서, 발표 자료를 근거로 정리했다. 매출, 매출총이익률, 수주잔고는 회사 전망을 넘었고 주당 손실은 예상보다 나빴는데, 손실의 대부분이 이리듐 인수 일회성 비용이라고 했다. 12개월 안에 매출이 되는 수주잔고 비중은 약 45%에서 약 33%로 줄었다. 매출과 수주 숫자는 보도자료로 확인했다. 우리 판정과 같다(뉴트론 일정 정보 없음).</li>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224469822745">로켓랩 3분기 실적 직전 점검 — 뉴트론 1단 돔 완성, 일렉트론 99호, CFO 주식 매도까지</a> — 블로거 분석(멜러리). 2주간 회사 게시물과 공시를 모았다. 1단 앞쪽 돔 경화 완료, 일렉트론 99번째 성공, 최고재무책임자와 이사의 사전 계획 매도 약 830만 달러, 글로벌스타가 연방통신위원회에 이리듐 인수 관련 검토를 요청한 것을 정리했다.</li>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224471126964">젠슨 황 스캔들이 그냥 스캔들이 아닌 이유 — “AI 중앙은행” 엔비디아와 네오클라우드, 메모리 리스크 (김단테 11/9)</a> — 블로거 분석(멜러리). 엔비디아가 고객에게 투자와 보증으로 돈을 대 왔기 때문에 리더십이 흔들리면 데이터센터 임대 회사가 먼저 어려워진다는 블룸버그 칼럼 요지를 소개했다. 상대가 메가스피드 임원이라 안보 심사가 엄격해지면 칩과 메모리 출하가 느려질 수 있다는 해석도 있다. 영상 시점에 마이크론도 약세였다고 했지만, 마이크론은 종가 기준 6.25% 올랐다.</li>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224469802945">아이렌 주식 수, 상장 5년 만에 7.7배 — 언제, 왜 늘었는지 SEC 원문으로 전부 확인했다 (ATM, 유상증자, 전환사채)</a> — 블로거 분석(멜러리). 상장 때 5,504만 주에서 10월 30일 4억2,436만 주가 됐고, 6월 말 이후 넉 달 동안 4,365만 주(+11.5%) 늘었다. 시장 가격 주식 판매 2,964만 주, 미란티스 인수 대가 1,263만 주다. 60억 달러 주식 판매 한도 중 약 23억 달러가 남았고, 전환사채 67억5,000만 달러가 모두 주식으로 바뀌면 최대 약 1억2,700만 주가 늘 수 있다. 우리 조건 ②의 "큰 주식 발행" 판단에 쓸 기준선이다.</li>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224469808949">아이렌 $76 고점, 지금 주식 수로 바꾸면 $51 — 2025년 주가를 2026년 기준으로 환산해 봤다</a> — 블로거 분석(멜러리). 2025년 11월 최고가 76.87달러를 지금 주식 수로 바꾸면 약 51.35달러이고, 11월 6일 종가 21.64달러는 그 약 42%라고 계산했다.</li>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224469807448">AI 수요는 7.6배, 남은 병목은 돈과 정치 — 2주간 나온 AI 산업 보고서 30여 건 한 번에 정리</a> — 블로거 분석(멜러리). 분기마다 새로 팔리는 인공지능 연산이 2년 만에 7.6배(Epoch AI), 대형 클라우드 회사 1년 설비투자 6,490억 달러(블랙록), 텍사스 허가 동결 위험을 정리했다. 수요보다 자금 조달과 인허가가 걸림돌이라는 결론으로, 우리 IREN 조건 ②와 텍사스 항목과 같은 방향이다.</li>
+<li>🔗 <a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224469785073">AI가 AI를 두 배 빨리 만든다? METR 보고서부터 젠슨 황 보도까지, AI 뉴스 56개 팩트체크</a> — 블로거 분석(멜러리). 영상 속 주장 56개를 확인했다. METR 보고서가 "데이터센터를 덜 지어도 된다"고 말하지 않았다는 점, 젠슨 황 파이낸셜타임스 보도는 확인된 사실이 아니라 정부 메모의 판단이라는 점을 짚었다.</li>
+<li>매일 경제 시황 2026.11.09, 2026.11.10 (제목만)</li>
+<li>경제신문 스크랩 [2026.11.10 경제뉴스] 엔비디아 젠슨 황 불륜 스캔들, 코스피 5000선 방어, 알테오젠 16% 급락 (제목만)</li>
+</ul>
+</section>
+
+<section class="card" data-sources>
+<h2>출처</h2>
+<h3>로켓랩</h3>
+<ul class="src">
+<li><a href="https://www.sec.gov/Archives/edgar/data/0001819994/000181999426000073/rklb-11092026ex991.htm">Rocket Lab 3분기 실적 보도자료 (미국 증권거래위원회 공시 8-K 첨부)</a></li>
+<li><a href="https://www.benzinga.com/markets/earnings/26/11/63071405/rocket-lab-q3-revenue-beat-eps-miss-company-signs-515-million-in-neutron-launch-deals">Rocket Lab Q3: Revenue Beat, EPS Miss, Signs $515M Neutron Deals — Benzinga</a></li>
+<li><a href="https://www.investing.com/news/earnings/rocket-lab-falls-on-earnings-miss-despite-revenue-beat-5013401">Rocket Lab falls on earnings miss despite revenue beat — Investing.com</a></li>
+<li><a href="https://www.tipranks.com/news/rocket-lab-stock-slips-after-mixed-q3-results">Rocket Lab Stock Slips after Mixed Q3 Results — TipRanks</a></li>
+<li><a href="https://247wallst.com/investing/2026/11/09/live-will-rocket-lab-smash-q3-earnings-tonight-after-jumping-10-intraday/">Live: Will Rocket Lab Smash Q3 Earnings Tonight — 24/7 Wall St.</a></li>
+<li><a href="https://app.hyperliquid.xyz/trade/xyz:RKLB">하이퍼리퀴드 로켓랩 무기한 선물</a></li>
+</ul>
+<h3>엔비디아</h3>
+<ul class="src">
+<li><a href="https://www.cnbc.com/2026/11/09/nvidia-jensen-huang-chinese-spy-investigation.html">Nvidia stock falls 4% as scrutiny turns to Jensen Huang’s affair with alleged Chinese spy — CNBC</a></li>
+<li><a href="https://www.bloomberg.com/news/articles/2026-11-08/nvidia-board-to-probe-spying-case-after-ceo-jensen-huang-admits-infidelity">Nvidia Board to Probe Spying Case After CEO Jensen Huang Admits Infidelity — Bloomberg</a></li>
+<li><a href="https://www.aljazeera.com/economy/2026/11/9/nvidia-shares-slump-amid-investigation-into-ceo-jensen-huang">Nvidia shares slump amid investigation into CEO Jensen Huang — Al Jazeera</a></li>
+<li><a href="https://www.streetinsider.com/Reuters/US+senator+seeks+Commerce+Department+investigation+into+Singapore-based+Megaspeed/25449176.html">US senator seeks Commerce Department investigation into Singapore-based Megaspeed — Reuters</a></li>
+</ul>
+<h3>IREN과 데이터센터 임대 회사</h3>
+<ul class="src">
+<li><a href="https://finance.yahoo.com/markets/stocks/articles/iren-falls-5-friday-20-145304917.html">IREN Falls 5% After Friday’s 20% Surge as AI Lending Worries Mount — Yahoo Finance</a></li>
+<li><a href="https://www.tipranks.com/news/iren-coreweave-and-nebius-stocks-tumble-today-as-ai-debt-fears-and-nvidia-ceo-controversy-mount-what-wall-street-sees-next">IREN, CoreWeave and Nebius Stocks Are Down Today — TipRanks</a></li>
+<li><a href="https://dataconomy.com/2026/11/09/microsoft-cuts-neocloud-partners-to-favor-own-data-centers/">Microsoft Cuts Neocloud Partners To Favor Own Data Centers — Dataconomy</a></li>
+<li><a href="https://cnbc.com/2026/11/09/coreweave-debt-credit-risk-neoclouds.html">CoreWeave confronts doom cycle narrative as neocloud credit risk overshadows growth — CNBC</a></li>
+<li><a href="https://app.hyperliquid.xyz/trade/xyz:IREN">하이퍼리퀴드 IREN 무기한 선물</a></li>
+</ul>
+<h3>SK하이닉스와 한국 시장</h3>
+<ul class="src">
+<li><a href="https://www.newspim.com/news/view/20261109001082">[마감시황] 코스피 5018선 후퇴, 반도체 반등 속 2차전지와 바이오 부진 — 뉴스핌</a></li>
+<li><a href="https://www.goodkyung.com/news/articleView.html?idxno=293277">코스피, 반도체 반등에도 5018선 마감, 외국인 6925억원 순매도 — 굿모닝경제</a></li>
+<li><a href="https://fnnews.com/news/202611082055415754">삼전닉스 7조6000억원 팔았다, 외국인 대탈출에 개미는 매수 — 파이낸셜뉴스</a></li>
+<li><a href="https://www.m-i.kr/news/articleView.html?idxno=2016239">외국인 4분기 들어 30조원, 반도체 80% 집중 매도 — 매일일보</a></li>
+<li><a href="https://m.stock.naver.com/domestic/stock/000660/total">네이버 증권 SK하이닉스 (넥스트레이드 장 전 가격)</a></li>
+<li><a href="https://app.hyperliquid.xyz/trade/xyz:SKHX">하이퍼리퀴드 SK하이닉스 무기한 선물</a></li>
+</ul>
+<h3>미국 시장, 물가, 수급</h3>
+<ul class="src">
+<li><a href="https://finance.yahoo.com/markets/live/stock-market-today-monday-november-9-dow-sp-500-nasdaq-nvidia-090535419.html">Stock market today: Nasdaq surges despite Nvidia stock slide — Yahoo Finance</a></li>
+<li><a href="https://www.kiplinger.com/investing/stocks/dow-adds-1-104-points-even-as-nvidia-stock-sinks-stock-market-today">Dow Adds 1,104 Points Even as Nvidia Sinks — Kiplinger</a></li>
+<li><a href="https://www.cnbc.com/2026/11/09/october-cpi-report-2026-inflation.html">A key report for where inflation stood in October comes out Tuesday — CNBC</a></li>
+<li><a href="https://www.mufgresearch.com/macro/us-inflation-update-november-10-2026">US Inflation Update — MUFG Research</a></li>
+<li><a href="https://www.tradingview.com/news/seekingalpha:489a695d4094b:0-investors-have-reversed-all-global-ai-net-buying-since-2025-goldman-sachs-prime-book/">Investors have reversed all global AI net buying since 2025 — Goldman Sachs prime book (Seeking Alpha)</a></li>
+<li><a href="https://www.outlookindia.com/international/oil-prices-slip-before-us-unveils-fresh-iran-sanctions-brent-nears-93">Oil Prices Slip Before US Unveils Fresh Iran Sanctions — Outlook India (날짜 미표기)</a></li>
+<li><a href="https://finance.yahoo.com/quote/BZ%3DF/">브렌트유 근월물 — Yahoo Finance</a></li>
+</ul>
+<h3>블로그</h3>
+<ul class="src">
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224471158038">메르 — 젠슨 황이 없어도 엔비디아가 돌아갈까?</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=ranto28&amp;logNo=224470328213">메르 — 올겨울, 난방비 폭탄 고지서가 날아올까?</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224471128825">멜러리 — 로켓랩 3분기 실적</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224469822745">멜러리 — 로켓랩 3분기 실적 직전 점검</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224471126964">멜러리 — 젠슨 황 스캔들이 그냥 스캔들이 아닌 이유</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224469802945">멜러리 — 아이렌 주식 수, 상장 5년 만에 7.7배</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224469808949">멜러리 — 아이렌 $76 고점, 지금 주식 수로 바꾸면 $51</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224469807448">멜러리 — AI 수요는 7.6배, 남은 병목은 돈과 정치</a></li>
+<li><a href="https://m.blog.naver.com/PostView.naver?blogId=mellery&amp;logNo=224469785073">멜러리 — AI 뉴스 56개 팩트체크</a></li>
+</ul>
+<p class="note">이전 기록: <a href="2026-11-09-time-lag.html">2026-11-09-time-lag.html</a></p>
+</section>
+
+<footer class="note" style="color:var(--on-bg-soft);padding:10px 0">참고용 기록이다. 투자 권유가 아니며, 작성자는 투자 자문 자격이 없다.</footer>
+</div>
+</body>
+</html>
