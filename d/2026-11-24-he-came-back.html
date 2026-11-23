@@ -95,6 +95,10 @@ td.n { font-family: var(--mono); white-space: nowrap; }
 td.d { color: #ff8a8a; font-family: var(--mono); white-space: nowrap; }
 td.u { color: #8cf0b0; font-family: var(--mono); white-space: nowrap; }
 .wide { overflow-x: auto; }
+.fg { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 18px; align-items: center; }
+.fg svg, svg.fgline { width: 100%; height: auto; display: block; }
+svg.fgline { margin: 6px 0 4px; }
+@media (max-width: 640px) { .fg { grid-template-columns: 1fr; } }
 table.signals td:nth-child(2) { font-size: 20px; }
 ul { padding-left: 20px; }
 li { margin: 4px 0; }
@@ -154,6 +158,68 @@ footer { margin-top: 40px; border-top: 3px solid var(--ink); padding-top: 12px; 
   <div><p class="d">11월 19일 목</p><p class="v">145.98</p><p class="t">엔비디아 종가, 달러</p></div>
   <div><p class="d">11월 20일 금</p><p class="v">125.53</p><p class="t">−14.01%, 회계 조사 보도</p></div>
   <div><p class="d">11월 23일 월</p><p class="v">165.05</p><p class="t">+31.48%, 젠슨 황 복귀</p></div>
+</section>
+
+<section class="card">
+<h2>CNN 공포 탐욕 지수 (11월 23일 미국 동부 오후 6시 30분 기준)</h2>
+<div class="fg">
+<svg viewBox="0 0 320 170" role="img" aria-label="공포 탐욕 지수 계기판, 현재 17">
+  <path d="M30.0,150.0 A130,130 0 0 1 68.1,58.1 L100.6,90.6 A84,84 0 0 0 76.0,150.0 Z" fill="#ff6b6b"/>
+  <path d="M68.1,58.1 A130,130 0 0 1 139.7,21.6 L146.9,67.0 A84,84 0 0 0 100.6,90.6 Z" fill="#ffb020"/>
+  <path d="M139.7,21.6 A130,130 0 0 1 180.3,21.6 L173.1,67.0 A84,84 0 0 0 146.9,67.0 Z" fill="#c9cfcb"/>
+  <path d="M180.3,21.6 A130,130 0 0 1 251.9,58.1 L219.4,90.6 A84,84 0 0 0 173.1,67.0 Z" fill="#8fe3b0"/>
+  <path d="M251.9,58.1 A130,130 0 0 1 290.0,150.0 L244.0,150.0 A84,84 0 0 0 219.4,90.6 Z" fill="#3cf08c"/>
+  <g font-family="JetBrains Mono, monospace" font-size="11" fill="#a9b8ae" text-anchor="middle">
+    <text x="18" y="164">0</text><text x="56" y="44">25</text><text x="160" y="8">50</text><text x="264" y="44">75</text><text x="302" y="164">100</text>
+  </g>
+  <line x1="160" y1="150" x2="54.9" y2="88.0" stroke="#eef5f0" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="160" cy="150" r="9" fill="#eef5f0"/>
+  <text x="160" y="138" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="40" fill="#eef5f0">17</text>
+</svg>
+<div class="wide">
+<table>
+<thead><tr><th>시점</th><th>값</th><th>구간</th></tr></thead>
+<tbody>
+<tr><td>11월 23일</td><td class="n">17</td><td>극단적 공포</td></tr>
+<tr><td>직전 마감 (11월 20일)</td><td class="n">9.7</td><td>극단적 공포</td></tr>
+<tr><td>1주 전 (11월 16일)</td><td class="n">31.1</td><td>공포</td></tr>
+<tr><td>1달 전 (10월 23일)</td><td class="n">16.7</td><td>극단적 공포</td></tr>
+<tr><td>1년 전</td><td class="n">5.7</td><td>극단적 공포</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="note">구간: 0~25 극단적 공포, 25~45 공포, 45~55 중립, 55~75 탐욕, 75~100 극단적 탐욕. 0에 가까울수록 시장 참가자가 겁을 먹은 상태다.</p>
+<h3>10월 6일 S&amp;P 500 최고치 이후 일별 기록</h3>
+<svg class="fgline" viewBox="0 0 600 170" role="img" aria-label="공포 탐욕 지수 10월 6일부터 11월 23일까지">
+  <rect x="34" y="106.0" width="556" height="40.0" fill="#ff6b6b" opacity=".16"/>
+  <g stroke="#2c332e" stroke-width="1">
+    <line x1="34" y1="10" x2="590" y2="10"/><line x1="34" y1="78" x2="590" y2="78"/><line x1="34" y1="146" x2="590" y2="146"/>
+  </g>
+  <g font-family="JetBrains Mono, monospace" font-size="11" fill="#a9b8ae">
+    <text x="4" y="14">100</text><text x="10" y="82">50</text><text x="10" y="110">25</text><text x="16" y="150">0</text>
+    <text x="34" y="164">10/6</text><text x="152" y="164">10/16</text><text x="380" y="164">11/5</text><text x="556" y="164">11/23</text>
+  </g>
+  <polyline fill="none" stroke="#3cf08c" stroke-width="2.5" stroke-linejoin="round" points="34.0,82.0 50.4,85.2 66.7,92.7 83.1,86.8 99.4,84.5 115.8,84.0 132.1,106.9 148.5,102.5 164.8,121.2 181.2,119.5 197.5,106.9 213.9,104.9 230.2,118.8 246.6,123.3 262.9,105.4 279.3,101.3 295.6,99.2 312.0,104.2 328.4,110.2 344.7,119.6 361.1,114.0 377.4,99.5 393.8,118.8 410.1,112.9 426.5,103.1 442.8,95.2 459.2,97.1 475.5,91.1 491.9,95.2 508.2,103.7 524.6,110.7 540.9,105.4 557.3,124.4 573.6,120.7 590.0,122.9"/>
+  <circle cx="34.0" cy="82.0" r="4" fill="#eef5f0"/><text x="42" y="74" font-family="JetBrains Mono, monospace" font-size="11" fill="#eef5f0">47.0</text>
+  <circle cx="590.0" cy="122.9" r="4" fill="#eef5f0"/><text x="560" y="140" font-family="JetBrains Mono, monospace" font-size="11" fill="#eef5f0">17.0</text>
+</svg>
+<p>지수는 S&amp;P 500이 최고치를 찍은 10월 6일 47.0(중립)에서 11월 23일 17.0까지 내려왔다. 23일 주가가 크게 올랐는데도 지수는 극단적 공포 구간에 남았다. CNN 일별 기록의 11월 20일 값은 18.6인데, 같은 화면의 "직전 마감" 값은 9.7이다. 일별 기록은 하루 중 한 시점에 잰 값이라 마감 값과 다를 수 있다.</p>
+<div class="wide">
+<table>
+<thead><tr><th>지수를 이루는 지표 일곱 가지</th><th>점수</th><th>구간</th></tr></thead>
+<tbody>
+<tr><td>S&amp;P 500과 125일 평균의 차이</td><td class="n">3.2</td><td>극단적 공포</td></tr>
+<tr><td>52주 최고가 종목 수와 최저가 종목 수</td><td class="n">28.4</td><td>공포</td></tr>
+<tr><td>오른 종목 거래량과 내린 종목 거래량</td><td class="n">17.0</td><td>극단적 공포</td></tr>
+<tr><td>풋옵션과 콜옵션 거래 비율</td><td class="n">6.6</td><td>극단적 공포</td></tr>
+<tr><td>미국 주가 변동성 지수와 50일 평균</td><td class="n">39.0</td><td>공포</td></tr>
+<tr><td>높은 수익률 회사채와 투자등급 회사채 수익률 차이</td><td class="n">18.2</td><td>극단적 공포</td></tr>
+<tr><td>주식과 국채의 20일 수익률 차이</td><td class="n">6.4</td><td>극단적 공포</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">참고 지표로만 쓰고 신호등 판정 근거로는 쓰지 않는다. 숫자는 CNN 공포 탐욕 지수 자료에서 받았다.</p>
 </section>
 
 <section class="board" data-omit>
@@ -443,6 +509,7 @@ footer { margin-top: 40px; border-top: 3px solid var(--ink); padding-top: 12px; 
 <li><a href="https://journalarta.com/en/2026/11/24/stock-market-today-sp-500-closes-4-73-higher-nasdaq-jumps-6-51-as-vix-plunges/">S&amp;P 500 Closes 4.73% Higher, Nasdaq Jumps 6.51% as VIX Plunges — 저널아르타</a></li>
 <li><a href="https://finance.yahoo.com/quote/%5EGSPC/history/">S&amp;P 500 일별 값 — 야후 파이낸스</a></li>
 <li><a href="https://finance.yahoo.com/quote/%5EVIX/history/">미국 주가 변동성 지수 일별 값 — 야후 파이낸스</a></li>
+<li><a href="https://edition.cnn.com/markets/fear-and-greed">Fear &amp; Greed Index — CNN</a></li>
 <li><a href="https://www.nasdaq.com/market-activity/stocks/nvda">NVIDIA (NVDA) — 나스닥 시세</a></li>
 <li><a href="https://www.nasdaq.com/market-activity/index/sox">PHLX Semiconductor (SOX) — 나스닥 시세</a></li>
 <li><a href="https://www.nasdaq.com/market-activity/stocks/ant">Anthropic (ANT) — 나스닥 시세</a></li>
