@@ -7,24 +7,25 @@
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Do+Hyeon&family=Noto+Sans+KR:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gothic+A1:wght@400;600;800&display=swap" rel="stylesheet">
 <script type="application/json" id="doc-meta">{"category":"analysis"}</script>
 <style>
 :root {
-  --page-bg: #ff3d7f;
-  --ink: #1a0010;
-  --ink-soft: #3d0a22;
-  --slab: #1a0010;
-  --slab-ink: #ffe8f0;
-  --slab-soft: #f2a9c3;
-  --slab-line: #4a1830;
-  --hot: #ff3d7f;
+  --page-bg: #e9a800;
+  --ink: #1c1400;
+  --ink-soft: #4a3700;
+  --paper: #fff6dc;
+  --slab: #1c1400;
+  --slab-ink: #fff6dc;
+  --slab-soft: #e8c76a;
+  --slab-line: #4a3700;
+  --hot: #e9a800;
   --up: #7dffb0;
-  --down: #ffb36b;
-  --mine: #ffe14d;
-  --mono: "JetBrains Mono", ui-monospace, monospace;
-  --display: "Do Hyeon", "Noto Sans KR", sans-serif;
-  --num: "Anton", "Do Hyeon", sans-serif;
+  --down: #ff8a5c;
+  --mine: #e9a800;
+  --mono: "Gothic A1", system-ui, sans-serif;
+  --display: "Bagel Fat One", "Gothic A1", sans-serif;
+  --num: "Bagel Fat One", "Gothic A1", sans-serif;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -32,7 +33,7 @@ body {
   margin: 0;
   background: var(--page-bg);
   color: var(--ink);
-  font-family: "Noto Sans KR", system-ui, sans-serif;
+  font-family: "Gothic A1", system-ui, sans-serif;
   line-height: 1.72;
   font-size: 15.5px;
   word-break: keep-all;
@@ -42,25 +43,32 @@ a { color: inherit; text-underline-offset: 3px; }
 .wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px 64px; overflow-x: hidden; }
 .crumb { font-family: var(--mono); font-size: 12.5px; margin: 18px 0 0; font-weight: 700; }
 
-/* 가장 큰 요소: 0 아래로 뻗은 펀딩비 막대 일곱 개 */
-.count { margin: 14px 0 0; display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap; }
-.count .big { font-family: var(--num); font-size: clamp(120px, 34vw, 320px); line-height: .82; letter-spacing: -.02em; white-space: nowrap; transform: scaleX(1.25); transform-origin: left bottom; margin-right: 12%; }
-.count .lab { font-family: var(--mono); font-weight: 700; font-size: 13px; line-height: 1.5; max-width: 300px; padding-bottom: 8px; }
-.minus { margin: 18px 0 0; border-top: 6px solid var(--ink); padding-top: 8px; }
-.minus .r { display: grid; grid-template-columns: 1fr 96px; align-items: center; gap: 8px; min-height: 30px; }
-.minus .track { display: flex; justify-content: flex-end; align-items: center; height: 22px; border-right: 4px solid var(--ink); }
-.minus .track i { display: block; height: 22px; background: var(--ink); }
-.minus .track i.mine { background: repeating-linear-gradient(135deg, var(--ink) 0 6px, var(--ink-soft) 6px 9px); }
-.minus .nm { font-family: var(--mono); font-size: 12.5px; font-weight: 700; white-space: nowrap; }
-.minus .nm b { font-family: var(--num); font-weight: 400; font-size: 20px; letter-spacing: .01em; display: block; line-height: 1; }
-.minus .cap { font-family: var(--mono); font-size: 12.5px; font-weight: 700; margin: 8px 0 0; }
+/* 가장 큰 요소: 미국 거래일 달력. 26일 칸이 비어 있다 */
+.cal { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin: 16px 0 0; }
+.day { background: var(--paper); padding: 10px 8px 12px; min-height: 150px; display: flex; flex-direction: column; justify-content: space-between; }
+.day .d { font-family: var(--num); font-size: clamp(36px, 10vw, 104px); line-height: .9; white-space: nowrap; }
+.day .w { font-weight: 800; font-size: 13px; }
+.day .m { font-size: 13px; font-weight: 600; line-height: 1.45; }
+.day.off { background: transparent; border: 5px dashed var(--ink); }
+.day.off .d { -webkit-text-stroke: 3px var(--ink); color: transparent; }
+.day.half { background: linear-gradient(to bottom, var(--paper) 50%, transparent 50%); outline: 3px solid var(--paper); }
+.calcap { font-weight: 800; font-size: 13px; margin: 8px 0 0; }
 
-header.top h1 { font-family: var(--display); font-weight: 400; font-size: clamp(46px, 12vw, 110px); line-height: 1; margin: 30px 0 8px; }
-header.top h1 .sub { display: block; font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-weight: 700; line-height: 1.6; margin-top: 14px; max-width: 840px; }
+header.top h1 { font-family: var(--display); font-weight: 400; font-size: clamp(48px, 12vw, 120px); line-height: 1; margin: 26px 0 6px; }
+header.top h1 .sub { display: block; font-family: "Gothic A1", sans-serif; font-size: 16px; font-weight: 800; line-height: 1.6; margin-top: 12px; max-width: 760px; }
+
+/* 무기한 선물 절의 펀딩비 막대 */
+.minus { margin: 10px 0 6px; }
+.minus .r { display: grid; grid-template-columns: 1fr 92px; align-items: center; gap: 8px; min-height: 28px; }
+.minus .track { display: flex; justify-content: flex-end; align-items: center; height: 18px; border-right: 3px solid var(--slab-ink); }
+.minus .track i { display: block; height: 18px; background: var(--down); }
+.minus .track i.mine { background: var(--hot); }
+.minus .nm { font-size: 12.5px; font-weight: 800; white-space: nowrap; }
+.minus .nm b { font-size: 15px; display: block; line-height: 1.1; }
 .lede { margin: 18px 0 6px; padding: 14px 16px; background: var(--slab); color: var(--slab-ink); font-size: 15px; border: 0; }
 
 /* 시간 순서 네 칸 */
-.order { display: grid; grid-template-columns: repeat(4, 1fr); margin: 28px 0 8px; border: 3px solid var(--ink); }
+.order { display: grid; grid-template-columns: repeat(2, 1fr); margin: 28px 0 8px; border: 3px solid var(--ink); }
 .order > div { padding: 12px 10px; border-right: 3px solid var(--ink); }
 .order > div:last-child { border-right: 0; }
 .order .dk { background: var(--ink); color: var(--page-bg); }
@@ -95,13 +103,13 @@ ul.src li { font-size: 13.5px; }
 footer { margin-top: 40px; border-top: 3px solid var(--ink); padding-top: 12px; font-weight: 700; font-size: 13px; }
 @media (max-width: 640px) {
   body { font-size: 15px; }
-  .count .big { transform: scaleX(1.12); }
+  .cal { gap: 4px; }
+  .day { min-height: 118px; padding: 6px 5px; }
+  .day .m { display: none; }
+  .day.off { border-width: 3px; }
+  .day.off .d { -webkit-text-stroke: 2px var(--ink); }
   .minus .r { grid-template-columns: 1fr 78px; }
-  .minus .nm b { font-size: 17px; }
   .fg { grid-template-columns: 1fr; }
-  .order { grid-template-columns: 1fr 1fr; }
-  .order > div:nth-child(2) { border-right: 0; }
-  .order > div:nth-child(-n+2) { border-bottom: 3px solid var(--ink); }
   table.stack thead { display: none; }
   table.stack tr { display: block; border-bottom: 2px solid var(--slab-line); padding: 6px 0; }
   table.stack td { display: block; border: 0; padding: 2px 4px; }
@@ -113,20 +121,14 @@ footer { margin-top: 40px; border-top: 3px solid var(--ink); padding-top: 12px; 
 
 <header class="top">
   <p class="crumb" data-omit><a href="../index.html">대시보드</a> / 11월 27일 금요일, 한국 시각 8시 30분. 미국 주식시장은 26일 추수감사절로 쉬었고 27일은 오후 1시(미국 동부)까지 반나절만 열린다</p>
-  <div class="count" data-omit>
-    <span class="big">7/7</span>
-    <span class="lab">하이퍼리퀴드에서 본 주식 무기한 선물 일곱 개 모두 펀딩비가 0 아래다. 하루 전에는 일곱 개 가운데 하나(SK하이닉스)만 0 아래였다</span>
+  <div class="cal" data-omit>
+    <div class="day"><span class="w">월</span><span class="d">23</span><span class="m">엔비디아 +31.48%</span></div>
+    <div class="day"><span class="w">화</span><span class="d">24</span><span class="m">반도체 지수 −7.88%</span></div>
+    <div class="day"><span class="w">수</span><span class="d">25</span><span class="m">S&amp;P 500 −0.25%</span></div>
+    <div class="day off"><span class="w">목</span><span class="d">26</span><span class="m">추수감사절 휴장</span></div>
+    <div class="day half"><span class="w">금</span><span class="d">27</span><span class="m">오후 1시까지 반나절</span></div>
   </div>
-  <div class="minus" data-omit>
-    <div class="r"><div class="track"><i style="width:100%"></i></div><span class="nm">마이크론<b>−281.3%</b></span></div>
-    <div class="r"><div class="track"><i style="width:71.7%"></i></div><span class="nm">삼성전자<b>−201.7%</b></span></div>
-    <div class="r"><div class="track"><i style="width:67.8%"></i></div><span class="nm">앤트로픽<b>−190.6%</b></span></div>
-    <div class="r"><div class="track"><i style="width:54.5%"></i></div><span class="nm">엔비디아<b>−153.2%</b></span></div>
-    <div class="r"><div class="track"><i class="mine" style="width:43.2%"></i></div><span class="nm">IREN<b>−121.6%</b></span></div>
-    <div class="r"><div class="track"><i class="mine" style="width:38.4%"></i></div><span class="nm">SK하이닉스<b>−108.0%</b></span></div>
-    <div class="r"><div class="track"><i class="mine" style="width:25.2%"></i></div><span class="nm">로켓랩<b>−71.0%</b></span></div>
-    <p class="cap">펀딩비를 1년으로 환산한 값. 막대는 오른쪽 세로선(0)에서 왼쪽으로 뻗고, 길이는 실제 비율대로 그렸다. 빗금 막대가 우리 종목. 한 시간 동안의 비율을 1년으로 곱한 값이라 크게 보인다</p>
-  </div>
+  <p class="calcap" data-omit>11월 넷째 주 미국 거래일. 23일 엔비디아 +31.48%, 24일 반도체 지수 −7.88%, 25일 S&amp;P 500 −0.25%, 26일 추수감사절 휴장(점선 칸), 27일 오후 1시(미국 동부)까지 반나절(반만 칠한 칸)</p>
   <h1>미국이 쉰 날<span class="sub">26일 미국 주식시장은 추수감사절로 쉬었다. 서울은 한국은행이 기준금리를 올린 날 SK하이닉스 +2.23%로 끝났고, 24시간 열리는 무기한 선물에서는 하락에 건 쪽이 수수료를 내는 상태가 일곱 종목 모두로 넓어졌다</span></h1>
   <blockquote class="lede" data-summary>11월 26일 목요일 미국 주식시장은 추수감사절로 쉬었다. 마지막 미국 종가는 25일 값 그대로다(IREN 12.85달러, 로켓랩 47.02달러, 엔비디아 149.30달러). 서울에서는 한국은행이 기준금리를 3.00%에서 3.25%로 올렸고, SK하이닉스는 1,053,000원(+2.23%)으로 끝났다. 장중에는 1,098,000원까지 올랐다. 외국인은 SK하이닉스를 29만6,355주 순매수해 열하루 만에 순매수로 돌아섰다. 코스피는 4,711.21(+0.29%)이다. 미국 S&amp;P 500 선물은 26일 7,239.75로 0.61% 올랐다. 하이퍼리퀴드 주식 무기한 선물 일곱 개는 모두 펀딩비가 0 아래로 내려갔다. 세 종목 판정은 그대로다.</blockquote>
 </header>
@@ -134,8 +136,6 @@ footer { margin-top: 40px; border-top: 3px solid var(--ink); padding-top: 12px; 
 <section class="order" data-omit>
   <div><p class="t">26일 목 서울 장</p><p class="v">+0.29%</p><p class="w">코스피 4,711.21. 장중 4,817.77까지 올랐다가 오른 폭 대부분을 내줬다</p></div>
   <div class="dk"><p class="t">26일 목 한국은행</p><p class="v">3.25%</p><p class="w">기준금리 0.25%포인트 인상. 올해 세 번째. 위원 2명은 동결 의견</p></div>
-  <div><p class="t">26일 목 미국</p><p class="v">휴장</p><p class="w">추수감사절. S&amp;P 500 선물 7,239.75(+0.61%)</p></div>
-  <div class="dk"><p class="t">27일 금 미국</p><p class="v">반나절</p><p class="w">오후 1시(미국 동부)에 끝난다. 한국 시각 28일 새벽 3시</p></div>
 </section>
 
 <section class="card">
@@ -206,20 +206,20 @@ footer { margin-top: 40px; border-top: 3px solid var(--ink); padding-top: 12px; 
 <p>네 조건 가운데 지금 충족된 것은 없다. 26일 새로 나온 숫자는 실업수당 청구 하나이고, 일자리가 약해지지 않았다는 쪽이다. 다음 확인 날짜는 12월 4일 11월 고용 보고서, 12월 8~9일 금리 결정 회의(새 위원 전망표가 같이 나온다), 12월 10일 11월 소비자물가다.</p>
 <h3>연준 위원들의 금리 전망 (9월 16일 위원 전망표, 중간값)</h3>
 <svg class="fgline" viewBox="0 0 600 190" role="img" aria-label="연준 위원 금리 전망 중간값, 9월과 6월 비교">
-  <g stroke="#4a1830" stroke-width="1">
+  <g stroke="#4a3700" stroke-width="1">
     <line x1="50" y1="20" x2="580" y2="20"/><line x1="50" y1="65" x2="580" y2="65"/><line x1="50" y1="110" x2="580" y2="110"/><line x1="50" y1="140" x2="580" y2="140"/>
   </g>
-  <line x1="50" y1="59.4" x2="580" y2="59.4" stroke="#ffe14d" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <g font-family="JetBrains Mono, monospace" font-size="11" fill="#f2a9c3">
+  <line x1="50" y1="59.4" x2="580" y2="59.4" stroke="#7dffb0" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <g font-family="Gothic A1, sans-serif" font-size="11" fill="#e8c76a">
     <text x="8" y="24">4.4%</text><text x="8" y="69">3.8%</text><text x="8" y="114">3.2%</text><text x="8" y="144">2.8%</text>
     <text x="78" y="160">2026</text><text x="188" y="160">2027</text><text x="298" y="160">2028</text><text x="408" y="160">2029</text><text x="514" y="160">장기</text>
   </g>
-  <text x="440" y="54" font-family="JetBrains Mono, monospace" font-size="11" fill="#ffe14d">지금 3.875%</text>
-  <polyline fill="none" stroke="#f2a9c3" stroke-width="2" stroke-dasharray="3 3" points="95,65 205,80 315,95 535,117.5"/>
-  <polyline fill="none" stroke="#ff3d7f" stroke-width="3" stroke-linejoin="round" points="95,42.5 205,42.5 315,57.5 425,80 535,110"/>
-  <g fill="#ff3d7f"><circle cx="95" cy="42.5" r="4"/><circle cx="205" cy="42.5" r="4"/><circle cx="315" cy="57.5" r="4"/><circle cx="425" cy="80" r="4"/><circle cx="535" cy="110" r="4"/></g>
-  <g font-family="JetBrains Mono, monospace" font-size="11" fill="#ffe8f0"><text x="83" y="34">4.1</text><text x="193" y="34">4.1</text><text x="303" y="49">3.9</text><text x="413" y="72">3.6</text><text x="523" y="102">3.2</text></g>
-  <g font-family="JetBrains Mono, monospace" font-size="11"><text x="60" y="182" fill="#ff3d7f">━ 9월 전망</text><text x="170" y="182" fill="#f2a9c3">┅ 6월 전망</text></g>
+  <text x="440" y="54" font-family="Gothic A1, sans-serif" font-size="11" fill="#7dffb0">지금 3.875%</text>
+  <polyline fill="none" stroke="#e8c76a" stroke-width="2" stroke-dasharray="3 3" points="95,65 205,80 315,95 535,117.5"/>
+  <polyline fill="none" stroke="#e9a800" stroke-width="3" stroke-linejoin="round" points="95,42.5 205,42.5 315,57.5 425,80 535,110"/>
+  <g fill="#e9a800"><circle cx="95" cy="42.5" r="4"/><circle cx="205" cy="42.5" r="4"/><circle cx="315" cy="57.5" r="4"/><circle cx="425" cy="80" r="4"/><circle cx="535" cy="110" r="4"/></g>
+  <g font-family="Gothic A1, sans-serif" font-size="11" fill="#fff6dc"><text x="83" y="34">4.1</text><text x="193" y="34">4.1</text><text x="303" y="49">3.9</text><text x="413" y="72">3.6</text><text x="523" y="102">3.2</text></g>
+  <g font-family="Gothic A1, sans-serif" font-size="11"><text x="60" y="182" fill="#e9a800">━ 9월 전망</text><text x="170" y="182" fill="#e8c76a">┅ 6월 전망</text></g>
 </svg>
 <div class="wide">
 <table class="stack">
@@ -243,17 +243,17 @@ footer { margin-top: 40px; border-top: 3px solid var(--ink); padding-top: 12px; 
 <h2>CNN 공포 탐욕 지수 (11월 25일 미국 동부 오후 9시 기준)</h2>
 <div class="fg">
 <svg viewBox="0 0 320 170" role="img" aria-label="공포 탐욕 지수 계기판, 현재 15">
-  <path d="M30.0,150.0 A130,130 0 0 1 68.1,58.1 L100.6,90.6 A84,84 0 0 0 76.0,150.0 Z" fill="#ffb36b"/>
-  <path d="M68.1,58.1 A130,130 0 0 1 139.7,21.6 L146.9,67.0 A84,84 0 0 0 100.6,90.6 Z" fill="#ffe14d"/>
-  <path d="M139.7,21.6 A130,130 0 0 1 180.3,21.6 L173.1,67.0 A84,84 0 0 0 146.9,67.0 Z" fill="#f2a9c3"/>
+  <path d="M30.0,150.0 A130,130 0 0 1 68.1,58.1 L100.6,90.6 A84,84 0 0 0 76.0,150.0 Z" fill="#ff8a5c"/>
+  <path d="M68.1,58.1 A130,130 0 0 1 139.7,21.6 L146.9,67.0 A84,84 0 0 0 100.6,90.6 Z" fill="#ffd27a"/>
+  <path d="M139.7,21.6 A130,130 0 0 1 180.3,21.6 L173.1,67.0 A84,84 0 0 0 146.9,67.0 Z" fill="#cfc6a8"/>
   <path d="M180.3,21.6 A130,130 0 0 1 251.9,58.1 L219.4,90.6 A84,84 0 0 0 173.1,67.0 Z" fill="#b8f7d2"/>
   <path d="M251.9,58.1 A130,130 0 0 1 290.0,150.0 L244.0,150.0 A84,84 0 0 0 219.4,90.6 Z" fill="#7dffb0"/>
-  <g font-family="JetBrains Mono, monospace" font-size="11" fill="#f2a9c3" text-anchor="middle">
+  <g font-family="Gothic A1, sans-serif" font-size="11" fill="#e8c76a" text-anchor="middle">
     <text x="18" y="164">0</text><text x="56" y="44">25</text><text x="160" y="8">50</text><text x="264" y="44">75</text><text x="302" y="164">100</text>
   </g>
-  <line x1="160" y1="150" x2="51.3" y2="94.6" stroke="#ffe8f0" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="160" cy="150" r="9" fill="#ffe8f0"/>
-  <text x="160" y="138" text-anchor="middle" font-family="Anton, sans-serif" font-size="44" fill="#ffe8f0">15</text>
+  <line x1="160" y1="150" x2="51.3" y2="94.6" stroke="#fff6dc" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="160" cy="150" r="9" fill="#fff6dc"/>
+  <text x="222" y="140" text-anchor="middle" font-family="Bagel Fat One, sans-serif" font-size="44" fill="#fff6dc">15</text>
 </svg>
 <div class="wide">
 <table>
@@ -272,18 +272,18 @@ footer { margin-top: 40px; border-top: 3px solid var(--ink); padding-top: 12px; 
 <p>26일은 미국 휴장이라 새 값이 없다. CNN 자료의 마지막 측정 시각은 25일 미국 동부 오후 9시(한국 시각 26일 오전 11시)다. 같은 자료의 "1주 전", "1달 전" 값은 하루 전에 받은 값(1주 전 29.9, 1달 전 16.7)과 다르다. CNN이 비교 날짜를 하루 옮기면서 바뀐 것으로 보이지만, 정확한 비교 날짜는 자료에 나와 있지 않아 받은 값 그대로 적었다.</p>
 <h3>10월 6일 S&amp;P 500 최고치 이후 일별 기록</h3>
 <svg class="fgline" viewBox="0 0 600 170" role="img" aria-label="공포 탐욕 지수 10월 6일부터 11월 25일까지">
-  <rect x="34" y="112.0" width="556" height="34.0" fill="#ffb36b" opacity=".16"/>
-  <g stroke="#4a1830" stroke-width="1">
+  <rect x="34" y="112.0" width="556" height="34.0" fill="#ff8a5c" opacity=".16"/>
+  <g stroke="#4a3700" stroke-width="1">
     <line x1="34" y1="10" x2="590" y2="10"/><line x1="34" y1="78" x2="590" y2="78"/><line x1="34" y1="146" x2="590" y2="146"/>
   </g>
-  <g font-family="JetBrains Mono, monospace" font-size="11" fill="#f2a9c3">
+  <g font-family="Gothic A1, sans-serif" font-size="11" fill="#e8c76a">
     <text x="4" y="14">100</text><text x="10" y="82">50</text><text x="10" y="116">25</text><text x="16" y="150">0</text>
     <text x="34" y="164">10/6</text><text x="146" y="164">10/16</text><text x="362" y="164">11/5</text><text x="556" y="164">11/25</text>
   </g>
-  <polyline fill="none" stroke="#ff3d7f" stroke-width="2.5" stroke-linejoin="round" points="34.0,82.0 49.4,85.2 64.9,92.7 80.3,86.8 95.8,84.5 111.2,84.0 126.7,106.9 142.1,102.5 157.6,121.2 173.0,119.5 188.4,106.9 203.9,104.9 219.3,118.8 234.8,123.3 250.2,105.4 265.7,101.3 281.1,99.2 296.6,104.2 312.0,110.2 327.4,119.6 342.9,114.0 358.3,99.5 373.8,118.8 389.2,112.9 404.7,103.1 420.1,95.2 435.6,97.1 451.0,91.1 466.4,95.2 481.9,103.7 497.3,110.7 512.8,105.4 528.2,124.4 543.7,120.7 559.1,125.8 574.6,131.1 590.0,125.6"/>
-  <circle cx="34.0" cy="82.0" r="4" fill="#ffe8f0"/><text x="42" y="74" font-family="JetBrains Mono, monospace" font-size="11" fill="#ffe8f0">47.0</text>
-  <circle cx="574.6" cy="131.1" r="4" fill="#ffb36b"/><text x="520" y="160" font-family="JetBrains Mono, monospace" font-size="11" fill="#ffb36b">11.0</text>
-  <circle cx="590.0" cy="125.6" r="4" fill="#ffe8f0"/><text x="560" y="118" font-family="JetBrains Mono, monospace" font-size="11" fill="#ffe8f0">15.0</text>
+  <polyline fill="none" stroke="#e9a800" stroke-width="2.5" stroke-linejoin="round" points="34.0,82.0 49.4,85.2 64.9,92.7 80.3,86.8 95.8,84.5 111.2,84.0 126.7,106.9 142.1,102.5 157.6,121.2 173.0,119.5 188.4,106.9 203.9,104.9 219.3,118.8 234.8,123.3 250.2,105.4 265.7,101.3 281.1,99.2 296.6,104.2 312.0,110.2 327.4,119.6 342.9,114.0 358.3,99.5 373.8,118.8 389.2,112.9 404.7,103.1 420.1,95.2 435.6,97.1 451.0,91.1 466.4,95.2 481.9,103.7 497.3,110.7 512.8,105.4 528.2,124.4 543.7,120.7 559.1,125.8 574.6,131.1 590.0,125.6"/>
+  <circle cx="34.0" cy="82.0" r="4" fill="#fff6dc"/><text x="42" y="74" font-family="Gothic A1, sans-serif" font-size="11" fill="#fff6dc">47.0</text>
+  <circle cx="574.6" cy="131.1" r="4" fill="#ff8a5c"/><text x="520" y="160" font-family="Gothic A1, sans-serif" font-size="11" fill="#ff8a5c">11.0</text>
+  <circle cx="590.0" cy="125.6" r="4" fill="#fff6dc"/><text x="560" y="118" font-family="Gothic A1, sans-serif" font-size="11" fill="#fff6dc">15.0</text>
 </svg>
 <p>지수는 10월 6일 47.0(중립)에서 11월 25일 15.0까지 내려왔다. CNN 일별 기록에서 24일 값은 11.0으로 10월 6일 이후 가장 낮다. 26일은 미국 휴장이라 꺾은선에 새 점이 없다.</p>
 <div class="wide">
@@ -333,6 +333,16 @@ footer { margin-top: 40px; border-top: 3px solid var(--ink); padding-top: 12px; 
 <section class="card">
 <h2>주식 무기한 선물 (하이퍼리퀴드, 한국 시각 27일 오전 8시 30분)</h2>
 <p>판정 근거로 쓰지 않는다. 2026년 7월 한국 대체거래소 이상 체결이 가격 자료로 들어가 SK하이닉스 무기한 선물이 19% 무너진 전례가 있다.</p>
+<div class="minus" data-omit>
+  <div class="r"><div class="track"><i style="width:100%"></i></div><span class="nm">마이크론<b>−281.3%</b></span></div>
+  <div class="r"><div class="track"><i style="width:71.7%"></i></div><span class="nm">삼성전자<b>−201.7%</b></span></div>
+  <div class="r"><div class="track"><i style="width:67.8%"></i></div><span class="nm">앤트로픽<b>−190.6%</b></span></div>
+  <div class="r"><div class="track"><i style="width:54.5%"></i></div><span class="nm">엔비디아<b>−153.2%</b></span></div>
+  <div class="r"><div class="track"><i class="mine" style="width:43.2%"></i></div><span class="nm">IREN<b>−121.6%</b></span></div>
+  <div class="r"><div class="track"><i class="mine" style="width:38.4%"></i></div><span class="nm">SK하이닉스<b>−108.0%</b></span></div>
+  <div class="r"><div class="track"><i class="mine" style="width:25.2%"></i></div><span class="nm">로켓랩<b>−71.0%</b></span></div>
+  <p class="note">1년 환산 펀딩비. 막대는 오른쪽 세로선(0)에서 왼쪽으로 뻗고 길이는 실제 비율대로 그렸다. 호박색 막대가 우리 종목</p>
+</div>
 <div class="wide">
 <table>
 <thead><tr><th>심볼</th><th>가격</th><th>26일 기록</th><th>남은 계약 수</th><th>26일 기록</th><th>펀딩비(1년 환산)</th><th>26일 기록 펀딩비</th></tr></thead>
